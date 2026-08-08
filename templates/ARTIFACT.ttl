@@ -1,0 +1,19 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:replace-with-project-namespace:> .
+
+# Copy next to the corresponding human-facing artifact, for example:
+# `.spiral/designs/DES-001.ttl` beside `.spiral/designs/DES-001.md`.
+# Replace the class, ID, path, and causal relations.
+
+project:DES-001
+    a sd:Design ;
+    dcterms:identifier "DES-001" ;
+    sd:repositoryPath ".spiral/designs/DES-001.md" ;
+    sd:status sd:Active ;
+    sd:satisfies [
+        a sd:ArtifactReference ;
+        sd:artifact project:REQ-001 ;
+        sd:gitCommit "1111111111111111111111111111111111111111" ;
+        sd:fragment "outcome-1"
+    ] .

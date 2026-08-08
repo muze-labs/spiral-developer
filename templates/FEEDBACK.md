@@ -1,9 +1,5 @@
 ---
 id: FBK-001
-revision: 1
-status: active
-observes:
-  - REQ-001@1
 ---
 
 # Feedback / Observation
@@ -12,7 +8,7 @@ observes:
 
 Who interacted:
 
-Artifact/build/version:
+Artifact/build/commit:
 
 Scenario:
 
@@ -27,11 +23,11 @@ Scenario:
 ## Upstream impact
 
 - [ ] Request remains valid
-- [ ] Request should be revised
-- [ ] Design should be revised
+- [ ] Request should be changed in a new commit
+- [ ] Design should be changed in a new commit
 - [ ] New risk discovered
 - [ ] More interaction needed
 
-## Resulting references
+## Resulting work
 
-<!-- Link new request/design revisions created because of this observation. -->
+<!-- What new request/design/evidence artifacts resulted? Record the canonical causal links in the companion Turtle resource. -->

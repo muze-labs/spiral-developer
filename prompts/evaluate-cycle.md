@@ -4,12 +4,13 @@ Evaluate the current Spiral Developer cycle.
 
 Do not score generic maturity.
 
-Instead determine:
+Determine:
 
 - Did intended users provide meaningful feedback where product intent was uncertain?
 - Did the cycle reduce the nearest important uncertainty?
-- Does each significant design element have a truthful causal reason?
-- Does verification establish that implementation realizes the design?
+- Does each significant design element have a truthful causal reason in the causal RDF graph?
+- Do graph references identify the exact upstream Git versions actually used?
+- Does verification establish that implementation realizes design?
 - Does acceptance establish that behavior satisfies the request?
 - Did an upstream artifact change, and which downstream artifacts are now suspect?
 - Did complexity, dependency load, or change radius grow unnecessarily?

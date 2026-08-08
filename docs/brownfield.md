@@ -10,7 +10,7 @@ Trying to reconstruct complete provenance before new work begins would be expens
 
 > **The goal is not to document the past. The goal is to make future change increasingly traceable, auditable, and safe.**
 
-## 1. Do not migrate the whole project
+## Do not migrate the whole project
 
 Capture new causality accurately from now on. Reconstruct old causality only when active work requires it.
 
@@ -25,15 +25,15 @@ Investigate a legacy area when:
 - it carries substantial security, operational, or business risk;
 - understanding it is necessary for an important design decision.
 
-## 2. Start with the next real piece of work
+## Start with the next real piece of work
 
-Migration starts with ordinary development, not a migration project.
+Migration starts with ordinary development, on a normal feature branch, not a migration project.
 
-Create the current request and follow the normal causal process. When the work enters legacy territory, characterize only enough of that behavior to proceed safely.
+Create the current request and follow the normal process. When the work enters legacy territory, characterize only enough of that behavior to proceed safely.
 
-The first AI-native slice will therefore mix explicit new knowledge with existing behavior whose origin is only partly understood. That is acceptable as long as the distinction remains visible.
+The first AI-native slice will mix explicit new knowledge with existing behavior whose origin is only partly understood. That is acceptable as long as the distinction remains visible.
 
-## 3. Mark provenance confidence
+## Mark provenance confidence
 
 Use these classes for reconstructed knowledge:
 
@@ -42,9 +42,11 @@ Use these classes for reconstructed knowledge:
 - **inferred** — plausible interpretation supported by some evidence but not established;
 - **unknown** — behavior exists, but its reason is not known.
 
+Represent important confidence claims in the Turtle graph so non-AI tools can distinguish them.
+
 Unknown is better than invented certainty.
 
-## 4. Use AI for targeted archaeology
+## Use AI for targeted archaeology
 
 Relevant evidence may include source, tests, Git history, commits, issues, documentation, schemas, migrations, callers, configuration, operational history, and developer recollection.
 
@@ -56,7 +58,7 @@ It is:
 
 Separate observations from explanations.
 
-## 5. Characterize behavior before explaining it
+## Characterize behavior before explaining it
 
 Prefer establishing observable behavior first.
 
@@ -68,13 +70,13 @@ It does not automatically mean the behavior is desired.
 
 The current request/design decides what must remain.
 
-## 6. Migrate behavior, not directories
+## Migrate behavior, not directories
 
 Trace the capability or vertical slice being changed, even when it crosses UI, domain logic, APIs, storage, and tests.
 
 Do not clean or document every unrelated part of every touched file.
 
-## 7. Touch it, improve its traceability
+## Touch it, improve its traceability
 
 After changing an area, future work should have less archaeology to repeat.
 
@@ -89,7 +91,7 @@ A touched capability should normally leave behind:
 - acceptance evidence;
 - causal links among those artifacts.
 
-## 8. Defects are migration opportunities
+## Defects are migration opportunities
 
 A legacy defect can follow:
 
@@ -97,19 +99,21 @@ A legacy defect can follow:
 
 The investigation was necessary anyway; preserve what it taught so the area becomes more governed.
 
-## 9. Do not rewrite history
+## Do not rewrite history
 
-A 2026 interpretation of a 2014 module is a 2026 interpretation unless historical evidence proves otherwise.
+A current interpretation of an old module is a current interpretation unless historical evidence proves otherwise.
 
 Record current purpose separately from historical origin.
 
-## 10. Capture developer knowledge when relevant
+Git history itself is not rewritten to make old decisions appear cleaner or more intentional than they were.
+
+## Capture developer knowledge when relevant
 
 Do not interview everyone about everything.
 
 When active work reaches an area, ask targeted questions and preserve useful answers with provenance. A recollection can be valuable without becoming unquestioned fact.
 
-## 11. Use confidence to bound autonomy
+## Use confidence to bound autonomy
 
 A useful mental model for project areas is:
 
@@ -120,23 +124,17 @@ A useful mental model for project areas is:
 
 The less understood an area is, the more conservatively an agent should modify it.
 
-## 12. Avoid opportunistic cleanup
+## Avoid opportunistic cleanup
 
 Cheap AI refactoring can enlarge change surfaces and erase undocumented historical behavior.
 
 Refactor when it directly enables the current change, reduces an immediate risk, or is valuable enough to become explicit work of its own.
 
-## 13. Preserve legacy tests until understood
+## Preserve legacy tests until understood
 
 An unexplained old test may be the strongest surviving evidence of a requirement or compatibility constraint.
 
 Do not delete it until you understand what information would be lost.
-
-## 14. Version knowledge with software
-
-Artifacts should have stable identities and revisions. Downstream artifacts should refer to the upstream revisions actually used.
-
-Git is the initial historical store. The exact machine representation can evolve later.
 
 ## Migration principle
 

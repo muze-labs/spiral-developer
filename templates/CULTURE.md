@@ -1,20 +1,18 @@
 ---
 id: CUL-001
-revision: 1
-status: active
 ---
 
 # Engineering Culture
 
 ## Purpose
 
-Describe the durable properties the development environment should preserve across many requests and implementations.
+Describe durable properties the development environment should preserve across many requests and implementations.
 
 Do not turn every preference into a hard rule. Distinguish principles from machine-checkable constraints.
 
 ## Canonical sources
 
-| Source | Revision/commit if known | Role |
+| Source | Commit/version if known | Role |
 |---|---|---|
 | https://github.com/muze-nl/.github/blob/main/maturity-policy.md | | Organization-wide Muze principles |
 

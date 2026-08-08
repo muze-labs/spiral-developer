@@ -1,10 +1,5 @@
 ---
 id: EVD-001
-revision: 1
-status: draft
-verifies:
-  - DES-001@1
-implementation: []
 ---
 
 # Verification Evidence
@@ -15,11 +10,11 @@ implementation: []
 
 ## Why this evidence exists
 
-<!-- Link to the design element and, indirectly, the request it serves. -->
+<!-- Human-readable explanation. Exact `sd:verifies` references live in the companion Turtle resource. -->
 
 ## Implementation under test
 
-| Artifact/path/symbol | Revision/commit if known | Role |
+| Artifact/path/symbol | Commit | Role |
 |---|---|---|
 | | | |
 
@@ -41,4 +36,4 @@ implementation: []
 
 ## Evidence quality
 
-<!-- Why is this evidence capable of detecting a meaningful failure rather than merely reproducing implementation assumptions? -->
+<!-- Why can this detect a meaningful failure rather than merely reproduce implementation assumptions? -->

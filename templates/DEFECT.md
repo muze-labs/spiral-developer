@@ -1,8 +1,5 @@
 ---
 id: DEF-001
-revision: 1
-status: active
-observes: []
 ---
 
 # Defect / Root-Cause Analysis
@@ -44,11 +41,11 @@ Explanation:
 
 ## Upstream correction
 
-<!-- What should change in the production environment? -->
+<!-- What should change in the production environment? Correct it in a new commit; do not rewrite the original history. -->
 
 ## Downstream propagation
 
-<!-- Which artifacts must become suspect/revised/regenerated? -->
+<!-- Which artifacts become suspect/revised/regenerated? -->
 
 ## Regression evidence
 

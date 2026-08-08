@@ -1,14 +1,20 @@
+---
+id: CTX-001
+---
+
 # Project Context
 
 ## Purpose
 
-Long-lived context that should help an agent understand the project without pretending to be a complete history.
+Long-lived context that helps an agent understand the project without pretending to be a complete history.
 
 ## Project
 
 Name:
 
 Repository/baseline:
+
+Project causal-graph namespace:
 
 ## Intended users
 

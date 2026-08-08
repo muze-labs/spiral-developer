@@ -1,0 +1,13 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:replace-with-stable-project-namespace:> .
+
+# Save as `.spiral/project.ttl`.
+# Replace `project:` with a stable project namespace before real use.
+# Prefer a durable HTTP(S) IRI when one naturally exists.
+
+project:CTX-001
+    a sd:ProjectContext ;
+    dcterms:identifier "CTX-001" ;
+    sd:repositoryPath ".spiral/project-context.md" ;
+    sd:status sd:Active .

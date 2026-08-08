@@ -1,7 +1,5 @@
 ---
 id: LEG-001
-revision: 1
-status: active
 ---
 
 # Legacy Context: <!-- capability/behavior -->
@@ -14,7 +12,7 @@ status: active
 
 ## Evidence inspected
 
-| Evidence | Revision/date | What it establishes |
+| Evidence | Commit/date | What it establishes |
 |---|---|---|
 | | | |
 
@@ -30,4 +28,6 @@ status: active
 
 ## Current relevance
 
-<!-- Which active request/design is constrained by this legacy behavior? -->
+<!-- Which current request/design is constrained by this legacy behavior? -->
+
+> Preserve important provenance confidence and exact causal links in the companion Turtle resource.

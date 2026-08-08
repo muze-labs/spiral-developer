@@ -1,16 +1,12 @@
 ---
 id: CYC-001
-revision: 1
-status: active
-request:
-  - REQ-001@1
 ---
 
 # Cycle: <!-- one main question -->
 
 ## Analyze
 
-Current request:
+Current request/version:
 
 Nearest important uncertainty:
 
@@ -36,12 +32,6 @@ Accepted compromises / debt and repayment trigger:
 
 Artifacts produced/changed:
 
-### Implementation map
-
-| Implementation path/artifact | Implements design revision | Role |
-|---|---|---|
-| | | |
-
 Important AI decisions requiring preserved rationale:
 
 Agent/model/tool configuration that was materially causal (normally omit):
@@ -54,7 +44,7 @@ Acceptance result:
 
 What changed in our understanding:
 
-Upstream artifacts revised:
+Upstream artifacts changed:
 
 Downstream artifacts now suspect:
 

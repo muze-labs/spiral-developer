@@ -1,0 +1,101 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sd:
+    a owl:Ontology ;
+    dcterms:title "Spiral Developer causal artifact vocabulary" ;
+    dcterms:description "A deliberately small vocabulary for version-controlled causal traceability in AI-native software development." .
+
+sd:Artifact a rdfs:Class ; rdfs:label "Artifact" .
+sd:Culture a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Culture" .
+sd:ProjectContext a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Project context" .
+sd:Request a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Request" .
+sd:Feedback a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Feedback" .
+sd:Design a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Design" .
+sd:Implementation a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Implementation" .
+sd:VerificationEvidence a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Verification evidence" .
+sd:AcceptanceEvidence a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Acceptance evidence" .
+sd:LegacyContext a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Legacy context" .
+sd:Defect a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Defect" .
+sd:Cycle a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Cycle" .
+sd:ExternalConstraint a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "External constraint" .
+sd:Risk a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Risk" .
+
+sd:ArtifactReference a rdfs:Class ;
+    rdfs:label "Artifact reference" ;
+    rdfs:comment "Reference to a specific historical version of an artifact, identified by stable artifact IRI plus Git commit hash and optional fragment." .
+
+sd:repositoryPath a rdf:Property ;
+    rdfs:domain sd:Artifact ;
+    rdfs:range xsd:string ;
+    rdfs:label "repository path" .
+
+sd:status a rdf:Property ;
+    rdfs:domain sd:Artifact ;
+    rdfs:range sd:ArtifactStatus ;
+    rdfs:label "status" .
+
+sd:artifact a rdf:Property ;
+    rdfs:domain sd:ArtifactReference ;
+    rdfs:range sd:Artifact ;
+    rdfs:label "artifact" .
+
+sd:gitCommit a rdf:Property ;
+    rdfs:domain sd:ArtifactReference ;
+    rdfs:range xsd:string ;
+    rdfs:label "Git commit" ;
+    rdfs:comment "Full Git commit hash containing the referenced artifact version." .
+
+sd:fragment a rdf:Property ;
+    rdfs:domain sd:ArtifactReference ;
+    rdfs:range xsd:string ;
+    rdfs:label "fragment" .
+
+sd:provenanceConfidence a rdf:Property ;
+    rdfs:domain sd:Artifact ;
+    rdfs:range sd:ProvenanceConfidence ;
+    rdfs:label "provenance confidence" .
+
+sd:riskHorizon a rdf:Property ;
+    rdfs:domain sd:Risk ;
+    rdfs:range sd:RiskHorizon ;
+    rdfs:label "risk horizon" .
+
+sd:causalReference a rdf:Property ;
+    rdfs:domain sd:Artifact ;
+    rdfs:range sd:ArtifactReference ;
+    rdfs:label "causal reference" .
+
+sd:derivedFrom a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "derived from" .
+sd:satisfies a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "satisfies" .
+sd:supports a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "supports" .
+sd:constrainedBy a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "constrained by" .
+sd:implements a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "implements" .
+sd:verifies a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "verifies" .
+sd:accepts a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "accepts" .
+sd:observes a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "observes" .
+sd:supersedes a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "supersedes" .
+
+sd:ArtifactStatus a rdfs:Class ; rdfs:label "Artifact status" .
+sd:Draft a sd:ArtifactStatus ; rdfs:label "draft" .
+sd:Active a sd:ArtifactStatus ; rdfs:label "active" .
+sd:Accepted a sd:ArtifactStatus ; rdfs:label "accepted" .
+sd:Suspect a sd:ArtifactStatus ; rdfs:label "suspect" .
+sd:Superseded a sd:ArtifactStatus ; rdfs:label "superseded" .
+sd:Rejected a sd:ArtifactStatus ; rdfs:label "rejected" .
+
+sd:ProvenanceConfidence a rdfs:Class ; rdfs:label "Provenance confidence" .
+sd:Explicit a sd:ProvenanceConfidence ; rdfs:label "explicit" .
+sd:Evidenced a sd:ProvenanceConfidence ; rdfs:label "evidenced" .
+sd:Inferred a sd:ProvenanceConfidence ; rdfs:label "inferred" .
+sd:Unknown a sd:ProvenanceConfidence ; rdfs:label "unknown" .
+
+sd:RiskHorizon a rdfs:Class ; rdfs:label "Risk horizon" .
+sd:Blocker a sd:RiskHorizon ; rdfs:label "blocker" .
+sd:NearTerm a sd:RiskHorizon ; rdfs:label "near-term" .
+sd:Deferred a sd:RiskHorizon ; rdfs:label "deferred" .
+sd:Existential a sd:RiskHorizon ; rdfs:label "existential" .

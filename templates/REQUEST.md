@@ -1,8 +1,5 @@
 ---
 id: REQ-001
-revision: 1
-status: draft
-supersedes:
 ---
 
 # Request: <!-- short name -->
@@ -17,11 +14,11 @@ supersedes:
 
 ### outcome-1
 
-<!-- What should someone be able to do or experience? -->
+<!-- Stable semantic key. What should someone be able to do or experience? -->
 
 ## Assumptions / ambiguity
 
-| Claim | Status | Evidence / question |
+| Claim | Provenance | Evidence / question |
 |---|---|---|
 | | explicit / evidenced / inferred / unknown | |
 
@@ -29,7 +26,7 @@ supersedes:
 
 ## Constraints already known
 
-| Constraint | Source/revision | Effect |
+| Constraint | Source | Effect |
 |---|---|---|
 | | | |
 
@@ -43,4 +40,6 @@ supersedes:
 
 ## Acceptance shape
 
-<!-- What kind of observable evidence would convince the intended audience that this request is satisfied? Do not over-specify implementation. -->
+<!-- What observable evidence would convince the intended audience that this request is satisfied? Do not over-specify implementation. -->
+
+> Causal relationships and exact upstream Git versions belong in the companion Turtle resource, not duplicated in this front matter.

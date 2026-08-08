@@ -36,7 +36,7 @@ Verification provides evidence about that realization.
 
 Acceptance provides evidence that the resulting behavior answers the originating intent.
 
-When reality changes our understanding, create a new revision. Do not rewrite history to pretend later knowledge existed earlier.
+When reality changes our understanding, create a new version in a new commit. Do not rewrite history to pretend later knowledge existed earlier.
 
 ## 3. Preserve the causal chain
 

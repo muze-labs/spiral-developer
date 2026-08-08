@@ -9,7 +9,7 @@ Every active risk should have a **horizon**: blocker, near-term, deferred, or ex
 - Wrong problem or audience.
 - Feedback is based on descriptions/screenshots rather than meaningful interaction.
 - Prototype polish creates false confidence.
-- Client intent changed but downstream design still reflects an old revision.
+- Client intent changed but downstream design still reflects an old version.
 - Acceptance criteria are internally consistent but fail to represent real user need.
 
 ## Complexity / architecture
@@ -48,3 +48,12 @@ Every active risk should have a **horizon**: blocker, near-term, deferred, or ex
 - Secrets/privacy constraints missing from context.
 - Operational behavior cannot be observed well enough to diagnose failure.
 - External service behavior assumed rather than evidenced.
+
+## Git / provenance graph
+
+- Causal history is squashed, rebased, amended, or force-pushed after downstream references exist.
+- Companion Turtle resources and human-facing artifacts disagree about the causal chain.
+- A causal relation points to the current artifact rather than the exact upstream commit that informed the decision.
+- Machine data stores abbreviated Git hashes that later become ambiguous.
+- Graph structure becomes an end in itself and grows faster than its value for reasoning/audit.
+- Important semantic work remains only in commit prose or chat and never becomes a durable artifact/graph relation.

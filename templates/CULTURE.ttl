@@ -1,0 +1,11 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:replace-with-project-namespace:> .
+
+# Save as `.spiral/culture.ttl` and use the same project namespace as project.ttl.
+
+project:CUL-001
+    a sd:Culture ;
+    dcterms:identifier "CUL-001" ;
+    sd:repositoryPath ".spiral/culture.md" ;
+    sd:status sd:Active .

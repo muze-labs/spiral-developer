@@ -1,0 +1,52 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sd:ArtifactShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf dcterms:identifier ;
+    sh:property [
+        sh:path dcterms:identifier ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path sd:repositoryPath ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string
+    ] .
+
+sd:ArtifactReferenceShape
+    a sh:NodeShape ;
+    sh:targetClass sd:ArtifactReference ;
+    sh:property [
+        sh:path sd:artifact ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path sd:gitCommit ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^([0-9a-f]{40}|[0-9a-f]{64})$"
+    ] .
+
+sd:VerificationEvidenceShape
+    a sh:NodeShape ;
+    sh:targetClass sd:VerificationEvidence ;
+    sh:property [
+        sh:path sd:verifies ;
+        sh:minCount 1
+    ] .
+
+sd:AcceptanceEvidenceShape
+    a sh:NodeShape ;
+    sh:targetClass sd:AcceptanceEvidence ;
+    sh:property [
+        sh:path sd:accepts ;
+        sh:minCount 1
+    ] .

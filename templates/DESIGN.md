@@ -1,13 +1,5 @@
 ---
 id: DES-001
-revision: 1
-status: draft
-derived_from:
-  - REQ-001@1
-satisfies:
-  - REQ-001@1#outcome-1
-constrained_by: []
-supports: []
 ---
 
 # Design: <!-- short name -->
@@ -18,7 +10,7 @@ supports: []
 
 ## Why this exists
 
-<!-- Explain the causal chain. Which request fragment, risk, legacy constraint, culture principle, or external constraint makes it necessary? -->
+<!-- Explain the human-readable causal reason: request outcome, feedback, risk, legacy constraint, culture principle, external constraint, or technical support. Exact versioned links live in the companion Turtle resource. -->
 
 ## Behavior / responsibilities
 
@@ -30,13 +22,13 @@ What must remain outside:
 
 What change should this boundary protect us from:
 
-## Supporting/intrinsic work
+## Supporting / intrinsic work
 
 <!-- Plumbing needed to realize the design without pretending it was direct client intent. -->
 
-| Support | Why necessary | Relation |
-|---|---|---|
-| | | supports |
+| Support | Why necessary |
+|---|---|
+| | |
 
 ## Alternatives considered
 
@@ -58,4 +50,4 @@ What change should this boundary protect us from:
 
 ## Deferred decisions
 
-<!-- Known later issues that are intentionally not solved now. -->
+<!-- Known later issues intentionally not solved now. -->

@@ -1,24 +1,16 @@
 ---
 id: ACC-001
-revision: 1
-status: draft
-accepts:
-  - REQ-001@1#outcome-1
-derived_from:
-  - DES-001@1
-verification:
-  - EVD-001@1
 ---
 
 # Acceptance Evidence
 
 ## Request outcome
 
-<!-- What client/user intent is being accepted? -->
+<!-- What client/user intent is being accepted? Use the stable request outcome key. -->
 
 ## Why this acceptance exists
 
-<!-- Explain why this scenario demonstrates the request, and why the connected design/implementation is the mechanism under test. -->
+<!-- Explain why this scenario demonstrates the request and why the connected design/implementation is the mechanism under test. -->
 
 ## Scenario / interaction
 
@@ -35,3 +27,5 @@ verification:
 <!-- Real user interaction, stakeholder confirmation, objective acceptance test, or other evidence. -->
 
 ## Limits / unresolved questions
+
+> Record exact `sd:accepts` and relevant `sd:derivedFrom` references in the companion Turtle resource.

@@ -45,3 +45,16 @@ Useful for showing the result satisfies request intent:
 - Does it test a design property or merely repeat internal structure?
 - What does it explicitly *not* establish?
 - If the same agent wrote code and test, what prevents it from weakening the test to fit the code?
+
+## Provenance / graph evidence
+
+Useful for establishing that the causal record itself is trustworthy:
+
+- Turtle parses successfully;
+- SHACL constraints pass;
+- referenced full Git commit hashes exist;
+- referenced artifacts/paths exist at the claimed historical commit where relevant;
+- graph impact queries find expected downstream dependents after an upstream change;
+- human spot-check confirms that machine links represent the decision actually made rather than a plausible reconstructed story.
+
+Passing graph validation establishes structural/provenance integrity. It does **not** establish that the product behavior or design is correct.
