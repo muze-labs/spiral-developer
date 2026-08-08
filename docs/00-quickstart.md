@@ -1,196 +1,115 @@
 # Quickstart
 
-This repository is a document-first minimum viable assistant. Use it to make Muze's spiral model repeatable before building custom tooling.
+Spiral Developer is meant to be learned on real work, not installed as a heavyweight process.
 
-The first useful outcome is not a full plan. The first useful outcome is a small set of project-specific documents that make direction, maturity, risks, boundaries, and the next evidence-producing cycle explicit.
+The first experiment should be one bounded change or feature.
 
-## When To Use It
+## 1. Add a small project area
 
-Use Spiral Assistant when:
-
-- starting a new software project;
-- adopting Muze's model in an existing project;
-- reviewing whether a project is ready for the next maturity level;
-- deciding whether a new risk should pause the roadmap;
-- checking whether AI-assisted work has made the project harder to understand.
-
-Do not use it to justify adding features merely because they are easy to generate.
-
-## Minimum Inputs
-
-For a new project, provide as many of these as possible:
-
-- project idea or short description;
-- intended users;
-- current roadmap pressure;
-- constraints, deadlines, or client feedback;
-- known risks;
-- any prototype, screenshots, or demo notes.
-
-For an existing project, provide:
-
-- repository access or a source snapshot;
-- intended branch, tag, or commit;
-- README and roadmap;
-- current issues or client feedback;
-- test and build status if known;
-- any existing architecture notes;
-- related repositories or important internal dependencies;
-- known AI-generated or AI-assisted work.
-
-Missing information is allowed. The assistant should draft with assumptions rather than block on perfect input.
-
-## Existing-Repository Audit Scope
-
-Before reviewing an existing repository, record the audit scope:
-
-- repository path or URL;
-- branch, tag, or commit;
-- whether the worktree is clean;
-- whether untracked or experimental files are included;
-- which related repositories or internal dependencies are in scope;
-- which dependencies are intentionally treated as black boxes.
-
-Ask the user before pulling related repositories into the review. Many projects depend on internal libraries that carry their own roadmap, maturity, risks, and abstractions. Including them can improve evidence, but it also increases review cost and can blur the current cycle.
-
-Use three scope levels:
-
-| Scope | Meaning |
-|---|---|
-| Primary repository | Always inspect. This is the project being reviewed. |
-| In-scope related repository | Inspect because it affects the current roadmap, abstraction, or risk. |
-| Out-of-scope dependency | Treat as an external assumption. Record the risk if that assumption matters. |
-
-If the worktree is dirty, do not assume the current files represent the stable project state. Ask whether to review the dirty state, a clean branch, or both.
-
-## First-Run Sequence
-
-1. Read `AGENTS.md`.
-2. Read this quickstart.
-3. Read `docs/01-model-overview.md`.
-4. Read `docs/04-assistant-workflow.md`.
-5. Use the relevant prompt from `prompts/`.
-6. Draft the project-specific Muze documents.
-7. End with the proposed next cycle and the evidence it must produce.
-8. If non-technical stakeholders are part of the audience, add a short stakeholder note derived from the Muze documents.
-
-For most projects, start with:
-
-- `prompts/intake-prompt.md` for a new project;
-- `prompts/current-state-audit-prompt.md` for an existing project;
-- `prompts/roadmap-cycle-planning-prompt.md` when the project already has Muze documents.
-
-## First Documents To Create
-
-Create these first:
-
-- `MUZE_PROJECT_BRIEF.md`
-- `MUZE_ROADMAP.md`
-- `MUZE_RISK_REGISTER.md`
-- `MUZE_MATURITY.md`
-
-Then create these when there is enough context:
-
-- `MUZE_BOUNDARY_MAP.md`
-- `MUZE_ABSTRACTION_REVIEW.md`
-- `MUZE_CYCLE_LOG.md`
-- `MUZE_AI_USAGE.md`
-
-The boundary and abstraction documents can be rough at first. They are meant to expose uncertainty, not hide it.
-
-## Stakeholder Notes
-
-When clients, funders, product owners, partners, maintainers, or users need to follow the journey, produce a short stakeholder note instead of adding another required document.
-
-Put it in `MUZE_CYCLE_LOG.md` or generate it in conversation. It should summarize existing Muze evidence, not become a second roadmap.
-
-Use this shape:
-
-```md
-## Stakeholder Note
-
-Audience:
-Current status:
-Current confidence:
-Next learning goal:
-Decisions made:
-Decisions deferred:
-Why this matters:
-Evidence that would change the plan:
-```
-
-Keep it plain-language, honest about uncertainty, and short enough to read before a meeting.
-
-## What A Good First Pass Contains
-
-A good first pass includes:
-
-- a short project hypothesis;
-- audit scope, branch, and worktree state for existing repositories;
-- facts separated from assumptions;
-- the current roadmap direction;
-- the main roadmap pressures;
-- the smallest useful quality metric set;
-- a maturity estimate with evidence and uncertainty;
-- the top risks, including complexity risk;
-- unclear abstractions or boundaries;
-- one recommended next cycle;
-- explicit non-goals for that cycle;
-- evidence that would prove the cycle worked;
-- conditions that would pause or change the roadmap;
-- a stakeholder note when the audience includes people outside implementation.
-
-If the assistant produces a broad feature list without risk, maturity, evidence, or non-goals, the pass is not good enough.
-
-## Cycle Size Rule
-
-A cycle should be small enough to answer one main question.
-
-Good cycle shape:
-
-> Validate whether the target user can complete the core workflow with a minimal usable interface, without hardening storage or permissions yet.
-
-Weak cycle shape:
-
-> Build the product.
-
-Each cycle should name:
-
-- the roadmap capability being validated;
-- the risk being reduced;
-- the maturity metrics that must improve;
-- the metrics that must not regress;
-- the evidence required;
-- the debt accepted;
-- the decision to make at the end.
-
-## Stop Conditions
-
-Pause normal roadmap progress when:
-
-- a core abstraction creates many special cases;
-- user feedback contradicts the roadmap;
-- a security, data, or persistence assumption is wrong;
-- performance fails earlier than expected;
-- AI-generated code cannot be explained or reviewed;
-- hardening the current design would lock in a weak boundary.
-
-The next step should then be an evidence-based risk assessment: research, proof of concept, benchmark, prototype comparison, review, or code deletion.
-
-## Project Directory
-
-When adopting the model inside a project, place project-specific files here:
+A suggested starting structure is:
 
 ```text
-docs/muze/
-  MUZE_PROJECT_BRIEF.md
-  MUZE_ROADMAP.md
-  MUZE_MATURITY.md
-  MUZE_RISK_REGISTER.md
-  MUZE_BOUNDARY_MAP.md
-  MUZE_ABSTRACTION_REVIEW.md
-  MUZE_CYCLE_LOG.md
-  MUZE_AI_USAGE.md
+.spiral/
+  CULTURE.md
+  PROJECT_CONTEXT.md
+  requests/
+  feedback/
+  designs/
+  evidence/
+  acceptance/
+  legacy/
+  defects/
+  cycles/
 ```
 
-Keep these documents short enough that people actually read and update them.
+Copy only the templates you need. Do not create empty documents for completeness.
+
+## 2. Establish culture and project context
+
+Create `CULTURE.md` from `templates/CULTURE.md` and point it at the organization/project principles the agent should preserve.
+
+Create `PROJECT_CONTEXT.md` with current direction, intended users, important constraints, and long-lived context.
+
+Do not attempt to capture the entire project history.
+
+## 3. Start with one current request
+
+Create a request artifact from `templates/REQUEST.md`.
+
+A good request describes intent and observable desired outcomes without prematurely prescribing implementation.
+
+Mark assumptions and ambiguity explicitly.
+
+## 4. Find the nearest important uncertainty
+
+Before implementation, ask what is most likely to prevent useful progress next.
+
+Record risks as:
+
+- blocker;
+- near-term;
+- deferred;
+- existential.
+
+Solve the blocker/near-term risk. Record later risks. Pull a deferred risk forward only if it can invalidate the current direction.
+
+## 5. Get meaningful interaction early
+
+For normal Muze web work, create a functioning UI as quickly as possible so intended users can spend real time with the feature.
+
+At this point optimize for **behavioral fidelity and learning**, not polish.
+
+Use `templates/FEEDBACK.md` to record what actual interaction taught you. If feedback changes the request, create a new request revision rather than editing history away.
+
+## 6. Create a traceable design
+
+Use `templates/DESIGN.md`.
+
+Every significant design element should identify why it exists:
+
+- which request fragment it satisfies;
+- which culture/external constraint shapes it;
+- which supporting technical need it enables;
+- which risk it addresses.
+
+## 7. Implement the smallest real vertical slice
+
+Once the interaction model is credible, implement a thin real path through the system.
+
+The code itself is an implementation artifact. Record the design IDs/revisions it realizes in the cycle/evidence artifacts and, where useful, in commit or PR metadata.
+
+Do not broaden the change to unrelated cleanup.
+
+## 8. Connect verification and acceptance
+
+Use `templates/EVIDENCE.md` for evidence that implementation realizes design.
+
+Use `templates/ACCEPTANCE.md` for evidence that the resulting behavior satisfies the request.
+
+These are not the same claim.
+
+## 9. When something fails, repair the chain
+
+Use `templates/DEFECT.md`.
+
+Trace the failure upward. If the environment was underspecified, repair the request, design, context, constraint, or evaluator first. Then let implementation follow.
+
+## 10. Evaluate the experiment
+
+At the end of the cycle, ask:
+
+- Did traceability help the AI make better decisions?
+- Could we explain why each significant design/implementation choice existed?
+- Did the process expose an upstream problem earlier?
+- Which artifacts were useful during actual work?
+- Which bookkeeping was ceremonial?
+- Did the code remain simple and economical to extend?
+- Did meaningful user interaction alter our understanding?
+
+Change this process based on that evidence before adding automation.
+
+## Existing projects
+
+For an existing repository, read `02-brownfield-adoption.md` before starting. The default rule is:
+
+> **Preserve causality accurately from now on; reconstruct history only where current work crosses it.**

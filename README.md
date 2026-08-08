@@ -1,168 +1,72 @@
-# Spiral Assistant
+# Spiral Developer
 
-Spiral Assistant is a document-first AI assistant framework for applying Muze's frontend-first, maturity-gated spiral model to new and existing software projects.
+Spiral Developer is an AI-native development process for Muze projects.
 
-It is intended for use with ChatGPT, GitHub Copilot Chat, Claude, local agents, or any AI assistant that can read repository files.
+It assumes AI can do substantial implementation work. Human control comes from making intent, constraints, design, evidence, provenance, and acceptance explicit enough that the software-producing system can be inspected, challenged, and corrected.
 
-This repository does not contain an application yet. The first version is deliberately small: a set of model documents, templates, catalogs, and reusable prompts. The goal is to make Muze's development model repeatable before turning it into tooling.
+The central development chain is:
 
-## What the assistant helps with
+> **intent → request → design → implementation → verification → acceptance**
 
-The assistant helps a team:
+The links are first-class. When something fails or changes, Spiral Developer should be able to traverse the chain, find the earliest faulty or outdated assumption, fix that upstream cause, and propagate the correction forward.
 
-- clarify the project's purpose and roadmap;
-- identify current and newly discovered risks;
-- plan roadmap-driven spiral cycles;
-- define maturity levels and quality metrics;
-- keep complexity under control;
-- review abstractions and boundaries;
-- decide when to pause for evidence-based risk assessment;
-- translate cycle status into plain-language stakeholder notes;
-- account for AI-era risks such as generated-code bloat and loss of human legibility.
+## Core principles
 
-The assistant should not act as an unsupervised project manager or architect. It is a coach and reviewer that helps humans make better decisions.
+- Seek meaningful feedback from the intended audience as early as possible.
+- For web work, use **frontend-first** development: build enough working behavior for real interaction before polishing usability or look-and-feel.
+- Resolve the uncertainty most likely to block useful progress next. Record later risks; pull them forward only when they are existential.
+- After the interaction model is credible, implement reality in vertical slices.
+- Preserve causal links from each significant artifact back to the intent that justifies it.
+- Treat technical plumbing as explicit supporting work, not invented client intent.
+- Version artifacts and references so later changes do not rewrite history.
+- Fix the software-producing environment before patching generated output when a defect exposes a missing constraint, context item, design rule, or evaluator.
+- Optimize for simplicity, maintainability, replaceability, and causal auditability.
+- In legacy projects, preserve causality accurately from now on and reconstruct old context only when active work needs it.
 
-When people outside implementation need to follow the project, use short stakeholder notes derived from the Muze documents instead of adding another required source of truth.
+Muze's organization-wide design principles remain an important culture source. The canonical policy currently lives at:
 
-## Core idea
-
-Muze's model combines:
-
-- frontend-first validation;
-- risk-driven spiral cycles;
-- explicit Analyze–Plan–Act–Evaluate loops;
-- maturity levels with quality targets;
-- roadmap-driven capability planning;
-- complexity control;
-- abstraction discovery;
-- clear conceptual and technical boundaries;
-- small decoupled components combined through a thin application layer;
-- AI-era caution around code generation and human understanding.
-
-The guiding question is:
-
-> What risk are we reducing, what complexity are we adding, and what evidence would change our mind?
+`https://github.com/muze-nl/.github/blob/main/maturity-policy.md`
 
 ## Repository structure
 
 ```text
-spiral-assistant/
+spiral-developer/
   README.md
   AGENTS.md
   docs/
     00-quickstart.md
-    01-model-overview.md
-    02-practical-complexity-guide.md
-    03-ai-era-update-unvalidated.md
-    04-assistant-workflow.md
+    01-vision.md
+    02-brownfield-adoption.md
+    03-development-loop.md
+    04-causal-artifact-model.md
+    05-redesign-notes.md
   templates/
-    MUZE_PROJECT_BRIEF.md
-    MUZE_ROADMAP.md
-    MUZE_MATURITY.md
-    MUZE_RISK_REGISTER.md
-    MUZE_BOUNDARY_MAP.md
-    MUZE_ABSTRACTION_REVIEW.md
-    MUZE_CYCLE_LOG.md
-    MUZE_AI_USAGE.md
+    CULTURE.md
+    PROJECT_CONTEXT.md
+    REQUEST.md
+    FEEDBACK.md
+    DESIGN.md
+    EVIDENCE.md
+    ACCEPTANCE.md
+    LEGACY_CONTEXT.md
+    DEFECT.md
+    CYCLE.md
   catalogs/
-    quality-metrics.md
-    common-risks.md
-    ai-era-risks.md
-    abstraction-warning-signs.md
-    boundary-patterns.md
+    risks.md
+    complexity-and-boundaries.md
+    evidence.md
   prompts/
-    intake-prompt.md
-    current-state-audit-prompt.md
-    roadmap-cycle-planning-prompt.md
-    cycle-evaluation-prompt.md
-    repository-review-prompt.md
-  examples/
-    new-project/
-    existing-project/
+    repository-bootstrap.md
+    start-change.md
+    brownfield-change.md
+    evaluate-cycle.md
+    defect-analysis.md
 ```
-
-## How to use this repository in a chat
-
-Start a new chat and point the assistant to this repository, or upload a zip of it. Then add the project you want to analyze.
-
-Ask the assistant to read `AGENTS.md` and `docs/00-quickstart.md` first. The first useful result should be a bounded project pass: drafts of the core Muze documents, a proposed next cycle, and the evidence needed to decide whether the roadmap should continue.
-
-For a new project:
-
-```text
-Use the Spiral Assistant repository as background.
-Help me apply Muze's spiral model to this new project.
-Start with intake and produce drafts for:
-- MUZE_PROJECT_BRIEF.md
-- MUZE_ROADMAP.md
-- MUZE_MATURITY.md
-- MUZE_RISK_REGISTER.md
-```
-
-For an existing project:
-
-```text
-Use the Spiral Assistant repository as background.
-Review this repository and help us adopt Muze's spiral model.
-Start with a current-state audit, identify complexity and abstraction risks,
-then propose the first roadmap-driven spiral cycle.
-Record the branch, worktree state, and which related repositories or internal
-dependencies are in scope before judging maturity.
-```
-
-For an end-of-cycle evaluation:
-
-```text
-Use the Spiral Assistant repository as background.
-Evaluate this cycle using Analyze–Plan–Act–Evaluate.
-Check whether maturity targets were met, whether any quality regressed,
-and whether new risks require a roadmap pause.
-```
-
-When the audience includes stakeholders outside implementation, add:
-
-```text
-Also include a short stakeholder note: where we are, what we are trying to learn next,
-which decisions are deferred, and what evidence would change the plan.
-```
-
-## How to add the model to a project
-
-A project adopting the model should add a `docs/muze/` directory:
-
-```text
-docs/muze/
-  MUZE_PROJECT_BRIEF.md
-  MUZE_ROADMAP.md
-  MUZE_MATURITY.md
-  MUZE_RISK_REGISTER.md
-  MUZE_BOUNDARY_MAP.md
-  MUZE_ABSTRACTION_REVIEW.md
-  MUZE_CYCLE_LOG.md
-  MUZE_AI_USAGE.md
-```
-
-Copy the files from `templates/` and fill them in with the assistant.
-
-Start with only:
-
-- `MUZE_PROJECT_BRIEF.md`
-- `MUZE_ROADMAP.md`
-- `MUZE_MATURITY.md`
-- `MUZE_RISK_REGISTER.md`
-
-Add the other documents once the assistant has enough project context to say something useful.
 
 ## Status
 
-This is a Level 1 assistant: document-first, manually invoked, and human-led.
+This is deliberately a **document-first experimental process**, not a finished harness.
 
-Possible later levels:
+Use the templates manually with a capable coding agent on real work. Keep what repeatedly improves decisions, context, traceability, and verification. Remove bookkeeping that becomes ceremonial. Build automation only after the manual process demonstrates which relationships actually matter.
 
-1. Prompt-based assistant.
-2. Document-aware assistant.
-3. Repository-aware assistant.
-4. Workflow-integrated assistant.
-5. Semi-agentic assistant with strict controls.
-
-Do not add workflow automation until the document workflow has proven useful.
+Start with [`docs/00-quickstart.md`](docs/00-quickstart.md).
