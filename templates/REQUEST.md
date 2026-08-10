@@ -18,6 +18,8 @@ id: REQ-001
 
 ## Assumptions / ambiguity
 
+For consequential assumptions, include solution categories or acceptance framings that the request may be presupposing. Omit framing analysis when it would be ceremonial.
+
 | Claim | Provenance | Evidence / question |
 |---|---|---|
 | | explicit / evidenced / inferred / unknown | |

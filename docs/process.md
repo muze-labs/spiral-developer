@@ -33,7 +33,23 @@ A good request describes:
 
 Commit the request once it is meaningful enough to guide the next step. That commit hash becomes the version referenced by downstream artifacts.
 
-## 3. Find the nearest important uncertainty
+## 3. Check consequential framing
+
+Before committing to a solution space, ask whether the request or proposed next step contains an assumption that would materially constrain downstream work.
+
+Do this selectively. A framing check is useful for product direction, core abstractions, architecture, schemas, trust boundaries, irreversible changes, or other choices where a different framing would plausibly change what should be built or how success should be judged. It is usually noise for local, reversible implementation details.
+
+When the premise is still open, state it briefly and reformulate the question at the level the evidence can actually support. For example:
+
+> **Framing check:** “How should we add caching?” assumes caching is the right response. What latency/load problem are we trying to solve, and what evidence distinguishes caching from other responses?
+
+A coherent design is not evidence that the framing was right. **Capability is not endorsement.** If a consequential direction looks unusually elegant, test at least one materially different framing before hardening it.
+
+Record only assumptions or reframings that are causally useful later; do not create ceremony for routine decisions.
+
+See `ai-collaboration.md`.
+
+## 4. Find the nearest important uncertainty
 
 Ask:
 
@@ -48,7 +64,7 @@ Classify risks by horizon:
 
 Resolve the blocker or nearest risk. Record later risks. Pull a deferred risk forward only if it can invalidate the current direction.
 
-## 4. Seek meaningful interaction
+## 5. Seek meaningful interaction
 
 Where product intent or interaction is uncertain, build the cheapest artifact that can elicit high-quality reality-based feedback from the intended audience.
 
@@ -58,7 +74,7 @@ Optimize for behavioral fidelity and learning, not visual polish, generic usabil
 
 Record observations separately from interpretation. If feedback changes intent, create a new request version in a new commit. Do not rewrite the older request.
 
-## 5. Create a traceable design
+## 6. Create a traceable design
 
 Design the smallest system needed for the current validated understanding.
 
@@ -74,7 +90,7 @@ Supporting plumbing does not need invented client ancestry. Preserve the truthfu
 
 Commit design decisions at meaningful causal boundaries. Record their links to exact upstream Git versions in the design companion Turtle resource.
 
-## 6. Implement reality in vertical slices
+## 7. Implement reality in vertical slices
 
 Once the interaction model is credible enough, replace simulation with reality through the smallest useful vertical slice.
 
@@ -86,7 +102,7 @@ Keep implementation causally connected to the design it realizes. Avoid unrelate
 
 Create semantic implementation commits when the change has crystallized enough to serve as evidence for later verification.
 
-## 7. Verify implementation against design
+## 8. Verify implementation against design
 
 Verification answers:
 
@@ -98,7 +114,7 @@ Verification should be capable of detecting plausible wrong implementations rath
 
 Commit verification evidence after the implementation commit it verifies exists, so the graph can point to the exact implementation version.
 
-## 8. Accept behavior against request
+## 9. Accept behavior against request
 
 Acceptance answers:
 
@@ -110,7 +126,7 @@ Acceptance is not the same as implementation verification.
 
 Commit acceptance evidence after the relevant request, design, implementation, and verification versions exist.
 
-## 9. Prepare the pull request
+## 10. Prepare the pull request
 
 When the AI believes the request is satisfied, it prepares a pull request containing both the result and the causal case for accepting it.
 
@@ -131,7 +147,7 @@ CI evaluates mechanical and executable claims. Human review evaluates meaning, j
 
 See `review.md`.
 
-## 10. Merge without rewriting history
+## 11. Merge without rewriting history
 
 Accepted feature work is integrated with a normal merge commit.
 
@@ -151,6 +167,8 @@ Possible root causes include request ambiguity, missing context, incorrect desig
 
 Fix the earliest meaningful cause and create new commits. Never amend old causal history to make it appear that the correct understanding existed earlier.
 
+When the defect does not fit the current request/design model cleanly, explicitly ask whether the problem is in the implementation **or in the framing that produced the implementation**. Cheap regeneration is a reason to repair upstream assumptions, not a reason to protect already-generated code.
+
 ## Process learning
 
 At the end of a significant cycle ask:
@@ -161,6 +179,9 @@ At the end of a significant cycle ask:
 - Did we add unjustified complexity or dependencies?
 - Did we accidentally solve deferred problems?
 - Did a defect improve the production environment?
+- Did a consequential framing assumption go unchallenged until downstream work made it expensive?
+- Did the AI contribute useful independent search, or merely elaborate the first plausible direction?
+- Did we enlarge scope mainly to make the architecture/model cleaner?
 - Which artifacts/links were useful?
 - Which bookkeeping was ceremonial?
 

@@ -72,3 +72,7 @@ Causal commits are immutable. Normal integration is merge-only; no squash/rebase
 ### Turtle causal graph
 
 Causal relationships are stored canonically as RDF/Turtle so ordinary linked-data tooling can inspect and query them independently of AI.
+
+### Inquiry/execution and framing resistance
+
+Added after extended AI collaboration exposed a recurring failure mode: a capable agent can make a user's first plausible framing increasingly coherent without testing whether the framing itself is correct. Spiral Developer now distinguishes inquiry from execution, treats consequential prompts as proposed frames, uses lightweight framing resistance at important branching points, and explicitly states that capability is not endorsement. It also adds scale resistance and upstream reframing to the defect/evaluation loop.

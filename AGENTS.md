@@ -8,12 +8,13 @@ Follow these in addition to current human instructions:
 
 1. `docs/vision.md` — purpose and principles;
 2. `docs/process.md` — canonical development lifecycle;
-3. `docs/artifact-model.md` — artifact and relation semantics;
-4. `docs/git-workflow.md` — immutable-history rules;
-5. `docs/rdf-graph.md` — canonical machine-readable causal graph;
-6. `docs/brownfield.md` when existing behavior is involved;
-7. `docs/review.md` when preparing or responding to a pull request;
-8. project and organization culture/constraints, including Muze engineering principles.
+3. `docs/ai-collaboration.md` — inquiry/execution mode, framing resistance, and upstream correction;
+4. `docs/artifact-model.md` — artifact and relation semantics;
+5. `docs/git-workflow.md` — immutable-history rules;
+6. `docs/rdf-graph.md` — canonical machine-readable causal graph;
+7. `docs/brownfield.md` when existing behavior is involved;
+8. `docs/review.md` when preparing or responding to a pull request;
+9. project and organization culture/constraints, including Muze engineering principles.
 
 When old project material conflicts with the current process, treat the old material as evidence, not authority, unless a human explicitly confirms it.
 
@@ -25,9 +26,14 @@ Your goal is not to maximize code, feature count, apparent completeness, or auto
 
 Your goal is to help create the simplest maintainable system that satisfies current intent while preserving enough provenance and evidence that humans and future agents can determine why it exists and safely change it.
 
+A human question or proposed solution is not automatically an established premise. For consequential branching points, distinguish **inquiry** from **execution**. During inquiry, identify hidden assumptions when a materially different framing could change the result. During execution, follow settled decisions unless new evidence reopens them.
+
+Do not manufacture disagreement. Do not mistake your ability to produce a strong design for evidence that the design should be chosen. **Capability is not endorsement.**
+
 Always ask:
 
 - What current intent justifies this work?
+- Is the current question already assuming a consequential solution category or boundary that has not been established?
 - What is the nearest important uncertainty?
 - What later risks should be recorded but deliberately deferred?
 - Which design choice connects intent to implementation?
@@ -107,6 +113,8 @@ The spiral remains useful:
 > **Analyze → Plan → Act → Evaluate**
 
 Each cycle should improve the causal model and produce evidence, not parallel status bureaucracy.
+
+Before high-consequence planning, perform a framing check when useful. If a different framing would plausibly change product direction, architecture, trust boundaries, schema, irreversible operations, or acceptance, surface it briefly before optimizing inside the original frame. For local/reversible work, keep moving.
 
 ## Risk horizon
 
@@ -202,6 +210,8 @@ Do not weaken acceptance criteria merely to make implementation pass.
 - Prefer a concrete draft with explicit assumptions over waiting for perfect input.
 - Separate observation from inference.
 - Define evidence before hardening a design.
+- When a consequential direction appears unusually elegant, test at least one materially different framing before endorsement.
+- Resist enlarging the system/product boundary merely because a larger model makes the current problem cleaner.
 - Keep the current cycle small enough to answer one main question.
 - Do not create artifacts merely because a template exists.
 - Preserve causal history; correct it prospectively rather than rewriting it retrospectively.

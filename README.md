@@ -20,7 +20,9 @@ The links are first-class. When something changes or fails, Spiral Developer sho
 - Use Git commit hashes as artifact versions. Stable artifact IDs identify the thing; the commit identifies the historical version.
 - Get meaningful feedback from intended users as early as possible. For Muze web work this usually means frontend-first development.
 - Resolve the nearest important uncertainty and deliberately defer later risks unless they are existential.
-- Once the interaction model is credible, implement reality in vertical slices.
+- Before consequential commitments, treat the question as a proposed frame: surface hidden assumptions when a materially different framing could change what should be built.
+- Distinguish **capability from endorsement**: a coherent AI-generated plan proves buildability, not that the direction is right.
+- Once the interaction model and framing are credible, implement reality in vertical slices.
 - When a defect occurs, repair the software-producing environment at the earliest meaningful cause rather than merely patching generated output.
 - Integrate completed work through a pull request evaluated by automated checks and human review.
 
@@ -36,6 +38,7 @@ The links are first-class. When something changes or fails, Spiral Developer sho
 
 - [`docs/vision.md`](docs/vision.md) — why this process exists.
 - [`docs/process.md`](docs/process.md) — the normative development lifecycle.
+- [`docs/ai-collaboration.md`](docs/ai-collaboration.md) — inquiry vs execution, framing resistance, and upstream correction.
 - [`docs/artifact-model.md`](docs/artifact-model.md) — what is recorded and what the causal relations mean.
 - [`docs/git-workflow.md`](docs/git-workflow.md) — feature branches, immutable commits, PRs, and merge-only history.
 - [`docs/rdf-graph.md`](docs/rdf-graph.md) — Turtle representation of the causal graph.
@@ -57,6 +60,7 @@ spiral-developer/
     quickstart.md
     vision.md
     process.md
+    ai-collaboration.md
     artifact-model.md
     git-workflow.md
     rdf-graph.md

@@ -10,6 +10,8 @@ Muze treats complexity as an economic cost for humans and AI.
 
 > **What decision does this boundary protect us from changing later?**
 
+> **Did we enlarge the boundary because current evidence requires it, or because the larger model is easier to make elegant?**
+
 ## Warning signs
 
 - special cases multiply;
@@ -54,3 +56,5 @@ Do not create a boundary merely because one appears in this catalog. A useful bo
 ## Abstraction probes
 
 When the correct abstraction is uncertain and AI makes experimentation cheap, generate two or more deliberately small competing implementations. Compare them by dependent-code simplicity, vocabulary, boundary clarity, dependency shape, and ease of later change. Do not select the largest or most complete candidate by default.
+
+Before an expensive abstraction commitment, consider whether the candidate set itself assumes the right problem frame. Generating several implementations inside one mistaken framing is still premature convergence.

@@ -51,7 +51,11 @@ A good request expresses intent and observable desired outcomes without prematur
 
 Commit it. The resulting full Git hash is the version downstream design will reference.
 
-## 5. Find the nearest important uncertainty
+## 5. Check the frame, then find the nearest important uncertainty
+
+If the request proposes a consequential solution or boundary, briefly test whether that premise is established before designing around it. Do not do this for every local decision. Use it where a different framing could materially change product direction, architecture, schema, trust boundaries, irreversible work, or acceptance.
+
+Then find the nearest important uncertainty.
 
 Classify risks as blocker, near-term, deferred, or existential.
 
@@ -108,6 +112,8 @@ After the feature is merged, ask:
 - Did the graph help the AI or reviewer reason about the change?
 - Was the exact-version provenance useful?
 - Did intended-user interaction change our understanding?
+- Did the AI expose any consequential framing assumption before it became expensive downstream?
+- Did we confuse a well-elaborated solution with evidence that it was the right solution?
 - Did any artifact become ceremonial bookkeeping?
 - Could a defect or disagreement be traced to the correct upstream layer?
 - Did the code remain simple and economical to change?

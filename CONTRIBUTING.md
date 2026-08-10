@@ -10,7 +10,7 @@ For a normal feature or change:
 
 1. Start from a clear current request.
 2. Let Spiral Developer create and operate a feature branch.
-3. Give feedback about intent, behavior, constraints, trade-offs, and observed problems rather than micromanaging code generation.
+3. Give feedback about intent, behavior, constraints, trade-offs, and observed problems rather than micromanaging code generation. Treat exploratory proposals as hypotheses when you want independent search rather than simple execution.
 4. When intended-user feedback matters, evaluate a working interactive artifact early.
 5. Let the AI maintain the causal artifacts, Turtle graph, tests/evidence, and Git commits.
 6. Review the pull request as a proposal to admit a complete causal history into the authoritative branch.
@@ -63,6 +63,18 @@ Good human interventions sound like:
 
 Avoid turning the human into an expensive prompt router who dictates line-by-line implementation unless that level of control is genuinely required.
 
+## Inquiry versus execution
+
+When the product/problem framing is still open, invite the AI to challenge consequential assumptions rather than merely elaborating the first proposed solution. A useful human prompt is “treat this as a hypothesis, not a decision” or “what assumption in this question would matter most if it were wrong?”
+
+Once the frame has survived enough evidence, let the AI execute without repeatedly reopening it. Good collaboration is not constant debate.
+
+Remember:
+
+> **Capability is not endorsement.**
+
+An impressive architecture or implementation plan demonstrates that a direction is feasible to elaborate. It does not by itself establish that the direction answers the right problem.
+
 ## Reviewing a pull request
 
 The PR is the main human governance boundary.
@@ -70,14 +82,15 @@ The PR is the main human governance boundary.
 Review in this order when practical:
 
 1. **Intent** — is the request represented correctly?
-2. **Meaningful feedback** — where intent was uncertain, did intended users interact with something real enough to teach us?
-3. **Design** — do the design choices answer the request and respect current constraints?
-4. **Causal graph** — are the significant relationships and upstream versions truthful?
-5. **Evidence** — does verification actually establish that implementation realizes design?
-6. **Acceptance** — does acceptance establish that behavior satisfies the request?
-7. **Complexity** — are new concepts, dependencies, abstractions, or change radius justified?
-8. **Risk** — are deferred risks still appropriately deferred, and are unresolved assumptions visible?
-9. **Code** — inspect directly wherever semantic, security, maintainability, or operational risk makes that valuable.
+2. **Framing** — did a consequential assumption prematurely narrow the problem or acceptance space?
+3. **Meaningful feedback** — where intent was uncertain, did intended users interact with something real enough to teach us?
+4. **Design** — do the design choices answer the request and respect current constraints?
+5. **Causal graph** — are the significant relationships and upstream versions truthful?
+6. **Evidence** — does verification actually establish that implementation realizes design?
+7. **Acceptance** — does acceptance establish that behavior satisfies the request?
+8. **Complexity** — are new concepts, dependencies, abstractions, or change radius justified?
+9. **Risk** — are deferred risks still appropriately deferred, and are unresolved assumptions visible?
+10. **Code** — inspect directly wherever semantic, security, maintainability, or operational risk makes that valuable.
 
 Do not approve a PR merely because CI is green. CI establishes mechanical and executable claims; the human review establishes that the claims themselves are sensible.
 

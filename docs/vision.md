@@ -12,6 +12,14 @@ The central artifact is not merely source code.
 
 It is the connected, versioned body of intent, decisions, implementation, and evidence that explains **why the system exists in its current form and whether it still satisfies the need that caused it to be built**.
 
+AI also changes the economics of inquiry. It can elaborate a proposed solution so quickly and convincingly that a weak initial framing hardens before reality has tested it. Spiral Developer therefore treats consequential questions as **proposed search frames**, not automatic premises. During inquiry the AI may expose hidden assumptions or test a materially different framing; during execution it should stop reopening settled decisions without new evidence.
+
+A useful principle is:
+
+> **Capability is not endorsement. A good plan shows that a direction can be built, not that it is the right direction.**
+
+See [`ai-collaboration.md`](ai-collaboration.md).
+
 ## 1. Start with meaningful feedback
 
 Software development depends on short feedback loops. Useful feedback becomes much stronger when the intended audience interacts meaningfully with something that behaves enough like the requested system to provoke real behavior.
@@ -60,7 +68,15 @@ A more complete loop is:
 
 The intended audience is an external check against a perfectly consistent but wrong internal model.
 
-## 5. Resolve the nearest important uncertainty
+## 5. Preserve framing uncertainty when it matters
+
+Precision is useful once the problem is sufficiently understood. Before a consequential decision, however, an apparently precise request may already assume the architecture, abstraction, or solution category.
+
+When a hidden premise could materially change downstream work, briefly ask whether the premise itself is established. Prefer the broader evidence-producing question when it is not. Do not perform this check for every local decision; use it where the cost of premature commitment is high.
+
+The goal is controlled collapse: preserve meaningful alternatives during inquiry, then commit decisively when current evidence justifies doing so.
+
+## 6. Resolve the nearest important uncertainty
 
 At each stage ask:
 
@@ -70,13 +86,13 @@ Classify risks by horizon: blocker, near-term, deferred, existential.
 
 Do not solve later-cycle risks merely because AI makes speculative engineering cheap. Pull them forward only when they can invalidate the current direction.
 
-## 6. Build reality in vertical slices
+## 7. Build reality in vertical slices
 
 Once the interaction model has survived enough contact with users, replace simulation with reality through thin vertical slices that produce observable behavior.
 
 Each slice should remain connected to the request and design that justify it and to the evidence that will tell us it works.
 
-## 7. Tests are evidence
+## 8. Tests are evidence
 
 Verification asks:
 
@@ -90,7 +106,7 @@ Those claims should remain distinct.
 
 If implementation verification passes but acceptance fails, the design may be wrong or incomplete. If acceptance criteria pass but users still reject the result, the request or interpretation was incomplete.
 
-## 8. Fix the environment before the output
+## 9. Fix the environment before the output
 
 When a defect occurs, first ask:
 
@@ -100,7 +116,7 @@ The root cause may be request ambiguity, missing context, an incorrect design, a
 
 Correct the earliest meaningful cause, then propagate the correction forward and verify that the original defect and related variants no longer pass.
 
-## 9. Audit the production system
+## 10. Audit the production system
 
 Human auditability does not require a person to understand every generated line.
 
@@ -110,7 +126,7 @@ Auditability means:
 
 > **We can explain why the system became what it is, what evidence justified accepting it, and what must change when it proves wrong.**
 
-## 10. Simplicity and maintainability remain constraints
+## 11. Simplicity and maintainability remain constraints
 
 AI can create complexity much faster than humans. It does not make complexity free.
 
@@ -122,7 +138,7 @@ A useful long-term measure of maintainability is:
 
 > **How much agent computation and human intervention does the next correct change require?**
 
-## 11. Human attention moves upward
+## 12. Human attention moves upward
 
 Humans increasingly spend less time expressing solutions as code and more time on:
 
@@ -137,7 +153,7 @@ Humans increasingly spend less time expressing solutions as code and more time o
 
 AI increasingly handles implementation, routine investigation, test generation, traceability, impact analysis, documentation, and repetitive verification.
 
-## 12. The source code is part of a larger artifact
+## 13. The source code is part of a larger artifact
 
 The durable project increasingly includes a versioned network of intent, requests, assumptions, designs, decisions, constraints, code, tests, acceptance evidence, operational observations, and provenance.
 
@@ -147,7 +163,7 @@ The long-term aim is:
 
 > **an executable and inspectable body of intent, decisions, and evidence from which working software can be produced and evolved.**
 
-## 13. AI should make discipline cheaper, not optional
+## 14. AI should make discipline cheaper, not optional
 
 Requirements traceability, executable specifications, decision records, impact analysis, documentation, and provenance have often been too expensive to maintain manually.
 
@@ -155,27 +171,28 @@ AI can perform much of this mechanical cognitive work cheaply.
 
 Humans should spend their scarce attention on meaning, judgment, and reality.
 
-## 14. What we are trying to build
+## 15. What we are trying to build
 
 The immediate goal is not a universal platform. First establish a working Muze process that can:
 
 1. capture and version intent;
-2. identify the nearest important uncertainty;
-3. create an interactive hypothesis;
-4. collect meaningful feedback;
-5. revise understanding without losing history;
-6. derive a traceable design;
-7. implement reality in vertical slices;
-8. connect verification to design;
-9. connect acceptance to intent;
-10. identify consequences of upstream changes;
-11. diagnose defects by traversing causality;
-12. improve the generating environment;
-13. regenerate or modify implementation;
-14. continuously verify that the system still answers the intended need.
+2. expose consequential framing assumptions before they harden;
+3. identify the nearest important uncertainty;
+4. create an interactive hypothesis;
+5. collect meaningful feedback;
+6. revise understanding without losing history;
+7. derive a traceable design;
+8. implement reality in vertical slices;
+9. connect verification to design;
+10. connect acceptance to intent;
+11. identify consequences of upstream changes;
+12. diagnose defects by traversing causality;
+13. improve the generating environment;
+14. regenerate or modify implementation;
+15. continuously verify that the system still answers the intended need.
 
 Only after this works convincingly should it become a larger harness.
 
 ## Working principle
 
-> **Muze develops software by maintaining a short, reality-driven feedback loop between human intent and working systems, while AI performs much of the development work and preserves the causal chain connecting request, design, implementation, and evidence. When the result fails, repair the earliest faulty part of that chain rather than merely patching its output.**
+> **Muze develops software by maintaining a short, reality-driven feedback loop between human intent and working systems. During inquiry, consequential questions remain open to reframing; during execution, AI performs much of the development work and preserves the causal chain connecting request, design, implementation, and evidence. When the result fails, repair the earliest faulty part of that chain rather than merely patching its output.**

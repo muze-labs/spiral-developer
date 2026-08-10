@@ -10,6 +10,10 @@ Current request/version:
 
 Nearest important uncertainty:
 
+Consequential framing assumption (only if material):
+
+Less-constraining question / alternative frame (only if useful):
+
 Relevant feedback/legacy context:
 
 Risks:
@@ -43,6 +47,8 @@ Evidence collected:
 Acceptance result:
 
 What changed in our understanding:
+
+Did evidence challenge the framing rather than only the implementation?:
 
 Upstream artifacts changed:
 

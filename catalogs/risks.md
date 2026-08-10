@@ -7,6 +7,8 @@ Every active risk should have a **horizon**: blocker, near-term, deferred, or ex
 ## Product / feedback
 
 - Wrong problem or audience.
+- Leading request/prompt prematurely assumes the solution category or acceptance model.
+- AI elaborates a plausible first framing so convincingly that alternatives stop being investigated.
 - Feedback is based on descriptions/screenshots rather than meaningful interaction.
 - Prototype polish creates false confidence.
 - Client intent changed but downstream design still reflects an old version.
@@ -22,6 +24,7 @@ Every active risk should have a **horizon**: blocker, near-term, deferred, or ex
 - Vocabulary drift between users, design, tests, and code.
 - Agent-generated bloat that increases future reasoning/context cost.
 - Speculative infrastructure for deferred risks.
+- Scale drift: enlarging product/system boundaries mainly because the larger model is more elegant.
 
 ## Causal / evidence
 
