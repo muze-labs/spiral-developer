@@ -1,0 +1,22 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix evidence: <https://muze.nl/ns/spiral-developer/evidence/> .
+@prefix source: <https://muze.nl/ns/spiral-developer/source/> .
+@prefix culture: <https://muze.nl/ns/spiral-developer/culture/> .
+
+evidence:EVD-CUL-MUZE-001
+    a sd:VerificationEvidence ;
+    dcterms:identifier "EVD-CUL-MUZE-001" ;
+    sd:repositoryPath "evidence/EVD-CUL-MUZE-001-human-validation.md" ;
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Explicit ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact culture:CUL-MUZE-001 ;
+        sd:gitCommit "7de257778193d819178ae8cc1e9d06cf5ef4df64"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact source:SRC-CUL-MUZE-001 ;
+        sd:gitCommit "cf2ddc354b9071e705333e7db29605d8c25d00f8"
+    ] .

@@ -1,0 +1,11 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix source: <https://muze.nl/ns/spiral-developer/source/> .
+
+source:SRC-CUL-MUZE-001
+    a sd:Source ;
+    dcterms:identifier "SRC-CUL-MUZE-001" ;
+    sd:repositoryPath "sources/SRC-CUL-MUZE-001-human-validation.md" ;
+    sd:status sd:Active ;
+    sd:sourceAvailability sd:Retained ;
+    sd:provenanceConfidence sd:Explicit .

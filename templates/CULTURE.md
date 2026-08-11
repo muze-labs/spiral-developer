@@ -16,6 +16,10 @@ Culture is defeasible influence, not invisible law. Distinguish preferences from
 |---|---|---|
 | | | Organization/team/project source |
 
+## Human validation / recognition
+
+<!-- If this profile was inferred or extracted by an agent to represent a team or organization, record the exact profile version that a relevant human reviewed or adopted and link the verification evidence. Do not let the agent self-certify cultural accuracy. -->
+
 ## Principles
 
 | ID | Principle | Why it matters | Possible evidence/proxies |

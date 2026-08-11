@@ -34,6 +34,14 @@ A project should make its active culture explicit when those preferences materia
 
 Do not load arbitrary culture merely because it exists. A consuming project should adopt the profile(s) it actually wants the agent to use.
 
+## Human recognition and validation
+
+An agent may extract, compare, or propose a culture profile, but it should not silently declare that its own inference *is* an organization’s culture. When an agent-derived profile is intended to represent a team or organization, preserve a relevant human review or adoption decision as evidence against an exact profile version.
+
+A useful pattern is a `sd:VerificationEvidence` artifact whose `sd:verifies` relation points to the exact reviewed `CUL-*` version and whose provenance leads to the human source or decision. The review establishes representational accuracy at that point in time; it does not make culture immutable or universally binding.
+
+Human-authored culture can have more direct provenance, but consequential adoption should still remain explicit and versioned.
+
 ## Adoption
 
 Use `sd:adoptsCulture` from project context to the exact `CUL-*` version(s) that are active for the project when this provenance matters.

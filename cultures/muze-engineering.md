@@ -1,11 +1,17 @@
 # CUL-MUZE-001 — Muze Engineering Culture
 
-**Status:** active first extraction  
+**Status:** active, human-validated first extraction
 **Scope:** Muze software projects unless a project explicitly adopts different or more specific preferences
 
 This profile captures engineering preferences that influenced Spiral Developer while it was created at Muze but are not required for justified trust in every Spiral project.
 
 These preferences are **defeasible**. A project-specific constraint, better evidence, or a more specific culture profile may justify another choice. When the difference is consequential, record why.
+
+## Human validation
+
+The substantive principles in this profile were explicitly reviewed by a human familiar with Muze engineering culture on 2026-08-11 and confirmed to be in line with it. The reviewed version is pinned to Git commit `7de257778193d819178ae8cc1e9d06cf5ef4df64`; see `evidence/EVD-CUL-MUZE-001-human-validation.md`.
+
+This revision adds that provenance record only. It does not claim the profile is exhaustive or permanent, and it does not change the reviewed principles. Future cultural changes should be made prospectively.
 
 Canonical organization source:
 
