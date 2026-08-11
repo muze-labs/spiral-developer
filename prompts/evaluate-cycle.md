@@ -6,6 +6,7 @@ Do not score generic maturity.
 
 Determine:
 
+- For consequential direct human input, did we confirm the agent's interpretation before implementation and reconcile it with existing repository reality/overlap?
 - Did intended users provide meaningful feedback where product intent was uncertain?
 - Where intent interpretation was material, is source evidence distinguishable from the understanding derived from it?
 - Is missing or unavailable primary provenance explicit rather than silently reconstructed?

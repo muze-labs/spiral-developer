@@ -61,7 +61,7 @@ Avoid verification loops where implementation, test oracle, and acceptance claim
 
 ## Human authority is not micromanagement
 
-Humans remain responsible for meaning, accountability, risk appetite, accepted interpretations of consequential intent, and decisions whose consequences require human ownership.
+Humans remain responsible for meaning, accountability, risk appetite, accepted interpretations of consequential intent, and decisions whose consequences require human ownership. Human authority over desired intent does **not** imply factual infallibility about the current software: for consequential work, the agent should confirm its interpretation with the human and then reconcile relevant premises with repository/runtime evidence before acting.
 
 That does not imply mandatory line-by-line supervision. Excessive micromanagement can reduce the benefit of the verification architecture by replacing inspectable agent autonomy with undocumented human steering.
 

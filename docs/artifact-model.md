@@ -26,11 +26,11 @@ Where the formation of that intent matters, preserve the upstream chain explicit
 
 A **Source** identifies or captures what was actually expressed, observed, received, or mandated. Examples include a connected conversation, email, issue, meeting, contract, regulation, research result, observed behavior, stakeholder statement, or historical report.
 
-An **Understanding** is a claim about what one or more sources mean for the system. It is the right place to crystallize causally important clarification, reframing, interpretation, and remaining uncertainty.
+An **Understanding** is a claim about what one or more sources mean for the system. It is the right place to crystallize causally important clarification, reframing, interpretation, remaining uncertainty, and repository/reality findings that materially affect what change is actually needed.
 
-The source and understanding layers are deliberately not chat-specific. A connected AI conversation is simply a source that can often be captured with unusually good fidelity.
+The source and understanding layers are deliberately not chat-specific. A connected AI conversation is simply a source that can often be captured with unusually good fidelity. Direct human wording need not be crystallized immediately: for consequential work, the agent should first reflect the intended outcome back to the human, then reconcile the confirmed interpretation with relevant project reality. If existing/overlapping capability materially changes the apparent task, clarification continues before durable intent is stored.
 
-Do not create `SRC-*` and `UND-*` artifacts ceremonially for every request. Create them when origin, interpretation, disagreement, reframing, or provenance strength could plausibly matter later. For simple direct requests, the request may remain the first durable artifact.
+Do not create `SRC-*` and `UND-*` artifacts ceremonially for every request. Create them when origin, interpretation, disagreement, reframing, repository overlap, or provenance strength could plausibly matter later. For simple direct requests, the request may remain the first durable artifact **after any proportionate clarification needed to establish what the human actually wants**. Preserve raw initial wording only when that source history is causally useful.
 
 If the original source is unavailable, do not invent one. A `SRC-*` artifact may record an attributed report or historical claim with `sd:sourceAvailability sd:Unavailable` and an appropriate provenance confidence. An explicit gap is valid causal information.
 

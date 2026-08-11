@@ -25,7 +25,7 @@ Produce:
 - relevant culture sources/constraints;
 - known opaque vs characterized areas relevant to current work;
 - the best available source/understanding for current intent when material;
-- a proposal for the first bounded request to bring under Spiral Developer.
+- a proposal for the first bounded request to bring under Spiral Developer, after confirming consequential direct human intent and checking whether the capability already exists or overlaps current repository behavior.
 
 Separate explicit/evidenced/inferred/unknown legacy knowledge.
 

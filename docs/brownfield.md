@@ -29,7 +29,11 @@ Investigate a legacy area when:
 
 Migration starts with ordinary development, on a normal feature branch, not a migration project.
 
-Establish the current request and follow the normal process. When the current intent itself comes from inherited or historical claims, use `SRC-*`/`UND-*` only where that provenance matters; an unavailable original source is an acceptable explicit gap. When the work enters legacy territory, characterize only enough of that behavior to proceed safely.
+Before adding a capability to a brownfield system, reconcile the clarified intent with what the repository already provides. Search by behavior and responsibility, not only by task wording or filenames. Look for full, partial, differently exposed, or differently named implementations in code, tests, documentation, callers, Spiral artifacts, and history where useful. The first question is often not "where should we add this?" but **"what already owns or approximates this behavior?"**
+
+If that investigation changes the apparent task materially—for example from "build X" to "expose/extend/repair/reuse existing X"—return the finding to the human and confirm the revised interpretation before consequential implementation. Treat this as evidence used while forming the current Understanding, not as a mandatory new artifact.
+
+Then establish the current request and follow the normal process. When the current intent itself comes from inherited or historical claims, use `SRC-*`/`UND-*` only where that provenance matters; an unavailable original source is an acceptable explicit gap. When the work enters legacy territory, characterize only enough of that behavior to proceed safely.
 
 The first AI-native slice will mix explicit new knowledge with existing behavior whose origin is only partly understood. That is acceptable as long as the distinction remains visible.
 

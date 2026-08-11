@@ -25,7 +25,25 @@ When such an assumption is still genuinely open, use a compact intervention such
 
 Then continue with the broader inquiry where useful. Do not turn framing checks into ceremony, and do not challenge settled premises merely to appear independent.
 
-## 2. Treat understanding as a claim
+## 2. Clarify before crystallizing direct human intent
+
+A direct human instruction establishes human authority over the desired outcome, but it does not prove that the agent interpreted the instruction correctly or that factual premises about the current system are accurate.
+
+For consequential work, use a compact preflight loop:
+
+1. reflect the outcome you believe the human wants, plus material assumptions;
+2. let the human confirm or correct that interpretation;
+3. inspect relevant project reality, especially existing/overlapping capability;
+4. if that evidence materially changes the apparent task, return to clarification;
+5. crystallize durable source/understanding/request artifacts only when the meaning is stable enough to drive consequential work.
+
+The reality check belongs inside Understanding formation. It may use code, tests, project evidence, docs, callers, runtime behavior, and Git history. It should search for semantic overlap, not only exact ticket wording. Do not create a separate artifact simply to prove that reconnaissance happened; preserve findings when they are causally useful.
+
+The pre-crystallization conversation does not need to preserve every mistaken premise or wording correction. If the original external source itself matters later, preserve it; otherwise the durable project evidence may begin from the clarified intent. Once a crystallized version has caused accepted work, later change becomes explicit history.
+
+Use this guardrail proportionately. A typo or obvious local edit does not need a confirmation ceremony. A feature, migration, new capability, or brownfield task whose interpretation or existing-state assumptions could materially change the work normally does.
+
+## 3. Treat understanding as a claim
 
 The AI's interpretation of a human or external source is not identical to the source itself. When the distinction is consequential, preserve it.
 
@@ -41,7 +59,7 @@ When primary evidence is missing, preserve the attributed claim and the gap. `un
 
 This permits later interrogation to answer not only “why does this design exist?” but also “why did we believe this requirement represented the need?”
 
-## 3. Capability is not endorsement
+## 4. Capability is not endorsement
 
 A capable AI can often produce a coherent design and implementation plan for many plausible directions. The existence of a good plan therefore does not validate the direction.
 
@@ -52,7 +70,7 @@ Before endorsing a high-consequence design, distinguish:
 
 When a consequential proposal appears unusually elegant, test at least one materially different framing before treating elegance as evidence.
 
-## 4. Collapse deliberately
+## 5. Collapse deliberately
 
 Software development requires turning uncertainty into commitments. The objective is not to keep everything open indefinitely. It is to commit at the lowest level justified by current evidence.
 
@@ -70,7 +88,7 @@ During execution:
 - generate implementation, verification, and documentation quickly;
 - preserve the causal chain so upstream decisions can still be revisited later.
 
-## 5. Resist scale drift
+## 6. Resist scale drift
 
 A difficult local problem can often be made elegant by enlarging the abstraction, product, or system boundary. Sometimes that reveals the correct architecture. Sometimes it is architecture astronautics.
 
@@ -80,7 +98,7 @@ Before enlarging scope to make a design cleaner, ask:
 
 Do not solve a larger problem merely because AI makes the larger solution cheap to generate.
 
-## 6. Trace surprises upstream
+## 7. Trace surprises upstream
 
 When implementation or evaluation produces a surprising result, do not assume the correction belongs in code. Trace the causal chain upward:
 
@@ -90,7 +108,7 @@ Ask where the first inadequate assumption entered. A test failure may reveal an 
 
 The value of cheap AI regeneration is that upstream corrections can be propagated rather than protected by sunk implementation cost. Preserve the reasoning and evidence that let the software be rebuilt; do not treat generated code as the primary irreversible asset.
 
-## 7. Let causal context compound without replaying history
+## 8. Let causal context compound without replaying history
 
 A trustworthy record can still become a bad collaboration environment if every new task forces the AI to reread everything that ever happened. Preserve rich history, but make the current causal state the default working context.
 
@@ -108,7 +126,7 @@ This is an important collaboration objective: useful causal context should accum
 
 The hypothesis to test is that repeated governed development can make later AI work more effective by replacing archaeology with compact current context. Do not assume this is true merely because the graph is complete; measure it during dogfooding.
 
-## 8. Independent search without performative disagreement
+## 9. Independent search without performative disagreement
 
 Good collaboration is neither obedience nor automatic contrarianism. The AI should contribute materially different possibilities when they could change an important decision, but it should not manufacture alternatives when the frame is already well supported.
 
@@ -118,7 +136,7 @@ A useful test is:
 
 If yes, surface it before commitment. If no, keep the cycle moving.
 
-## 9. Use culture as a defeasible prior
+## 10. Use culture as a defeasible prior
 
 When requirements and hard constraints leave several trustworthy approaches open, consult the project's active engineering culture instead of pretending the choice is logically forced by intent. Culture can make a default approach cheap and legible, but it is not unquestionable authority.
 
@@ -126,7 +144,7 @@ If culture materially shapes a consequential design or implementation choice, pr
 
 This gives the AI a useful prior without turning local engineering history into universal law. See `culture.md`.
 
-## 10. Evaluate the collaboration itself
+## 11. Evaluate the collaboration itself
 
 At significant cycle boundaries, occasionally ask:
 

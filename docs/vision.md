@@ -54,7 +54,7 @@ An understanding can be corrected or superseded while the source remains unchang
 
 A design represents the current understanding of how a request should be satisfied. An implementation realizes a design. Verification provides evidence about that realization. Acceptance provides evidence that the resulting behavior answers the originating intent.
 
-Do not create source and understanding artifacts ceremonially for every simple request. Crystallize them when origin, interpretation, disagreement, or reframing could matter to later reasoning.
+Do not create source and understanding artifacts ceremonially for every simple request. For consequential direct human input, clarify the intended outcome before crystallization and reconcile that interpretation with relevant project reality, including existing or overlapping capability. Crystallize source/understanding when origin, interpretation, disagreement, reframing, or those reality findings could matter to later reasoning.
 
 When reality changes our understanding, create a new version in a new commit. Do not rewrite history to pretend later knowledge existed earlier.
 
@@ -68,7 +68,7 @@ The extended chain, where origin and interpretation are material, is:
 
 > **source evidence → understanding → request → design → implementation → verification → acceptance**
 
-A simple direct request may remain the first durable artifact. Not everything needs direct client ancestry. Supporting plumbing may exist because a design needs it. External standards may constrain a design. Culture may rule out an otherwise valid implementation. Preserve the truthful connective chain rather than inventing requirements.
+A simple direct request may remain the first durable artifact after proportionate clarification. A pasted ticket or first human wording is not automatically implementation-ready: consequential intent should be confirmed with the human and checked against relevant project reality before it drives work. Not everything needs direct client ancestry. Supporting plumbing may exist because a design needs it. External standards may constrain a design. Culture may rule out an otherwise valid implementation. Preserve the truthful connective chain rather than inventing requirements.
 
 ## 4. Let reality revise the model
 
