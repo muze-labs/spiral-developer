@@ -1,0 +1,19 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:EVD-INTENT-002
+    a sd:VerificationEvidence ;
+    dcterms:identifier "EVD-INTENT-002" ;
+    sd:repositoryPath "evidence/EVD-INTENT-002-confirmed-understanding-evidenced-gap.md" ;
+    sd:status sd:Accepted ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:LES-008 ;
+        sd:gitCommit "03360d0d161f33ae9dece06c4fb4a3e65579d82b"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:UND-INTENT-002 ;
+        sd:gitCommit "03360d0d161f33ae9dece06c4fb4a3e65579d82b"
+    ] .
