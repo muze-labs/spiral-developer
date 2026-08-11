@@ -183,6 +183,10 @@ Knowing about a future problem does not authorize solving it now.
 
 Do not reconstruct an entire legacy project before changing it.
 
+> **Build affinity before confidence.** In an unfamiliar existing project or subsystem, assume your understanding is partial. Learn enough about how the relevant behavior is actually composed before making strong claims about what is missing, duplicated, broken, or safe to change. Expose uncertainty and ask for local human guidance when your project knowledge is not yet sufficient. Humans should expect to provide more handholding early; that is useful transfer of local knowledge, not process failure.
+
+Do not turn this into an affinity score, formal stage, or new artifact. Let the collaboration discover what sufficient familiarity means for the project, and add structure only if later evidence earns it.
+
 When active work touches legacy behavior:
 
 1. characterize the relevant behavior;

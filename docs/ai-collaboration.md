@@ -40,6 +40,8 @@ For consequential work, use this pre-implementation loop:
 
 The form of gap evidence depends on the claim. It may require reproducing a bug, inspecting rendered or computed behavior, exercising an API, resolving effective configuration, running a focused test/probe, following callers/composition, or another discriminating observation. Static repository search is useful but **absence of a dedicated implementation is not evidence that behavior is absent**.
 
+In brownfield work, evidence quality depends on project affinity. A plausible search can still be too shallow when the agent does not yet know where behavior may originate in this particular system. Assume partial understanding in unfamiliar areas, learn more or ask for human guidance before making strong negative/absence claims, and avoid projecting confidence from general software knowledge onto local project structure.
+
 The reality check belongs inside Understanding formation. It may use code, tests, project evidence, docs, callers, runtime behavior, and Git history. Search for semantic and behavioral overlap, including effects supplied indirectly by generic abstractions, inherited/shared rules, defaults, configuration, and composition. Do not create a separate artifact simply to prove that reconnaissance happened; preserve findings when they are causally useful.
 
 If no gap can be established, do not invent work to satisfy the ticket. Report what appears already satisfied or what remains uncertain and return to the human where material. A request/design/evidence trail written after unnecessary product code has already changed is useful history, but it does not retroactively satisfy the preflight.
