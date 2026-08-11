@@ -2,7 +2,7 @@
 id: IMP-001
 ---
 
-# Implementation: <!-- vertical slice / capability -->
+# Implementation: <!-- capability / implementation concern -->
 
 ## Scope
 
@@ -32,7 +32,7 @@ id: IMP-001
 
 ## Important implementation decisions
 
-<!-- Only decisions that carry durable meaning not already captured by design. -->
+<!-- Only decisions that carry durable meaning not already captured by design. When an implementation form is materially influenced by active engineering culture, explain the preference/trade-off and use sd:shapedBy in Turtle. -->
 
 ## New dependencies / capabilities / permissions
 

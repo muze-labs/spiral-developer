@@ -1,8 +1,8 @@
 # Spiral Developer
 
-Spiral Developer is an AI-native software-development process for Muze projects.
+Spiral Developer is an AI-native software-development process built around **trust but verify**.
 
-It assumes AI can perform substantial design and implementation work. Human control comes from making intent, constraints, decisions, evidence, provenance, and acceptance explicit enough that the software-producing system can be inspected, challenged, and corrected.
+It assumes AI can perform substantial design and implementation work with more autonomy than conventional human-supervised coding workflows. That autonomy is justified by a verification architecture that makes intent, constraints, decisions, evidence, provenance, and acceptance explicit enough for the software-producing system to be inspected, challenged, rejected, and corrected. Permission to act is not an assumption of correctness.
 
 The extended causal chain is:
 
@@ -14,19 +14,23 @@ Source and understanding are crystallized when origin or interpretation is mater
 
 ## Working model
 
+- Give the agent broad autonomy for contained/reversible work because consequential claims are independently verifiable; move verification before actions whose consequences would be unacceptable before review.
 - Start each feature or meaningful change on its own working branch.
 - Let the AI operate the branch and create semantic commits as the work crystallizes.
 - Treat Git history as evidence: causal commits are immutable and are never rebased, squashed, amended, or force-pushed away.
+- Prevent malformed versioned provenance before it enters immutable history: validate staged historical references against current Git ancestry, then validate introduced commit ranges in CI.
 - Store human-facing sources, interpreted understanding, intent, design, observations, and evidence as small version-controlled artifacts when they are causally useful.
 - Treat requests as derived claims about intent, not unquestioned roots: preserve source and interpretation provenance when it matters, and make unavailable origins explicit rather than inventing them.
 - Store the machine-readable causal graph in Turtle so ordinary RDF tooling can inspect and query it without an AI.
 - Use Git commit hashes as artifact versions. Stable artifact IDs identify the thing; the commit identifies the historical version.
 - Distinguish current/effective implementation provenance from historical lineage. A materially revised governed `IMP-*` points to its immediate predecessor and transition cause without forcing future agents to replay the full history.
-- Get meaningful feedback from intended users as early as possible. For Muze web work this usually means frontend-first development.
+- Make active engineering culture explicit when it materially shapes an underdetermined design/implementation choice; do not confuse preference with requirement.
+- Record reusable `LES-*` lessons and allow evidence to change project practice, culture, or Spiral core prospectively rather than silently changing the process.
+- Obtain meaningful evidence before consequential commitments harden. The active culture profile may recommend a particular strategy, such as Muze's frontend-first approach for interactive web work.
 - Resolve the nearest important uncertainty and deliberately defer later risks unless they are existential.
 - Before consequential commitments, treat the question as a proposed frame: surface hidden assumptions when a materially different framing could change what should be built.
 - Distinguish **capability from endorsement**: a coherent AI-generated plan proves buildability, not that the direction is right.
-- Once the interaction model and framing are credible, implement reality in vertical slices.
+- Once the relevant uncertainty has been reduced, implement the smallest observable slice that can be verified and accepted; active culture may shape the preferred slicing strategy.
 - When a defect occurs, repair the software-producing environment at the earliest meaningful cause rather than merely patching generated output.
 - Integrate completed work through a pull request evaluated by automated checks and human review.
 
@@ -41,18 +45,20 @@ Source and understanding are crystallized when origin or interpretation is mater
 **Canonical process and semantics:**
 
 - [`docs/vision.md`](docs/vision.md) — why this process exists.
+- [`docs/trust-model.md`](docs/trust-model.md) — trust-but-verify, agent autonomy, and when verification must become a pre-action gate.
 - [`docs/process.md`](docs/process.md) — the normative development lifecycle.
 - [`docs/ai-collaboration.md`](docs/ai-collaboration.md) — inquiry vs execution, framing resistance, and upstream correction.
 - [`docs/artifact-model.md`](docs/artifact-model.md) — what is recorded and what the causal relations mean.
 - [`docs/git-workflow.md`](docs/git-workflow.md) — feature branches, immutable commits, PRs, and merge-only history.
+- [`docs/causal-validation.md`](docs/causal-validation.md) — pre-commit prevention, strict Git-ancestry invariants, range validation, and history audits.
 - [`docs/rdf-graph.md`](docs/rdf-graph.md) — Turtle representation of the causal graph.
 - [`docs/implementation-lineage.md`](docs/implementation-lineage.md) — effective provenance, implementation history, and bounded agent context across repeated changes.
+- [`docs/culture.md`](docs/culture.md) — explicit, versioned, defeasible engineering culture as causal influence.
+- [`docs/process-evolution.md`](docs/process-evolution.md) — first-class lessons, scope/promotion, and changing the process without falsifying its past.
 - [`docs/brownfield.md`](docs/brownfield.md) — how to introduce the process into existing projects.
 - [`docs/review.md`](docs/review.md) — automated and human review at the pull-request boundary.
 
-Muze's organization-wide engineering principles remain an important culture source:
-
-`https://github.com/muze-nl/.github/blob/main/maturity-policy.md`
+Spiral core is intentionally separated from organization-specific engineering preferences. The repository ships a first explicit Muze profile at [`cultures/muze-engineering.md`](cultures/muze-engineering.md); projects may adopt, extend, replace, or decline it.
 
 ## Repository structure
 
@@ -64,12 +70,16 @@ spiral-developer/
   docs/
     quickstart.md
     vision.md
+    trust-model.md
     process.md
     ai-collaboration.md
     artifact-model.md
     git-workflow.md
+    causal-validation.md
     rdf-graph.md
     implementation-lineage.md
+    culture.md
+    process-evolution.md
     brownfield.md
     review.md
     redesign-notes.md
@@ -79,6 +89,10 @@ spiral-developer/
   examples/
     causal-graph.ttl
   templates/
+    ...
+  cultures/
+    ...
+  lessons/
     ...
   catalogs/
     ...

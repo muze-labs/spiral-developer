@@ -1,0 +1,10 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix lesson: <https://muze.nl/ns/spiral-developer/lessons/> .
+
+lesson:LES-002
+    a sd:Lesson ;
+    dcterms:identifier "LES-002" ;
+    sd:repositoryPath "lessons/LES-002-process-must-learn.md" ;
+    sd:status sd:Active ;
+    sd:provenanceConfidence sd:Explicit .

@@ -32,7 +32,7 @@ Effective provenance answers:
 
 > **Which reasons still justify the current semantics?**
 
-For an implementation, this is represented by its current-purpose causal relations such as `sd:implements`, `sd:derivedFrom`, `sd:supports`, and `sd:constrainedBy`.
+For an implementation, this is represented by its current-purpose causal relations such as `sd:implements`, `sd:derivedFrom`, `sd:supports`, `sd:constrainedBy`, and material `sd:shapedBy` culture influence. `sd:shapedBy` explains why an acceptable form was chosen; it does not turn the culture preference into a hard requirement.
 
 Do not infer current justification merely because an old cause is reachable through history.
 
@@ -80,6 +80,8 @@ Additionally:
 > **The current implementation version must preserve the effective causal references that still justify its current semantics and remove or supersede those that no longer do.**
 
 These rules are intentionally prospective. Brownfield adoption must not invent lineage that cannot be established.
+
+Every `sd:transforms` and `sd:changeCausedBy` reference is also a versioned historical reference for integrity purposes: once persisted, its target commit must be a strict Git ancestor of the implementation version containing it. This does not make those relations current causal justification. See `causal-validation.md`.
 
 Do not create lineage events for formatting-only, generated-noise, or other changes that do not materially revise a tracked implementation unit.
 

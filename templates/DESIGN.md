@@ -12,6 +12,10 @@ id: DES-001
 
 <!-- Explain the human-readable causal reason: request outcome, feedback, risk, legacy constraint, culture principle, external constraint, or technical support. Exact versioned links live in the companion Turtle resource. -->
 
+## Cultural influence / constraints
+
+<!-- If culture materially shaped *how* this design was chosen, name the preference and trade-off. Canonical exact-version `sd:shapedBy` / `sd:constrainedBy` links live in Turtle. -->
+
 ## Behavior / responsibilities
 
 ## Boundaries
@@ -36,7 +40,7 @@ What change should this boundary protect us from:
 |---|---|---|
 | | | |
 
-## Simplicity / maintainability check
+## Complexity / maintainability check
 
 - Concepts introduced:
 - Dependencies introduced:

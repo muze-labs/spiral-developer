@@ -14,6 +14,11 @@ project:IMP-001
         sd:gitCommit "0000000000000000000000000000000000000000"
     ] .
 
+# If an active culture preference materially explains why this acceptable
+# implementation form was chosen, add an exact-version sd:shapedBy reference,
+# preferably with a stable principle fragment. Do not use shapedBy as a hard
+# constraint or add it ceremonially.
+
 # On a later material revision of this governed implementation, retain the
 # current effective causal references above and add transition metadata:
 #

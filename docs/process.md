@@ -4,9 +4,11 @@ This is the normative Spiral Developer lifecycle for feature work.
 
 The process is iterative, not a waterfall. Upstream artifacts may be revised when reality teaches us something new. The purpose of traceability is to make those revisions and their consequences explicit.
 
+Spiral operates on a **trust-but-verify** model. Give the agent substantial freedom for contained and reversible work because the verification architecture provides evidence and governance boundaries. Move verification or human authorization before actions whose unacceptable consequences could occur before the normal review boundary. See `trust-model.md`.
+
 ## 1. Create a working branch
 
-Start each feature or meaningful change on a dedicated branch from the current authoritative branch.
+Start each feature or meaningful change on a dedicated branch from the current authoritative branch. Before consequential design or implementation, load the current project context and any explicitly adopted culture profile(s). Culture guides underdetermined choices; it does not override requests, evidence, or hard constraints merely because it is active.
 
 Prefer:
 
@@ -15,6 +17,8 @@ spiral/<request-id>-<short-name>
 ```
 
 The branch is an evolving proposed reality. The authoritative branch remains accepted project reality.
+
+Before each semantic causal commit that introduces or changes versioned references, validate the staged causal graph where tooling exists. A malformed historical reference should be prevented before it becomes immutable evidence, not merely detected afterward. CI then validates the introduced commit range as a backstop. See `causal-validation.md`.
 
 See `git-workflow.md`.
 
@@ -76,13 +80,13 @@ Classify risks by horizon:
 
 Resolve the blocker or nearest risk. Record later risks. Pull a deferred risk forward only if it can invalidate the current direction.
 
-## 5. Seek meaningful interaction
+## 5. Seek decision-quality evidence
 
-Where product intent or interaction is uncertain, build the cheapest artifact that can elicit high-quality reality-based feedback from the intended audience.
+Where product intent or interaction is uncertain, build or obtain the cheapest artifact/observation that can elicit high-quality reality-based feedback from the intended audience. Where the nearest uncertainty is technical, operational, legal, security-related, or otherwise non-interactional, choose the evidence-producing probe appropriate to that uncertainty.
 
-For ordinary Muze web work, use frontend-first development: create enough functioning UI for intended users to spend real time with the feature.
+The active culture profile may shape *how* the project usually seeks that evidence. For example, the Muze culture profile prefers frontend-first probes for ordinary interactive web work. Treat that as a defeasible preference, not a Spiral invariant.
 
-Optimize for behavioral fidelity and learning, not visual polish, generic usability work, production infrastructure, or speculative completeness unless those are required for meaningful interaction.
+Optimize for reducing the current uncertainty rather than polish, infrastructure, or speculative completeness unless those are necessary for the evidence being sought.
 
 Record observations separately from interpretation. If feedback changes what the project believes the source or user need means, create or revise the relevant `UND-*` artifact and then revise the request when the operationalized outcome changes. Do not rewrite the older understanding or request.
 
@@ -94,7 +98,7 @@ Each significant design element should be able to explain why it exists:
 
 - which request outcome it satisfies;
 - which feedback changed it;
-- which culture/external/legacy constraint restricts it;
+- which culture influenced its chosen form and which culture/external/legacy constraint actually restricts it;
 - which risk it addresses;
 - which other design it technically supports.
 
@@ -102,15 +106,11 @@ Supporting plumbing does not need invented client ancestry. Preserve the truthfu
 
 Commit design decisions at meaningful causal boundaries. Record their links to exact upstream Git versions in the design companion Turtle resource.
 
-## 7. Implement reality in vertical slices
+## 7. Implement the smallest observable real slice
 
-Once the interaction model is credible enough, replace simulation with reality through the smallest useful vertical slice.
+Once the relevant hypothesis is credible enough, replace simulation with the smallest useful amount of real implementation that can produce evidence about the intended behavior/property. The active culture profile may prefer a particular strategy; Muze commonly prefers thin vertical slices for product work.
 
-A slice should connect enough of the actual system to produce observable behavior, for example:
-
-> **interface → domain behavior → state → integration → observable result**
-
-Keep implementation causally connected to the design it realizes. Avoid unrelated cleanup and speculative future architecture.
+Keep implementation causally connected to the design it realizes and record material cultural influence with `sd:shapedBy` when that explains why one acceptable implementation form was chosen over another. Avoid unrelated cleanup and speculative future architecture.
 
 When changing an already governed `IMP-*` unit, treat the current implementation resource as a compact checkpoint. Preserve current effective causal references that remain valid, update those whose semantics are actually superseded, and add:
 
@@ -159,14 +159,15 @@ The PR should expose:
 - source/understanding provenance when material;
 - request/version;
 - significant feedback;
-- design/version;
+- design/version, including material `sd:shapedBy` culture influence;
 - implementation commits, current effective provenance, and lineage/transition metadata for revised governed implementation units;
 - verification;
 - acceptance;
 - new dependencies;
 - legacy assumptions/confidence;
 - deferred risks;
-- unresolved questions.
+- unresolved questions;
+- lessons learned when this cycle produced a reusable `LES-*` claim.
 
 CI evaluates mechanical and executable claims. Human review evaluates meaning, judgment, risk, and sufficiency of evidence.
 
@@ -192,9 +193,15 @@ Possible root causes include missing or weak source evidence, source misinterpre
 
 Fix the earliest meaningful cause and create new commits. Never amend old causal history to make it appear that the correct understanding existed earlier.
 
+If the defect is an invalid causal/historical reference that already entered Git history, preserve the violating commit, record the detection and correction prospectively, and repair the production environment so equivalent references are rejected before future semantic commits. A later correction may make the current snapshot valid; it does not make the earlier historical reference valid.
+
 When the defect does not fit the current request/design model cleanly, explicitly ask whether the problem is in the implementation **or in the framing that produced the implementation**. Cheap regeneration is a reason to repair upstream assumptions, not a reason to protect already-generated code.
 
 ## Process learning
+
+At the end of a significant cycle, ask whether the experience contains a reusable lesson. When an observation could plausibly change future work, capture it as a `LES-*` artifact rather than relying on memory or silently changing agent instructions.
+
+A lesson is a defeasible generalization, not automatically a new rule. Apply it first at the narrowest justified scope: project practice, then culture profile when it describes a repeated preference, and only then Spiral core when it changes a general trust/process invariant. Preserve process/culture changes prospectively so older decisions remain explainable under the versions active when they were made. See `process-evolution.md`.
 
 At the end of a significant cycle ask:
 
@@ -213,4 +220,4 @@ At the end of a significant cycle ask:
 - Which artifacts/links were useful?
 - Which bookkeeping was ceremonial?
 
-The process itself should improve from evidence.
+The process itself should improve from evidence. Lessons should also be evaluated later and may be refined, superseded, or retired when experience contradicts them.

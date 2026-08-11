@@ -9,7 +9,7 @@ A practical initial structure is:
 ```text
 .spiral/
   project.ttl
-  culture.md
+  culture.md              # only when a local/adopted culture will shape decisions
   culture.ttl
   project-context.md
   sources/
@@ -23,15 +23,18 @@ A practical initial structure is:
   legacy/
   defects/
   cycles/
+  lessons/
 ```
 
 Copy only templates that will be used. Do not create empty artifacts for completeness.
 
-Start `.spiral/project.ttl` from `templates/PROJECT.ttl` and `.spiral/culture.ttl` from `templates/CULTURE.ttl`. Create other companion `.ttl` resources beside human-facing artifacts as they are introduced; `examples/causal-graph.ttl` shows the logical RDF union.
+Start `.spiral/project.ttl` from `templates/PROJECT.ttl`. Create `.spiral/culture.md` / `.spiral/culture.ttl` only when a culture profile will materially shape choices; use `templates/CULTURE.*` as the starting point. Create other companion `.ttl` resources beside human-facing artifacts as they are introduced; `examples/causal-graph.ttl` shows the logical RDF union.
 
-## 2. Establish culture and project context
+## 2. Establish project context and active culture
 
-Capture durable project context and point at organization/project principles the agent should preserve.
+Capture durable project context. Explicitly adopt organization/project culture only when it should influence underdetermined engineering choices. A culture profile is defeasible guidance, not a hidden Spiral requirement. Use `sd:adoptsCulture` when exact culture-version provenance matters.
+
+The repository ships a first Muze profile at `cultures/muze-engineering.md`; copying or pinning it into a project is an explicit choice, not a default requirement. See `culture.md`.
 
 Do not attempt to reconstruct complete project history.
 
@@ -43,7 +46,7 @@ Create a branch from the authoritative branch, normally:
 spiral/REQ-001-short-name
 ```
 
-From here onward, normal causal commits are immutable evidence.
+From here onward, normal causal commits are immutable evidence. Before committing changed Spiral Turtle, run staged/pre-commit causal-reference validation when available; after commit, CI should validate the introduced commit range. See `causal-validation.md`.
 
 ## 4. Capture origin, understanding, and request as needed
 
@@ -69,11 +72,11 @@ Classify risks as blocker, near-term, deferred, or existential.
 
 Resolve the blocker/near-term risk. Record later risks. Pull a deferred risk forward only if it can invalidate the current direction.
 
-## 6. Get meaningful interaction early
+## 6. Get decision-quality evidence early
 
-For normal Muze web work, create functioning UI quickly enough that intended users can spend real time with the feature.
+Use the smallest realistic probe that can reduce the nearest important uncertainty. For projects adopting the Muze culture profile, interactive web work will often use a frontend-first probe; another project or another kind of uncertainty may need a different strategy.
 
-Optimize first for behavioral fidelity and learning, not polish.
+Optimize first for evidence and learning, not polish or speculative completeness.
 
 Record important feedback. If it changes the interpretation of the need, update or supersede the relevant `UND-*` artifact first; if the operationalized outcome changes, commit a new request state. Never rewrite the earlier causal history.
 
@@ -83,9 +86,9 @@ Create a design artifact from `templates/DESIGN.md` and a companion Turtle resou
 
 Commit the design + companion Turtle resource.
 
-## 8. Implement a real vertical slice
+## 8. Implement the smallest useful real slice
 
-Implement the smallest useful real path.
+Implement the smallest useful real path that can be verified against the current design/need. Let active culture shape the preferred slicing style where relevant, and record material `sd:shapedBy` influence.
 
 Represent the implementation as an `IMP-*` Turtle resource when it is useful to trace as a unit; `templates/IMPLEMENTATION.ttl` is the starting point. Link it to the exact design commit and use repeatable `sd:implementationLocation` locators when code-location interrogation will be useful. Multiple `IMP-*` concerns may overlap on the same location.
 
@@ -105,7 +108,7 @@ Commit these as subsequent causal steps so their upstream hashes already exist.
 
 Fill the PR with the causal case, not merely the code summary.
 
-Run normal project CI plus any graph checks available.
+Run normal project CI plus graph checks. Prefer validation over the introduced commit range, not only the final snapshot; a later correction must not hide an invalid historical reference that entered the branch earlier.
 
 A human reviews source/understanding provenance where material, intent, design, evidence, risk, and behavior. Direct code review is used where it provides valuable evidence.
 
@@ -130,6 +133,8 @@ After the feature is merged, ask:
 - Could a defect or disagreement be traced to the correct upstream layer?
 - Could current implementation justification be distinguished from historical reasons that had been superseded?
 - On a repeated change to a governed area, how much old history did the agent actually need to reload?
-- Did the code remain simple and economical to change?
+- Did active culture explain any underdetermined design/implementation choice, and was it distinguishable from a hard constraint?
+- Did any lesson from the cycle deserve a `LES-*` artifact, and at what scope?
+- Did the implementation remain economical to understand, verify, and change under the project's chosen culture?
 
 Adjust the process before adding more automation.

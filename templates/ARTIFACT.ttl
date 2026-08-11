@@ -4,7 +4,7 @@
 
 # Copy next to the corresponding human-facing artifact, for example:
 # `.spiral/designs/DES-001.ttl` beside `.spiral/designs/DES-001.md`.
-# Replace the class, ID, path, and causal relations. Source artifacts also declare `sd:sourceAvailability`; Understanding artifacts commonly use `sd:interprets`; Requests commonly `sd:derivedFrom` a material Understanding. Revised Implementation artifacts may also use `sd:implementationLocation`, `sd:transforms`, `sd:changeCausedBy`, and `sd:implementationChangeKind`; see docs/implementation-lineage.md.
+# Replace the class, ID, path, and causal relations. Source artifacts also declare `sd:sourceAvailability`; Understanding artifacts commonly use `sd:interprets`; Requests commonly `sd:derivedFrom` a material Understanding. Designs/implementations may use `sd:shapedBy` for material cultural influence, and ProjectContext may use `sd:adoptsCulture` for active profiles. Revised Implementation artifacts may also use `sd:implementationLocation`, `sd:transforms`, `sd:changeCausedBy`, and `sd:implementationChangeKind`; see docs/implementation-lineage.md.
 
 project:DES-001
     a sd:Design ;

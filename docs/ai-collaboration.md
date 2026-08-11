@@ -118,7 +118,15 @@ A useful test is:
 
 If yes, surface it before commitment. If no, keep the cycle moving.
 
-## 9. Evaluate the collaboration itself
+## 9. Use culture as a defeasible prior
+
+When requirements and hard constraints leave several trustworthy approaches open, consult the project's active engineering culture instead of pretending the choice is logically forced by intent. Culture can make a default approach cheap and legible, but it is not unquestionable authority.
+
+If culture materially shapes a consequential design or implementation choice, preserve that influence. If more specific evidence or constraints justify a different approach, choose differently and explain why rather than silently ignoring or mechanically obeying the profile.
+
+This gives the AI a useful prior without turning local engineering history into universal law. See `culture.md`.
+
+## 10. Evaluate the collaboration itself
 
 At significant cycle boundaries, occasionally ask:
 

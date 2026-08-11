@@ -9,13 +9,14 @@ The AI should prepare a concise review surface containing:
 - **Source / understanding** — when material, the origin evidence, interpretation that produced intent, exact versions, and any unavailable primary provenance.
 - **Request** — artifact ID and exact Git version(s).
 - **Feedback** — important intended-user observations that changed understanding.
-- **Design** — important design artifacts and versions.
+- **Design** — important design artifacts and versions, including material cultural influence when it explains why one acceptable approach was chosen.
 - **Implementation** — semantic implementation commits, affected capabilities, current effective provenance, and lineage/transition metadata for revised governed units.
 - **Verification** — evidence that implementation realizes design.
 - **Acceptance** — evidence that behavior satisfies request intent.
 - **Legacy context** — reconstructed constraints and confidence where applicable.
 - **New dependencies** — additions and why they are justified.
 - **Deferred risks** — known issues deliberately not solved now.
+- **Lessons** — new `LES-*` observations that may change future project practice/culture/process, when the cycle produced one.
 - **Unresolved questions** — anything the reviewer must understand before acceptance.
 
 The PR template in `.github/pull_request_template.md` is a starting point, not a bureaucratic form.
@@ -30,11 +31,14 @@ Useful checks include:
 - Turtle syntax parsing;
 - SHACL validation of the causal graph;
 - all referenced full Git hashes exist in repository history;
+- staged/pre-commit historical references are prevented from pointing outside current `HEAD` ancestry;
+- introduced commit ranges are checked version-by-version so a bad reference cannot be hidden by later removal;
 - referenced artifact IDs exist;
 - referenced repository paths existed at the claimed commit where practical;
 - no required causal edge is missing for accepted design/evidence artifacts;
 - governed implementation revisions with `sd:transforms` declare a change kind and, for prospective/non-unknown revisions, a transition cause;
-- lineage references resolve to real historical implementation versions and do not point forward in Git history;
+- all `sd:historicalReference` relations resolve backward in Git history; strict ancestry is the primary DAG invariant, while generic cycle detection is only defensive;
+- lineage references resolve to real historical implementation versions without being mistaken for current causal justification;
 - acceptance criteria were not silently weakened after implementation without a traceable upstream reason;
 - new dependencies or widened permissions are surfaced.
 
@@ -56,12 +60,14 @@ Ask:
 8. Does verification test the design claim rather than simply mirror implementation?
 9. Does acceptance actually demonstrate the request outcome?
 10. Are assumptions and legacy inferences represented honestly?
-11. Are complexity, dependencies, and new boundaries justified?
+11. Are complexity, dependencies, and new boundaries justified? Where requirements underdetermined the choice, is material culture influence explicit and distinguishable from a hard constraint?
 12. Have deferred risks stayed deferred unless evidence required otherwise?
 13. Can we trace a surprising result back through the production system, including above the request layer when necessary?
 14. For revised governed implementation, can we distinguish current effective justification from historical lineage and transition causes?
 15. Did a refactor preserve lineage even when behavior was intended to remain unchanged?
 16. Is old history being loaded only when needed, or has provenance bookkeeping begun to make normal agent context grow with codebase age?
+17. Did this cycle reveal a reusable lesson, and is its proposed scope no broader than the evidence supports?
+18. Does the autonomy used in this change stay inside a verification/reversibility envelope appropriate to its consequences?
 
 Code review remains available and important when direct inspection is the best evidence for a risky or subtle claim. It is not the only route to human control.
 

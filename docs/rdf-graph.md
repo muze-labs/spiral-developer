@@ -188,6 +188,14 @@ Spiral Developer avoids the circularity:
 
 This naturally encourages semantic causal commit boundaries.
 
+## Versioned historical-reference invariant
+
+Relations that point to exact prior artifact versions are grouped under `sd:historicalReference`. This is an integrity category, not a claim that all such relations have the same causal meaning.
+
+For every persisted source version, the referenced target commit must be a **strict Git ancestor** of the source commit. Causal provenance (`sd:causalReference` and its subproperties), implementation lineage (`sd:transforms`), and transition provenance (`sd:changeCausedBy`) all obey this historical rule.
+
+This backward-only Git-ancestry invariant makes the versioned reference graph a DAG by construction. Conceptual artifact identities may recur across revisions without creating a versioned cycle. Validate staged changes before commit and introduced commit ranges in CI; see `causal-validation.md`.
+
 ## Canonical relations
 
 The vocabulary includes:
@@ -197,13 +205,15 @@ The vocabulary includes:
 - `sd:satisfies`
 - `sd:supports`
 - `sd:constrainedBy`
+- `sd:shapedBy`
+- `sd:adoptsCulture`
 - `sd:implements`
 - `sd:verifies`
 - `sd:accepts`
 - `sd:observes`
 - `sd:supersedes`
 
-Each relation points to an `sd:ArtifactReference` when an exact historical upstream version matters.
+Each relation points to an `sd:ArtifactReference` when an exact historical upstream version matters. `sd:shapedBy` is current explanatory provenance for a defeasible culture influence; `sd:adoptsCulture` records which culture profile/version project context intentionally made active. Neither turns a preference into a hard constraint. See `culture.md`.
 
 Implementation history also uses two deliberately separate relations:
 

@@ -1,0 +1,10 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix lesson: <https://muze.nl/ns/spiral-developer/lessons/> .
+
+lesson:LES-003
+    a sd:Lesson ;
+    dcterms:identifier "LES-003" ;
+    sd:repositoryPath "lessons/LES-003-culture-is-provenance.md" ;
+    sd:status sd:Active ;
+    sd:provenanceConfidence sd:Explicit .

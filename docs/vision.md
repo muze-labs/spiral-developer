@@ -1,4 +1,4 @@
-# Muze AI-Native Development Vision
+# Spiral Developer Vision
 
 ## Purpose
 
@@ -6,7 +6,7 @@ Software development is changing more fundamentally than simply becoming faster.
 
 Current AI systems can already produce substantial amounts of useful software with relatively little direct human implementation. The limiting factor increasingly becomes whether the AI operates inside an environment that makes intent, desired properties, constraints, evidence, and prior decisions legible.
 
-Muze's goal is therefore not to insert AI into the old development process. It is to develop an **AI-native software-development process** in which humans remain responsible for intent, judgment, meaningful feedback, and accountability while AI performs an increasing share of design exploration, implementation, verification, documentation, and traceability bookkeeping.
+Spiral Developer's goal is not to insert AI into an old development process. It is to provide an **AI-native software-development process** in which humans remain responsible for intent, judgment, meaningful feedback, and accountability while AI performs an increasing share of design exploration, implementation, verification, documentation, and traceability bookkeeping.
 
 The central artifact is not merely source code.
 
@@ -20,17 +20,23 @@ A useful principle is:
 
 See [`ai-collaboration.md`](ai-collaboration.md).
 
+## Trust model: autonomy through verification
+
+Spiral Developer is deliberately a **trust-but-verify** process. It gives a capable agent substantial freedom to investigate, design, implement, test, document, maintain provenance, and operate a feature branch because the surrounding process is designed to verify consequential claims before they become authoritative.
+
+> **Autonomy is earned by verification architecture, not by confidence in the agent.**
+
+For contained and reversible work, verification can often happen after the agent acts but before merge or deployment. For actions whose consequences would be unacceptable before review, the verification or human-authorization boundary must move before the action. Human authority therefore governs meaning, risk, and irreversible consequences without requiring routine micromanagement of every generated line.
+
+See [`trust-model.md`](trust-model.md).
+
 ## 1. Start with meaningful feedback
 
-Software development depends on short feedback loops. Useful feedback becomes much stronger when the intended audience interacts meaningfully with something that behaves enough like the requested system to provoke real behavior.
+Trustworthy development needs evidence before consequential assumptions harden. Where user/product intent is uncertain, seek the cheapest artifact or observation capable of producing high-quality reality-based feedback. Where the uncertainty is technical, operational, legal, or security-related, a different evidence-producing probe may be more appropriate.
 
-For much of Muze's work this leads to **frontend-first development**.
+> **Build the cheapest artifact capable of producing evidence strong enough for the next consequential decision.**
 
-The first goal is to create an interactive representation quickly enough that intended users can spend meaningful time with it. At this stage optimize for learning and working feature behavior, not visual polish, complete usability work, production architecture, or infrastructure unless those are necessary for meaningful interaction.
-
-Frontend-first is a specific instance of a broader principle:
-
-> **Build the cheapest artifact capable of producing high-quality reality-based feedback.**
+Specific strategies for doing that—such as frontend-first development—belong in an active engineering culture profile rather than Spiral core. See [`culture.md`](culture.md).
 
 ## 2. Treat intent formation as part of the causal system
 
@@ -92,9 +98,9 @@ Classify risks by horizon: blocker, near-term, deferred, existential.
 
 Do not solve later-cycle risks merely because AI makes speculative engineering cheap. Pull them forward only when they can invalidate the current direction.
 
-## 7. Build reality in vertical slices
+## 7. Build the smallest useful real slice
 
-Once the interaction model has survived enough contact with users, replace simulation with reality through thin vertical slices that produce observable behavior.
+Once the relevant hypothesis has survived enough evidence, replace simulation with the smallest real implementation slice that can produce an observable/verifiable result. The active culture profile may prefer a particular slicing strategy; Spiral core requires the slice to remain causally connected and evidentially useful, not that it be vertically structured in every project.
 
 Each slice should remain connected to the request and design that justify it and to the evidence that will tell us it works.
 
@@ -136,15 +142,13 @@ Auditability means:
 
 > **We can explain why the system became what it is, what evidence justified accepting it, and what must change when it proves wrong.**
 
-## 11. Simplicity and maintainability remain constraints
+## 11. Complexity must remain explainable and verifiable
 
-AI can create complexity much faster than humans. It does not make complexity free.
+AI can create complexity much faster than humans. It does not make complexity free. Complexity increases the context, reasoning, verification, and intervention needed for later changes.
 
-Complexity increases the context, reasoning, verification, and intervention needed for later changes. Eventually even AI cannot economically extend a sufficiently tangled system.
+Spiral core therefore requires consequential complexity, dependencies, and boundaries to be justified and auditable. It does **not** prescribe one universal architectural aesthetic when several trustworthy choices remain available. Preferences such as small decoupled components, browser-native mechanisms, replaceable dependencies, or simplicity over completeness belong in engineering culture profiles unless a project promotes one into an explicit constraint.
 
-Prefer fewer concepts, small decoupled components, clear boundaries, replaceable dependencies, browser-native mechanisms where appropriate, and a thin application layer.
-
-A useful long-term measure of maintainability is:
+A useful long-term diagnostic remains:
 
 > **How much agent computation and human intervention does the next correct change require?**
 
@@ -196,7 +200,7 @@ Humans should spend their scarce attention on meaning, judgment, and reality.
 
 ## 16. What we are trying to build
 
-The immediate goal is not a universal platform. First establish a working Muze process that can:
+The immediate goal is not a universal platform. First establish a working process that can:
 
 1. capture and version materially relevant sources, understanding, and intent;
 2. expose consequential framing assumptions before they harden;
@@ -205,7 +209,7 @@ The immediate goal is not a universal platform. First establish a working Muze p
 5. collect meaningful feedback;
 6. revise understanding without losing history;
 7. derive a traceable design;
-8. implement reality in vertical slices;
+8. implement the smallest useful real slice with its shaping culture/constraints explicit where material;
 9. preserve effective implementation provenance and lineage across repeated material revisions;
 10. keep routine agent context bounded while historical implementation remains queryable;
 11. connect verification to design;
@@ -220,4 +224,4 @@ Only after this works convincingly should it become a larger harness.
 
 ## Working principle
 
-> **Muze develops software by maintaining a short, reality-driven feedback loop between human intent and working systems. Intent itself is traceable when it matters: source evidence, interpretation, and request remain distinguishable. During inquiry, consequential questions remain open to reframing; during execution, AI performs much of the development work and preserves both the causal chain connecting understanding, request, design, implementation, and evidence and the implementation lineage that carries those causes through time. Current justification stays compact; history stays queryable. When the result fails, repair the earliest faulty part of that system rather than merely patching its output.**
+> **Spiral Developer gives an AI agent substantial freedom inside a verifiable production environment. Intent is traceable when it matters: source evidence, interpretation, and request remain distinguishable. Consequential choices preserve not only what required the result, but also the culture, constraints, and evidence that shaped how it was produced. Current justification stays compact; history and evolving beliefs remain queryable. When reality changes our understanding, revise the relevant artifact, culture, lesson, or process prospectively rather than falsifying the past.**

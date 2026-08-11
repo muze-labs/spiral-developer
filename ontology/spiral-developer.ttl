@@ -26,6 +26,7 @@ sd:Defect a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Defect" .
 sd:Cycle a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Cycle" .
 sd:ExternalConstraint a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "External constraint" .
 sd:Risk a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Risk" .
+sd:Lesson a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Lesson" ; rdfs:comment "Evidence-informed, defeasible generalization that may change project practice, culture, or the Spiral process." .
 
 sd:ArtifactReference a rdfs:Class ;
     rdfs:label "Artifact reference" ;
@@ -85,7 +86,14 @@ sd:riskHorizon a rdf:Property ;
     rdfs:range sd:RiskHorizon ;
     rdfs:label "risk horizon" .
 
+sd:historicalReference a rdf:Property ;
+    rdfs:domain sd:Artifact ;
+    rdfs:range sd:ArtifactReference ;
+    rdfs:label "historical version reference" ;
+    rdfs:comment "Reference to an exact artifact version that must already exist in Git history when the referring artifact version is committed. This groups integrity semantics without implying that every historical relation is current causal justification." .
+
 sd:causalReference a rdf:Property ;
+    rdfs:subPropertyOf sd:historicalReference ;
     rdfs:domain sd:Artifact ;
     rdfs:range sd:ArtifactReference ;
     rdfs:label "causal reference" .
@@ -95,6 +103,8 @@ sd:interprets a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:labe
 sd:satisfies a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "satisfies" .
 sd:supports a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "supports" .
 sd:constrainedBy a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "constrained by" .
+sd:shapedBy a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "shaped by" ; rdfs:comment "A current design or implementation choice was materially influenced by this exact culture/preference version without implying that the preference was a hard constraint." .
+sd:adoptsCulture a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:domain sd:ProjectContext ; rdfs:label "adopts culture" ; rdfs:comment "Links project context to an exact culture profile/version that is intentionally active for the project." .
 sd:implements a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "implements" .
 sd:verifies a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "verifies" .
 sd:accepts a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "accepts" .
@@ -104,12 +114,14 @@ sd:supersedes a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:labe
 # Implementation-history relations are deliberately separate from sd:causalReference.
 # They explain evolution through time, not which causes still justify current semantics.
 sd:transforms a rdf:Property ;
+    rdfs:subPropertyOf sd:historicalReference ;
     rdfs:domain sd:Implementation ;
     rdfs:range sd:ArtifactReference ;
     rdfs:label "transforms" ;
     rdfs:comment "Links an implementation version to the exact predecessor implementation version(s) it materially revised, moved, replaced, split, merged, or refactored." .
 
 sd:changeCausedBy a rdf:Property ;
+    rdfs:subPropertyOf sd:historicalReference ;
     rdfs:domain sd:Implementation ;
     rdfs:range sd:ArtifactReference ;
     rdfs:label "change caused by" ;

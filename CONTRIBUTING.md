@@ -2,7 +2,7 @@
 
 This document is the human collaborator's operational guide.
 
-Spiral Developer changes who performs much of the implementation work, but it does not remove human authority over meaning, risk, and acceptance.
+Spiral Developer changes who performs much of the implementation work, but it does not remove human authority over meaning, risk, and acceptance. It is deliberately a **trust-but-verify** process: the agent is given broad freedom for contained work because the process is designed to make consequential claims independently inspectable before they become authoritative.
 
 ## The short version
 
@@ -11,7 +11,7 @@ For a normal feature or change:
 1. Start from the current need and its best available source; let the AI crystallize a request and, where interpretation matters, the understanding that produced it.
 2. Let Spiral Developer create and operate a feature branch.
 3. Give feedback about intent, behavior, constraints, trade-offs, and observed problems rather than micromanaging code generation. Treat exploratory proposals as hypotheses when you want independent search rather than simple execution.
-4. When intended-user feedback matters, evaluate a working interactive artifact early.
+4. When evidence is needed before commitment, evaluate the smallest realistic probe appropriate to the uncertainty; follow the active culture profile where it helps choose that probe.
 5. Let the AI maintain the causal artifacts, Turtle graph, tests/evidence, and Git commits.
 6. Review the pull request as a proposal to admit a complete causal history into the authoritative branch.
 7. Merge with a normal merge commit. Never squash or rebase causal history.
@@ -28,6 +28,8 @@ Humans retain authority over:
 - final acceptance where the project requires human responsibility.
 
 This does **not** require a human to read every generated line of code.
+
+The human role is not to approve every intermediate agent action. For reversible branch-contained work, let the agent operate and verify the resulting causal case. Move human authorization earlier only when consequences would be unacceptable before review or cannot be adequately reversed.
 
 The human review question is broader:
 
@@ -46,6 +48,12 @@ spiral/REQ-017-account-deactivation
 The AI should create the branch and routine commits when its tools and permissions allow it.
 
 The first crystallized commit should normally capture the current request or the smallest missing upstream artifact needed to make the work causally grounded. When source provenance or interpretation is consequential, that may be a `SRC-*` source or `UND-*` understanding before the request.
+
+## Engineering culture
+
+Not every implementation choice is dictated by a requirement. A project may explicitly adopt organization, team, client, or local `CUL-*` culture profiles. These express defeasible preferences about how to choose among several trustworthy options.
+
+When reviewing a consequential choice, it is legitimate to ask both “what required this?” and “why did we choose this particular approach?” The second answer may be culture. Culture can change prospectively without rewriting why older software was built under an earlier profile. See `docs/culture.md`.
 
 ## During development
 

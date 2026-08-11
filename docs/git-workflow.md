@@ -48,12 +48,22 @@ Create a commit when a development fact has crystallized enough to become useful
 - current request captured;
 - meaningful feedback recorded;
 - design decision established;
-- vertical slice implemented;
+- meaningful observable implementation slice established;
 - verification evidence established;
 - acceptance evidence recorded;
 - root-cause correction made.
 
 Downstream commits can then refer to the exact upstream commit hash.
+
+### Validate before the causal commit
+
+Because a semantic causal commit becomes immutable evidence, validate new or changed versioned references **before** creating it where tooling is available. Prevention is stronger than discovering a malformed reference after the commit has entered preserved history.
+
+For staged content, the prospective source commit does not exist yet. A referenced target commit must therefore already be reachable from current `HEAD`; referencing `HEAD` itself is valid because it becomes a strict ancestor of the new commit. After commit creation, persisted validation requires the target to be a strict ancestor of the source commit.
+
+Projects with machine-enforced provenance should make staged/pre-commit validation blocking for changed Spiral Turtle and repeat the check over the introduced commit range in CI. Use a standards-conforming RDF/Turtle parser.
+
+See `causal-validation.md`.
 
 ### Commit messages
 
@@ -148,14 +158,11 @@ Implementation lineage depends on Git being an immutable historical store. When 
 
 A lineage reference should normally resolve to an implementation version that is an ancestor of the current revision commit. Split/merge/replacement cases may reference multiple predecessor `IMP-*` identities, but they still point backward to exact historical versions.
 
-Version-aware validation should therefore check, where practical:
+Version-aware validation therefore applies the same historical-reference invariant used by causal provenance: the target version must already exist and, once persisted, its commit must be a strict Git ancestor of the source implementation version. `sd:transforms` and `sd:changeCausedBy` share historical-integrity rules with causal references without becoming current causal justification.
 
-- the referenced predecessor commit exists;
-- the referenced implementation resource exists at that commit;
-- the predecessor commit is in the current revision's Git ancestry;
-- the relation points backward rather than to a later or unrelated version unless an explicitly documented exceptional merge history explains it.
+Validate this before commit where possible, over the introduced commit range in CI, and through an explicit history audit when required. Snapshot-only validation cannot prove that an invalid historical edge was never introduced and later removed.
 
-These checks establish historical integrity, not semantic correctness. A behavior-preserving refactor still needs behavioral evidence when preservation matters.
+These checks establish historical integrity, not semantic correctness. A behavior-preserving refactor still needs behavioral evidence when preservation matters. See `causal-validation.md`.
 
 ## Exceptional destructive rewrites
 

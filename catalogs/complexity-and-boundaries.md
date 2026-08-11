@@ -1,6 +1,6 @@
 # Complexity, Abstraction, and Boundary Signals
 
-Muze treats complexity as an economic cost for humans and AI.
+Complexity is an economic cost for humans and AI because it increases the context, verification, and intervention required for later change. Specific architectural preferences remain culture-dependent.
 
 ## Core questions
 

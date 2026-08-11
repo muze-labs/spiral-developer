@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Most Muze projects contain years of accumulated code, tests, configuration, decisions, historical compromises, integrations, and knowledge distributed across developers.
+Most established software projects contain years of accumulated code, tests, configuration, decisions, historical compromises, integrations, and knowledge distributed across people and systems.
 
 They do not begin with a clean causal chain.
 

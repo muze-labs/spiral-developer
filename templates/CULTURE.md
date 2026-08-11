@@ -6,22 +6,26 @@ id: CUL-001
 
 ## Purpose
 
-Describe durable properties the development environment should preserve across many requests and implementations.
+Describe durable engineering preferences that may shape choices across many requests and implementations when several trustworthy options remain available.
 
-Do not turn every preference into a hard rule. Distinguish principles from machine-checkable constraints.
+Culture is defeasible influence, not invisible law. Distinguish preferences from machine-checkable constraints and record consequential deviations rather than forcing automatic precedence. See `docs/culture.md`.
 
 ## Canonical sources
 
 | Source | Commit/version if known | Role |
 |---|---|---|
-| https://github.com/muze-nl/.github/blob/main/maturity-policy.md | | Organization-wide Muze principles |
+| | | Organization/team/project source |
 
 ## Principles
 
 | ID | Principle | Why it matters | Possible evidence/proxies |
 |---|---|---|---|
-| CUL-001-P1 | Simplicity over completeness | | |
+| CUL-001-P1 | <!-- preference --> | | |
 | | | | |
+
+## Adoption / scope
+
+<!-- Which projects/teams should normally adopt this profile? How is a more specific profile allowed to differ? -->
 
 ## Project-specific additions
 

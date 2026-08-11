@@ -26,6 +26,14 @@ Project causal-graph namespace:
 |---|---|---|
 | | | |
 
+## Active engineering culture
+
+| Culture/profile | Version/source | Why active here | Local deviations |
+|---|---|---|---|
+| | | | |
+
+<!-- In Turtle, use sd:adoptsCulture when exact culture-version provenance is materially useful. -->
+
 ## Important current constraints
 
 | Constraint | Source | Why it matters |

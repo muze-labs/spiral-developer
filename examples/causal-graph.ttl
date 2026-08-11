@@ -2,6 +2,23 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix project: <https://example.org/projects/widget/spiral/> .
 
+project:CUL-001
+    a sd:Culture ;
+    dcterms:identifier "CUL-001" ;
+    sd:repositoryPath ".spiral/culture.md" ;
+    sd:status sd:Active .
+
+project:CTX-001
+    a sd:ProjectContext ;
+    dcterms:identifier "CTX-001" ;
+    sd:repositoryPath ".spiral/project-context.md" ;
+    sd:status sd:Active ;
+    sd:adoptsCulture [
+        a sd:ArtifactReference ;
+        sd:artifact project:CUL-001 ;
+        sd:gitCommit "cccccccccccccccccccccccccccccccccccccccc"
+    ] .
+
 project:SRC-001
     a sd:Source ;
     dcterms:identifier "SRC-001" ;
@@ -43,6 +60,12 @@ project:DES-001
         sd:artifact project:REQ-001 ;
         sd:gitCommit "1111111111111111111111111111111111111111" ;
         sd:fragment "outcome-1"
+    ] ;
+    sd:shapedBy [
+        a sd:ArtifactReference ;
+        sd:artifact project:CUL-001 ;
+        sd:gitCommit "cccccccccccccccccccccccccccccccccccccccc" ;
+        sd:fragment "simplicity-over-completeness"
     ] .
 
 project:IMP-001

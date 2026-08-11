@@ -1,0 +1,9 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix culture: <https://muze.nl/ns/spiral-developer/culture/> .
+
+culture:CUL-MUZE-001
+    a sd:Culture ;
+    dcterms:identifier "CUL-MUZE-001" ;
+    sd:repositoryPath "cultures/muze-engineering.md" ;
+    sd:status sd:Active .

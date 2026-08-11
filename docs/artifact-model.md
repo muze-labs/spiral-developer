@@ -52,7 +52,8 @@ Each durable artifact gets a stable ID, for example:
 - `DEF-001` — defect/root-cause analysis;
 - `CYC-001` — development cycle;
 - `EXT-001` — external constraint when it needs explicit identity;
-- `RSK-001` — durable risk when it needs explicit identity.
+- `RSK-001` — durable risk when it needs explicit identity;
+- `LES-001` — lesson learned/generalization that may change future practice.
 
 **There is no independent numeric revision system.**
 
@@ -77,6 +78,15 @@ The canonical machine-readable causal relationships live in companion Turtle res
 Do not maintain parallel causal fields in Markdown and Turtle unless a migration explicitly requires it. Duplicated graphs drift.
 
 If prose and graph disagree, treat that as a defect to resolve, not as an invitation to silently choose whichever source is convenient.
+
+
+## Lessons and process learning
+
+A `LES-*` artifact records an evidence-informed generalization that may change future project practice, a culture profile, or Spiral Developer itself. A lesson is not automatically a requirement or rule. Preserve the observation/evidence, the generalization, its intended scope, confidence/limits, and the consequence being proposed.
+
+Link lessons to exact evidence versions when practical using normal causal relations. Later artifacts or process changes may derive from a lesson, but promotion to a broader scope should remain explicit and reviewable. Lessons themselves may be superseded when later evidence changes the generalization.
+
+See `process-evolution.md`.
 
 ## Artifact states
 
@@ -121,6 +131,14 @@ The artifact is technically/enablingly necessary for another artifact but is not
 
 A culture rule, external standard, platform limitation, legal requirement, legacy constraint, or explicit project constraint narrows the valid solution space.
 
+### `shapedBy`
+
+A current design or implementation choice was materially influenced by an exact culture/preference version, but the preference did not itself make alternatives invalid. Use this to explain *why this acceptable form was chosen* without pretending the requirement logically entailed it.
+
+### `adoptsCulture`
+
+Project context intentionally adopts an exact culture profile/version as active guidance. Culture remains defeasible unless a preference is separately promoted into a request or constraint.
+
 ### `implements`
 
 An implementation unit realizes a design element.
@@ -163,7 +181,9 @@ Availability is not the same as correctness. A retained source can still be ambi
 
 ## Versioned references
 
-A causal relation to an upstream artifact should point to the exact Git commit containing the upstream version that informed the decision.
+Relations that point to exact prior artifact versions are grouped under `sd:historicalReference` for integrity validation. `sd:causalReference`, `sd:transforms`, and `sd:changeCausedBy` remain semantically distinct even though they share the rule that the referenced version must already exist in Git history.
+
+A causal relation to an upstream artifact should point to the exact Git commit containing the upstream version that informed the decision. Once persisted, every historical-reference target commit must be a strict Git ancestor of the source artifact version's commit. This makes the versioned historical-reference graph acyclic by construction; see `causal-validation.md`.
 
 In Turtle this is represented as an `sd:ArtifactReference` containing:
 

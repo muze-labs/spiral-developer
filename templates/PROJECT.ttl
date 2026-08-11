@@ -11,3 +11,11 @@ project:CTX-001
     dcterms:identifier "CTX-001" ;
     sd:repositoryPath ".spiral/project-context.md" ;
     sd:status sd:Active .
+
+# When a versioned local/pinned culture profile is intentionally active, add for example:
+#
+#    sd:adoptsCulture [
+#        a sd:ArtifactReference ;
+#        sd:artifact project:CUL-001 ;
+#        sd:gitCommit "FULL_COMMIT_HASH"
+#    ] .
