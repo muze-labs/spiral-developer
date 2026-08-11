@@ -24,18 +24,33 @@ See `git-workflow.md`.
 
 ## 2. Establish current intent and its provenance
 
-Before treating consequential **direct human input** as implementation-ready, establish that the agent and human mean the same thing. Reflect the intended outcome back in ordinary language, including any material assumption that would produce substantially different work, and ask the human to confirm or correct it. A pasted ticket, issue, email, or chat instruction is input to this clarification loop, not automatically an executable specification.
+Before treating consequential **direct human input** as implementation-ready, establish two premises and put product modification behind them:
 
-After human clarification, reconcile the emerging interpretation with project reality before hardening it. Inspect enough of the repository to answer questions such as:
+1. **Confirmed Understanding** — a concrete account of the outcome the agent believes the human wants, including material assumptions, has been presented to and confirmed/corrected by the human.
+2. **Evidenced gap** — project evidence shows that the current effective system behavior does not already satisfy that Understanding.
 
-- does the requested capability already exist fully or partially?
-- does it exist under different terminology, UI, API, abstraction, or ownership?
-- do current tests, documentation, Spiral artifacts, callers, or Git history contradict factual premises in the request?
-- is the apparent change actually an extension, exposure, repair, replacement, or reuse of something that already exists?
+A pasted ticket, issue, email, or chat instruction is input to this inquiry, not automatically an executable specification. Before confirmation, the agent may inspect the repository/runtime and run disposable or read-only probes needed to formulate the Understanding and gap, but it must not modify consequential product behavior.
 
-Do not limit this to literal text search. Search semantically across the relevant capability and evidence. If repository reality materially changes what the work appears to be, return that finding to the human and clarify again before proceeding. The human is authoritative about desired intent; neither human nor agent is automatically authoritative about the current software state.
+Inspect enough of the system to answer questions such as:
 
-This is part of forming a trustworthy Understanding, not a new artifact class. Before crystallization, conversation may refine the wording freely; preserve only clarifications or source evidence that will matter causally later. Once a durable intent/understanding has caused accepted work, change it prospectively rather than rewriting history. Keep this guardrail proportional: do not stop trivial, unambiguous, local/reversible edits for ceremonial confirmation.
+- what does the relevant system actually do now?
+- does the requested outcome already exist fully or partially?
+- is it provided indirectly by a generic rule, inherited/shared abstraction, default, configuration, caller, composition, framework behavior, or another owner?
+- do current tests, rendered/computed behavior, documentation, Spiral artifacts, callers, or Git history contradict factual premises in the request?
+- is the apparent change actually an extension, exposure, repair, replacement, reuse, or no-op?
+
+Do not limit this to literal or semantic text search. **Establish the behavior gap itself.** Choose evidence appropriate to the claim: reproduce a failure, exercise the current interface, inspect computed/rendered state, resolve effective configuration, run a focused probe, or use another discriminating observation. Absence of a dedicated implementation does not prove absence of behavior.
+
+Before consequential product modification, present a compact checkpoint to the human:
+
+> **My understanding:** …
+> **Current effective behavior:** …
+> **Evidenced gap:** …
+> **Material assumptions:** …
+
+Stop for confirmation or correction. If no gap can be established, do not invent implementation to match the task wording; report what appears already satisfied or uncertain. If later investigation falsifies either the confirmed Understanding or the evidenced gap, the gate closes again and inquiry resumes.
+
+This is part of forming a trustworthy Understanding, not a new artifact class. Before crystallization, conversation may refine the wording freely; preserve only clarifications or source evidence that will matter causally later. Once a durable intent/understanding has caused accepted work, change it prospectively rather than rewriting history. Writing provenance after product code has already changed cannot retroactively satisfy this gate. Keep the guardrail proportional: do not stop genuinely trivial, unambiguous, local/reversible edits for ceremonial confirmation.
 
 Create or identify the current request artifact only after this preflight is sufficiently settled, and do not automatically treat the request as the root of truth. Ask what caused the project to believe this is the needed outcome.
 

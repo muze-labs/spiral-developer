@@ -51,9 +51,11 @@ spiral/REQ-001-short-name
 
 From here onward, normal causal commits are immutable evidence. Before committing changed Spiral Turtle, run staged/pre-commit causal-reference validation when available; after commit, CI should validate the introduced commit range. See `causal-validation.md`.
 
-## 4. Clarify intent, reconcile reality, then capture durable artifacts as needed
+## 4. Confirm understanding and evidence the gap before implementation
 
-For consequential direct human input, do not begin by copying the first wording into a request and implementing it. First reflect the intended outcome back to the human and confirm or correct the interpretation. Then inspect the relevant repository reality, including existing or overlapping capability that may use different terminology or structure. If what already exists materially changes the apparent task, return to the human with that finding and clarify again.
+For consequential direct human input, do not begin by copying the first wording into a request and implementing it. Investigate enough to formulate the intended outcome, establish the current **effective behavior**, and identify evidence that the requested outcome is actually unmet. Then present **My understanding / Current effective behavior / Evidenced gap / Material assumptions** to the human and stop for confirmation or correction before modifying product behavior.
+
+Repository search is only part of this check. Existing behavior may come from generic/shared rules, inheritance, defaults, configuration, callers, composition, framework behavior, or runtime effects. If no gap can be established, do not invent work merely because the ticket asks for a change. If later evidence invalidates the Understanding or gap, return to inquiry.
 
 This reconnaissance is part of forming the Understanding; it does not require another artifact type. Before durable crystallization, the conversation may refine intent without preserving every false start. Keep the guardrail proportional for trivial/local/reversible edits.
 

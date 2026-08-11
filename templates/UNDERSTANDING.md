@@ -20,9 +20,9 @@ id: UND-001
 |---|---|---|
 | | | |
 
-## Repository reality / overlap (when material)
+## Current effective behavior / evidenced gap (when material)
 
-<!-- What relevant existing behavior/capability did we inspect while forming this understanding? Could the requested outcome already exist fully or partially under another name, interface, abstraction, or owner? Record only findings that materially affect interpretation; do not turn routine repository search into ceremony. -->
+<!-- What does the system actually do now relative to this Understanding, including behavior supplied indirectly through generic/shared abstractions, inheritance, defaults, configuration, callers, composition, or runtime effects? What discriminating evidence shows that the intended outcome is genuinely unmet? Absence of similarly named code is not enough. Record only findings that materially affect interpretation. -->
 
 ## Provenance confidence
 

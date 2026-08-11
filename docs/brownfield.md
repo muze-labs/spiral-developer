@@ -29,9 +29,15 @@ Investigate a legacy area when:
 
 Migration starts with ordinary development, on a normal feature branch, not a migration project.
 
-Before adding a capability to a brownfield system, reconcile the clarified intent with what the repository already provides. Search by behavior and responsibility, not only by task wording or filenames. Look for full, partial, differently exposed, or differently named implementations in code, tests, documentation, callers, Spiral artifacts, and history where useful. The first question is often not "where should we add this?" but **"what already owns or approximates this behavior?"**
+Before adding or changing a capability in a brownfield system, establish the current **effective behavior** and evidence the gap to the intended outcome. Search by behavior and responsibility, not only by task wording or filenames. Look for full, partial, differently exposed, or differently named implementations in code, tests, documentation, callers, Spiral artifacts, and history where useful—but do not stop at finding related code.
 
-If that investigation changes the apparent task materially—for example from "build X" to "expose/extend/repair/reuse existing X"—return the finding to the human and confirm the revised interpretation before consequential implementation. Treat this as evidence used while forming the current Understanding, not as a mandatory new artifact.
+The decisive question is:
+
+> **What observable outcome is unmet in the current system, and what evidence demonstrates that gap?**
+
+A capability may already be supplied indirectly by generic/shared code, inheritance, CSS cascade, defaults, configuration, composition, callers, framework behavior, or runtime state. Use a probe appropriate to the claim: characterization test, reproduction, rendered/computed inspection, API exercise, effective-config resolution, or equivalent. Absence of an obvious dedicated implementation is not enough.
+
+Before consequential product modification, present the human with the intended Understanding, current effective behavior, evidenced gap, and material assumptions; stop for confirmation. If the evidence shows that the requested outcome is already satisfied, do not add duplicate/no-op implementation merely because the task asked for a change. If later evidence changes either premise, return to inquiry. Treat the findings as evidence used while forming the current Understanding, not as a mandatory new artifact.
 
 Then establish the current request and follow the normal process. When the current intent itself comes from inherited or historical claims, use `SRC-*`/`UND-*` only where that provenance matters; an unavailable original source is an acceptable explicit gap. When the work enters legacy territory, characterize only enough of that behavior to proceed safely.
 
