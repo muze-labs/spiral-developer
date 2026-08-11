@@ -1,0 +1,15 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:UND-WARN-001
+    a sd:Understanding ;
+    dcterms:identifier "UND-WARN-001" ;
+    sd:repositoryPath "understandings/UND-WARN-001-warning-profile-separation.md" ;
+    sd:status sd:Active ;
+    sd:provenanceConfidence sd:Evidenced ;
+    sd:interprets [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-WARN-001 ;
+        sd:gitCommit "93ebfe3feb707b73fd2b4ef0ab8002888031d99c"
+    ] .

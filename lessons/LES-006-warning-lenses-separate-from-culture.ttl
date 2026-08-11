@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:LES-006
+    a sd:Lesson ;
+    dcterms:identifier "LES-006" ;
+    sd:repositoryPath "lessons/LES-006-warning-lenses-separate-from-culture.md" ;
+    sd:status sd:Active ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-WARN-001 ;
+        sd:gitCommit "93ebfe3feb707b73fd2b4ef0ab8002888031d99c"
+    ] .
