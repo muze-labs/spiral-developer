@@ -11,6 +11,8 @@ The profile is **defeasible and explicitly adopted**. A Muze-owned project may a
 
 This split is derived from explicit human scope clarification in `SRC-CUL-MUZE-002`, which refers to the Muze design-principles / maturity-policy summary and explains that the library audience, package namespace policy, and some performance/distribution preferences are not general client-project requirements.
 
+**Brownfield provenance note:** the immediately preceding companion Turtle resource retained source commit hashes from a pre-consolidation branch that are no longer present in the authoritative Git history. This revision repairs the active references prospectively to the retained source versions at `7273048d88a416bb409fdab364e1d15dfa89c76c`; it does not reconstruct the missing Git objects or change the cultural principles.
+
 Canonical organization source:
 
 - https://github.com/muze-nl/.github/blob/main/maturity-policy.md
