@@ -6,7 +6,7 @@ Do not score generic maturity.
 
 Determine:
 
-- For consequential direct human input, did we confirm the agent's interpretation before implementation and reconcile it with existing repository reality/overlap?
+- For consequential direct human input, did we confirm a concrete Understanding **and evidenced gap** before product modification, and did the gap check establish effective behavior rather than merely search for related code?
 - Did intended users provide meaningful feedback where product intent was uncertain?
 - Where intent interpretation was material, is source evidence distinguishable from the understanding derived from it?
 - Is missing or unavailable primary provenance explicit rather than silently reconstructed?

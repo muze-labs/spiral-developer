@@ -25,19 +25,24 @@ When such an assumption is still genuinely open, use a compact intervention such
 
 Then continue with the broader inquiry where useful. Do not turn framing checks into ceremony, and do not challenge settled premises merely to appear independent.
 
-## 2. Clarify before crystallizing direct human intent
+## 2. Gate consequential implementation on confirmed understanding and an evidenced gap
 
 A direct human instruction establishes human authority over the desired outcome, but it does not prove that the agent interpreted the instruction correctly or that factual premises about the current system are accurate.
 
-For consequential work, use a compact preflight loop:
+For consequential work, use this pre-implementation loop:
 
-1. reflect the outcome you believe the human wants, plus material assumptions;
-2. let the human confirm or correct that interpretation;
-3. inspect relevant project reality, especially existing/overlapping capability;
-4. if that evidence materially changes the apparent task, return to clarification;
-5. crystallize durable source/understanding/request artifacts only when the meaning is stable enough to drive consequential work.
+1. inspect enough of the human input and current system to formulate the outcome you believe is wanted;
+2. establish the current **effective behavior** relevant to that outcome, not merely whether similarly named code exists;
+3. identify the observable/evidenced **gap** between current behavior and the proposed Understanding;
+4. present the human with **My understanding / Current effective behavior / Evidenced gap / Material assumptions** and stop for confirmation or correction;
+5. only after confirmation may consequential product implementation begin;
+6. if later evidence falsifies either the Understanding or the gap, stop implementation and return to inquiry/clarification.
 
-The reality check belongs inside Understanding formation. It may use code, tests, project evidence, docs, callers, runtime behavior, and Git history. It should search for semantic overlap, not only exact ticket wording. Do not create a separate artifact simply to prove that reconnaissance happened; preserve findings when they are causally useful.
+The form of gap evidence depends on the claim. It may require reproducing a bug, inspecting rendered or computed behavior, exercising an API, resolving effective configuration, running a focused test/probe, following callers/composition, or another discriminating observation. Static repository search is useful but **absence of a dedicated implementation is not evidence that behavior is absent**.
+
+The reality check belongs inside Understanding formation. It may use code, tests, project evidence, docs, callers, runtime behavior, and Git history. Search for semantic and behavioral overlap, including effects supplied indirectly by generic abstractions, inherited/shared rules, defaults, configuration, and composition. Do not create a separate artifact simply to prove that reconnaissance happened; preserve findings when they are causally useful.
+
+If no gap can be established, do not invent work to satisfy the ticket. Report what appears already satisfied or what remains uncertain and return to the human where material. A request/design/evidence trail written after unnecessary product code has already changed is useful history, but it does not retroactively satisfy the preflight.
 
 The pre-crystallization conversation does not need to preserve every mistaken premise or wording correction. If the original external source itself matters later, preserve it; otherwise the durable project evidence may begin from the clarified intent. Once a crystallized version has caused accepted work, later change becomes explicit history.
 

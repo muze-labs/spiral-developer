@@ -1,0 +1,11 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:SRC-INTENT-002
+    a sd:Source ;
+    dcterms:identifier "SRC-INTENT-002" ;
+    sd:repositoryPath "sources/SRC-INTENT-002-confirmed-understanding-evidenced-gap.md" ;
+    sd:status sd:Active ;
+    sd:sourceAvailability sd:Retained ;
+    sd:provenanceConfidence sd:Explicit .
