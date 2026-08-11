@@ -1,0 +1,11 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:SRC-WARN-001
+    a sd:Source ;
+    dcterms:identifier "SRC-WARN-001" ;
+    sd:repositoryPath "sources/SRC-WARN-001-human-warning-profile-direction.md" ;
+    sd:status sd:Active ;
+    sd:sourceAvailability sd:Retained ;
+    sd:provenanceConfidence sd:Explicit .
