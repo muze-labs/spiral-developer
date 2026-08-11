@@ -51,9 +51,13 @@ spiral/REQ-001-short-name
 
 From here onward, normal causal commits are immutable evidence. Before committing changed Spiral Turtle, run staged/pre-commit causal-reference validation when available; after commit, CI should validate the introduced commit range. See `causal-validation.md`.
 
-## 4. Capture origin, understanding, and request as needed
+## 4. Clarify intent, reconcile reality, then capture durable artifacts as needed
 
-Start from the best available evidence for why the change is wanted. This may already be the current human instruction, or it may be a conversation, email, issue, meeting, contract, regulation, observation, inherited requirement, or external artifact.
+For consequential direct human input, do not begin by copying the first wording into a request and implementing it. First reflect the intended outcome back to the human and confirm or correct the interpretation. Then inspect the relevant repository reality, including existing or overlapping capability that may use different terminology or structure. If what already exists materially changes the apparent task, return to the human with that finding and clarify again.
+
+This reconnaissance is part of forming the Understanding; it does not require another artifact type. Before durable crystallization, the conversation may refine intent without preserving every false start. Keep the guardrail proportional for trivial/local/reversible edits.
+
+Once the meaning is sufficiently settled, start from the best available evidence for why the change is wanted. This may be the clarified current human instruction, or it may be a conversation, email, issue, meeting, contract, regulation, observation, inherited requirement, or external artifact. Preserve the original external source separately only when that provenance is causally useful.
 
 When the source identity or the interpretation could matter later, create `.spiral/sources/SRC-001.md` from `templates/SOURCE.md` and `.spiral/sources/SRC-001.ttl` from `templates/SOURCE.ttl`. Record whether the primary evidence is `sd:Retained`, `sd:Referenced`, or `sd:Unavailable`, and declare the source claim's provenance confidence.
 

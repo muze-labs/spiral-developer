@@ -24,7 +24,20 @@ See `git-workflow.md`.
 
 ## 2. Establish current intent and its provenance
 
-Create or identify the current request artifact, but do not automatically treat the request as the root of truth. Ask what caused the project to believe this is the needed outcome.
+Before treating consequential **direct human input** as implementation-ready, establish that the agent and human mean the same thing. Reflect the intended outcome back in ordinary language, including any material assumption that would produce substantially different work, and ask the human to confirm or correct it. A pasted ticket, issue, email, or chat instruction is input to this clarification loop, not automatically an executable specification.
+
+After human clarification, reconcile the emerging interpretation with project reality before hardening it. Inspect enough of the repository to answer questions such as:
+
+- does the requested capability already exist fully or partially?
+- does it exist under different terminology, UI, API, abstraction, or ownership?
+- do current tests, documentation, Spiral artifacts, callers, or Git history contradict factual premises in the request?
+- is the apparent change actually an extension, exposure, repair, replacement, or reuse of something that already exists?
+
+Do not limit this to literal text search. Search semantically across the relevant capability and evidence. If repository reality materially changes what the work appears to be, return that finding to the human and clarify again before proceeding. The human is authoritative about desired intent; neither human nor agent is automatically authoritative about the current software state.
+
+This is part of forming a trustworthy Understanding, not a new artifact class. Before crystallization, conversation may refine the wording freely; preserve only clarifications or source evidence that will matter causally later. Once a durable intent/understanding has caused accepted work, change it prospectively rather than rewriting history. Keep this guardrail proportional: do not stop trivial, unambiguous, local/reversible edits for ceremonial confirmation.
+
+Create or identify the current request artifact only after this preflight is sufficiently settled, and do not automatically treat the request as the root of truth. Ask what caused the project to believe this is the needed outcome.
 
 When origin or interpretation is materially useful, preserve the upstream chain:
 

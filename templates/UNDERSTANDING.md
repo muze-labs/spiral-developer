@@ -20,6 +20,10 @@ id: UND-001
 |---|---|---|
 | | | |
 
+## Repository reality / overlap (when material)
+
+<!-- What relevant existing behavior/capability did we inspect while forming this understanding? Could the requested outcome already exist fully or partially under another name, interface, abstraction, or owner? Record only findings that materially affect interpretation; do not turn routine repository search into ceremony. -->
+
 ## Provenance confidence
 
 <!-- explicit / evidenced / inferred / unknown. The canonical value belongs in the companion Turtle resource. -->
