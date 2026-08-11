@@ -12,6 +12,7 @@ sd:
 
 sd:Artifact a rdfs:Class ; rdfs:label "Artifact" .
 sd:Culture a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Culture" .
+sd:WarningProfile a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Warning profile" ; rdfs:comment "Explicit, versioned, replaceable lens for surfacing consequential patterns that deserve inspection without automatically making them hard constraints." .
 sd:ProjectContext a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Project context" .
 sd:Source a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Source" ; rdfs:comment "Durable identity or capture of origin evidence: what was actually expressed, observed, received, or mandated." .
 sd:Understanding a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Understanding" ; rdfs:comment "Durable interpretation claim about what upstream source/evidence means for the project." .
@@ -105,6 +106,7 @@ sd:supports a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label 
 sd:constrainedBy a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "constrained by" .
 sd:shapedBy a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "shaped by" ; rdfs:comment "A current design or implementation choice was materially influenced by this exact culture/preference version without implying that the preference was a hard constraint." .
 sd:adoptsCulture a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:domain sd:ProjectContext ; rdfs:label "adopts culture" ; rdfs:comment "Links project context to an exact culture profile/version that is intentionally active for the project." .
+sd:adoptsWarningProfile a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:domain sd:ProjectContext ; rdfs:label "adopts warning profile" ; rdfs:comment "Links project context to an exact warning-profile version that is intentionally active as a replaceable inspection lens. Adoption does not make every signal a hard constraint or automatic blocker." .
 sd:implements a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "implements" .
 sd:verifies a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "verifies" .
 sd:accepts a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "accepts" .

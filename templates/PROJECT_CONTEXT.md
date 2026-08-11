@@ -34,6 +34,14 @@ Project causal-graph namespace:
 
 <!-- In Turtle, use sd:adoptsCulture when exact culture-version provenance is materially useful. -->
 
+## Active warning profiles
+
+| Warning profile | Version/source | Applicability here | Why active here | Local deviations |
+|---|---|---|---|---|
+| | | | | |
+
+<!-- In Turtle, use sd:adoptsWarningProfile. Warning profiles are replaceable inspection lenses, not culture or automatic blockers. -->
+
 ## Important current constraints
 
 | Constraint | Source | Why it matters |

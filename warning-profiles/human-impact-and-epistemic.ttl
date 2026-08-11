@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:WPF-HUMAN-001
+    a sd:WarningProfile ;
+    dcterms:identifier "WPF-HUMAN-001" ;
+    sd:repositoryPath "warning-profiles/human-impact-and-epistemic.md" ;
+    sd:status sd:Active ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:UND-WARN-001 ;
+        sd:gitCommit "74bf370f72aae23c6d9407743ab269cd6a5b2afc"
+    ] .

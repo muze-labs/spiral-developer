@@ -11,6 +11,7 @@ A practical initial structure is:
   project.ttl
   culture.md              # only when a local/adopted culture will shape decisions
   culture.ttl
+  warning-profiles/        # only when a local/pinned warning profile is active
   project-context.md
   sources/
   understandings/
@@ -28,13 +29,15 @@ A practical initial structure is:
 
 Copy only templates that will be used. Do not create empty artifacts for completeness.
 
-Start `.spiral/project.ttl` from `templates/PROJECT.ttl`. Create `.spiral/culture.md` / `.spiral/culture.ttl` only when a culture profile will materially shape choices; use `templates/CULTURE.*` as the starting point. Create other companion `.ttl` resources beside human-facing artifacts as they are introduced; `examples/causal-graph.ttl` shows the logical RDF union.
+Start `.spiral/project.ttl` from `templates/PROJECT.ttl`. Create `.spiral/culture.md` / `.spiral/culture.ttl` only when a culture profile will materially shape choices; use `templates/CULTURE.*` as the starting point. Add a local/pinned warning profile only when the project intentionally adopts one; use `templates/WARNING_PROFILE.*` for local profiles. Create other companion `.ttl` resources beside human-facing artifacts as they are introduced; `examples/causal-graph.ttl` shows the logical RDF union.
 
-## 2. Establish project context and active culture
+## 2. Establish project context, active culture, and warning lenses
 
 Capture durable project context. Explicitly adopt organization/project culture only when it should influence underdetermined engineering choices. A culture profile is defeasible guidance, not a hidden Spiral requirement. Use `sd:adoptsCulture` when exact culture-version provenance matters.
 
 The repository ships a first Muze profile at `cultures/muze-engineering.md`; copying or pinning it into a project is an explicit choice, not a default requirement. See `culture.md`.
+
+If the project wants reusable warning lenses, explicitly adopt an exact profile version with `sd:adoptsWarningProfile`. The bundled `warning-profiles/human-impact-and-epistemic.md` is starter material, not a Spiral default. Warning profiles should surface only materially relevant concerns and normally prompt inspection rather than block work. See `warning-profiles.md`.
 
 Do not attempt to reconstruct complete project history.
 
@@ -66,7 +69,7 @@ Commit each crystallized upstream artifact before creating downstream references
 
 If the request proposes a consequential solution or boundary, briefly test whether that premise is established before designing around it. Do not do this for every local decision. Use it where a different framing could materially change product direction, architecture, schema, trust boundaries, irreversible work, or acceptance.
 
-Then find the nearest important uncertainty.
+Then find the nearest important uncertainty. For consequential decisions, apply any explicitly adopted warning profiles and their significance gates. If a warning identifies a material project concern, record/disposition it through the normal risk mechanism; do not create warning ceremony for trivial cases.
 
 Classify risks as blocker, near-term, deferred, or existential.
 
@@ -134,6 +137,7 @@ After the feature is merged, ask:
 - Could current implementation justification be distinguished from historical reasons that had been superseded?
 - On a repeated change to a governed area, how much old history did the agent actually need to reload?
 - Did active culture explain any underdetermined design/implementation choice, and was it distinguishable from a hard constraint?
+- Did an adopted warning profile surface a materially useful concern without creating routine warning noise or an automatic veto?
 - Did any lesson from the cycle deserve a `LES-*` artifact, and at what scope?
 - Did the implementation remain economical to understand, verify, and change under the project's chosen culture?
 

@@ -19,3 +19,11 @@ project:CTX-001
 #        sd:artifact project:CUL-001 ;
 #        sd:gitCommit "FULL_COMMIT_HASH"
 #    ] .
+
+# When an exact warning-profile version is intentionally active, add for example:
+#
+#    sd:adoptsWarningProfile [
+#        a sd:ArtifactReference ;
+#        sd:artifact project:WPF-001 ;
+#        sd:gitCommit "FULL_COMMIT_HASH"
+#    ] .

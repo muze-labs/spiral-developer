@@ -23,9 +23,9 @@ Where possible, link a lesson to the exact evidence/artifact versions it general
 
 A lesson is **not automatically a rule**. It is evidence-informed advice that may justify a later change.
 
-## Three propagation levels
+## Four propagation targets
 
-A lesson can affect increasingly general layers:
+A lesson can affect different parts of the production environment. Choose the narrowest target justified by the evidence.
 
 ### 1. Project practice
 
@@ -43,7 +43,13 @@ Promote a lesson into a culture profile when it repeatedly describes how a team 
 
 Culture remains defeasible. It should guide decisions when several trustworthy choices remain available, not masquerade as a universal trust invariant.
 
-### 3. Spiral core/process
+### 3. Warning profile
+
+Promote a lesson into a warning profile when it repeatedly identifies a pattern worth noticing across projects but should remain replaceable, significance-gated, and non-blocking by default. This is distinct from culture: the lesson is not saying “we prefer to build this way,” but “when this pattern appears, inspect it deliberately.”
+
+A warning-profile change should be reviewed for false positives, warning fatigue, hidden normative assumptions, and whether its trigger can be expressed in concise operational language.
+
+### 4. Spiral core/process
 
 Change Spiral core only when the lesson affects justified trust, process integrity, verification, causal auditability, or another property the methodology itself claims to provide across projects.
 
@@ -51,10 +57,10 @@ A process-level change deserves stronger evidence than a local workaround. Prefe
 
 ## Preserve the old process version
 
-When a lesson changes process or culture:
+When a lesson changes process, culture, or a warning profile:
 
 1. preserve the lesson and evidence that motivated the change;
-2. change the process/culture prospectively in a new Git commit/version;
+2. change the process/culture/warning profile prospectively in a new Git commit/version;
 3. do not rewrite older project history to make it appear that the new rule or preference already existed;
 4. allow historical interrogation to explain decisions under the process and culture that were active at the time.
 
@@ -68,7 +74,7 @@ Changing our mind is therefore represented as **new evidence and a new version**
 
 The Spiral Developer repository keeps a small `lessons/` log for lessons that may shape the methodology itself. Consuming projects should normally keep project lessons under `.spiral/lessons/` using `LES-*` identities.
 
-Do not create a lesson for every retrospective observation. Record one when it could plausibly change a future decision, a culture preference, a verification boundary, or the process itself.
+Do not create a lesson for every retrospective observation. Record one when it could plausibly change a future decision, a culture preference, a warning profile, a verification boundary, or the process itself.
 
 ## Evaluate adopted lessons
 
@@ -84,6 +90,6 @@ After adopting one, later cycles should be allowed to ask:
 
 The learning loop is therefore:
 
-> **experience → evidence → lesson → local change → evaluation → possible culture/process change**
+> **experience → evidence → lesson → local change → evaluation → possible culture/warning-profile/process change**
 
 The goal is an evolvable production environment, not an ever-growing rulebook.

@@ -25,6 +25,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 - Use Git commit hashes as artifact versions. Stable artifact IDs identify the thing; the commit identifies the historical version.
 - Distinguish current/effective implementation provenance from historical lineage. A materially revised governed `IMP-*` points to its immediate predecessor and transition cause without forcing future agents to replay the full history.
 - Make active engineering culture explicit when it materially shapes an underdetermined design/implementation choice; do not confuse preference with requirement.
+- Make adopted warning profiles explicit and versioned; use them to surface consequential patterns for inspection without silently turning them into universal rules or culture.
 - Record reusable `LES-*` lessons and allow evidence to change project practice, culture, or Spiral core prospectively rather than silently changing the process.
 - Obtain meaningful evidence before consequential commitments harden. The active culture profile may recommend a particular strategy, such as Muze's frontend-first approach for interactive web work.
 - Resolve the nearest important uncertainty and deliberately defer later risks unless they are existential.
@@ -54,11 +55,12 @@ Source and understanding are crystallized when origin or interpretation is mater
 - [`docs/rdf-graph.md`](docs/rdf-graph.md) — Turtle representation of the causal graph.
 - [`docs/implementation-lineage.md`](docs/implementation-lineage.md) — effective provenance, implementation history, and bounded agent context across repeated changes.
 - [`docs/culture.md`](docs/culture.md) — explicit, versioned, defeasible engineering culture as causal influence.
+- [`docs/warning-profiles.md`](docs/warning-profiles.md) — replaceable warning lenses, significance gates, and risk/disposition semantics.
 - [`docs/process-evolution.md`](docs/process-evolution.md) — first-class lessons, scope/promotion, and changing the process without falsifying its past.
 - [`docs/brownfield.md`](docs/brownfield.md) — how to introduce the process into existing projects.
 - [`docs/review.md`](docs/review.md) — automated and human review at the pull-request boundary.
 
-Spiral core is intentionally separated from organization-specific engineering preferences. The repository ships a first explicit Muze profile at [`cultures/muze-engineering.md`](cultures/muze-engineering.md); projects may adopt, extend, replace, or decline it.
+Spiral core is intentionally separated from organization-specific engineering preferences and from optional warning lenses. The repository ships a first explicit Muze culture profile at [`cultures/muze-engineering.md`](cultures/muze-engineering.md) and a replaceable warning profile at [`warning-profiles/human-impact-and-epistemic.md`](warning-profiles/human-impact-and-epistemic.md); projects may adopt, extend, replace, or decline either independently.
 
 ## Repository structure
 
@@ -79,6 +81,7 @@ spiral-developer/
     rdf-graph.md
     implementation-lineage.md
     culture.md
+    warning-profiles.md
     process-evolution.md
     brownfield.md
     review.md
@@ -91,6 +94,8 @@ spiral-developer/
   templates/
     ...
   cultures/
+    ...
+  warning-profiles/
     ...
   lessons/
     ...

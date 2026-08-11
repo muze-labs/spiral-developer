@@ -16,7 +16,8 @@ The AI should prepare a concise review surface containing:
 - **Legacy context** — reconstructed constraints and confidence where applicable.
 - **New dependencies** — additions and why they are justified.
 - **Deferred risks** — known issues deliberately not solved now.
-- **Lessons** — new `LES-*` observations that may change future project practice/culture/process, when the cycle produced one.
+- **Warnings** — materially relevant signals from explicitly adopted warning profiles and their disposition, when any affected the change.
+- **Lessons** — new `LES-*` observations that may change future project practice/culture/warning profiles/process, when the cycle produced one.
 - **Unresolved questions** — anything the reviewer must understand before acceptance.
 
 The PR template in `.github/pull_request_template.md` is a starting point, not a bureaucratic form.
@@ -66,8 +67,9 @@ Ask:
 14. For revised governed implementation, can we distinguish current effective justification from historical lineage and transition causes?
 15. Did a refactor preserve lineage even when behavior was intended to remain unchanged?
 16. Is old history being loaded only when needed, or has provenance bookkeeping begun to make normal agent context grow with codebase age?
-17. Did this cycle reveal a reusable lesson, and is its proposed scope no broader than the evidence supports?
-18. Does the autonomy used in this change stay inside a verification/reversibility envelope appropriate to its consequences?
+17. Did an adopted warning profile identify a consequential concern, and is its disposition proportionate and evidence-grounded rather than automatic?
+18. Did this cycle reveal a reusable lesson, and is its proposed scope no broader than the evidence supports?
+19. Does the autonomy used in this change stay inside a verification/reversibility envelope appropriate to its consequences?
 
 Code review remains available and important when direct inspection is the best evidence for a risky or subtle claim. It is not the only route to human control.
 

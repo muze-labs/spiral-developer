@@ -29,6 +29,7 @@ Prefer a companion Turtle resource beside each durable human artifact:
   project.ttl
   culture.md
   culture.ttl
+  warning-profiles/
   project-context.md
   sources/
     SRC-001.md
@@ -207,13 +208,14 @@ The vocabulary includes:
 - `sd:constrainedBy`
 - `sd:shapedBy`
 - `sd:adoptsCulture`
+- `sd:adoptsWarningProfile`
 - `sd:implements`
 - `sd:verifies`
 - `sd:accepts`
 - `sd:observes`
 - `sd:supersedes`
 
-Each relation points to an `sd:ArtifactReference` when an exact historical upstream version matters. `sd:shapedBy` is current explanatory provenance for a defeasible culture influence; `sd:adoptsCulture` records which culture profile/version project context intentionally made active. Neither turns a preference into a hard constraint. See `culture.md`.
+Each relation points to an `sd:ArtifactReference` when an exact historical upstream version matters. `sd:shapedBy` is current explanatory provenance for a defeasible culture influence; `sd:adoptsCulture` records which culture profile/version project context intentionally made active. `sd:adoptsWarningProfile` similarly activates an exact replaceable warning lens without making its signals hard constraints. See `culture.md` and `warning-profiles.md`.
 
 Implementation history also uses two deliberately separate relations:
 

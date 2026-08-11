@@ -36,7 +36,7 @@ Trustworthy development needs evidence before consequential assumptions harden. 
 
 > **Build the cheapest artifact capable of producing evidence strong enough for the next consequential decision.**
 
-Specific strategies for doing that—such as frontend-first development—belong in an active engineering culture profile rather than Spiral core. See [`culture.md`](culture.md).
+Specific strategies for doing that—such as frontend-first development—belong in an active engineering culture profile rather than Spiral core. Recurring concerns a project wants surfaced for inspection belong in separately adopted warning profiles rather than being smuggled into core or culture. See [`culture.md`](culture.md) and [`warning-profiles.md`](warning-profiles.md).
 
 ## 2. Treat intent formation as part of the causal system
 
@@ -136,7 +136,7 @@ Correct the earliest meaningful cause, then propagate the correction forward and
 
 Human auditability does not require a person to understand every generated line.
 
-What must remain inspectable and interrogable is the causal production system: relevant source evidence, interpretation/understanding, intent, context, culture, constraints, design, dependencies, agent/tool configuration where relevant, evidence, acceptance, and provenance.
+What must remain inspectable and interrogable is the causal production system: relevant source evidence, interpretation/understanding, intent, context, adopted culture and warning profiles, constraints, design, dependencies, agent/tool configuration where relevant, evidence, acceptance, and provenance.
 
 Auditability means:
 
