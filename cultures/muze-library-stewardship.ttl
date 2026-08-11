@@ -3,16 +3,11 @@
 @prefix culture: <https://muze.nl/ns/spiral-developer/culture/> .
 @prefix source: <https://muze.nl/ns/spiral-developer/source/> .
 
-culture:CUL-MUZE-001
+culture:CUL-MUZE-LIB-001
     a sd:Culture ;
-    dcterms:identifier "CUL-MUZE-001" ;
-    sd:repositoryPath "cultures/muze-engineering.md" ;
+    dcterms:identifier "CUL-MUZE-LIB-001" ;
+    sd:repositoryPath "cultures/muze-library-stewardship.md" ;
     sd:status sd:Active ;
-    sd:supersedes [
-        a sd:ArtifactReference ;
-        sd:artifact culture:CUL-MUZE-001 ;
-        sd:gitCommit "3b7348bfc045a19b4e66ad9a48848bcec7024ab0"
-    ] ;
     sd:derivedFrom [
         a sd:ArtifactReference ;
         sd:artifact source:SRC-CUL-MUZE-002 ;

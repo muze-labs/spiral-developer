@@ -28,9 +28,9 @@ Project causal-graph namespace:
 
 ## Active engineering culture
 
-| Culture/profile | Version/source | Why active here | Local deviations |
-|---|---|---|---|
-| | | | |
+| Culture/profile | Version/source | Applicability here | Why active here | Local deviations |
+|---|---|---|---|---|
+| | | | | |
 
 <!-- In Turtle, use sd:adoptsCulture when exact culture-version provenance is materially useful. -->
 

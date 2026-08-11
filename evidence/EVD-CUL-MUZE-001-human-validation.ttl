@@ -10,6 +10,11 @@ evidence:EVD-CUL-MUZE-001
     sd:repositoryPath "evidence/EVD-CUL-MUZE-001-human-validation.md" ;
     sd:status sd:Accepted ;
     sd:provenanceConfidence sd:Explicit ;
+    sd:supersedes [
+        a sd:ArtifactReference ;
+        sd:artifact evidence:EVD-CUL-MUZE-001 ;
+        sd:gitCommit "3b7348bfc045a19b4e66ad9a48848bcec7024ab0"
+    ] ;
     sd:verifies [
         a sd:ArtifactReference ;
         sd:artifact culture:CUL-MUZE-001 ;
@@ -18,5 +23,5 @@ evidence:EVD-CUL-MUZE-001
     sd:derivedFrom [
         a sd:ArtifactReference ;
         sd:artifact source:SRC-CUL-MUZE-001 ;
-        sd:gitCommit "cf2ddc354b9071e705333e7db29605d8c25d00f8"
+        sd:gitCommit "3b7348bfc045a19b4e66ad9a48848bcec7024ab0"
     ] .

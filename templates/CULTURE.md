@@ -29,7 +29,7 @@ Culture is defeasible influence, not invisible law. Distinguish preferences from
 
 ## Adoption / scope
 
-<!-- Which projects/teams should normally adopt this profile? How is a more specific profile allowed to differ? -->
+<!-- Which projects/teams/work types should adopt this profile? Which contexts explicitly should NOT inherit it? If a subset of principles has a materially narrower scope, prefer a separate companion culture profile over letting those preferences leak into every adopting project. -->
 
 ## Project-specific additions
 

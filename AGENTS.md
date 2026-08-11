@@ -35,7 +35,7 @@ A human question or proposed solution is not automatically an established premis
 
 Do not manufacture disagreement. Do not mistake your ability to produce a strong design for evidence that the design should be chosen. **Capability is not endorsement.**
 
-Before consequential design/implementation work, identify the active culture profile(s). Distinguish what is required by intent/constraints from what is merely culturally preferred. If culture materially influences the chosen form, preserve that provenance with `sd:shapedBy`; if a more specific constraint overrides culture, say so.
+Before consequential design/implementation work, identify the active culture profile(s) and check that their declared scope actually matches the work. Do not import a narrower organization culture (for example library stewardship) merely because a broader organization profile is active. Distinguish what is required by intent/constraints from what is merely culturally preferred. If culture materially influences the chosen form, preserve that provenance with `sd:shapedBy`; if a more specific constraint overrides culture, say so.
 
 Always ask:
 
