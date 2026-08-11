@@ -31,6 +31,10 @@ Culture is defeasible influence, not invisible law. Distinguish preferences from
 
 <!-- Which projects/teams/work types should adopt this profile? Which contexts explicitly should NOT inherit it? If a subset of principles has a materially narrower scope, prefer a separate companion culture profile over letting those preferences leak into every adopting project. -->
 
+## Historical rationale / current uncertainty
+
+<!-- Which important conditions made these preferences useful? Have production economics, AI capability, team structure, regulation, platforms, or other assumptions changed enough that any principle should be reconsidered? Preserve uncertainty rather than pretending culture is timeless. -->
+
 ## Project-specific additions
 
 | ID | Principle | Why it matters | Scope |

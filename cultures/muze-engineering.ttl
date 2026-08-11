@@ -1,7 +1,7 @@
 @prefix sd: <https://muze.nl/ns/spiral-developer#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix culture: <https://muze.nl/ns/spiral-developer/culture/> .
-@prefix source: <https://muze.nl/ns/spiral-developer/source/> .
+@prefix understanding: <https://muze.nl/ns/spiral-developer/understanding/> .
 
 culture:CUL-MUZE-001
     a sd:Culture ;
@@ -11,14 +11,10 @@ culture:CUL-MUZE-001
     sd:supersedes [
         a sd:ArtifactReference ;
         sd:artifact culture:CUL-MUZE-001 ;
-        sd:gitCommit "3b7348bfc045a19b4e66ad9a48848bcec7024ab0"
+        sd:gitCommit "7273048d88a416bb409fdab364e1d15dfa89c76c"
     ] ;
     sd:derivedFrom [
         a sd:ArtifactReference ;
-        sd:artifact source:SRC-CUL-MUZE-002 ;
-        sd:gitCommit "9e453b4c432e4f5b396a77a64f073b1aebdfa8ad"
-    ], [
-        a sd:ArtifactReference ;
-        sd:artifact source:SRC-CUL-MUZE-003 ;
-        sd:gitCommit "f0c73a699e6f6ef1c438c476f541741734b7fe9c"
+        sd:artifact understanding:UND-CUL-MUZE-001 ;
+        sd:gitCommit "0dc968bb97d232088119c1f80b3683ee89f9c16c"
     ] .

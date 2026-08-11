@@ -1,0 +1,20 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix understanding: <https://muze.nl/ns/spiral-developer/understanding/> .
+@prefix source: <https://muze.nl/ns/spiral-developer/source/> .
+
+understanding:UND-CUL-MUZE-001
+    a sd:Understanding ;
+    dcterms:identifier "UND-CUL-MUZE-001" ;
+    sd:repositoryPath "understandings/UND-CUL-MUZE-001-book-synthesis.md" ;
+    sd:status sd:Active ;
+    sd:provenanceConfidence sd:Evidenced ;
+    sd:interprets [
+        a sd:ArtifactReference ;
+        sd:artifact source:SRC-CUL-MUZE-004 ;
+        sd:gitCommit "091cdceb9502c487b44b99bf043fcbcdbd7ab7f3"
+    ], [
+        a sd:ArtifactReference ;
+        sd:artifact source:SRC-CUL-MUZE-005 ;
+        sd:gitCommit "091cdceb9502c487b44b99bf043fcbcdbd7ab7f3"
+    ] .

@@ -103,6 +103,23 @@ This lets historical interrogation distinguish:
 - what was culturally preferred at the time;
 - what the team would prefer now.
 
+## Culture is historically situated
+
+A useful cultural preference can depend on conditions that later change. Preserve enough rationale to understand not only *what* the team prefers but *why that preference became useful*.
+
+Examples of conditions that can change the rational trade-off include:
+
+- implementation/exploration cost;
+- available automation or AI capability;
+- team composition and handover needs;
+- platform maturity;
+- regulation or client constraints;
+- operational and deployment economics.
+
+When those conditions change materially, re-evaluate the preference rather than treating culture as timeless law. A profile may explicitly state **historical rationale** and **current uncertainty** when that helps agents and humans avoid applying an old heuristic mechanically.
+
+Changed conditions do not retroactively make older decisions irrational. Update culture prospectively and preserve which profile/rationale shaped the historical decision. See `LES-005`.
+
 ## Muze engineering culture
 
 The first explicit reusable profiles ship in `cultures/muze-engineering.md` and `cultures/muze-library-stewardship.md`. The former captures broadly applicable Muze engineering preferences; the latter is intentionally scoped to Muze-owned reusable libraries/packages and should not leak into client projects.

@@ -35,7 +35,7 @@ A human question or proposed solution is not automatically an established premis
 
 Do not manufacture disagreement. Do not mistake your ability to produce a strong design for evidence that the design should be chosen. **Capability is not endorsement.**
 
-Before consequential design/implementation work, identify the active culture profile(s) and check that their declared scope actually matches the work. Do not import a narrower organization culture (for example library stewardship) merely because a broader organization profile is active. Distinguish what is required by intent/constraints from what is merely culturally preferred. If culture materially influences the chosen form, preserve that provenance with `sd:shapedBy`; if a more specific constraint overrides culture, say so.
+Before consequential design/implementation work, identify the active culture profile(s) and check that their declared scope actually matches the work. Do not import a narrower organization culture (for example library stewardship) merely because a broader organization profile is active. Distinguish what is required by intent/constraints from what is merely culturally preferred. If culture materially influences the chosen form, preserve that provenance with `sd:shapedBy`; if a more specific constraint overrides culture, say so. When a profile records historical rationale or current uncertainty, do not apply an old heuristic mechanically after the conditions that justified it have materially changed.
 
 Always ask:
 
@@ -201,7 +201,7 @@ Fix the earliest meaningful cause, create a new commit rather than rewriting his
 
 AI makes complexity cheap to create, not cheap to own. Spiral core requires consequential complexity, dependencies, and boundaries to be explainable and verifiable, but it does not impose one universal architectural aesthetic.
 
-Apply the active culture profile to underdetermined maintainability choices. For example, Muze currently prefers simplicity over completeness, small decoupled components, web-native standards where appropriate, replaceable dependencies, and stable interfaces. Another project may intentionally prefer different trade-offs.
+Apply the active culture profile to underdetermined maintainability choices. For example, Muze currently prefers designs that are easy to correct, bounded assumptions, problem-specific/replaceable structure, progressive enhancement where it fits, reuse without damaging fit, and stable explicit interfaces. Another project may intentionally prefer different trade-offs.
 
 Regardless of culture, avoid complexity whose purpose cannot be connected to current intent, evidence, risk, or an explicit preference.
 
