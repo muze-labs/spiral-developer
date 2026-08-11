@@ -3,7 +3,7 @@
 Apply Spiral Developer to this requested change.
 
 1. Identify the authoritative branch. For consequential direct human input, **do not modify product behavior yet**.
-2. Enter inquiry mode. Inspect enough of the human input and current system to formulate a concrete Understanding and to establish current **effective behavior**. Search by behavior/responsibility, not only ticket wording; follow generic/shared rules, inheritance, defaults, configuration, callers, composition, tests, rendered/computed behavior, and runtime effects where relevant.
+2. Enter inquiry mode. Inspect enough of the human input and current system to formulate a concrete Understanding and to establish current **effective behavior**. In an unfamiliar brownfield project or subsystem, assume your local project understanding is partial: build enough affinity to know where relevant behavior can originate, and ask for human guidance when that knowledge is not yet sufficient. Search by behavior/responsibility, not only ticket wording; follow generic/shared rules, inheritance, defaults, configuration, callers, composition, tests, rendered/computed behavior, and runtime effects where relevant.
 3. Establish an **evidenced gap**: what observable part of the confirmed-looking outcome is actually unmet now? Use a discriminating probe appropriate to the claim (for example reproduce the bug, exercise the API, inspect computed style/state, resolve effective configuration, or run a focused characterization). Finding no dedicated implementation is not enough.
 4. Present the human with this checkpoint and **STOP**:
    - **My understanding:** the outcome you believe they want;

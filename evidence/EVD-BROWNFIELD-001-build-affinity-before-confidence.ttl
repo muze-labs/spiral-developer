@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:EVD-BROWNFIELD-001
+    a sd:VerificationEvidence ;
+    dcterms:identifier "EVD-BROWNFIELD-001" ;
+    sd:repositoryPath "evidence/EVD-BROWNFIELD-001-build-affinity-before-confidence.md" ;
+    sd:status sd:Accepted ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:LES-009 ;
+        sd:gitCommit "9394a7a0404ee10b4e4c81e29992e11267290e19"
+    ] .

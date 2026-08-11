@@ -10,6 +10,16 @@ Trying to reconstruct complete provenance before new work begins would be expens
 
 > **The goal is not to document the past. The goal is to make future change increasingly traceable, auditable, and safe.**
 
+## Build affinity before confidence
+
+Every established project is locally strange. An agent entering it should assume its understanding is partial, even when it understands the requested outcome correctly. Before making strong claims about what is absent, duplicated, broken, or safe to change, learn enough about the relevant project area to know where that behavior could actually come from.
+
+This does not require a complete architecture model. Affinity can come from reading code/tests/docs, exercising the running system, following shared abstractions and callers, inspecting history, or asking a human who knows the area. The important behavior is epistemic: **expose uncertainty rather than project familiarity that has not been earned.**
+
+Humans should expect more handholding early in brownfield collaboration. A project-specific correction such as “this behavior is controlled globally, not in the component” is high-value knowledge transfer, not evidence that the collaboration has failed. Preserve it durably only when it will materially help future work.
+
+Do not introduce project-affinity scores, mandatory stages, or another artifact merely for this principle. Let human-AI collaboration infer what sufficient familiarity means in each project and subsystem; add more structure only when dogfooding demonstrates a need.
+
 ## Do not migrate the whole project
 
 Capture new causality accurately from now on. Reconstruct old causality only when active work requires it.
