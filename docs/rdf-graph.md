@@ -14,7 +14,7 @@ This gives the graph useful properties independent of any particular AI model or
 - the graph can later interoperate with Solid or other linked-data systems;
 - Git still provides immutable historical versions.
 
-Turtle is the canonical machine-readable representation of causal relationships. Markdown remains the preferred human-facing representation for substantial intent, design, observations, and evidence.
+Turtle is the canonical machine-readable representation of causal relationships. Markdown remains the preferred human-facing representation for substantial sources, interpretations, intent, design, observations, and evidence.
 
 ## The graph is logical, not one file
 
@@ -30,6 +30,12 @@ Prefer a companion Turtle resource beside each durable human artifact:
   culture.md
   culture.ttl
   project-context.md
+  sources/
+    SRC-001.md
+    SRC-001.ttl
+  understandings/
+    UND-001.md
+    UND-001.ttl
   requests/
     REQ-001.md
     REQ-001.ttl
@@ -111,6 +117,47 @@ The artifact IRI identifies the conceptual artifact across time.
 
 The **version** is the Git commit containing that Turtle/Markdown state.
 
+## Source and understanding example
+
+When origin and interpretation matter, represent them as ordinary versioned artifacts:
+
+```turtle
+project:SRC-001
+    a sd:Source ;
+    dcterms:identifier "SRC-001" ;
+    sd:repositoryPath ".spiral/sources/SRC-001.md" ;
+    sd:status sd:Accepted ;
+    sd:sourceAvailability sd:Referenced ;
+    sd:provenanceConfidence sd:Explicit .
+
+project:UND-001
+    a sd:Understanding ;
+    dcterms:identifier "UND-001" ;
+    sd:repositoryPath ".spiral/understandings/UND-001.md" ;
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Evidenced ;
+    sd:interprets [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-001 ;
+        sd:gitCommit "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    ] .
+
+project:REQ-001
+    a sd:Request ;
+    dcterms:identifier "REQ-001" ;
+    sd:repositoryPath ".spiral/requests/REQ-001.md" ;
+    sd:status sd:Accepted ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:UND-001 ;
+        sd:gitCommit "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    ] .
+```
+
+`sd:Source` records the existence and epistemic quality of origin evidence; human-facing source artifacts carry locators, excerpts, dates, hashes, or attribution where useful. `sd:Understanding` records the interpretation that was actually used. This keeps source fact separate from project meaning.
+
+A source can also use `sd:sourceAvailability sd:Unavailable` when the project only has a report, memory, inherited requirement, or other secondary trace. Missing provenance is represented rather than filled in.
+
 ## Referring to an exact upstream version
 
 A downstream relation uses `sd:ArtifactReference`:
@@ -146,6 +193,7 @@ This naturally encourages semantic causal commit boundaries.
 The vocabulary includes:
 
 - `sd:derivedFrom`
+- `sd:interprets`
 - `sd:satisfies`
 - `sd:supports`
 - `sd:constrainedBy`
@@ -159,7 +207,7 @@ Each relation points to an `sd:ArtifactReference` when an exact historical upstr
 
 ## Provenance confidence
 
-Legacy context can carry confidence explicitly:
+Any artifact whose grounding matters can carry confidence explicitly. This is especially useful for reconstructed legacy context, reported sources, and interpretation claims:
 
 ```turtle
 project:LEG-004
@@ -177,6 +225,16 @@ Available values are:
 - `sd:Unknown`
 
 Unknown is valid data.
+
+## Source availability
+
+`sd:Source` uses one of:
+
+- `sd:Retained` — primary source material is preserved in or with the project;
+- `sd:Referenced` — primary evidence is externally identifiable/retrievable;
+- `sd:Unavailable` — only a secondary report, memory, inherited claim, or similar trace remains.
+
+This is deliberately separate from provenance confidence. A source can be retained but ambiguous, or unavailable but still operationally important.
 
 ## Version-aware traversal
 
@@ -219,6 +277,7 @@ WHERE {
   OPTIONAL { ?reference sd:fragment ?fragment }
   FILTER (?relation IN (
     sd:derivedFrom,
+    sd:interprets,
     sd:satisfies,
     sd:supports,
     sd:constrainedBy,
@@ -228,6 +287,18 @@ WHERE {
     sd:observes,
     sd:supersedes
   ))
+}
+```
+
+Find sources whose primary evidence is unavailable:
+
+```sparql
+PREFIX sd: <https://muze.nl/ns/spiral-developer#>
+
+SELECT ?source
+WHERE {
+  ?source a sd:Source ;
+          sd:sourceAvailability sd:Unavailable .
 }
 ```
 
@@ -265,6 +336,8 @@ ontology/spiral-developer-shapes.ttl
 They intentionally validate only high-value structural properties at first, such as:
 
 - artifact IDs and human-artifact paths;
+- source artifacts declaring primary evidence availability and provenance confidence;
+- understanding artifacts interpreting at least one upstream artifact version and declaring provenance confidence;
 - full commit hashes on artifact references;
 - verification evidence having something to verify;
 - acceptance evidence having something to accept.

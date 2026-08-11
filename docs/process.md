@@ -18,11 +18,21 @@ The branch is an evolving proposed reality. The authoritative branch remains acc
 
 See `git-workflow.md`.
 
-## 2. Capture current intent
+## 2. Establish current intent and its provenance
 
-Create or identify the current request artifact.
+Create or identify the current request artifact, but do not automatically treat the request as the root of truth. Ask what caused the project to believe this is the needed outcome.
 
-A good request describes:
+When origin or interpretation is materially useful, preserve the upstream chain:
+
+> **source evidence → understanding → request**
+
+A `SRC-*` source artifact identifies or captures what was actually expressed, observed, received, or mandated. Sources can include connected conversations, emails, tickets, meetings, contracts, regulations, observations, human reports, legacy material, or external artifacts. Chat is one source type, not a privileged root.
+
+A `UND-*` understanding artifact records what the project currently believes one or more sources mean. Use it when clarification, interpretation, disagreement, reframing, or uncertainty could plausibly matter later. Link it to exact upstream source versions with `sd:interprets`.
+
+If primary origin evidence is unavailable, preserve that fact explicitly. A source may record an attributed or inherited claim with `sd:sourceAvailability sd:Unavailable`; do not invent historical intent to complete the graph.
+
+Then capture a request that describes:
 
 - who needs something;
 - what meaningful outcome they need;
@@ -31,7 +41,9 @@ A good request describes:
 - known constraints;
 - non-goals.
 
-Commit the request once it is meaningful enough to guide the next step. That commit hash becomes the version referenced by downstream artifacts.
+When a material understanding artifact exists, link the request to its exact version with `sd:derivedFrom`. For simple direct requests, do not create source/understanding artifacts merely for ceremony.
+
+Commit each artifact when it has crystallized enough to guide the next step. Its commit hash becomes the version referenced by downstream artifacts.
 
 ## 3. Check consequential framing
 
@@ -72,7 +84,7 @@ For ordinary Muze web work, use frontend-first development: create enough functi
 
 Optimize for behavioral fidelity and learning, not visual polish, generic usability work, production infrastructure, or speculative completeness unless those are required for meaningful interaction.
 
-Record observations separately from interpretation. If feedback changes intent, create a new request version in a new commit. Do not rewrite the older request.
+Record observations separately from interpretation. If feedback changes what the project believes the source or user need means, create or revise the relevant `UND-*` artifact and then revise the request when the operationalized outcome changes. Do not rewrite the older understanding or request.
 
 ## 6. Create a traceable design
 
@@ -132,6 +144,7 @@ When the AI believes the request is satisfied, it prepares a pull request contai
 
 The PR should expose:
 
+- source/understanding provenance when material;
 - request/version;
 - significant feedback;
 - design/version;
@@ -163,7 +176,7 @@ Use:
 
 > **observe failure → trace upward → locate earliest meaningful cause → correct upstream artifact/environment → propagate downward → verify → accept**
 
-Possible root causes include request ambiguity, missing context, incorrect design, weak boundaries, missing verification, wrong acceptance criteria, dependency behavior, or implementation error.
+Possible root causes include missing or weak source evidence, source misinterpretation, request ambiguity, missing context, incorrect design, weak boundaries, missing verification, wrong acceptance criteria, dependency behavior, or implementation error.
 
 Fix the earliest meaningful cause and create new commits. Never amend old causal history to make it appear that the correct understanding existed earlier.
 
@@ -174,6 +187,7 @@ When the defect does not fit the current request/design model cleanly, explicitl
 At the end of a significant cycle ask:
 
 - Did intended users provide meaningful feedback where needed?
+- Where intent interpretation mattered, could we distinguish source evidence from our understanding of it?
 - Did we reduce the nearest important uncertainty?
 - Did traceability improve agent or human reasoning?
 - Did we add unjustified complexity or dependencies?

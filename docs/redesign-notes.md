@@ -76,3 +76,7 @@ Causal relationships are stored canonically as RDF/Turtle so ordinary linked-dat
 ### Inquiry/execution and framing resistance
 
 Added after extended AI collaboration exposed a recurring failure mode: a capable agent can make a user's first plausible framing increasingly coherent without testing whether the framing itself is correct. Spiral Developer now distinguishes inquiry from execution, treats consequential prompts as proposed frames, uses lightweight framing resistance at important branching points, and explicitly states that capability is not endorsement. It also adds scale resistance and upstream reframing to the defect/evaluation loop.
+
+### Intent formation as provenance
+
+Added after treating AI reframing as a first-class collaboration capability exposed a gap at the root of the causal graph. A request is now understood as a derived claim about intent rather than unquestioned ground truth. Where materially useful, `SRC-*` Source artifacts preserve what was actually expressed/observed (including unavailable primary provenance), `UND-*` Understanding artifacts preserve the interpretation, clarification, or reframing applied to that evidence, and requests derive from the accepted understanding. Connected chat is one possible source, not a privileged origin.

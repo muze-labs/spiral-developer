@@ -29,7 +29,7 @@ Investigate a legacy area when:
 
 Migration starts with ordinary development, on a normal feature branch, not a migration project.
 
-Create the current request and follow the normal process. When the work enters legacy territory, characterize only enough of that behavior to proceed safely.
+Establish the current request and follow the normal process. When the current intent itself comes from inherited or historical claims, use `SRC-*`/`UND-*` only where that provenance matters; an unavailable original source is an acceptable explicit gap. When the work enters legacy territory, characterize only enough of that behavior to proceed safely.
 
 The first AI-native slice will mix explicit new knowledge with existing behavior whose origin is only partly understood. That is acceptable as long as the distinction remains visible.
 
@@ -82,6 +82,7 @@ After changing an area, future work should have less archaeology to repeat.
 
 A touched capability should normally leave behind:
 
+- relevant source/understanding provenance when current intent required interpretation;
 - an explicit current request;
 - a behavioral baseline where relevant;
 - relevant design decisions;
@@ -111,7 +112,7 @@ Git history itself is not rewritten to make old decisions appear cleaner or more
 
 Do not interview everyone about everything.
 
-When active work reaches an area, ask targeted questions and preserve useful answers with provenance. A recollection can be valuable without becoming unquestioned fact.
+When active work reaches an area, ask targeted questions and preserve useful answers with provenance. A recollection can be valuable without becoming unquestioned fact. When it materially causes a current requirement, it can be captured as a `SRC-*` human report with the original primary evidence marked unavailable, then interpreted through `UND-*`.
 
 ## Use confidence to bound autonomy
 

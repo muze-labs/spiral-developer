@@ -35,6 +35,39 @@ sd:ArtifactReferenceShape
         sh:pattern "^([0-9a-f]{40}|[0-9a-f]{64})$"
     ] .
 
+
+sd:SourceShape
+    a sh:NodeShape ;
+    sh:targetClass sd:Source ;
+    sh:property [
+        sh:path sd:sourceAvailability ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in ( sd:Retained sd:Referenced sd:Unavailable )
+    ] ;
+    sh:property [
+        sh:path sd:provenanceConfidence ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in ( sd:Explicit sd:Evidenced sd:Inferred sd:Unknown )
+    ] .
+
+
+sd:UnderstandingShape
+    a sh:NodeShape ;
+    sh:targetClass sd:Understanding ;
+    sh:property [
+        sh:path sd:interprets ;
+        sh:minCount 1
+    ] ;
+    sh:property [
+        sh:path sd:provenanceConfidence ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in ( sd:Explicit sd:Evidenced sd:Inferred sd:Unknown )
+    ] .
+
+
 sd:VerificationEvidenceShape
     a sh:NodeShape ;
     sh:targetClass sd:VerificationEvidence ;

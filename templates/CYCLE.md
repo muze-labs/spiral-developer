@@ -6,6 +6,8 @@ id: CYC-001
 
 ## Analyze
 
+Current source/understanding provenance (when material):
+
 Current request/version:
 
 Nearest important uncertainty:
@@ -47,6 +49,8 @@ Evidence collected:
 Acceptance result:
 
 What changed in our understanding:
+
+Did source evidence and interpretation remain distinguishable where needed?:
 
 Did evidence challenge the framing rather than only the implementation?:
 

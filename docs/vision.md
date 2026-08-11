@@ -32,17 +32,23 @@ Frontend-first is a specific instance of a broader principle:
 
 > **Build the cheapest artifact capable of producing high-quality reality-based feedback.**
 
-## 2. Treat artifacts as versioned understandings
+## 2. Treat intent formation as part of the causal system
 
-A request represents the current understanding of what someone needs.
+A requirement is not ground truth merely because it has been written down. It is a project claim about what should be achieved.
 
-A design represents the current understanding of how that need should be satisfied.
+Where origin or interpretation matters, distinguish:
 
-An implementation realizes a design.
+- a **source** — what was actually expressed, observed, received, or mandated;
+- an **understanding** — what we currently believe that source means for the system;
+- a **request** — the operationalized outcome the project now intends to satisfy.
 
-Verification provides evidence about that realization.
+A source may be a connected conversation, email, ticket, meeting, contract, regulation, observation, human report, legacy artifact, or other evidence. Chat is not privileged. If the original source is unavailable, preserve that gap explicitly instead of manufacturing a plausible history.
 
-Acceptance provides evidence that the resulting behavior answers the originating intent.
+An understanding can be corrected or superseded while the source remains unchanged. This lets Spiral Developer distinguish human expression from AI interpretation, clarification, reframing, and eventual accepted meaning.
+
+A design represents the current understanding of how a request should be satisfied. An implementation realizes a design. Verification provides evidence about that realization. Acceptance provides evidence that the resulting behavior answers the originating intent.
+
+Do not create source and understanding artifacts ceremonially for every simple request. Crystallize them when origin, interpretation, disagreement, or reframing could matter to later reasoning.
 
 When reality changes our understanding, create a new version in a new commit. Do not rewrite history to pretend later knowledge existed earlier.
 
@@ -52,11 +58,11 @@ Every significant artifact should be able to answer:
 
 > **Why does this exist?**
 
-The basic chain is:
+The extended chain, where origin and interpretation are material, is:
 
-> **intent → request → design → implementation → verification → acceptance**
+> **source evidence → understanding → request → design → implementation → verification → acceptance**
 
-Not everything needs direct client ancestry. Supporting plumbing may exist because a design needs it. External standards may constrain a design. Culture may rule out an otherwise valid implementation. Preserve the truthful connective chain rather than inventing requirements.
+A simple direct request may remain the first durable artifact. Not everything needs direct client ancestry. Supporting plumbing may exist because a design needs it. External standards may constrain a design. Culture may rule out an otherwise valid implementation. Preserve the truthful connective chain rather than inventing requirements.
 
 ## 4. Let reality revise the model
 
@@ -64,7 +70,7 @@ Traceability must not freeze requirements.
 
 A more complete loop is:
 
-> **intent → interactive hypothesis → observed behavior → revised understanding → design → implementation → evidence → deployed behavior → observed behavior → …**
+> **source evidence → understanding → request → interactive hypothesis → observed behavior → revised understanding/request → design → implementation → evidence → deployed behavior → observed behavior → …**
 
 The intended audience is an external check against a perfectly consistent but wrong internal model.
 
@@ -112,7 +118,7 @@ When a defect occurs, first ask:
 
 > **Why was our software-producing environment capable of accepting this defect?**
 
-The root cause may be request ambiguity, missing context, an incorrect design, a weak boundary, a missing invariant, shallow verification, a bad acceptance criterion, or an external dependency.
+The root cause may be missing or weak source evidence, a mistaken interpretation, request ambiguity, missing context, an incorrect design, a weak boundary, a missing invariant, shallow verification, a bad acceptance criterion, or an external dependency.
 
 Correct the earliest meaningful cause, then propagate the correction forward and verify that the original defect and related variants no longer pass.
 
@@ -120,7 +126,7 @@ Correct the earliest meaningful cause, then propagate the correction forward and
 
 Human auditability does not require a person to understand every generated line.
 
-What must remain inspectable and interrogable is the causal production system: intent, context, culture, constraints, design, dependencies, agent/tool configuration where relevant, evidence, acceptance, and provenance.
+What must remain inspectable and interrogable is the causal production system: relevant source evidence, interpretation/understanding, intent, context, culture, constraints, design, dependencies, agent/tool configuration where relevant, evidence, acceptance, and provenance.
 
 Auditability means:
 
@@ -155,7 +161,7 @@ AI increasingly handles implementation, routine investigation, test generation, 
 
 ## 13. The source code is part of a larger artifact
 
-The durable project increasingly includes a versioned network of intent, requests, assumptions, designs, decisions, constraints, code, tests, acceptance evidence, operational observations, and provenance.
+The durable project increasingly includes a versioned network of source evidence, interpretations, intent, requests, assumptions, designs, decisions, constraints, code, tests, acceptance evidence, operational observations, and provenance.
 
 Source code remains what runs, but it need not carry all accumulated knowledge implicitly.
 
@@ -175,7 +181,7 @@ Humans should spend their scarce attention on meaning, judgment, and reality.
 
 The immediate goal is not a universal platform. First establish a working Muze process that can:
 
-1. capture and version intent;
+1. capture and version materially relevant sources, understanding, and intent;
 2. expose consequential framing assumptions before they harden;
 3. identify the nearest important uncertainty;
 4. create an interactive hypothesis;
@@ -195,4 +201,4 @@ Only after this works convincingly should it become a larger harness.
 
 ## Working principle
 
-> **Muze develops software by maintaining a short, reality-driven feedback loop between human intent and working systems. During inquiry, consequential questions remain open to reframing; during execution, AI performs much of the development work and preserves the causal chain connecting request, design, implementation, and evidence. When the result fails, repair the earliest faulty part of that chain rather than merely patching its output.**
+> **Muze develops software by maintaining a short, reality-driven feedback loop between human intent and working systems. Intent itself is traceable when it matters: source evidence, interpretation, and request remain distinguishable. During inquiry, consequential questions remain open to reframing; during execution, AI performs much of the development work and preserves the causal chain connecting understanding, request, design, implementation, and evidence. When the result fails, repair the earliest faulty part of that chain rather than merely patching its output.**

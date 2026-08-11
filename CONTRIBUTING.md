@@ -8,7 +8,7 @@ Spiral Developer changes who performs much of the implementation work, but it do
 
 For a normal feature or change:
 
-1. Start from a clear current request.
+1. Start from the current need and its best available source; let the AI crystallize a request and, where interpretation matters, the understanding that produced it.
 2. Let Spiral Developer create and operate a feature branch.
 3. Give feedback about intent, behavior, constraints, trade-offs, and observed problems rather than micromanaging code generation. Treat exploratory proposals as hypotheses when you want independent search rather than simple execution.
 4. When intended-user feedback matters, evaluate a working interactive artifact early.
@@ -20,7 +20,7 @@ For a normal feature or change:
 
 Humans retain authority over:
 
-- what the client/user actually means;
+- which interpretation of client/user intent the project is willing to accept when judgment is required;
 - interpretation of meaningful user feedback;
 - material changes in product direction;
 - significant trade-offs when evidence is insufficient;
@@ -45,7 +45,7 @@ spiral/REQ-017-account-deactivation
 
 The AI should create the branch and routine commits when its tools and permissions allow it.
 
-The first crystallized commit should normally capture the current request or the smallest missing upstream artifact needed to make the work causally grounded.
+The first crystallized commit should normally capture the current request or the smallest missing upstream artifact needed to make the work causally grounded. When source provenance or interpretation is consequential, that may be a `SRC-*` source or `UND-*` understanding before the request.
 
 ## During development
 
@@ -81,16 +81,17 @@ The PR is the main human governance boundary.
 
 Review in this order when practical:
 
-1. **Intent** — is the request represented correctly?
-2. **Framing** — did a consequential assumption prematurely narrow the problem or acceptance space?
-3. **Meaningful feedback** — where intent was uncertain, did intended users interact with something real enough to teach us?
-4. **Design** — do the design choices answer the request and respect current constraints?
-5. **Causal graph** — are the significant relationships and upstream versions truthful?
-6. **Evidence** — does verification actually establish that implementation realizes design?
-7. **Acceptance** — does acceptance establish that behavior satisfies the request?
-8. **Complexity** — are new concepts, dependencies, abstractions, or change radius justified?
-9. **Risk** — are deferred risks still appropriately deferred, and are unresolved assumptions visible?
-10. **Code** — inspect directly wherever semantic, security, maintainability, or operational risk makes that valuable.
+1. **Origin and understanding** — where it matters, can we tell what was actually expressed/observed, how it was interpreted, and where provenance is weak or unavailable?
+2. **Intent** — does the request accurately operationalize the accepted understanding?
+3. **Framing** — did a consequential assumption prematurely narrow the problem or acceptance space?
+4. **Meaningful feedback** — where intent was uncertain, did intended users interact with something real enough to teach us?
+5. **Design** — do the design choices answer the request and respect current constraints?
+6. **Causal graph** — are the significant relationships and upstream versions truthful?
+7. **Evidence** — does verification actually establish that implementation realizes design?
+8. **Acceptance** — does acceptance establish that behavior satisfies the request?
+9. **Complexity** — are new concepts, dependencies, abstractions, or change radius justified?
+10. **Risk** — are deferred risks still appropriately deferred, and are unresolved assumptions visible?
+11. **Code** — inspect directly wherever semantic, security, maintainability, or operational risk makes that valuable.
 
 Do not approve a PR merely because CI is green. CI establishes mechanical and executable claims; the human review establishes that the claims themselves are sensible.
 

@@ -18,10 +18,12 @@ Scenario:
 
 ## Interpretation
 
-<!-- What may this tell us about the request/design? Mark uncertainty. -->
+<!-- What may this tell us about the current understanding/request/design? Mark uncertainty. Observation and interpretation should remain distinguishable. -->
 
 ## Upstream impact
 
+- [ ] Understanding remains valid
+- [ ] Understanding should be changed/superseded in a new commit
 - [ ] Request remains valid
 - [ ] Request should be changed in a new commit
 - [ ] Design should be changed in a new commit
@@ -30,4 +32,4 @@ Scenario:
 
 ## Resulting work
 
-<!-- What new request/design/evidence artifacts resulted? Record the canonical causal links in the companion Turtle resource. -->
+<!-- What new understanding/request/design/evidence artifacts resulted? An UND-* may `sd:interprets` this feedback when the observation materially changes meaning. Record canonical causal links in companion Turtle resources. -->

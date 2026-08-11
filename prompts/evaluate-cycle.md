@@ -7,6 +7,8 @@ Do not score generic maturity.
 Determine:
 
 - Did intended users provide meaningful feedback where product intent was uncertain?
+- Where intent interpretation was material, is source evidence distinguishable from the understanding derived from it?
+- Is missing or unavailable primary provenance explicit rather than silently reconstructed?
 - Did the cycle reduce the nearest important uncertainty?
 - Did a consequential premise in the request/design go untested because the AI simply optimized inside it?
 - Would a materially different framing have changed what we built, tested, or regarded as success?

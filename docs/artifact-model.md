@@ -5,6 +5,8 @@
 Spiral Developer preserves enough causality for humans, agents, and ordinary tools to answer:
 
 - Why does this exist?
+- What source evidence ultimately caused it?
+- How was that evidence interpreted before it became a request?
 - Which exact upstream understanding caused it?
 - What evidence justified it?
 - What becomes suspect when something upstream changes?
@@ -12,12 +14,32 @@ Spiral Developer preserves enough causality for humans, agents, and ordinary too
 
 It does not model every line of code, prompt, or intermediate attempt.
 
+## Requirements are derived artifacts
+
+A request is not treated as infallible ground truth about human intent. It is a durable statement of what the project currently intends to achieve.
+
+Where the formation of that intent matters, preserve the upstream chain explicitly:
+
+> **source evidence → understanding → request → design → implementation → verification → acceptance**
+
+A **Source** identifies or captures what was actually expressed, observed, received, or mandated. Examples include a connected conversation, email, issue, meeting, contract, regulation, research result, observed behavior, stakeholder statement, or historical report.
+
+An **Understanding** is a claim about what one or more sources mean for the system. It is the right place to crystallize causally important clarification, reframing, interpretation, and remaining uncertainty.
+
+The source and understanding layers are deliberately not chat-specific. A connected AI conversation is simply a source that can often be captured with unusually good fidelity.
+
+Do not create `SRC-*` and `UND-*` artifacts ceremonially for every request. Create them when origin, interpretation, disagreement, reframing, or provenance strength could plausibly matter later. For simple direct requests, the request may remain the first durable artifact.
+
+If the original source is unavailable, do not invent one. A `SRC-*` artifact may record an attributed report or historical claim with `sd:sourceAvailability sd:Unavailable` and an appropriate provenance confidence. An explicit gap is valid causal information.
+
 ## Stable identity; Git version
 
 Each durable artifact gets a stable ID, for example:
 
 - `CUL-001` — culture/principle set;
 - `CTX-001` — project context;
+- `SRC-001` — source/origin evidence;
+- `UND-001` — interpreted understanding of intent or meaning;
 - `REQ-001` — request/intent unit;
 - `FBK-001` — feedback/observation;
 - `DES-001` — design element/decision;
@@ -77,6 +99,14 @@ Use typed relations rather than generic “related to”.
 
 The downstream artifact was created using the upstream artifact as a source of meaning or evidence.
 
+A request will commonly `sd:derivedFrom` an accepted understanding when interpretation was material.
+
+### `interprets`
+
+An understanding gives meaning to a specific upstream source, observation, feedback item, legacy claim, or other evidence.
+
+This relation preserves the difference between **what was actually available upstream** and **what the project concluded it meant**. The interpretation may later be superseded without changing the source.
+
 ### `satisfies`
 
 A design element claims to satisfy a request outcome or fragment.
@@ -111,6 +141,16 @@ A new artifact/version prospectively replaces an earlier one without rewriting i
 
 Do not create a relation unless it will plausibly help reasoning, impact analysis, audit, or verification.
 
+## Source availability
+
+`sd:Source` artifacts record whether their primary origin evidence is:
+
+- `retained` — the relevant source material is preserved in or with the project;
+- `referenced` — the source remains externally identifiable/retrievable but is not retained as project content;
+- `unavailable` — the project has only a report, memory, inherited claim, or other secondary trace.
+
+Availability is not the same as correctness. A retained source can still be ambiguous or misleading, and an unavailable source can still describe an operationally important requirement. The point is to make the epistemic difference visible.
+
 ## Versioned references
 
 A causal relation to an upstream artifact should point to the exact Git commit containing the upstream version that informed the decision.
@@ -137,12 +177,12 @@ Avoid line numbers as durable semantic references.
 
 ## Provenance confidence
 
-For reconstructed legacy claims use:
+Use provenance confidence for claims whose grounding matters, including source reports, reconstructed legacy context, and interpretations:
 
-- `explicit` — currently authoritative statement;
-- `evidenced` — strongly supported by surviving artifacts;
+- `explicit` — directly and currently stated by an authoritative source;
+- `evidenced` — strongly supported by available evidence;
 - `inferred` — plausible but not established;
-- `unknown` — behavior exists but its reason is not known.
+- `unknown` — the relevant reason or meaning is not known.
 
 These describe the provenance of a claim, not whether observable behavior exists.
 
@@ -165,6 +205,8 @@ When an upstream artifact changes:
 5. re-evaluate each dependent;
 6. preserve whether it remains valid, is revised, or is replaced.
 
+This applies above the request layer as well. A revised interpretation of an unchanged source can make a request suspect. A newly recovered primary source can make an earlier understanding suspect.
+
 Git history tells us what happened. The graph tells us what depended on what.
 
 ## What not to preserve by default
@@ -173,13 +215,17 @@ Do not preserve every prompt, token, intermediate code draft, or conversational 
 
 Crystallize durable meaning:
 
+- source statements or observations when their identity matters;
+- interpretations and accepted understandings when meaning was non-trivial;
 - intent;
-- assumptions;
+- assumptions and reframings;
 - consequential decisions;
 - constraints;
 - evidence;
 - acceptance;
 - root-cause findings;
 - causal provenance.
+
+A long conversation may therefore produce only a few durable artifacts: the relevant source expression, a consequential reframing or clarification, the accepted understanding, and the request that operationalizes it.
 
 Record model/tool configuration only when it was materially causal to a result, defect, or reproducibility question.

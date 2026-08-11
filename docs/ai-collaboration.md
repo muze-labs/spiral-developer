@@ -25,7 +25,23 @@ When such an assumption is still genuinely open, use a compact intervention such
 
 Then continue with the broader inquiry where useful. Do not turn framing checks into ceremony, and do not challenge settled premises merely to appear independent.
 
-## 2. Capability is not endorsement
+## 2. Treat understanding as a claim
+
+The AI's interpretation of a human or external source is not identical to the source itself. When the distinction is consequential, preserve it.
+
+A useful upstream chain is:
+
+> **source evidence → interpretation/understanding → request**
+
+The source may be a connected conversation, email, issue, regulation, meeting, observation, human report, or other evidence. A connected chat is not a privileged root; it is simply one source whose evolution can often be captured precisely.
+
+Crystallize only causally important moments: a statement, clarification, reframing, disagreement, or accepted interpretation that materially changed the request. Do not preserve conversational connective tissue merely because it exists.
+
+When primary evidence is missing, preserve the attributed claim and the gap. `unknown` or `unavailable` is preferable to a plausible reconstruction.
+
+This permits later interrogation to answer not only “why does this design exist?” but also “why did we believe this requirement represented the need?”
+
+## 3. Capability is not endorsement
 
 A capable AI can often produce a coherent design and implementation plan for many plausible directions. The existence of a good plan therefore does not validate the direction.
 
@@ -36,7 +52,7 @@ Before endorsing a high-consequence design, distinguish:
 
 When a consequential proposal appears unusually elegant, test at least one materially different framing before treating elegance as evidence.
 
-## 3. Collapse deliberately
+## 4. Collapse deliberately
 
 Software development requires turning uncertainty into commitments. The objective is not to keep everything open indefinitely. It is to commit at the lowest level justified by current evidence.
 
@@ -54,7 +70,7 @@ During execution:
 - generate implementation, verification, and documentation quickly;
 - preserve the causal chain so upstream decisions can still be revisited later.
 
-## 4. Resist scale drift
+## 5. Resist scale drift
 
 A difficult local problem can often be made elegant by enlarging the abstraction, product, or system boundary. Sometimes that reveals the correct architecture. Sometimes it is architecture astronautics.
 
@@ -64,17 +80,17 @@ Before enlarging scope to make a design cleaner, ask:
 
 Do not solve a larger problem merely because AI makes the larger solution cheap to generate.
 
-## 5. Trace surprises upstream
+## 6. Trace surprises upstream
 
 When implementation or evaluation produces a surprising result, do not assume the correction belongs in code. Trace the causal chain upward:
 
-> **intent → request → design → implementation → verification → acceptance**
+> **source evidence → understanding → request → design → implementation → verification → acceptance**
 
-Ask where the first inadequate assumption entered. A test failure may reveal an implementation defect, but it may also reveal a mistaken requirement, wrong abstraction, bad acceptance model, or an incorrectly framed request.
+Ask where the first inadequate assumption entered. A test failure may reveal an implementation defect, but it may also reveal a misread source, mistaken interpretation, mistaken requirement, wrong abstraction, bad acceptance model, or an incorrectly framed request.
 
 The value of cheap AI regeneration is that upstream corrections can be propagated rather than protected by sunk implementation cost. Preserve the reasoning and evidence that let the software be rebuilt; do not treat generated code as the primary irreversible asset.
 
-## 6. Independent search without performative disagreement
+## 7. Independent search without performative disagreement
 
 Good collaboration is neither obedience nor automatic contrarianism. The AI should contribute materially different possibilities when they could change an important decision, but it should not manufacture alternatives when the frame is already well supported.
 
@@ -84,7 +100,7 @@ A useful test is:
 
 If yes, surface it before commitment. If no, keep the cycle moving.
 
-## 7. Evaluate the collaboration itself
+## 8. Evaluate the collaboration itself
 
 At significant cycle boundaries, occasionally ask:
 

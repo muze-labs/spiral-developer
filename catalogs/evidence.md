@@ -2,6 +2,19 @@
 
 Evidence should match the claim being tested.
 
+## Intent / interpretation evidence
+
+Useful for establishing why a request represents the current need:
+
+- retained or externally referenced source material with stable identity/version;
+- attributed stakeholder statements or corrections;
+- explicit clarification of ambiguous source language;
+- comparison of materially different interpretations or framings;
+- human/stakeholder confirmation of an interpretation when judgment is required;
+- explicit `unavailable` provenance when only a report, recollection, or inherited claim remains.
+
+A source proves what was available upstream, not that the project interpreted it correctly. An accepted understanding is itself a claim that may later be superseded.
+
 ## Meaningful-interaction evidence
 
 Useful for questions about product intent and interaction:
@@ -55,6 +68,8 @@ Useful for establishing that the causal record itself is trustworthy:
 - referenced full Git commit hashes exist;
 - referenced artifacts/paths exist at the claimed historical commit where relevant;
 - graph impact queries find expected downstream dependents after an upstream change;
-- human spot-check confirms that machine links represent the decision actually made rather than a plausible reconstructed story.
+- human spot-check confirms that machine links represent the decision actually made rather than a plausible reconstructed story;
+- source artifacts accurately declare whether primary evidence is retained, referenced, or unavailable;
+- understanding artifacts point to the exact source/evidence versions they actually interpreted.
 
 Passing graph validation establishes structural/provenance integrity. It does **not** establish that the product behavior or design is correct.

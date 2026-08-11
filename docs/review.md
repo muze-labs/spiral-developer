@@ -6,6 +6,7 @@ A Spiral Developer pull request is not merely a code diff. It is a proposal to a
 
 The AI should prepare a concise review surface containing:
 
+- **Source / understanding** — when material, the origin evidence, interpretation that produced intent, exact versions, and any unavailable primary provenance.
 - **Request** — artifact ID and exact Git version(s).
 - **Feedback** — important intended-user observations that changed understanding.
 - **Design** — important design artifacts and versions.
@@ -43,17 +44,19 @@ Humans review meaning and judgment.
 
 Ask:
 
-1. Is the request an accurate representation of current client/user intent?
-2. Does the request or design contain a consequential framing assumption that was never tested because the AI could elaborate it convincingly?
-3. Where intent was uncertain, was feedback obtained through meaningful enough interaction?
-4. Does each important design decision have a truthful reason?
-5. Are supporting technical choices distinguished from direct client intent?
-6. Does verification test the design claim rather than simply mirror implementation?
-7. Does acceptance actually demonstrate the request outcome?
-8. Are assumptions and legacy inferences represented honestly?
-9. Are complexity, dependencies, and new boundaries justified?
-10. Have deferred risks stayed deferred unless evidence required otherwise?
-11. Can we trace a surprising result back through the production system?
+1. Where origin or interpretation matters, can we distinguish what was actually expressed/observed from what the project concluded it meant?
+2. Is missing, secondary, or unavailable source provenance represented honestly rather than silently reconstructed?
+3. Does the request accurately operationalize the accepted understanding of current client/user intent?
+4. Does the request or design contain a consequential framing assumption that was never tested because the AI could elaborate it convincingly?
+5. Where intent was uncertain, was feedback obtained through meaningful enough interaction?
+6. Does each important design decision have a truthful reason?
+7. Are supporting technical choices distinguished from direct client intent?
+8. Does verification test the design claim rather than simply mirror implementation?
+9. Does acceptance actually demonstrate the request outcome?
+10. Are assumptions and legacy inferences represented honestly?
+11. Are complexity, dependencies, and new boundaries justified?
+12. Have deferred risks stayed deferred unless evidence required otherwise?
+13. Can we trace a surprising result back through the production system, including above the request layer when necessary?
 
 Code review remains available and important when direct inspection is the best evidence for a risky or subtle claim. It is not the only route to human control.
 
@@ -62,7 +65,7 @@ Code review remains available and important when direct inspection is the best e
 A reviewer may:
 
 - approve;
-- request an upstream request/design/evidence correction;
+- request an upstream source/understanding/request/design/evidence correction;
 - request additional evidence;
 - reject the direction;
 - identify a new risk or assumption;

@@ -17,13 +17,14 @@ Then inspect the repository only far enough to support the next real piece of wo
 
 Do **not** attempt to reconstruct complete project history.
 
-If `.spiral/` does not exist, propose/create only the minimal working structure: project context, culture source, `.spiral/project.ttl` with a stable project namespace, and companion Turtle resources only as artifacts are introduced.
+If `.spiral/` does not exist, propose/create only the minimal working structure: project context, culture source, `.spiral/project.ttl` with a stable project namespace, and companion Turtle resources only as artifacts are introduced. Add `SRC-*` and `UND-*` artifacts only when origin or interpretation is materially useful; do not pre-create empty source/understanding inventories.
 
 Produce:
 
 - concise project context if missing;
 - relevant culture sources/constraints;
 - known opaque vs characterized areas relevant to current work;
+- the best available source/understanding for current intent when material;
 - a proposal for the first bounded request to bring under Spiral Developer.
 
 Separate explicit/evidenced/inferred/unknown legacy knowledge.

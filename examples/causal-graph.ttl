@@ -2,11 +2,36 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix project: <https://example.org/projects/widget/spiral/> .
 
+project:SRC-001
+    a sd:Source ;
+    dcterms:identifier "SRC-001" ;
+    sd:repositoryPath ".spiral/sources/SRC-001.md" ;
+    sd:status sd:Accepted ;
+    sd:sourceAvailability sd:Referenced ;
+    sd:provenanceConfidence sd:Explicit .
+
+project:UND-001
+    a sd:Understanding ;
+    dcterms:identifier "UND-001" ;
+    sd:repositoryPath ".spiral/understandings/UND-001.md" ;
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Evidenced ;
+    sd:interprets [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-001 ;
+        sd:gitCommit "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    ] .
+
 project:REQ-001
     a sd:Request ;
     dcterms:identifier "REQ-001" ;
     sd:repositoryPath ".spiral/requests/REQ-001.md" ;
-    sd:status sd:Accepted .
+    sd:status sd:Accepted ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:UND-001 ;
+        sd:gitCommit "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    ] .
 
 project:DES-001
     a sd:Design ;

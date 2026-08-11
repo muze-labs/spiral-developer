@@ -12,6 +12,8 @@ A practical initial structure is:
   culture.md
   culture.ttl
   project-context.md
+  sources/
+  understandings/
   requests/
   feedback/
   designs/
@@ -43,13 +45,19 @@ spiral/REQ-001-short-name
 
 From here onward, normal causal commits are immutable evidence.
 
-## 4. Capture the request
+## 4. Capture origin, understanding, and request as needed
 
-Create `.spiral/requests/REQ-001.md` from `templates/REQUEST.md` and `.spiral/requests/REQ-001.ttl` from `templates/ARTIFACT.ttl`.
+Start from the best available evidence for why the change is wanted. This may already be the current human instruction, or it may be a conversation, email, issue, meeting, contract, regulation, observation, inherited requirement, or external artifact.
 
-A good request expresses intent and observable desired outcomes without prematurely prescribing implementation.
+When the source identity or the interpretation could matter later, create `.spiral/sources/SRC-001.md` from `templates/SOURCE.md` and `.spiral/sources/SRC-001.ttl` from `templates/SOURCE.ttl`. Record whether the primary evidence is `sd:Retained`, `sd:Referenced`, or `sd:Unavailable`, and declare the source claim's provenance confidence.
 
-Commit it. The resulting full Git hash is the version downstream design will reference.
+When meaning had to be interpreted, clarified, challenged, or reframed, create `.spiral/understandings/UND-001.md` from `templates/UNDERSTANDING.md` and `.spiral/understandings/UND-001.ttl` from `templates/UNDERSTANDING.ttl`. Link it with `sd:interprets` to the exact source version(s) it interprets and declare the interpretation's provenance confidence.
+
+Then create `.spiral/requests/REQ-001.md` from `templates/REQUEST.md` and a companion Turtle resource. A good request expresses the operationalized intent and observable desired outcomes without prematurely prescribing implementation. When an `UND-*` artifact materially caused it, link the request to that exact version with `sd:derivedFrom`.
+
+Do not create `SRC-*` or `UND-*` artifacts merely to fill folders. For a simple direct request, `REQ-*` may still be the first durable artifact.
+
+Commit each crystallized upstream artifact before creating downstream references to it.
 
 ## 5. Check the frame, then find the nearest important uncertainty
 
@@ -67,7 +75,7 @@ For normal Muze web work, create functioning UI quickly enough that intended use
 
 Optimize first for behavioral fidelity and learning, not polish.
 
-Record important feedback. If feedback changes the request, commit a new request state instead of rewriting the earlier commit.
+Record important feedback. If it changes the interpretation of the need, update or supersede the relevant `UND-*` artifact first; if the operationalized outcome changes, commit a new request state. Never rewrite the earlier causal history.
 
 ## 7. Create design and causal links
 
@@ -97,7 +105,7 @@ Fill the PR with the causal case, not merely the code summary.
 
 Run normal project CI plus any graph checks available.
 
-A human reviews intent, design, evidence, risk, and behavior. Direct code review is used where it provides valuable evidence.
+A human reviews source/understanding provenance where material, intent, design, evidence, risk, and behavior. Direct code review is used where it provides valuable evidence.
 
 ## 11. Merge, do not rewrite
 
@@ -112,6 +120,8 @@ After the feature is merged, ask:
 - Did the graph help the AI or reviewer reason about the change?
 - Was the exact-version provenance useful?
 - Did intended-user interaction change our understanding?
+- Where interpretation mattered, could we distinguish source evidence from the understanding derived from it?
+- Did missing primary provenance remain visible instead of being silently reconstructed?
 - Did the AI expose any consequential framing assumption before it became expensive downstream?
 - Did we confuse a well-elaborated solution with evidence that it was the right solution?
 - Did any artifact become ceremonial bookkeeping?

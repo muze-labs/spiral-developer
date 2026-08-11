@@ -13,6 +13,8 @@ sd:
 sd:Artifact a rdfs:Class ; rdfs:label "Artifact" .
 sd:Culture a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Culture" .
 sd:ProjectContext a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Project context" .
+sd:Source a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Source" ; rdfs:comment "Durable identity or capture of origin evidence: what was actually expressed, observed, received, or mandated." .
+sd:Understanding a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Understanding" ; rdfs:comment "Durable interpretation claim about what upstream source/evidence means for the project." .
 sd:Request a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Request" .
 sd:Feedback a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Feedback" .
 sd:Design a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Design" .
@@ -60,6 +62,12 @@ sd:provenanceConfidence a rdf:Property ;
     rdfs:range sd:ProvenanceConfidence ;
     rdfs:label "provenance confidence" .
 
+sd:sourceAvailability a rdf:Property ;
+    rdfs:domain sd:Source ;
+    rdfs:range sd:SourceAvailability ;
+    rdfs:label "source availability" ;
+    rdfs:comment "Whether the primary origin evidence is retained in the project, externally referenced, or unavailable." .
+
 sd:riskHorizon a rdf:Property ;
     rdfs:domain sd:Risk ;
     rdfs:range sd:RiskHorizon ;
@@ -71,6 +79,7 @@ sd:causalReference a rdf:Property ;
     rdfs:label "causal reference" .
 
 sd:derivedFrom a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "derived from" .
+sd:interprets a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "interprets" ; rdfs:comment "Links an Understanding to the exact upstream source, observation, feedback, legacy claim, or other evidence version it interprets." .
 sd:satisfies a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "satisfies" .
 sd:supports a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "supports" .
 sd:constrainedBy a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "constrained by" .
@@ -93,6 +102,11 @@ sd:Explicit a sd:ProvenanceConfidence ; rdfs:label "explicit" .
 sd:Evidenced a sd:ProvenanceConfidence ; rdfs:label "evidenced" .
 sd:Inferred a sd:ProvenanceConfidence ; rdfs:label "inferred" .
 sd:Unknown a sd:ProvenanceConfidence ; rdfs:label "unknown" .
+
+sd:SourceAvailability a rdfs:Class ; rdfs:label "Source availability" .
+sd:Retained a sd:SourceAvailability ; rdfs:label "retained" .
+sd:Referenced a sd:SourceAvailability ; rdfs:label "referenced" .
+sd:Unavailable a sd:SourceAvailability ; rdfs:label "unavailable" .
 
 sd:RiskHorizon a rdfs:Class ; rdfs:label "Risk horizon" .
 sd:Blocker a sd:RiskHorizon ; rdfs:label "blocker" .

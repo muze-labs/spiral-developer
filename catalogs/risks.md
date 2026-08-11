@@ -6,6 +6,9 @@ Every active risk should have a **horizon**: blocker, near-term, deferred, or ex
 
 ## Product / feedback
 
+- Requirement is treated as ground truth even though it is an interpretation of a weaker or ambiguous source.
+- AI interpretation silently becomes “human intent” without preserving the distinction.
+- Primary requirement source is unavailable but the graph implies direct provenance.
 - Wrong problem or audience.
 - Leading request/prompt prematurely assumes the solution category or acceptance model.
 - AI elaborates a plausible first framing so convincingly that alternatives stop being investigated.
@@ -33,7 +36,7 @@ Every active risk should have a **horizon**: blocker, near-term, deferred, or ex
 - Acceptance verifies design instead of request intent.
 - Upstream artifact changed without downstream re-evaluation.
 - Reconstructed legacy inference is treated as fact.
-- Important decision exists only in chat/history and has not been crystallized.
+- Important source statement, interpretation, clarification, or decision exists only in chat/history and has not been crystallized when its causal role matters.
 - Same agent weakens tests/evals to make its implementation pass.
 
 ## Brownfield

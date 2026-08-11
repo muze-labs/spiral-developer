@@ -14,6 +14,10 @@ Expected behavior / acceptance reference:
 
 ## Causal trace
 
+Source / provenance (when relevant):
+
+Understanding / interpretation (when relevant):
+
 Request:
 
 Design:
@@ -26,6 +30,8 @@ Acceptance/production observation:
 
 ## Earliest meaningful root cause
 
+- [ ] Missing/weak source provenance
+- [ ] Source misinterpretation / wrong understanding
 - [ ] Request ambiguity/wrong intent
 - [ ] Missing/wrong design constraint
 - [ ] Missing culture/external/legacy constraint

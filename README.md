@@ -4,18 +4,19 @@ Spiral Developer is an AI-native software-development process for Muze projects.
 
 It assumes AI can perform substantial design and implementation work. Human control comes from making intent, constraints, decisions, evidence, provenance, and acceptance explicit enough that the software-producing system can be inspected, challenged, and corrected.
 
-The central causal chain is:
+The extended causal chain is:
 
-> **intent → request → design → implementation → verification → acceptance**
+> **source evidence → understanding → request → design → implementation → verification → acceptance**
 
-The links are first-class. When something changes or fails, Spiral Developer should be able to traverse the chain, identify the earliest outdated or inadequate assumption, correct it, and propagate the consequence forward.
+Source and understanding are crystallized when origin or interpretation is materially useful; a simple direct request may still be the first durable artifact. The links are first-class. When something changes or fails, Spiral Developer should be able to traverse the chain, identify the earliest outdated or inadequate assumption, correct it, and propagate the consequence forward.
 
 ## Working model
 
 - Start each feature or meaningful change on its own working branch.
 - Let the AI operate the branch and create semantic commits as the work crystallizes.
 - Treat Git history as evidence: causal commits are immutable and are never rebased, squashed, amended, or force-pushed away.
-- Store human-facing intent, design, observations, and evidence as small version-controlled artifacts.
+- Store human-facing sources, interpreted understanding, intent, design, observations, and evidence as small version-controlled artifacts when they are causally useful.
+- Treat requests as derived claims about intent, not unquestioned roots: preserve source and interpretation provenance when it matters, and make unavailable origins explicit rather than inventing them.
 - Store the machine-readable causal graph in Turtle so ordinary RDF tooling can inspect and query it without an AI.
 - Use Git commit hashes as artifact versions. Stable artifact IDs identify the thing; the commit identifies the historical version.
 - Get meaningful feedback from intended users as early as possible. For Muze web work this usually means frontend-first development.

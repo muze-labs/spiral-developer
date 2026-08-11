@@ -4,9 +4,13 @@ id: REQ-001
 
 # Request: <!-- short name -->
 
-## Origin / intent
+## Operationalized intent
 
-<!-- Who needs what, and why? Preserve client/user language where useful. -->
+<!-- Who needs what, and why? State the current project intent. If source/interpretation provenance matters, preserve it in SRC/UND artifacts rather than silently collapsing it into this request. -->
+
+## Upstream understanding
+
+<!-- Human-readable summary of the accepted interpretation, when one exists. Exact `sd:derivedFrom` references to UND-* versions belong in the companion Turtle resource. -->
 
 ## Intended audience
 
