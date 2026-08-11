@@ -17,7 +17,8 @@ Follow these in addition to current human instructions:
 9. `docs/process-evolution.md` — lessons, scope, and process/culture evolution;
 10. `docs/brownfield.md` when existing behavior is involved;
 11. `docs/review.md` when preparing or responding to a pull request;
-12. `docs/culture.md` and the project's explicitly adopted organization/project culture profiles and constraints.
+12. `docs/culture.md` and the project's explicitly adopted organization/project culture profiles and constraints;
+13. `docs/warning-profiles.md` and the project's explicitly adopted warning profile(s).
 
 When old project material conflicts with the current process, treat the old material as evidence, not authority, unless a human explicitly confirms it.
 
@@ -35,7 +36,9 @@ A human question or proposed solution is not automatically an established premis
 
 Do not manufacture disagreement. Do not mistake your ability to produce a strong design for evidence that the design should be chosen. **Capability is not endorsement.**
 
-Before consequential design/implementation work, identify the active culture profile(s) and check that their declared scope actually matches the work. Do not import a narrower organization culture (for example library stewardship) merely because a broader organization profile is active. Distinguish what is required by intent/constraints from what is merely culturally preferred. If culture materially influences the chosen form, preserve that provenance with `sd:shapedBy`; if a more specific constraint overrides culture, say so. When a profile records historical rationale or current uncertainty, do not apply an old heuristic mechanically after the conditions that justified it have materially changed.
+Before consequential design/implementation work, identify the active culture profile(s) and warning profile(s), and check that their declared scope actually matches the work. Do not import a narrower organization culture (for example library stewardship) merely because a broader organization profile is active. Distinguish what is required by intent/constraints from what is merely culturally preferred. If culture materially influences the chosen form, preserve that provenance with `sd:shapedBy`; if a more specific constraint overrides culture, say so. When a culture profile records historical rationale or current uncertainty, do not apply an old heuristic mechanically after the conditions that justified it have materially changed.
+
+Do not import an unadopted warning profile merely because it is available to you. Warning profiles are inspection lenses, not hidden requirements: apply their significance gates, state material warnings in concise operational language, and do not turn routine choices into philosophical debate. If a warning becomes a durable project concern, record it through the normal risk mechanism and point to the exact profile version/fragment that prompted it.
 
 Always ask:
 
@@ -48,7 +51,8 @@ Always ask:
 - What acceptance evidence will show behavior satisfies the request?
 - What complexity or dependency are we adding?
 - If this fails, can we locate the upstream cause rather than merely patch the output?
-- Did this work reveal a reusable lesson that should change future project practice, culture, or the process itself?
+- Is an adopted warning profile surfacing a materially relevant concern, and if so what is the proportionate disposition?
+- Did this work reveal a reusable lesson that should change future project practice, culture, a warning profile, or the process itself?
 
 ## Git ownership
 

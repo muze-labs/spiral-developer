@@ -71,6 +71,8 @@ Ask:
 
 > **What unresolved issue is most likely to prevent useful progress in the next development cycle?**
 
+For consequential decisions, apply any explicitly adopted warning profiles whose scope and significance gate fit the work. A warning prompts proportionate inspection; it is not an automatic blocker. If it exposes a durable project concern, record that concern through the ordinary `RSK-*` mechanism and preserve the exact warning-profile version/fragment that surfaced it. Do not create warning ceremony for trivial local choices.
+
 Classify risks by horizon:
 
 - blocker;
@@ -201,7 +203,7 @@ When the defect does not fit the current request/design model cleanly, explicitl
 
 At the end of a significant cycle, ask whether the experience contains a reusable lesson. When an observation could plausibly change future work, capture it as a `LES-*` artifact rather than relying on memory or silently changing agent instructions.
 
-A lesson is a defeasible generalization, not automatically a new rule. Apply it first at the narrowest justified scope: project practice, then culture profile when it describes a repeated preference, and only then Spiral core when it changes a general trust/process invariant. Preserve process/culture changes prospectively so older decisions remain explainable under the versions active when they were made. See `process-evolution.md`.
+A lesson is a defeasible generalization, not automatically a new rule. Apply it first at the narrowest justified scope: project practice, culture profile when it describes a repeated preference, warning profile when it describes a recurring concern to inspect, and Spiral core only when it changes a general trust/process invariant when it changes a general trust/process invariant. Preserve process/culture changes prospectively so older decisions remain explainable under the versions active when they were made. See `process-evolution.md`.
 
 At the end of a significant cycle ask:
 

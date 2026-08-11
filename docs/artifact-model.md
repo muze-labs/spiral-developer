@@ -80,6 +80,14 @@ Do not maintain parallel causal fields in Markdown and Turtle unless a migration
 If prose and graph disagree, treat that as a defect to resolve, not as an invitation to silently choose whichever source is convenient.
 
 
+## Warning profiles
+
+A `WPF-*` warning-profile artifact is an explicit, versioned, replaceable inspection lens. It is distinct from culture: culture helps choose among trustworthy options, while a warning profile names patterns the project wants surfaced when they become consequential. It is also distinct from Spiral core: projects may replace or decline warning profiles without changing the trust architecture.
+
+Project context adopts an exact warning-profile version with `sd:adoptsWarningProfile`. A warning occurrence does not automatically need a durable artifact. When it is consequential, represent the actual project concern as an ordinary `RSK-*` artifact and link it to the exact profile version (and optional warning ID in `sd:fragment`) that helped surface it.
+
+See `warning-profiles.md`.
+
 ## Lessons and process learning
 
 A `LES-*` artifact records an evidence-informed generalization that may change future project practice, a culture profile, or Spiral Developer itself. A lesson is not automatically a requirement or rule. Preserve the observation/evidence, the generalization, its intended scope, confidence/limits, and the consequence being proposed.
@@ -138,6 +146,10 @@ A current design or implementation choice was materially influenced by an exact 
 ### `adoptsCulture`
 
 Project context intentionally adopts an exact culture profile/version as active guidance. Culture remains defeasible unless a preference is separately promoted into a request or constraint.
+
+### `adoptsWarningProfile`
+
+Project context intentionally adopts an exact warning-profile version as an active inspection lens. Adoption means the agent/reviewer should apply the profile's scope and significance gates; it does not mean every signal is true, mandatory, or blocking.
 
 ### `implements`
 

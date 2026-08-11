@@ -10,6 +10,8 @@ A useful boundary is:
 
 > **Spiral core contains what must be true for justified trust. Culture contains what we prefer when several trustworthy choices remain available.**
 
+Warning profiles are a separate layer again: they name patterns worth inspecting, not preferred implementation style. A project may adopt a culture profile and a warning profile independently. See `warning-profiles.md`.
+
 This boundary is itself revisable. When uncertain, make the assumption visible rather than forcing a permanent classification.
 
 ## Culture profiles

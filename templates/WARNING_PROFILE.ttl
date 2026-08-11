@@ -1,0 +1,9 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:replace-with-project-namespace:> .
+
+project:WPF-001
+    a sd:WarningProfile ;
+    dcterms:identifier "WPF-001" ;
+    sd:repositoryPath ".spiral/warning-profiles/WPF-001.md" ;
+    sd:status sd:Active .

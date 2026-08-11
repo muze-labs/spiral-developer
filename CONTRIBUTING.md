@@ -55,6 +55,12 @@ Not every implementation choice is dictated by a requirement. A project may expl
 
 When reviewing a consequential choice, it is legitimate to ask both “what required this?” and “why did we choose this particular approach?” The second answer may be culture. Culture can change prospectively without rewriting why older software was built under an earlier profile. See `docs/culture.md`.
 
+## Warning profiles
+
+Projects may explicitly adopt `WPF-*` warning profiles independently of engineering culture. They identify patterns worth inspecting, not universal rules or automatic blockers. A useful warning is concise, materially relevant, and connected to a concrete decision.
+
+Humans should feel free to reject, defer, or scope a warning when the evidence does not justify the concern. Conversely, a warning that exposes a consequential accessibility, authority, evidence, composition, optionality, or model-assumption issue can become an ordinary `RSK-*` artifact for durable review. See `docs/warning-profiles.md`.
+
 ## During development
 
 Do not ask the AI to preserve every exploratory attempt. Uncommitted exploration may be discarded.
@@ -112,7 +118,8 @@ Review in this order when practical:
 8. **Acceptance** — does acceptance establish that behavior satisfies the request?
 9. **Complexity** — are new concepts, dependencies, abstractions, or change radius justified?
 10. **Risk** — are deferred risks still appropriately deferred, and are unresolved assumptions visible?
-11. **Code** — inspect directly wherever semantic, security, maintainability, or operational risk makes that valuable.
+11. **Warnings** — did an explicitly adopted warning profile surface a materially relevant concern, and was it dispositioned rather than automatically obeyed or ignored?
+12. **Code** — inspect directly wherever semantic, security, maintainability, or operational risk makes that valuable.
 
 Do not approve a PR merely because CI is green. CI establishes mechanical and executable claims; the human review establishes that the claims themselves are sensible.
 
