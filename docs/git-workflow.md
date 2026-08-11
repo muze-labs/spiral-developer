@@ -141,6 +141,22 @@ The Turtle graph stores full hashes, not abbreviations.
 
 Do not store an artifact's own commit hash inside the commit that creates it; that is impossible because the commit hash depends on the commit contents. Only downstream artifacts need to record the already-existing upstream hash.
 
+
+## Implementation lineage and Git ancestry
+
+Implementation lineage depends on Git being an immutable historical store. When a governed `IMP-*` is materially revised, the new version can refer backward to the already-known predecessor commit with `sd:transforms`. The current commit still does not need to know its own hash.
+
+A lineage reference should normally resolve to an implementation version that is an ancestor of the current revision commit. Split/merge/replacement cases may reference multiple predecessor `IMP-*` identities, but they still point backward to exact historical versions.
+
+Version-aware validation should therefore check, where practical:
+
+- the referenced predecessor commit exists;
+- the referenced implementation resource exists at that commit;
+- the predecessor commit is in the current revision's Git ancestry;
+- the relation points backward rather than to a later or unrelated version unless an explicitly documented exceptional merge history explains it.
+
+These checks establish historical integrity, not semantic correctness. A behavior-preserving refactor still needs behavioral evidence when preservation matters.
+
 ## Exceptional destructive rewrites
 
 Normal development must never rewrite causal history.

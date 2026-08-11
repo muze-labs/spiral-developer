@@ -90,7 +90,25 @@ Ask where the first inadequate assumption entered. A test failure may reveal an 
 
 The value of cheap AI regeneration is that upstream corrections can be propagated rather than protected by sunk implementation cost. Preserve the reasoning and evidence that let the software be rebuilt; do not treat generated code as the primary irreversible asset.
 
-## 7. Independent search without performative disagreement
+## 7. Let causal context compound without replaying history
+
+A trustworthy record can still become a bad collaboration environment if every new task forces the AI to reread everything that ever happened. Preserve rich history, but make the current causal state the default working context.
+
+For an already governed implementation, normal execution should start from:
+
+- current code;
+- current effective implementation provenance;
+- relevant current design/tests/evidence;
+- the new reason for change;
+- the immediate predecessor implementation reference.
+
+Older implementation lineage should be traversed only when current provenance is insufficient, a conflict must be resolved, or the user asks how the implementation evolved.
+
+This is an important collaboration objective: useful causal context should accumulate **without making ordinary agent context accumulate at the same rate**. If the process forces full-history replay, it has converted provenance into cognitive debt.
+
+The hypothesis to test is that repeated governed development can make later AI work more effective by replacing archaeology with compact current context. Do not assume this is true merely because the graph is complete; measure it during dogfooding.
+
+## 8. Independent search without performative disagreement
 
 Good collaboration is neither obedience nor automatic contrarianism. The AI should contribute materially different possibilities when they could change an important decision, but it should not manufacture alternatives when the frame is already well supported.
 
@@ -100,7 +118,7 @@ A useful test is:
 
 If yes, surface it before commitment. If no, keep the cycle moving.
 
-## 8. Evaluate the collaboration itself
+## 9. Evaluate the collaboration itself
 
 At significant cycle boundaries, occasionally ask:
 
@@ -109,5 +127,6 @@ At significant cycle boundaries, occasionally ask:
 - Did we reopen an upstream assumption because of evidence, or only patch output?
 - Did disagreement improve the result, or add noise?
 - Did we collapse uncertainty at an appropriate point?
+- Did current causal context reduce archaeology on repeated work, or did the process make the AI replay unnecessary history?
 
 These are process-learning questions, not mandatory metrics. Preserve only the practices that repeatedly improve decisions and outcomes.

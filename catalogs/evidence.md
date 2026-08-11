@@ -59,6 +59,21 @@ Useful for showing the result satisfies request intent:
 - What does it explicitly *not* establish?
 - If the same agent wrote code and test, what prevents it from weakening the test to fit the code?
 
+
+## Implementation-lineage evidence
+
+Useful for establishing that current implementation provenance and historical evolution are represented truthfully:
+
+- predecessor `sd:transforms` references resolve to exact historical implementation versions;
+- predecessor commits are actual Git ancestors of the revision being described;
+- `sd:changeCausedBy` points to the artifact version that actually triggered the revision;
+- behavior-preserving refactors have characterization/property/integration evidence when preservation matters;
+- current effective causal references omit reasons that were superseded and retain reasons whose semantics still survive;
+- a historical interrogation can explain introduction, semantic modification, refactor, and supersession without using Git blame as the causal explanation;
+- current-state interrogation does not present an old reachable cause as current justification unless it survives in current effective provenance.
+
+Lineage evidence establishes how implementation evolved. It does not by itself prove that the current behavior is correct; verification and acceptance still establish those claims.
+
 ## Provenance / graph evidence
 
 Useful for establishing that the causal record itself is trustworthy:
@@ -70,6 +85,7 @@ Useful for establishing that the causal record itself is trustworthy:
 - graph impact queries find expected downstream dependents after an upstream change;
 - human spot-check confirms that machine links represent the decision actually made rather than a plausible reconstructed story;
 - source artifacts accurately declare whether primary evidence is retained, referenced, or unavailable;
-- understanding artifacts point to the exact source/evidence versions they actually interpreted.
+- understanding artifacts point to the exact source/evidence versions they actually interpreted;
+- governed implementation revisions declare exact predecessor lineage, transition cause, and change kind without treating those historical relations as current justification.
 
 Passing graph validation establishes structural/provenance integrity. It does **not** establish that the product behavior or design is correct.

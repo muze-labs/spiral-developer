@@ -90,7 +90,17 @@ A touched capability should normally leave behind:
 - assumptions and uncertainties;
 - verification evidence;
 - acceptance evidence;
-- causal links among those artifacts.
+- causal links among those artifacts;
+- current effective implementation provenance and prospective lineage when a governed implementation unit is subsequently revised.
+
+
+## Establish lineage prospectively
+
+Do not reconstruct an entire implementation lineage merely because an old module is touched. If a reliable predecessor version can be identified, record it; otherwise preserve the gap rather than inventing one. If the predecessor is known but the transition cause or semantic character is not, use `sd:UnknownChange` and leave the unknown cause absent rather than manufacturing an explanation.
+
+From the point an `IMP-*` unit becomes governed, future material revisions should record `sd:transforms`, `sd:changeCausedBy`, and `sd:implementationChangeKind`. This makes the migration asymmetrical: old history may remain incomplete, but new history should not become opaque again.
+
+The current `IMP-*` version should remain the default context for the next change. Older lineage is loaded only when needed, so each governed change should reduce repeated archaeology rather than create a growing mandatory context window.
 
 ## Defects are migration opportunities
 

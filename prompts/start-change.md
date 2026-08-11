@@ -14,7 +14,8 @@ Apply Spiral Developer to this requested change.
 10. Draft the smallest design elements needed and connect each in its companion Turtle resource to exact upstream commit hashes.
 11. Define verification and acceptance evidence before hardening implementation.
 12. If legacy behavior is touched, follow the brownfield process rather than guessing intent.
-13. Implement only when causal context is sufficient for safe work.
-14. Create semantic causal commits; never amend/rebase/squash them after creation.
+13. Implement only when causal context is sufficient for safe work. If revising a governed `IMP-*`, work from current effective provenance rather than replaying full history; record the immediate predecessor with `sd:transforms`, the transition reason with `sd:changeCausedBy`, and the change kind.
+14. Preserve effective implementation causes that remain valid and remove/update only those actually superseded. Treat behavior-preserving refactors as lineage events when they materially revise the governed implementation, and verify preservation when important.
+15. Create semantic causal commits; never amend/rebase/squash them after creation.
 
 Keep artifacts minimal. Do not create a template file unless it will be used.

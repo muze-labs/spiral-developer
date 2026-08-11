@@ -205,6 +205,45 @@ The vocabulary includes:
 
 Each relation points to an `sd:ArtifactReference` when an exact historical upstream version matters.
 
+Implementation history also uses two deliberately separate relations:
+
+- `sd:transforms` — predecessor implementation version(s);
+- `sd:changeCausedBy` — exact artifact version(s) that caused this transition.
+
+These are **not** subproperties of `sd:causalReference`: lineage/transition history is not automatically current justification. See `implementation-lineage.md`.
+
+## Implementation lineage example
+
+The current implementation resource contains only the current projection plus immediate lineage/transition metadata:
+
+```turtle
+project:IMP-023
+    a sd:Implementation ;
+    dcterms:identifier "IMP-023" ;
+    sd:repositoryPath ".spiral/implementations/IMP-023.md" ;
+    sd:implementationLocation "src/session/validate.js#validateSession" ;
+    sd:implements [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-014 ;
+        sd:gitCommit "1111111111111111111111111111111111111111"
+    ] ;
+    sd:transforms [
+        a sd:ArtifactReference ;
+        sd:artifact project:IMP-023 ;
+        sd:gitCommit "3333333333333333333333333333333333333333"
+    ] ;
+    sd:changeCausedBy [
+        a sd:ArtifactReference ;
+        sd:artifact project:DEF-031 ;
+        sd:gitCommit "4444444444444444444444444444444444444444"
+    ] ;
+    sd:implementationChangeKind sd:SemanticChange .
+```
+
+Here `sd:implements` is part of current/effective provenance. `sd:transforms` and `sd:changeCausedBy` describe how this version came to exist. A historical interrogation loads the predecessor resource from the referenced Git commit and continues backward only when needed.
+
+`sd:implementationLocation` is repeatable. Several implementation concerns may legitimately locate the same path or symbol.
+
 ## Provenance confidence
 
 Any artifact whose grounding matters can carry confidence explicitly. This is especially useful for reconstructed legacy context, reported sources, and interpretation claims:
@@ -325,6 +364,41 @@ WHERE {
 }
 ```
 
+
+## Implementation lineage queries
+
+Find current implementation concerns that locate a code region:
+
+```sparql
+PREFIX sd: <https://muze.nl/ns/spiral-developer#>
+
+SELECT ?implementation
+WHERE {
+  ?implementation a sd:Implementation ;
+                  sd:implementationLocation "src/session/validate.js#validateSession" .
+}
+```
+
+Find the immediate predecessor and transition cause of a current implementation version:
+
+```sparql
+PREFIX sd: <https://muze.nl/ns/spiral-developer#>
+PREFIX project: <https://example.org/projects/widget/spiral/>
+
+SELECT ?previousArtifact ?previousCommit ?causeArtifact ?causeCommit ?kind
+WHERE {
+  project:IMP-023 sd:transforms ?previous ;
+                  sd:changeCausedBy ?cause ;
+                  sd:implementationChangeKind ?kind .
+  ?previous sd:artifact ?previousArtifact ;
+            sd:gitCommit ?previousCommit .
+  ?cause sd:artifact ?causeArtifact ;
+         sd:gitCommit ?causeCommit .
+}
+```
+
+A complete historical traversal then loads each predecessor's Turtle resource at `?previousCommit` and repeats. A current/effective provenance query should intentionally ignore `sd:transforms` and `sd:changeCausedBy` unless the question asks about history.
+
 ## Validation
 
 Starter SHACL constraints are in:
@@ -338,6 +412,7 @@ They intentionally validate only high-value structural properties at first, such
 - artifact IDs and human-artifact paths;
 - source artifacts declaring primary evidence availability and provenance confidence;
 - understanding artifacts interpreting at least one upstream artifact version and declaring provenance confidence;
+- implementation revisions with lineage declaring predecessor reference(s), a change kind, and transition cause(s) when known/required;
 - full commit hashes on artifact references;
 - verification evidence having something to verify;
 - acceptance evidence having something to accept.

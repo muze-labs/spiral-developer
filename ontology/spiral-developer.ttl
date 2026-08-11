@@ -68,6 +68,18 @@ sd:sourceAvailability a rdf:Property ;
     rdfs:label "source availability" ;
     rdfs:comment "Whether the primary origin evidence is retained in the project, externally referenced, or unavailable." .
 
+sd:implementationLocation a rdf:Property ;
+    rdfs:domain sd:Implementation ;
+    rdfs:range xsd:string ;
+    rdfs:label "implementation location" ;
+    rdfs:comment "Repeatable repository path/symbol locator for code embodying this implementation concern. Locations may overlap across implementation artifacts." .
+
+sd:implementationChangeKind a rdf:Property ;
+    rdfs:domain sd:Implementation ;
+    rdfs:range sd:ImplementationChangeKind ;
+    rdfs:label "implementation change kind" ;
+    rdfs:comment "Intended semantic character of this implementation version relative to the predecessor version(s) referenced by sd:transforms." .
+
 sd:riskHorizon a rdf:Property ;
     rdfs:domain sd:Risk ;
     rdfs:range sd:RiskHorizon ;
@@ -89,6 +101,20 @@ sd:accepts a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "
 sd:observes a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "observes" .
 sd:supersedes a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "supersedes" .
 
+# Implementation-history relations are deliberately separate from sd:causalReference.
+# They explain evolution through time, not which causes still justify current semantics.
+sd:transforms a rdf:Property ;
+    rdfs:domain sd:Implementation ;
+    rdfs:range sd:ArtifactReference ;
+    rdfs:label "transforms" ;
+    rdfs:comment "Links an implementation version to the exact predecessor implementation version(s) it materially revised, moved, replaced, split, merged, or refactored." .
+
+sd:changeCausedBy a rdf:Property ;
+    rdfs:domain sd:Implementation ;
+    rdfs:range sd:ArtifactReference ;
+    rdfs:label "change caused by" ;
+    rdfs:comment "Links an implementation version to the exact artifact version(s) that caused this transition. Transition provenance is historical and must not automatically be treated as current justification." .
+
 sd:ArtifactStatus a rdfs:Class ; rdfs:label "Artifact status" .
 sd:Draft a sd:ArtifactStatus ; rdfs:label "draft" .
 sd:Active a sd:ArtifactStatus ; rdfs:label "active" .
@@ -107,6 +133,12 @@ sd:SourceAvailability a rdfs:Class ; rdfs:label "Source availability" .
 sd:Retained a sd:SourceAvailability ; rdfs:label "retained" .
 sd:Referenced a sd:SourceAvailability ; rdfs:label "referenced" .
 sd:Unavailable a sd:SourceAvailability ; rdfs:label "unavailable" .
+
+sd:ImplementationChangeKind a rdfs:Class ; rdfs:label "Implementation change kind" .
+sd:BehaviorPreservingChange a sd:ImplementationChangeKind ; rdfs:label "behavior-preserving change" .
+sd:SemanticChange a sd:ImplementationChangeKind ; rdfs:label "semantic change" .
+sd:MixedChange a sd:ImplementationChangeKind ; rdfs:label "mixed change" .
+sd:UnknownChange a sd:ImplementationChangeKind ; rdfs:label "unknown change" .
 
 sd:RiskHorizon a rdfs:Class ; rdfs:label "Risk horizon" .
 sd:Blocker a sd:RiskHorizon ; rdfs:label "blocker" .

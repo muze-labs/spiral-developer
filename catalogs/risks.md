@@ -38,6 +38,14 @@ Every active risk should have a **horizon**: blocker, near-term, deferred, or ex
 - Reconstructed legacy inference is treated as fact.
 - Important source statement, interpretation, clarification, or decision exists only in chat/history and has not been crystallized when its causal role matters.
 - Same agent weakens tests/evals to make its implementation pass.
+- Git blame or “all commits touching this function” is mistaken for causal implementation provenance.
+- Historical reachability is presented as current justification even though an old cause was superseded.
+- A semantic change silently drops a still-effective cause or carries forward a cause that no longer applies.
+- A behavior-preserving refactor severs lineage because “nothing semantic changed.”
+- Implementation lineage is reconstructed speculatively to make history look complete.
+- Full implementation history is loaded into routine agent context, causing reasoning cost to grow with codebase age.
+- Formatting/generated churn is recorded as lineage noise and overwhelms meaningful transitions.
+- Source regions are forced into one-IMP ownership even though several independent implementation concerns overlap.
 
 ## Brownfield
 

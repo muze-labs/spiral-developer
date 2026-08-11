@@ -11,6 +11,8 @@ Apply the brownfield rule to this current change.
 7. Identify current request/design constraints that require preserving or changing legacy behavior.
 8. Define verification and acceptance evidence.
 9. Keep unrelated cleanup out of scope.
-10. After the change, leave this capability more traced than before.
+10. If an existing `IMP-*` predecessor is reliably traceable, connect the new governed version with `sd:transforms`; otherwise preserve the lineage gap rather than inventing it. Record transition cause/change kind from this point forward.
+11. Keep current effective provenance as the default context for future changes; do not require full-history replay.
+12. After the change, leave this capability more traced than before.
 
-Do not invent historical intent to make the causal chain look complete.
+Do not invent historical intent or implementation lineage to make the causal chain look complete.

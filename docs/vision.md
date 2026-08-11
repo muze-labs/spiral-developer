@@ -98,6 +98,10 @@ Once the interaction model has survived enough contact with users, replace simul
 
 Each slice should remain connected to the request and design that justify it and to the evidence that will tell us it works.
 
+When an existing governed implementation evolves, preserve both its current effective causes and its implementation lineage. This lets Spiral answer two different questions truthfully: **why is this behavior justified now?** and **how did this implementation accumulate into its current form?** Historical reachability is not current justification.
+
+See [`implementation-lineage.md`](implementation-lineage.md).
+
 ## 8. Tests are evidence
 
 Verification asks:
@@ -144,7 +148,20 @@ A useful long-term measure of maintainability is:
 
 > **How much agent computation and human intervention does the next correct change require?**
 
-## 12. Human attention moves upward
+
+## 12. Let causal context compound instead of decay
+
+Ordinary codebases tend to accumulate hidden intent, compatibility behavior, refactor residue, and unexplained constants. An AI agent entering an old area increasingly spends effort rediscovering reasons that earlier developers once knew.
+
+Spiral Developer is designed to replace that growing archaeology burden with a bounded maintenance cost: the current implementation version carries a compact projection of the causes that still matter, while full lineage stays queryable in Git. Normal development should consume current causal context and the immediate predecessor, not replay the entire project history.
+
+This creates an important **hypothesis to test**, not a guarantee:
+
+> **A governed codebase may become easier for an AI agent to change correctly as useful causal context accumulates, rather than progressively harder as undocumented history accumulates.**
+
+If true, AI effectiveness can compound with continued development. Dogfooding should measure whether governed areas require less archaeology, less historical context loading, and less human recovery of old decisions over time. A lineage design that forces full-history replay has failed this objective even if its provenance is complete.
+
+## 13. Human attention moves upward
 
 Humans increasingly spend less time expressing solutions as code and more time on:
 
@@ -159,7 +176,7 @@ Humans increasingly spend less time expressing solutions as code and more time o
 
 AI increasingly handles implementation, routine investigation, test generation, traceability, impact analysis, documentation, and repetitive verification.
 
-## 13. The source code is part of a larger artifact
+## 14. The source code is part of a larger artifact
 
 The durable project increasingly includes a versioned network of source evidence, interpretations, intent, requests, assumptions, designs, decisions, constraints, code, tests, acceptance evidence, operational observations, and provenance.
 
@@ -169,7 +186,7 @@ The long-term aim is:
 
 > **an executable and inspectable body of intent, decisions, and evidence from which working software can be produced and evolved.**
 
-## 14. AI should make discipline cheaper, not optional
+## 15. AI should make discipline cheaper, not optional
 
 Requirements traceability, executable specifications, decision records, impact analysis, documentation, and provenance have often been too expensive to maintain manually.
 
@@ -177,7 +194,7 @@ AI can perform much of this mechanical cognitive work cheaply.
 
 Humans should spend their scarce attention on meaning, judgment, and reality.
 
-## 15. What we are trying to build
+## 16. What we are trying to build
 
 The immediate goal is not a universal platform. First establish a working Muze process that can:
 
@@ -189,16 +206,18 @@ The immediate goal is not a universal platform. First establish a working Muze p
 6. revise understanding without losing history;
 7. derive a traceable design;
 8. implement reality in vertical slices;
-9. connect verification to design;
-10. connect acceptance to intent;
-11. identify consequences of upstream changes;
-12. diagnose defects by traversing causality;
-13. improve the generating environment;
-14. regenerate or modify implementation;
-15. continuously verify that the system still answers the intended need.
+9. preserve effective implementation provenance and lineage across repeated material revisions;
+10. keep routine agent context bounded while historical implementation remains queryable;
+11. connect verification to design;
+12. connect acceptance to intent;
+13. identify consequences of upstream changes;
+14. diagnose defects by traversing causality and, when needed, implementation history;
+15. improve the generating environment;
+16. regenerate or modify implementation;
+17. continuously verify that the system still answers the intended need.
 
 Only after this works convincingly should it become a larger harness.
 
 ## Working principle
 
-> **Muze develops software by maintaining a short, reality-driven feedback loop between human intent and working systems. Intent itself is traceable when it matters: source evidence, interpretation, and request remain distinguishable. During inquiry, consequential questions remain open to reframing; during execution, AI performs much of the development work and preserves the causal chain connecting understanding, request, design, implementation, and evidence. When the result fails, repair the earliest faulty part of that chain rather than merely patching its output.**
+> **Muze develops software by maintaining a short, reality-driven feedback loop between human intent and working systems. Intent itself is traceable when it matters: source evidence, interpretation, and request remain distinguishable. During inquiry, consequential questions remain open to reframing; during execution, AI performs much of the development work and preserves both the causal chain connecting understanding, request, design, implementation, and evidence and the implementation lineage that carries those causes through time. Current justification stays compact; history stays queryable. When the result fails, repair the earliest faulty part of that system rather than merely patching its output.**

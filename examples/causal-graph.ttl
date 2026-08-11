@@ -48,7 +48,8 @@ project:DES-001
 project:IMP-001
     a sd:Implementation ;
     dcterms:identifier "IMP-001" ;
-    sd:repositoryPath "src/account/deactivate.js" ;
+    sd:repositoryPath ".spiral/implementations/IMP-001.md" ;
+    sd:implementationLocation "src/account/deactivate.js#deactivateAccount" ;
     sd:status sd:Active ;
     sd:implements [
         a sd:ArtifactReference ;

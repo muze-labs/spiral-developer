@@ -16,6 +16,20 @@ id: IMP-001
 |---|---|
 | | |
 
+<!-- Locations may overlap with other IMP-* artifacts. Use repeatable sd:implementationLocation values in Turtle when machine interrogation by code location is useful. -->
+
+## Effective provenance
+
+<!-- Summarize which current design/constraints/reasons still justify this implementation. Canonical exact-version links remain in Turtle. Do not copy historical causes here merely because they are reachable through lineage. -->
+
+## Revision lineage (when revising an existing governed IMP)
+
+- Predecessor implementation version(s):
+- Transition cause(s):
+- Change kind: <!-- behavior-preserving / semantic / mixed / unknown -->
+
+<!-- Canonical Turtle uses sd:transforms, sd:changeCausedBy, and sd:implementationChangeKind. Omit this section's content for the first version. -->
+
 ## Important implementation decisions
 
 <!-- Only decisions that carry durable meaning not already captured by design. -->
@@ -24,4 +38,4 @@ id: IMP-001
 
 ## Known limits
 
-> Record `sd:implements` links to exact design commits in the companion Turtle resource.
+> Record current/effective causal links in the companion Turtle resource. For a material revision of a governed implementation, also record `sd:transforms`, `sd:changeCausedBy`, and `sd:implementationChangeKind` to exact historical versions.

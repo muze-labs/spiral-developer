@@ -63,6 +63,19 @@ Good human interventions sound like:
 
 Avoid turning the human into an expensive prompt router who dictates line-by-line implementation unless that level of control is genuinely required.
 
+## Continued development and implementation history
+
+When the AI revises code that Spiral already governs, it should not ask you to re-explain every historical decision or load the entire history into context. The current `IMP-*` resource should expose the causes that still matter now; older versions remain available for historical interrogation.
+
+For a material revision, the AI should preserve immediate implementation lineage and the reason for the transition. A behavior-preserving refactor still belongs in lineage when it materially moves or reshapes a governed implementation.
+
+As a human reviewer, watch for two opposite failures:
+
+- **lost history** — a refactor or rewrite severs the implementation from the reasons it inherited;
+- **history overload** — every old cause is carried into current context or presented as if it still justified current behavior.
+
+The target is a small current explanation plus deep history on demand. If this works, repeatedly governed areas should require less archaeology over time. Treat that as something to verify in practice, not as an assumption.
+
 ## Inquiry versus execution
 
 When the product/problem framing is still open, invite the AI to challenge consequential assumptions rather than merely elaborating the first proposed solution. A useful human prompt is “treat this as a hypothesis, not a decision” or “what assumption in this question would matter most if it were wrong?”
@@ -86,7 +99,7 @@ Review in this order when practical:
 3. **Framing** — did a consequential assumption prematurely narrow the problem or acceptance space?
 4. **Meaningful feedback** — where intent was uncertain, did intended users interact with something real enough to teach us?
 5. **Design** — do the design choices answer the request and respect current constraints?
-6. **Causal graph** — are the significant relationships and upstream versions truthful?
+6. **Causal graph** — are the significant relationships and upstream versions truthful, including the distinction between current effective implementation causes and historical lineage?
 7. **Evidence** — does verification actually establish that implementation realizes design?
 8. **Acceptance** — does acceptance establish that behavior satisfies the request?
 9. **Complexity** — are new concepts, dependencies, abstractions, or change radius justified?

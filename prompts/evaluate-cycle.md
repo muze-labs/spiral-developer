@@ -13,6 +13,8 @@ Determine:
 - Did a consequential premise in the request/design go untested because the AI simply optimized inside it?
 - Would a materially different framing have changed what we built, tested, or regarded as success?
 - Does each significant design element have a truthful causal reason in the causal RDF graph?
+- For revised governed implementation, are current effective causes distinct from historical lineage and transition causes?
+- Did implementation history accumulate without inflating normal agent context?
 - Do graph references identify the exact upstream Git versions actually used?
 - Does verification establish that implementation realizes design?
 - Does acceptance establish that behavior satisfies the request?

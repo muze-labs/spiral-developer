@@ -1,0 +1,51 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://example.org/projects/widget/spiral/> .
+
+# Current snapshot only. Historical versions of IMP-023 live in Git.
+project:IMP-023
+    a sd:Implementation ;
+    dcterms:identifier "IMP-023" ;
+    sd:repositoryPath ".spiral/implementations/IMP-023.md" ;
+    sd:status sd:Active ;
+    sd:implementationLocation "src/session/validate.js#validateSession" ;
+
+    # Current/effective provenance: why the current semantics are justified now.
+    sd:implements [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-014 ;
+        sd:gitCommit "1111111111111111111111111111111111111111"
+    ] ;
+    sd:constrainedBy [
+        a sd:ArtifactReference ;
+        sd:artifact project:EXT-003 ;
+        sd:gitCommit "2222222222222222222222222222222222222222"
+    ] ;
+
+    # Historical lineage: what exact implementation version this one transformed.
+    sd:transforms [
+        a sd:ArtifactReference ;
+        sd:artifact project:IMP-023 ;
+        sd:gitCommit "3333333333333333333333333333333333333333"
+    ] ;
+
+    # Transition provenance: why this revision happened.
+    sd:changeCausedBy [
+        a sd:ArtifactReference ;
+        sd:artifact project:DEF-031 ;
+        sd:gitCommit "4444444444444444444444444444444444444444"
+    ] ;
+    sd:implementationChangeKind sd:SemanticChange .
+
+# Another implementation concern can locate the same source region.
+project:IMP-041
+    a sd:Implementation ;
+    dcterms:identifier "IMP-041" ;
+    sd:repositoryPath ".spiral/implementations/IMP-041.md" ;
+    sd:status sd:Active ;
+    sd:implementationLocation "src/session/validate.js#validateSession" ;
+    sd:implements [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-022 ;
+        sd:gitCommit "5555555555555555555555555555555555555555"
+    ] .

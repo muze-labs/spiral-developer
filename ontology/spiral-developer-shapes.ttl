@@ -68,6 +68,46 @@ sd:UnderstandingShape
     ] .
 
 
+sd:ImplementationShape
+    a sh:NodeShape ;
+    sh:targetClass sd:Implementation ;
+    sh:property [
+        sh:path sd:implementationChangeKind ;
+        sh:maxCount 1 ;
+        sh:in ( sd:BehaviorPreservingChange sd:SemanticChange sd:MixedChange sd:UnknownChange )
+    ] ;
+    sh:or (
+        [
+            # First governed version: no predecessor-transition metadata.
+            sh:property [ sh:path sd:transforms ; sh:maxCount 0 ] ;
+            sh:property [ sh:path sd:changeCausedBy ; sh:maxCount 0 ] ;
+            sh:property [ sh:path sd:implementationChangeKind ; sh:maxCount 0 ]
+        ]
+        [
+            # Prospective/reliably explained revision.
+            sh:property [ sh:path sd:transforms ; sh:minCount 1 ; sh:class sd:ArtifactReference ] ;
+            sh:property [ sh:path sd:changeCausedBy ; sh:minCount 1 ; sh:class sd:ArtifactReference ] ;
+            sh:property [
+                sh:path sd:implementationChangeKind ;
+                sh:minCount 1 ;
+                sh:maxCount 1 ;
+                sh:in ( sd:BehaviorPreservingChange sd:SemanticChange sd:MixedChange )
+            ]
+        ]
+        [
+            # Reconstructed lineage may know the predecessor while the transition semantics/cause remain unknown.
+            sh:property [ sh:path sd:transforms ; sh:minCount 1 ; sh:class sd:ArtifactReference ] ;
+            sh:property [ sh:path sd:changeCausedBy ; sh:maxCount 0 ] ;
+            sh:property [
+                sh:path sd:implementationChangeKind ;
+                sh:minCount 1 ;
+                sh:maxCount 1 ;
+                sh:hasValue sd:UnknownChange
+            ]
+        ]
+    ) .
+
+
 sd:VerificationEvidenceShape
     a sh:NodeShape ;
     sh:targetClass sd:VerificationEvidence ;

@@ -8,6 +8,8 @@ Spiral Developer preserves enough causality for humans, agents, and ordinary too
 - What source evidence ultimately caused it?
 - How was that evidence interpreted before it became a request?
 - Which exact upstream understanding caused it?
+- Which historical implementation versions accumulated into the current one?
+- Which causes still justify current implementation semantics, and which are only historical?
 - What evidence justified it?
 - What becomes suspect when something upstream changes?
 - Where should a defect be corrected?
@@ -139,6 +141,14 @@ Feedback or runtime evidence records something learned by interacting with or op
 
 A new artifact/version prospectively replaces an earlier one without rewriting its historical role.
 
+### `transforms`
+
+An implementation version materially revises, moves, replaces, splits, merges, or refactors one or more exact predecessor implementation versions. This is **implementation lineage**, not a current causal justification, so `sd:transforms` is deliberately not a subproperty of `sd:causalReference`.
+
+### `changeCausedBy`
+
+An implementation transition happened because of an exact upstream defect, feedback item, design, request, risk, or other causal artifact version. This is **transition provenance**. It explains why one implementation version replaced another without implying that the transition cause remains a current justification for the resulting semantics.
+
 Do not create a relation unless it will plausibly help reasoning, impact analysis, audit, or verification.
 
 ## Source availability
@@ -188,11 +198,29 @@ These describe the provenance of a claim, not whether observable behavior exists
 
 ## Implementation references
 
-Code remains in the normal repository. A meaningful implementation unit may be represented in the graph with a stable `IMP-*` identity and paths/symbols that locate the implementation.
+Code remains in the normal repository. A meaningful implementation unit may be represented in the graph with a stable `IMP-*` identity. `sd:implementationLocation` may be repeated to locate relevant paths/symbols. Locations may overlap across implementation artifacts: implementation concerns do not partition source code into exclusive ownership.
 
 Do not scatter requirement IDs through generated source merely to satisfy traceability.
 
-The useful unit is normally a meaningful behavior, design decision, boundary, or vertical slice.
+The useful unit is normally a meaningful behavior, design decision, boundary, capability, or vertical slice.
+
+## Effective provenance and implementation lineage
+
+Real code accumulates causes across revisions. Git blame tells us what last touched text; it does not establish which earlier decisions still explain current behavior.
+
+Spiral Developer therefore separates:
+
+- **effective provenance** — current-purpose causal references on the current `IMP-*` version that still justify its semantics;
+- **implementation lineage** — `sd:transforms` references to exact predecessor implementation version(s);
+- **transition provenance** — `sd:changeCausedBy` plus `sd:implementationChangeKind`, explaining why that particular revision happened and whether behavior was intended to change.
+
+The current checked-out implementation resource is a compact effective-provenance projection. Older projections remain in Git. Historical reachability must never be presented as current justification merely because an old cause can be reached through `sd:transforms`.
+
+When a governed implementation unit is materially revised, moved, replaced, split, merged, or refactored, preserve lineage to its immediate predecessor version(s), record the transition cause and change kind, and carry forward only the effective causal references that remain valid. Do not create lineage noise for formatting-only or other immaterial edits.
+
+A semantic implementation change can still implement the same design—for example a defect correction. In that case the design may remain in effective provenance while the defect is recorded as the transition cause. A behavior-preserving refactor should retain relevant effective provenance and should be verified when preservation matters.
+
+See `implementation-lineage.md`.
 
 ## Change propagation
 
@@ -207,7 +235,7 @@ When an upstream artifact changes:
 
 This applies above the request layer as well. A revised interpretation of an unchanged source can make a request suspect. A newly recovered primary source can make an earlier understanding suspect.
 
-Git history tells us what happened. The graph tells us what depended on what.
+Git history tells us what happened. The causal graph tells us what depended on what. Implementation lineage tells us how those dependencies accumulated into the implementation that exists now.
 
 ## What not to preserve by default
 

@@ -116,6 +116,32 @@ Each cycle should improve the causal model and produce evidence, not parallel st
 
 Before high-consequence planning, perform a framing check when useful. If a different framing would plausibly change product direction, architecture, trust boundaries, schema, irreversible operations, or acceptance, surface it briefly before optimizing inside the original frame. For local/reversible work, keep moving.
 
+
+## Implementation lineage and bounded context
+
+When modifying an implementation unit already governed by an `IMP-*` artifact, distinguish three things:
+
+- **effective provenance** — current causal references that still justify the implementation's present semantics;
+- **lineage** — `sd:transforms` references to exact predecessor implementation version(s);
+- **transition provenance** — `sd:changeCausedBy` and `sd:implementationChangeKind`, explaining why this revision happened.
+
+For a material revision, move, replacement, split, merge, or refactor of a governed unit:
+
+1. preserve effective causal references that remain valid;
+2. remove/update only those current causes actually superseded by the new semantics;
+3. point `sd:transforms` to the immediate predecessor version(s);
+4. point `sd:changeCausedBy` to the exact artifact version(s) that caused this revision;
+5. record `sd:implementationChangeKind` as behavior-preserving, semantic, or mixed; use unknown only when reconstructing a historical transition whose semantics cannot be established;
+6. verify important behavior-preservation claims.
+
+Do not create lineage events for formatting-only or immaterial churn. Do not use Git blame as a substitute for causal provenance. Do not infer that an old cause still justifies current behavior merely because it is reachable through lineage.
+
+**Default context rule:** for ordinary continued development, load current code, current effective `IMP-*` provenance, relevant current design/tests/evidence, the new reason for change, and the immediate predecessor. Traverse older lineage only when current provenance is insufficient or the task explicitly asks for history. Provenance storage may grow; normal reasoning context should not grow merely because the codebase is older.
+
+Implementation locations may overlap across `IMP-*` concerns. Never force one source region to have exactly one causal owner.
+
+See `docs/implementation-lineage.md`.
+
 ## Risk horizon
 
 Classify risks by when they matter:

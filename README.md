@@ -8,6 +8,8 @@ The extended causal chain is:
 
 > **source evidence → understanding → request → design → implementation → verification → acceptance**
 
+Across repeated implementation changes, Spiral also preserves **implementation lineage**: the current effective reasons remain compact while exact predecessor versions and transition causes remain traversable through Git.
+
 Source and understanding are crystallized when origin or interpretation is materially useful; a simple direct request may still be the first durable artifact. The links are first-class. When something changes or fails, Spiral Developer should be able to traverse the chain, identify the earliest outdated or inadequate assumption, correct it, and propagate the consequence forward.
 
 ## Working model
@@ -19,6 +21,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 - Treat requests as derived claims about intent, not unquestioned roots: preserve source and interpretation provenance when it matters, and make unavailable origins explicit rather than inventing them.
 - Store the machine-readable causal graph in Turtle so ordinary RDF tooling can inspect and query it without an AI.
 - Use Git commit hashes as artifact versions. Stable artifact IDs identify the thing; the commit identifies the historical version.
+- Distinguish current/effective implementation provenance from historical lineage. A materially revised governed `IMP-*` points to its immediate predecessor and transition cause without forcing future agents to replay the full history.
 - Get meaningful feedback from intended users as early as possible. For Muze web work this usually means frontend-first development.
 - Resolve the nearest important uncertainty and deliberately defer later risks unless they are existential.
 - Before consequential commitments, treat the question as a proposed frame: surface hidden assumptions when a materially different framing could change what should be built.
@@ -43,6 +46,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 - [`docs/artifact-model.md`](docs/artifact-model.md) — what is recorded and what the causal relations mean.
 - [`docs/git-workflow.md`](docs/git-workflow.md) — feature branches, immutable commits, PRs, and merge-only history.
 - [`docs/rdf-graph.md`](docs/rdf-graph.md) — Turtle representation of the causal graph.
+- [`docs/implementation-lineage.md`](docs/implementation-lineage.md) — effective provenance, implementation history, and bounded agent context across repeated changes.
 - [`docs/brownfield.md`](docs/brownfield.md) — how to introduce the process into existing projects.
 - [`docs/review.md`](docs/review.md) — automated and human review at the pull-request boundary.
 
@@ -65,6 +69,7 @@ spiral-developer/
     artifact-model.md
     git-workflow.md
     rdf-graph.md
+    implementation-lineage.md
     brownfield.md
     review.md
     redesign-notes.md

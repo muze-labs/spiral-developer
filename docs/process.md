@@ -112,7 +112,19 @@ A slice should connect enough of the actual system to produce observable behavio
 
 Keep implementation causally connected to the design it realizes. Avoid unrelated cleanup and speculative future architecture.
 
+When changing an already governed `IMP-*` unit, treat the current implementation resource as a compact checkpoint. Preserve current effective causal references that remain valid, update those whose semantics are actually superseded, and add:
+
+- `sd:transforms` to the exact immediate predecessor implementation version(s);
+- `sd:changeCausedBy` to the exact artifact version(s) that caused this revision;
+- `sd:implementationChangeKind` (`BehaviorPreservingChange`, `SemanticChange`, or `MixedChange` for prospective governed work; `UnknownChange` only for reconstructed history whose transition semantics cannot be established).
+
+Do this for material revisions, moves, replacements, splits, merges, and refactors—not formatting-only churn. Behavior-preserving refactors still retain lineage; verify preservation when it matters. Code locations may overlap across several `IMP-*` concerns.
+
+For normal continued development, do **not** replay the full lineage by default. Work from current code, current effective provenance, relevant current design/tests/evidence, the new reason for change, and the immediate predecessor. Traverse older lineage only when current provenance is insufficient or a historical question requires it.
+
 Create semantic implementation commits when the change has crystallized enough to serve as evidence for later verification.
+
+See `implementation-lineage.md`.
 
 ## 8. Verify implementation against design
 
@@ -148,7 +160,7 @@ The PR should expose:
 - request/version;
 - significant feedback;
 - design/version;
-- implementation commits;
+- implementation commits, current effective provenance, and lineage/transition metadata for revised governed implementation units;
 - verification;
 - acceptance;
 - new dependencies;
@@ -176,7 +188,7 @@ Use:
 
 > **observe failure → trace upward → locate earliest meaningful cause → correct upstream artifact/environment → propagate downward → verify → accept**
 
-Possible root causes include missing or weak source evidence, source misinterpretation, request ambiguity, missing context, incorrect design, weak boundaries, missing verification, wrong acceptance criteria, dependency behavior, or implementation error.
+Possible root causes include missing or weak source evidence, source misinterpretation, request ambiguity, missing context, incorrect design, weak boundaries, missing verification, wrong acceptance criteria, dependency behavior, stale/missing effective implementation provenance, broken implementation lineage, or implementation error.
 
 Fix the earliest meaningful cause and create new commits. Never amend old causal history to make it appear that the correct understanding existed earlier.
 
@@ -190,6 +202,8 @@ At the end of a significant cycle ask:
 - Where intent interpretation mattered, could we distinguish source evidence from our understanding of it?
 - Did we reduce the nearest important uncertainty?
 - Did traceability improve agent or human reasoning?
+- On repeated work in a governed implementation area, did current effective provenance reduce archaeology rather than require full-history replay?
+- Did any superseded historical cause remain incorrectly presented as current justification?
 - Did we add unjustified complexity or dependencies?
 - Did we accidentally solve deferred problems?
 - Did a defect improve the production environment?

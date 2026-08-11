@@ -87,9 +87,11 @@ Commit the design + companion Turtle resource.
 
 Implement the smallest useful real path.
 
-Represent the implementation as an `IMP-*` Turtle resource when it is useful to trace as a unit. Link it to the exact design commit.
+Represent the implementation as an `IMP-*` Turtle resource when it is useful to trace as a unit; `templates/IMPLEMENTATION.ttl` is the starting point. Link it to the exact design commit and use repeatable `sd:implementationLocation` locators when code-location interrogation will be useful. Multiple `IMP-*` concerns may overlap on the same location.
 
-Commit the implementation + companion Turtle resource.
+On the first implementation version there is no lineage edge. On later material revisions of a governed implementation, preserve current effective causal references and add `sd:transforms` to the immediate predecessor, `sd:changeCausedBy` to the transition reason, and `sd:implementationChangeKind`. Do not replay or copy the full history into the current resource.
+
+Commit the implementation + companion Turtle resource. See `implementation-lineage.md`.
 
 ## 9. Verify and accept
 
@@ -126,6 +128,8 @@ After the feature is merged, ask:
 - Did we confuse a well-elaborated solution with evidence that it was the right solution?
 - Did any artifact become ceremonial bookkeeping?
 - Could a defect or disagreement be traced to the correct upstream layer?
+- Could current implementation justification be distinguished from historical reasons that had been superseded?
+- On a repeated change to a governed area, how much old history did the agent actually need to reload?
 - Did the code remain simple and economical to change?
 
 Adjust the process before adding more automation.

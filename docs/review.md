@@ -10,7 +10,7 @@ The AI should prepare a concise review surface containing:
 - **Request** — artifact ID and exact Git version(s).
 - **Feedback** — important intended-user observations that changed understanding.
 - **Design** — important design artifacts and versions.
-- **Implementation** — semantic implementation commits and affected capabilities.
+- **Implementation** — semantic implementation commits, affected capabilities, current effective provenance, and lineage/transition metadata for revised governed units.
 - **Verification** — evidence that implementation realizes design.
 - **Acceptance** — evidence that behavior satisfies request intent.
 - **Legacy context** — reconstructed constraints and confidence where applicable.
@@ -33,6 +33,8 @@ Useful checks include:
 - referenced artifact IDs exist;
 - referenced repository paths existed at the claimed commit where practical;
 - no required causal edge is missing for accepted design/evidence artifacts;
+- governed implementation revisions with `sd:transforms` declare a change kind and, for prospective/non-unknown revisions, a transition cause;
+- lineage references resolve to real historical implementation versions and do not point forward in Git history;
 - acceptance criteria were not silently weakened after implementation without a traceable upstream reason;
 - new dependencies or widened permissions are surfaced.
 
@@ -57,6 +59,9 @@ Ask:
 11. Are complexity, dependencies, and new boundaries justified?
 12. Have deferred risks stayed deferred unless evidence required otherwise?
 13. Can we trace a surprising result back through the production system, including above the request layer when necessary?
+14. For revised governed implementation, can we distinguish current effective justification from historical lineage and transition causes?
+15. Did a refactor preserve lineage even when behavior was intended to remain unchanged?
+16. Is old history being loaded only when needed, or has provenance bookkeeping begun to make normal agent context grow with codebase age?
 
 Code review remains available and important when direct inspection is the best evidence for a risky or subtle claim. It is not the only route to human control.
 
