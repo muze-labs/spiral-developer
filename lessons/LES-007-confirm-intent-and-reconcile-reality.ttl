@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:LES-007
+    a sd:Lesson ;
+    dcterms:identifier "LES-007" ;
+    sd:repositoryPath "lessons/LES-007-confirm-intent-and-reconcile-reality.md" ;
+    sd:status sd:Active ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-INTENT-001 ;
+        sd:gitCommit "b748ca35fb924a9fd0f64a91e2b0f63210fc15f9"
+    ] .

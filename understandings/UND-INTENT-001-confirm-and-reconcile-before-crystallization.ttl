@@ -1,0 +1,15 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:UND-INTENT-001
+    a sd:Understanding ;
+    dcterms:identifier "UND-INTENT-001" ;
+    sd:repositoryPath "understandings/UND-INTENT-001-confirm-and-reconcile-before-crystallization.md" ;
+    sd:status sd:Active ;
+    sd:provenanceConfidence sd:Evidenced ;
+    sd:interprets [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-INTENT-001 ;
+        sd:gitCommit "b748ca35fb924a9fd0f64a91e2b0f63210fc15f9"
+    ] .
