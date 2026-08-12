@@ -151,7 +151,13 @@ If culture materially shapes a consequential design or implementation choice, pr
 
 This gives the AI a useful prior without turning local engineering history into universal law. See `culture.md`.
 
-## 11. Evaluate the collaboration itself
+## 11. Respect the outer cycle boundary
+
+Inquiry and execution happen inside a larger human-visible cycle. Before consequential execution, the human and AI agree one coherent cycle goal. During Act, the AI may adapt its internal task decomposition but should not silently absorb unrelated new goals. Preserve adjacent discoveries for evaluation and later planning unless they are required to achieve/evaluate the agreed goal or repair a cycle-caused regression.
+
+When the cycle can be judged, switch explicitly into Evaluate. Do not use evaluation feedback as automatic authorization for a new direction: first determine whether the feedback means the **current goal is incomplete** or identifies **next-cycle work**. Only after evaluation/acceptance should the collaboration return to an interview-style Analyze/Plan phase. See `cycles.md`.
+
+## 12. Evaluate the collaboration itself
 
 At significant cycle boundaries, occasionally ask:
 

@@ -15,8 +15,8 @@ Source and understanding are crystallized when origin or interpretation is mater
 ## Working model
 
 - Give the agent broad autonomy for contained/reversible work because consequential claims are independently verifiable; move verification before actions whose consequences would be unacceptable before review.
-- Start each feature or meaningful change on its own working branch.
-- Let the AI operate the branch and create semantic commits as the work crystallizes.
+- Agree one coherent cycle goal before consequential execution; for repository-changing work, normally use one cycle branch as the integration/review boundary.
+- Let the AI decompose the cycle into tasks and create multiple semantic commits without making every subtask a separate branch or human review boundary.
 - Treat Git history as evidence: causal commits are immutable and are never rebased, squashed, amended, or force-pushed away.
 - Prevent malformed versioned provenance before it enters immutable history: validate staged historical references against current Git ancestry, then validate introduced commit ranges in CI.
 - Store human-facing sources, interpreted understanding, intent, design, observations, and evidence as small version-controlled artifacts when they are causally useful.
@@ -34,7 +34,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 - Distinguish **capability from endorsement**: a coherent AI-generated plan proves buildability, not that the direction is right.
 - Once the relevant uncertainty has been reduced, implement the smallest observable slice that can be verified and accepted; active culture may shape the preferred slicing strategy.
 - When a defect occurs, repair the software-producing environment at the earliest meaningful cause rather than merely patching generated output.
-- Integrate completed work through a pull request evaluated by automated checks and human review.
+- Work inside an explicit human-confirmed cycle goal; evaluate the integrated result before selecting new direction, then merge accepted cycle history through a normal pull request/review boundary.
 
 ## Who should read what
 
@@ -49,9 +49,10 @@ Source and understanding are crystallized when origin or interpretation is mater
 - [`docs/vision.md`](docs/vision.md) — why this process exists.
 - [`docs/trust-model.md`](docs/trust-model.md) — trust-but-verify, agent autonomy, and when verification must become a pre-action gate.
 - [`docs/process.md`](docs/process.md) — the normative development lifecycle.
+- [`docs/cycles.md`](docs/cycles.md) — the outer Analyze/Plan/Act/Evaluate cadence, scope stability, and cycle review boundary.
 - [`docs/ai-collaboration.md`](docs/ai-collaboration.md) — inquiry vs execution, framing resistance, and upstream correction.
 - [`docs/artifact-model.md`](docs/artifact-model.md) — what is recorded and what the causal relations mean.
-- [`docs/git-workflow.md`](docs/git-workflow.md) — feature branches, immutable commits, PRs, and merge-only history.
+- [`docs/git-workflow.md`](docs/git-workflow.md) — cycle branches, immutable commits, PRs, and merge-only history.
 - [`docs/causal-validation.md`](docs/causal-validation.md) — pre-commit prevention, strict Git-ancestry invariants, range validation, and history audits.
 - [`docs/rdf-graph.md`](docs/rdf-graph.md) — Turtle representation of the causal graph.
 - [`docs/implementation-lineage.md`](docs/implementation-lineage.md) — effective provenance, implementation history, and bounded agent context across repeated changes.

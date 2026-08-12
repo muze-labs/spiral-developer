@@ -22,13 +22,25 @@ See [`ai-collaboration.md`](ai-collaboration.md).
 
 ## Trust model: autonomy through verification
 
-Spiral Developer is deliberately a **trust-but-verify** process. It gives a capable agent substantial freedom to investigate, design, implement, test, document, maintain provenance, and operate a feature branch because the surrounding process is designed to verify consequential claims before they become authoritative.
+Spiral Developer is deliberately a **trust-but-verify** process. It gives a capable agent substantial freedom to investigate, design, implement, test, document, maintain provenance, and operate a cycle branch because the surrounding process is designed to verify consequential claims before they become authoritative.
 
 > **Autonomy is earned by verification architecture, not by confidence in the agent.**
 
 For contained and reversible work, verification can often happen after the agent acts but before merge or deployment. For actions whose consequences would be unacceptable before review, the verification or human-authorization boundary must move before the action. Human authority therefore governs meaning, risk, and irreversible consequences without requiring routine micromanagement of every generated line.
 
 See [`trust-model.md`](trust-model.md).
+
+## Outer development cadence
+
+Spiral makes its feedback loop visible to the human:
+
+> **Analyze → Plan → Act → Evaluate → Analyze …**
+
+The human and AI agree one coherent cycle goal before consequential execution. The agent may decompose that goal into multiple tasks and semantic commits without turning each internal task into a separate human review boundary. Scope stays stable enough to make evaluation meaningful: adjacent discoveries are normally retained for later planning, while work necessary to achieve/evaluate the agreed goal remains inside the cycle.
+
+When the goal can be judged, the agent explicitly enters evaluation and presents the integrated result before new direction is chosen. Human feedback that shows the current goal is incomplete keeps the cycle open; genuinely new direction normally becomes input to the next planning interview.
+
+This outer cadence is distinct from the causal chain inside a cycle. See [`cycles.md`](cycles.md).
 
 ## 1. Start with meaningful feedback
 

@@ -12,7 +12,7 @@ Apply Spiral Developer to this requested change.
    - **Material assumptions:** anything that would materially change the work.
    Ask the human to confirm or correct it. Do not continue into product implementation in the same turn merely because the interpretation seems obvious to you.
 5. If no relevant gap can be established, do not invent implementation to satisfy the task wording. Report what appears already satisfied or uncertain and ask what, if anything, should change.
-6. After human confirmation, create/use the dedicated `spiral/...` feature branch and crystallize source/understanding/request artifacts where useful. Repository/runtime evidence belongs inside Understanding formation and does not require another artifact type. If later evidence falsifies either the confirmed Understanding or the gap, stop implementation and return to inquiry/human clarification.
+6. Ensure this work belongs to an active human-confirmed cycle goal. If no cycle is active, use `prompts/plan-cycle.md` first. After cycle confirmation, create/use the dedicated `spiral/CYC-...` cycle branch for repository-changing work and crystallize source/understanding/request artifacts where useful. Repository/runtime evidence belongs inside Understanding formation and does not require another artifact type. If later evidence falsifies either the confirmed Understanding or the gap, stop implementation and return to inquiry/human clarification.
 7. Identify the best available source for the clarified current intent. Where provenance or interpretation matters, crystallize a `SRC-*` source and `UND-*` understanding before the request; explicitly mark unavailable primary evidence rather than reconstructing it.
 8. Capture the current request and observable desired outcomes, deriving it from the accepted understanding when one was material.
 9. If the request or proposed solution contains a consequential assumption, briefly perform a framing check: identify the assumption and a less constraining question when a different framing could materially change the work. Do not do this for routine local choices.
@@ -24,6 +24,8 @@ Apply Spiral Developer to this requested change.
 15. Identify active culture preferences that materially shape underdetermined design choices; distinguish them from hard constraints and record `sd:shapedBy` only when useful.
 16. Draft the smallest design elements needed and connect each in its companion Turtle resource to exact upstream commit hashes.
 17. Define verification and acceptance evidence before hardening implementation.
+18. Keep newly discovered unrelated work out of the active cycle; retain it for evaluation/next-cycle planning unless it is necessary to achieve/evaluate the current goal or repair a cycle-caused regression.
+19. When the cycle goal can be judged, switch to `prompts/evaluate-cycle.md` before proposing new direction.
 18. If legacy behavior is touched, follow the brownfield process rather than guessing intent.
 19. Implement only when causal context is sufficient for safe work. If revising a governed `IMP-*`, work from current effective provenance rather than replaying full history; record the immediate predecessor with `sd:transforms`, the transition reason with `sd:changeCausedBy`, and the change kind.
 20. Preserve effective implementation causes that remain valid and remove/update only those actually superseded. Treat behavior-preserving refactors as lineage events when they materially revise the governed implementation, and verify preservation when important.

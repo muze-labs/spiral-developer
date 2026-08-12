@@ -24,7 +24,7 @@ sd:VerificationEvidence a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label 
 sd:AcceptanceEvidence a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Acceptance evidence" .
 sd:LegacyContext a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Legacy context" .
 sd:Defect a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Defect" .
-sd:Cycle a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Cycle" .
+sd:Cycle a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Cycle" ; rdfs:comment "Outer human-visible learning/integration boundary for one coherent project goal; may contain multiple causal artifacts and semantic commits without implying a task ontology." .
 sd:ExternalConstraint a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "External constraint" .
 sd:Risk a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Risk" .
 sd:Lesson a rdfs:Class ; rdfs:subClassOf sd:Artifact ; rdfs:label "Lesson" ; rdfs:comment "Evidence-informed, defeasible generalization that may change project practice, culture, or the Spiral process." .

@@ -46,7 +46,7 @@ Investigate a legacy area when:
 
 ## Start with the next real piece of work
 
-Migration starts with ordinary development, on a normal feature branch, not a migration project.
+Migration starts with an ordinary bounded cycle, on a normal cycle branch when repository changes are involved, not a migration project.
 
 Before adding or changing a capability in a brownfield system, establish the current **effective behavior** and evidence the gap to the intended outcome. Search by behavior and responsibility, not only by task wording or filenames. Look for full, partial, differently exposed, or differently named implementations in code, tests, documentation, callers, Spiral artifacts, and history where useful—but do not stop at finding related code.
 

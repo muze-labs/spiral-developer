@@ -1,6 +1,6 @@
 # Quickstart
 
-Use Spiral Developer on one bounded real feature. Do not bootstrap a heavyweight process first.
+Use Spiral Developer on one bounded real cycle. Do not bootstrap a heavyweight process first.
 
 ## 1. Add the project area
 
@@ -33,7 +33,7 @@ Start `.spiral/project.ttl` from `templates/PROJECT.ttl`. Create `.spiral/cultur
 
 ## 2. Establish project context through guided intake
 
-For a brownfield project, do not jump straight from installing Spiral to the first feature. If durable project context is missing or materially stale, run the guided intake in `brownfield-intake.md` / `prompts/brownfield-intake.md`. The human should be able to complete this as a short setup conversation without reading the rest of the methodology first.
+For a brownfield project, do not jump straight from installing Spiral to the first cycle. If durable project context is missing or materially stale, run the guided intake in `brownfield-intake.md` / `prompts/brownfield-intake.md`. The human should be able to complete this as a short setup conversation without reading the rest of the methodology first.
 
 Capture durable project context.
 During intake, establish project purpose/goals, important outcomes or metrics, consequential prior decisions and reversibility, important invariants/commitments, known tolerated problems, reliable feedback sources, poorly understood areas, and relevant future direction. Let the AI suggest plain-Markdown risk-discovery and metric profiles, but make explicit which are active, excluded/deferred, narrowed, or supplemented with custom concerns. `Other`, `Not sure`, and `Not relevant` are valid answers.
@@ -48,15 +48,19 @@ If the project wants reusable warning lenses, explicitly adopt an exact profile 
 
 Do not attempt to reconstruct complete project history.
 
-## 3. Start a feature branch
+## 3. Plan and open the first cycle
 
-Create a branch from the authoritative branch, normally:
+Use `prompts/plan-cycle.md` to agree one coherent cycle goal with the human. Start from the intake/reality assessment when available: propose what the project should try to accomplish or learn next, why now, how the result will be evaluated, likely work, and explicit non-goals.
+
+Create `.spiral/cycles/CYC-001.md` from `templates/CYCLE.md` and its companion `.ttl` resource from `templates/CYCLE.ttl`. For ordinary repository-changing work, create one branch from the authoritative branch, normally:
 
 ```text
-spiral/REQ-001-short-name
+spiral/CYC-001-short-goal
 ```
 
-From here onward, normal causal commits are immutable evidence. Before committing changed Spiral Turtle, run staged/pre-commit causal-reference validation when available; after commit, CI should validate the introduced commit range. See `causal-validation.md`.
+The cycle may contain multiple tasks and causal commits. Do not create a separate branch/PR for every internal task. Keep the agreed goal/non-goals stable during Act: record unrelated discoveries for the next cycle unless they are necessary to achieve/evaluate the current goal or repair a regression caused by the cycle.
+
+From here onward, normal causal commits are immutable evidence. Before committing changed Spiral Turtle, run staged/pre-commit causal-reference validation when available; after commit, CI should validate the introduced commit range. See `causal-validation.md` and `cycles.md`.
 
 ## 4. Confirm understanding and evidence the gap before implementation
 
@@ -120,23 +124,23 @@ Create acceptance evidence and a companion Turtle resource that points to the re
 
 Commit these as subsequent causal steps so their upstream hashes already exist.
 
-## 10. Prepare the pull request
+## 10. Evaluate and prepare the review boundary
 
-Fill the PR with the causal case, not merely the code summary.
+When the cycle goal can be judged, stop ordinary execution and use `prompts/evaluate-cycle.md`. Present the integrated outcome, evidence, metric/risk movement, surprises, unresolved issues, and out-of-scope discoveries.
 
-Run normal project CI plus graph checks. Prefer validation over the introduced commit range, not only the final snapshot; a later correction must not hide an invalid historical reference that entered the branch earlier.
+For repository-changing work, the PR may be this evaluation surface. Fill it with the cycle goal/result and causal case, not merely the code summary. Run normal project CI plus graph checks and prefer validation over the introduced commit range, not only the final snapshot.
 
-A human reviews source/understanding provenance where material, intent, design, evidence, risk, and behavior. Direct code review is used where it provides valuable evidence.
+If human feedback shows the agreed goal is incomplete, keep the same cycle/branch open and correct it, then evaluate again. New direction normally waits for the next cycle unless the human explicitly re-plans the current one.
 
-## 11. Merge, do not rewrite
+## 11. Merge and plan again
 
-Integrate with a normal merge commit.
+After the human accepts the cycle and the review boundary passes, integrate with a normal merge commit. Never squash/rebase causal cycle history merely for tidiness.
 
-Never squash/rebase causal feature history merely for tidiness.
+Then return to `prompts/plan-cycle.md` to agree the next cycle goal.
 
 ## First experiment questions
 
-After the feature is merged, ask:
+After the cycle is merged, ask:
 
 - Did the graph help the AI or reviewer reason about the change?
 - Was the exact-version provenance useful?

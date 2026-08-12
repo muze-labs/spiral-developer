@@ -6,7 +6,7 @@ Apply the brownfield rule to this current change.
 2. Characterize **current effective behavior**. Search for direct and indirect ownership/capability under different names, interfaces, generic/shared abstractions, inheritance, defaults, configuration, callers, tests, composition, or runtime behavior.
 3. Establish an **evidenced gap** to the intended outcome using a probe appropriate to the claim. Do not infer a gap merely because no dedicated/local implementation is obvious.
 4. Present **My understanding / Current effective behavior / Evidenced gap / Material assumptions** to the human and STOP for confirmation or correction. If there is no demonstrated gap, do not implement a duplicate/no-op change.
-5. After confirmation, work on the dedicated feature branch; do not rewrite existing history. If later evidence invalidates the Understanding or gap, stop and return to inquiry.
+5. Ensure the change serves the active human-confirmed cycle goal. If no cycle is active, use `prompts/plan-cycle.md`. After confirmation, work on the dedicated cycle branch for repository-changing work; do not rewrite existing history. If later evidence invalidates the Understanding or gap, stop and return to inquiry.
 6. Inspect history/docs/issues/callers only as far as needed for this change.
 7. Record reconstructed claims as explicit, evidenced, inferred, or unknown.
 8. Preserve important confidence and causal relationships in the relevant companion Turtle resources.
@@ -15,6 +15,8 @@ Apply the brownfield rule to this current change.
 11. Keep unrelated cleanup out of scope.
 12. If an existing `IMP-*` predecessor is reliably traceable, connect the new governed version with `sd:transforms`; otherwise preserve the lineage gap rather than inventing it. Record transition cause/change kind from this point forward.
 13. Keep current effective provenance as the default context for future changes; do not require full-history replay.
-14. After the change, leave this capability more traced than before.
+14. Keep adjacent newly discovered work out of scope unless it is necessary to achieve/evaluate the current cycle goal or repair a cycle-caused regression; retain it for next-cycle planning.
+15. When the cycle goal can be judged, enter explicit cycle evaluation before planning new direction.
+16. After the change, leave this capability more traced than before.
 
 Do not invent historical intent or implementation lineage to make the causal chain look complete.

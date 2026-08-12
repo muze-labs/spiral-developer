@@ -7,16 +7,17 @@ Read, in order:
 1. `AGENTS.md`
 2. `docs/vision.md`
 3. `docs/process.md`
-4. `docs/artifact-model.md`
-5. `docs/git-workflow.md`
-6. `docs/rdf-graph.md`
-7. `docs/brownfield.md`
-8. `docs/brownfield-intake.md`
-9. project-specific culture/context already present
+4. `docs/cycles.md`
+5. `docs/artifact-model.md`
+6. `docs/git-workflow.md`
+7. `docs/rdf-graph.md`
+8. `docs/brownfield.md`
+9. `docs/brownfield-intake.md`
+10. project-specific culture/context already present
 
-If this is an existing project and durable project-level context is missing or materially stale, **run `prompts/brownfield-intake.md` before selecting the next normal piece of work**. Do not require the human to read the process first. Persist confirmed durable conclusions in project context, then compare them with current evidence and ask the human to prioritize the resulting candidate risks/gaps.
+If this is an existing project and durable project-level context is missing or materially stale, **run `prompts/brownfield-intake.md` before planning the next normal cycle**. Do not require the human to read the process first. Persist confirmed durable conclusions in project context, then compare them with current evidence and ask the human to prioritize the resulting candidate risks/gaps.
 
-Then inspect the repository only far enough to support the next real piece of work. In a brownfield repository, explicitly assume that early project-specific understanding is partial. Build affinity with the relevant area before making strong claims, and expect/ask for human guidance where local conventions or hidden cross-cutting behavior are not yet understood.
+Then inspect the repository only far enough to support planning the next real cycle. In a brownfield repository, explicitly assume that early project-specific understanding is partial. Build affinity with the relevant area before making strong claims, and expect/ask for human guidance where local conventions or hidden cross-cutting behavior are not yet understood.
 
 Do **not** attempt to reconstruct complete project history or manufacture a formal affinity model.
 
@@ -29,7 +30,7 @@ Produce:
 - known opaque vs characterized areas relevant to current work;
 - the best available source/understanding for current intent when material;
 - when intake was required: a human-confirmed project frame, selected/excluded risk-discovery and metric profiles, and an evidence-grounded candidate risk/metric-gap picture with human disposition;
-- a proposal for the first bounded request to bring under Spiral Developer, after confirming consequential direct human intent and checking whether the capability already exists or overlaps current repository behavior.
+- a proposal for the first coherent cycle goal, with why-now, evaluation basis, likely work, non-goals, and pause/re-plan conditions; use the normal Understanding/evidenced-gap checkpoint where consequential direct human intent is part of that goal.
 
 Separate explicit/evidenced/inferred/unknown legacy knowledge.
 
