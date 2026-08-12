@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:EVD-CYCLE-001
+    a sd:VerificationEvidence ;
+    dcterms:identifier "EVD-CYCLE-001" ;
+    sd:repositoryPath "evidence/EVD-CYCLE-001-explicit-cycle-cadence.md" ;
+    sd:status sd:Accepted ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:LES-012 ;
+        sd:gitCommit "ed1e0ec3649eb79c1158b1d67affc32949ce3fab"
+    ] .

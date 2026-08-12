@@ -15,8 +15,8 @@ Source and understanding are crystallized when origin or interpretation is mater
 ## Working model
 
 - Give the agent broad autonomy for contained/reversible work because consequential claims are independently verifiable; move verification before actions whose consequences would be unacceptable before review.
-- Start each feature or meaningful change on its own working branch.
-- Let the AI operate the branch and create semantic commits as the work crystallizes.
+- Agree one coherent cycle goal before consequential execution; for repository-changing work, normally use one cycle branch as the integration/review boundary.
+- Let the AI decompose the cycle into tasks and create multiple semantic commits without making every subtask a separate branch or human review boundary.
 - Treat Git history as evidence: causal commits are immutable and are never rebased, squashed, amended, or force-pushed away.
 - Prevent malformed versioned provenance before it enters immutable history: validate staged historical references against current Git ancestry, then validate introduced commit ranges in CI.
 - Store human-facing sources, interpreted understanding, intent, design, observations, and evidence as small version-controlled artifacts when they are causally useful.
@@ -28,12 +28,13 @@ Source and understanding are crystallized when origin or interpretation is mater
 - Make adopted warning profiles explicit and versioned; use them to surface consequential patterns for inspection without silently turning them into universal rules or culture.
 - Record reusable `LES-*` lessons and allow evidence to change project practice, culture, or Spiral core prospectively rather than silently changing the process.
 - Obtain meaningful evidence before consequential commitments harden. The active culture profile may recommend a particular strategy, such as Muze's frontend-first approach for interactive web work.
+- For brownfield adoption, begin with a guided project intake so humans can establish goals, important measures, consequential history/constraints, and relevant risk/metric lenses without first learning the whole methodology; then compare that frame with reality and let the human prioritize the resulting candidate risks.
 - Resolve the nearest important uncertainty and deliberately defer later risks unless they are existential.
 - Before consequential commitments, treat the question as a proposed frame: surface hidden assumptions when a materially different framing could change what should be built.
 - Distinguish **capability from endorsement**: a coherent AI-generated plan proves buildability, not that the direction is right.
 - Once the relevant uncertainty has been reduced, implement the smallest observable slice that can be verified and accepted; active culture may shape the preferred slicing strategy.
 - When a defect occurs, repair the software-producing environment at the earliest meaningful cause rather than merely patching generated output.
-- Integrate completed work through a pull request evaluated by automated checks and human review.
+- Work inside an explicit human-confirmed cycle goal; evaluate the integrated result before selecting new direction, then merge accepted cycle history through a normal pull request/review boundary.
 
 ## Who should read what
 
@@ -48,9 +49,10 @@ Source and understanding are crystallized when origin or interpretation is mater
 - [`docs/vision.md`](docs/vision.md) — why this process exists.
 - [`docs/trust-model.md`](docs/trust-model.md) — trust-but-verify, agent autonomy, and when verification must become a pre-action gate.
 - [`docs/process.md`](docs/process.md) — the normative development lifecycle.
+- [`docs/cycles.md`](docs/cycles.md) — the outer Analyze/Plan/Act/Evaluate cadence, scope stability, and cycle review boundary.
 - [`docs/ai-collaboration.md`](docs/ai-collaboration.md) — inquiry vs execution, framing resistance, and upstream correction.
 - [`docs/artifact-model.md`](docs/artifact-model.md) — what is recorded and what the causal relations mean.
-- [`docs/git-workflow.md`](docs/git-workflow.md) — feature branches, immutable commits, PRs, and merge-only history.
+- [`docs/git-workflow.md`](docs/git-workflow.md) — cycle branches, immutable commits, PRs, and merge-only history.
 - [`docs/causal-validation.md`](docs/causal-validation.md) — pre-commit prevention, strict Git-ancestry invariants, range validation, and history audits.
 - [`docs/rdf-graph.md`](docs/rdf-graph.md) — Turtle representation of the causal graph.
 - [`docs/implementation-lineage.md`](docs/implementation-lineage.md) — effective provenance, implementation history, and bounded agent context across repeated changes.
@@ -58,6 +60,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 - [`docs/warning-profiles.md`](docs/warning-profiles.md) — replaceable warning lenses, significance gates, and risk/disposition semantics.
 - [`docs/process-evolution.md`](docs/process-evolution.md) — first-class lessons, scope/promotion, and changing the process without falsifying its past.
 - [`docs/brownfield.md`](docs/brownfield.md) — how to introduce the process into existing projects.
+- [`docs/brownfield-intake.md`](docs/brownfield-intake.md) — guided brownfield setup, profile selection, reality assessment, and human risk prioritization.
 - [`docs/review.md`](docs/review.md) — automated and human review at the pull-request boundary.
 
 Spiral core is intentionally separated from organization-specific engineering preferences and from optional warning lenses. The repository ships a first explicit Muze culture profile at [`cultures/muze-engineering.md`](cultures/muze-engineering.md) and a replaceable warning profile at [`warning-profiles/human-impact-and-epistemic.md`](warning-profiles/human-impact-and-epistemic.md); projects may adopt, extend, replace, or decline either independently.
@@ -97,6 +100,9 @@ spiral-developer/
     ...
   warning-profiles/
     ...
+  profiles/
+    risk-discovery/
+    metrics/
   lessons/
     ...
   catalogs/

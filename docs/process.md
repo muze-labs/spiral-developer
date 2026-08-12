@@ -1,24 +1,46 @@
 # Development Process
 
-This is the normative Spiral Developer lifecycle for feature work.
+This is the normative Spiral Developer lifecycle for cycle work.
 
 The process is iterative, not a waterfall. Upstream artifacts may be revised when reality teaches us something new. The purpose of traceability is to make those revisions and their consequences explicit.
 
 Spiral operates on a **trust-but-verify** model. Give the agent substantial freedom for contained and reversible work because the verification architecture provides evidence and governance boundaries. Move verification or human authorization before actions whose unacceptable consequences could occur before the normal review boundary. See `trust-model.md`.
 
-## 1. Create a working branch
+### Brownfield precondition: establish the project frame
 
-Start each feature or meaningful change on a dedicated branch from the current authoritative branch. Before consequential design or implementation, load the current project context and any explicitly adopted culture profile(s). Culture guides underdetermined choices; it does not override requests, evidence, or hard constraints merely because it is active.
+Before the first normal cycle in an existing project, if durable project context is missing or materially stale, conduct the guided intake in `brownfield-intake.md`. The human establishes purpose, goals, important outcomes/metrics, consequential prior decisions, constraints, known/tolerated problems, feedback sources, future direction, and which risk-discovery/metric profiles should be consulted or excluded.
 
-Prefer:
+After the human confirms the frame, the AI compares it with current project evidence and presents candidate risks, metric gaps, missing measurements, and uncertainties. The human prioritizes, rejects, accepts/defers, corrects, and adds concerns. That prioritized picture informs which uncertainty should drive the first normal cycle. Do not make a profile or maturity label authoritative merely because it was suggested.
+
+This is a project-onboarding/reframing step, not something repeated before every cycle. Keep it conversational and persist durable conclusions in project context.
+
+## 1. Analyze and plan the cycle
+
+Normal Spiral work begins by agreeing one coherent **cycle goal** with the human: a project outcome, risk reduction, or important uncertainty to resolve. Use the current project context, prior cycle evaluation, prioritized risks/metrics, current evidence, and new human direction to propose the next useful boundary. See `cycles.md` and `prompts/plan-cycle.md`.
+
+The planning interview should establish, proportionately:
+
+- cycle goal;
+- why this matters now;
+- current starting evidence;
+- evaluation basis;
+- likely work;
+- explicit non-goals;
+- pause/re-plan conditions.
+
+The initial task list is not a fixed sprint backlog. It is a hypothesis about what the goal may require. The **goal and non-goals** are the stable evaluation contract.
+
+For consequential direct human input, cycle planning may also satisfy the Understanding/evidenced-gap confirmation gate when it presents the same concrete outcome, current effective behavior, gap, and material assumptions. Do not demand duplicate confirmation for ceremony.
+
+After the human confirms the cycle, create/update its `CYC-*` Markdown record. For ordinary repository-changing cycles, create one dedicated branch from the authoritative branch, normally:
 
 ```text
-spiral/<request-id>-<short-name>
+spiral/CYC-014-short-goal
 ```
 
-The branch is an evolving proposed reality. The authoritative branch remains accepted project reality.
+Internal tasks do not normally receive separate branches or PRs. The cycle branch is the integration/review boundary; semantic commits preserve finer causal granularity. A non-code investigation/evaluation cycle may not need a development branch.
 
-Before each semantic causal commit that introduces or changes versioned references, validate the staged causal graph where tooling exists. A malformed historical reference should be prevented before it becomes immutable evidence, not merely detected afterward. CI then validates the introduced commit range as a backstop. See `causal-validation.md`.
+Before consequential design or implementation, load the current project context and explicitly adopted culture/warning profiles. Before each semantic causal commit that introduces or changes versioned references, validate the staged causal graph where tooling exists; CI then validates the introduced commit range as a backstop.
 
 See `git-workflow.md`.
 
@@ -154,6 +176,12 @@ For normal continued development, do **not** replay the full lineage by default.
 
 Create semantic implementation commits when the change has crystallized enough to serve as evidence for later verification.
 
+### Keep cycle scope stable during Act
+
+Multiple tasks/changes may emerge while pursuing the cycle goal. Do not silently turn every adjacent discovery into current work. A newly discovered item belongs in the active cycle when it is necessary to achieve the agreed goal, obtain the evidence needed to evaluate that goal, or repair a regression introduced by the cycle. Otherwise preserve it as feedback/risk/uncertainty/candidate next-cycle input.
+
+If evidence invalidates the cycle goal or makes its scope unsafe/materially wrong, stop and return to the human for deliberate re-planning rather than drifting the scope.
+
 See `implementation-lineage.md`.
 
 ## 8. Verify implementation against design
@@ -180,12 +208,17 @@ Acceptance is not the same as implementation verification.
 
 Commit acceptance evidence after the relevant request, design, implementation, and verification versions exist.
 
-## 10. Prepare the pull request
+## 10. Evaluate the cycle and prepare the review boundary
 
-When the AI believes the request is satisfied, it prepares a pull request containing both the result and the causal case for accepting it.
+When the AI believes the cycle goal can be judged, stop ordinary execution and enter **Evaluate** before selecting new direction. Use `prompts/evaluate-cycle.md`. Present the integrated result against the agreed goal: evidence/acceptance, metric or risk movement, surprises, changed understanding, unresolved issues within scope, known compromises, and out-of-scope discoveries retained for later.
+
+If human evaluation shows the **same agreed goal is not yet satisfied**, keep the current cycle open and correct it on the same branch; then evaluate again. If feedback introduces genuinely **new direction**, retain it for the next Analyze/Plan interview instead of silently expanding scope. A human may deliberately re-scope the active cycle, but make that change explicit because it changes the evaluation contract.
+
+For repository-changing work, prepare a pull request containing both the integrated cycle result and the causal case for accepting it. The PR may be the human evaluation surface; do not create a redundant pre-PR approval ceremony.
 
 The PR should expose:
 
+- cycle goal, integrated result, evaluation status, and retained out-of-scope discoveries;
 - source/understanding provenance when material;
 - request/version;
 - significant feedback;
@@ -203,11 +236,11 @@ CI evaluates mechanical and executable claims. Human review evaluates meaning, j
 
 See `review.md`.
 
-## 11. Merge without rewriting history
+## 11. Merge, then return to Analyze/Plan
 
-Accepted feature work is integrated with a normal merge commit.
+Accepted repository-changing cycle work is integrated with a normal merge commit.
 
-The feature commits retain their original hashes. Merge means the causal history was reviewed and admitted into authoritative project history.
+The cycle commits retain their original hashes. Merge means the cycle outcome and causal history were reviewed and admitted into authoritative project history. After acceptance/merge, return to Analyze/Plan and use the evaluation plus new project state to agree the next cycle goal.
 
 Never squash or rebase causal history merely to make the log look tidy.
 

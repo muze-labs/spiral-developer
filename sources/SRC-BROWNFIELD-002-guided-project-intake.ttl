@@ -1,0 +1,11 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:SRC-BROWNFIELD-002
+    a sd:Source ;
+    dcterms:identifier "SRC-BROWNFIELD-002" ;
+    sd:repositoryPath "sources/SRC-BROWNFIELD-002-guided-project-intake.md" ;
+    sd:status sd:Active ;
+    sd:sourceAvailability sd:Retained ;
+    sd:provenanceConfidence sd:Explicit .

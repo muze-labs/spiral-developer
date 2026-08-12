@@ -6,15 +6,15 @@ Spiral Developer changes who performs much of the implementation work, but it do
 
 ## The short version
 
-For a normal feature or change:
+For a normal cycle:
 
-1. Start from the current need and its best available source; let the AI crystallize a request and, where interpretation matters, the understanding that produced it.
-2. Let Spiral Developer create and operate a feature branch.
-3. Give feedback about intent, behavior, constraints, trade-offs, and observed problems rather than micromanaging code generation. Treat exploratory proposals as hypotheses when you want independent search rather than simple execution.
-4. When evidence is needed before commitment, evaluate the smallest realistic probe appropriate to the uncertainty; follow the active culture profile where it helps choose that probe.
-5. Let the AI maintain the causal artifacts, Turtle graph, tests/evidence, and Git commits.
-6. Review the pull request as a proposal to admit a complete causal history into the authoritative branch.
-7. Merge with a normal merge commit. Never squash or rebase causal history.
+1. Start from the current project state, need, prior evaluation, and known risks; agree one coherent cycle goal and how you will judge it.
+2. Let Spiral Developer create and operate one cycle branch when repository changes are involved.
+3. Let the AI crystallize the source/understanding/request/design/evidence artifacts that are actually needed inside that cycle; do not review every internal task as a separate unit.
+4. Give feedback about intent, behavior, constraints, trade-offs, and observed problems rather than micromanaging code generation.
+5. When the goal can be judged, review the integrated cycle evaluation (often in the PR). If the same goal is incomplete, keep the cycle open; if feedback creates new direction, normally save it for next-cycle planning.
+6. Let the AI maintain the causal artifacts, Turtle graph, tests/evidence, and Git commits.
+7. Merge accepted cycle history with a normal merge commit. Never squash or rebase causal history, then plan the next cycle.
 
 ## What humans remain responsible for
 
@@ -37,17 +37,23 @@ The human review question is broader:
 
 Inspect code directly whenever the risk or uncertainty warrants it.
 
+## Starting a brownfield project
+
+When Spiral is first introduced to an existing project, the AI should begin with a short guided intake rather than expecting you to study the whole process or immediately provide a perfectly framed feature. The intake asks about project goals, important outcomes/metrics, consequential decisions already taken, constraints/commitments, known tolerated problems, feedback sources, future direction, and which risk/metric lenses seem relevant. It should explain why each question matters and offer common choices while always allowing custom, uncertain, or not-relevant answers.
+
+After you confirm the project summary, the AI inspects current reality and brings back candidate risks, metric gaps, missing measurements, and uncertainties. **You set priority.** You can reject a supposed risk, accept or defer it, ask for more evidence, change the framing, or add something the AI missed. That produces the starting risk picture for the next Spiral cycle. See `docs/brownfield-intake.md`.
+
 ## Starting work
 
-A feature or meaningful change gets its own branch. Prefer a branch name that includes the request ID when one exists, for example:
+Before consequential execution, agree one coherent **cycle goal** with the AI. For ordinary repository-changing work, the AI then creates one cycle branch, for example:
 
 ```text
-spiral/REQ-017-account-deactivation
+spiral/CYC-017-account-deactivation
 ```
 
-The AI should create the branch and routine commits when its tools and permissions allow it.
+The AI may carry out several tasks and create several semantic commits on that branch. You should not need to review a separate branch/PR for each internal task. The first crystallized commits should establish the cycle and whatever upstream causal artifacts are needed to ground its work.
 
-The first crystallized commit should normally capture the current request or the smallest missing upstream artifact needed to make the work causally grounded. When source provenance or interpretation is consequential, that may be a `SRC-*` source or `UND-*` understanding before the request.
+If an adjacent problem appears during execution, the default is to retain it for the next planning interview. It belongs in the active cycle only when it is necessary to achieve/evaluate the agreed goal or repair a regression caused by the cycle.
 
 ## Engineering culture
 
@@ -60,6 +66,18 @@ When reviewing a consequential choice, it is legitimate to ask both “what requ
 Projects may explicitly adopt `WPF-*` warning profiles independently of engineering culture. They identify patterns worth inspecting, not universal rules or automatic blockers. A useful warning is concise, materially relevant, and connected to a concrete decision.
 
 Humans should feel free to reject, defer, or scope a warning when the evidence does not justify the concern. Conversely, a warning that exposes a consequential accessibility, authority, evidence, composition, optionality, or model-assumption issue can become an ordinary `RSK-*` artifact for durable review. See `docs/warning-profiles.md`.
+
+## Development cycles
+
+The main human-visible rhythm is not “approve every AI task.” It is:
+
+> **agree the cycle goal → let the AI execute inside that boundary → evaluate the integrated result → choose the next goal**
+
+A cycle may contain several tasks and commits. New adjacent work is normally saved for the next cycle rather than added mid-cycle; work required to achieve/evaluate the current goal or repair a regression caused by it can remain inside the cycle.
+
+At evaluation, feedback such as “this still does not satisfy the agreed goal” keeps the cycle open for correction. Feedback such as “this makes me want a different capability too” is normally next-cycle input. This keeps human review focused on the outcome you agreed to, not the AI's internal task decomposition.
+
+See [`docs/cycles.md`](docs/cycles.md).
 
 ## During development
 
@@ -131,16 +149,16 @@ Use a normal merge commit.
 
 Do not:
 
-- squash the feature branch;
+- squash the cycle branch;
 - rebase it onto the authoritative branch after causal commits exist;
 - amend published causal commits;
 - force-push causal history.
 
-If the branch needs newer authoritative work, merge the authoritative branch **into** the feature branch.
+If the branch needs newer authoritative work, merge the authoritative branch **into** the cycle branch.
 
 The merge commit means:
 
-> **This feature branch, including the causal history that produced it, was reviewed and admitted into authoritative project history.**
+> **This cycle outcome, including the causal history that produced it, was reviewed and admitted into authoritative project history.**
 
 ## Existing projects
 

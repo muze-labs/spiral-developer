@@ -10,6 +10,15 @@ Trying to reconstruct complete provenance before new work begins would be expens
 
 > **The goal is not to document the past. The goal is to make future change increasingly traceable, auditable, and safe.**
 
+
+## Begin with project intake
+
+Before the first normal Spiral cycle in a brownfield project, establish a durable project-level frame through the guided intake in `brownfield-intake.md`. This is separate from the per-change Understanding/evidenced-gap gate. Intake asks what the project is for, what outcomes matter, which consequential decisions and constraints already shape it, what humans already know/tolerate, where reliable feedback comes from, and which reusable risk-discovery/metric profiles are relevant.
+
+After the human confirms that frame, compare it with current project evidence. Present candidate risks, metric gaps, missing measurements, and uncertainties back to the human for prioritization, rejection, acceptance/deferment, correction, and additions. Use the resulting prioritized picture to choose the nearest important uncertainty for the first normal cycle.
+
+Keep the first version conversational. Reuse `.spiral/project-context.md`; do not create an intake artifact class, fixed maturity score, or exhaustive questionnaire. The intake should reduce the amount of Spiral documentation a human must understand before starting.
+
 ## Build affinity before confidence
 
 Every established project is locally strange. An agent entering it should assume its understanding is partial, even when it understands the requested outcome correctly. Before making strong claims about what is absent, duplicated, broken, or safe to change, learn enough about the relevant project area to know where that behavior could actually come from.
@@ -37,7 +46,7 @@ Investigate a legacy area when:
 
 ## Start with the next real piece of work
 
-Migration starts with ordinary development, on a normal feature branch, not a migration project.
+Migration starts with an ordinary bounded cycle, on a normal cycle branch when repository changes are involved, not a migration project.
 
 Before adding or changing a capability in a brownfield system, establish the current **effective behavior** and evidence the gap to the intended outcome. Search by behavior and responsibility, not only by task wording or filenames. Look for full, partial, differently exposed, or differently named implementations in code, tests, documentation, callers, Spiral artifacts, and history where useful—but do not stop at finding related code.
 

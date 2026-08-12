@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:EVD-BROWNFIELD-002
+    a sd:VerificationEvidence ;
+    dcterms:identifier "EVD-BROWNFIELD-002" ;
+    sd:repositoryPath "evidence/EVD-BROWNFIELD-002-guided-project-intake.md" ;
+    sd:status sd:Accepted ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:LES-011 ;
+        sd:gitCommit "6be211eba70ef38e73ba8a98ca16b2535333a359"
+    ] .

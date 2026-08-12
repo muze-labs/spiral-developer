@@ -8,30 +8,34 @@ Git is not only source control in Spiral Developer. It is the immutable historic
 
 Each project has an authoritative integration branch, normally `main` unless the project says otherwise.
 
-Direct feature development on the authoritative branch is not part of the Spiral Developer workflow.
+Direct consequential cycle development on the authoritative branch is not part of the Spiral Developer workflow.
 
-## Feature branches
+## Cycle branches
 
-Each feature or meaningful change starts on a dedicated branch from the current authoritative branch.
+For ordinary repository-changing work, one **cycle** starts on one dedicated branch from the current authoritative branch after the human confirms the cycle goal.
 
 Suggested naming:
 
 ```text
-spiral/REQ-017-account-deactivation
-spiral/DEF-009-expiry-race
+spiral/CYC-017-account-deactivation
+spiral/CYC-018-expiry-race
 ```
 
-The branch contains an evolving proposal: intent, design, implementation, evidence, and acceptance.
+The cycle branch is the normal integration/review boundary. It may contain multiple requests, design/implementation steps, investigations, and semantic commits that all serve the same coherent cycle goal. Internal tasks do not normally receive separate branches or pull requests.
+
+A non-code investigation/evaluation cycle may not need a development branch. Cross-repository or irreversible operational work may need a different integration boundary; follow the trust model instead of forcing this convention.
+
+The branch contains an evolving proposed reality. The authoritative branch remains accepted project reality.
 
 ## AI as Git operator
 
 When tools and permissions allow it, the AI should perform routine Git operations:
 
-- create the working branch;
+- create the cycle branch;
 - stage only relevant files;
 - update the relevant companion Turtle resources;
 - create semantic commits;
-- merge the authoritative branch into the feature branch when needed;
+- merge the authoritative branch into the cycle branch when needed;
 - push the branch;
 - prepare/open the pull request.
 
@@ -98,7 +102,7 @@ This is not untidiness. The mistaken understanding and its later correction are 
 
 ## Bringing the branch up to date
 
-If the authoritative branch moves while feature work continues:
+If the authoritative branch moves while cycle work continues:
 
 ```text
 git merge main
@@ -106,13 +110,13 @@ git merge main
 
 (or the project's authoritative branch).
 
-Resolve conflicts on the feature branch and preserve the merge commit.
+Resolve conflicts on the cycle branch and preserve the merge commit.
 
-Do not rebase the feature branch onto the new authoritative tip once causal commits exist.
+Do not rebase the cycle branch onto the new authoritative tip once causal commits exist.
 
 ## Pull request
 
-When the AI believes the request is satisfied, it proposes the feature branch through a pull request.
+When the AI believes the cycle goal can be judged, it enters cycle evaluation. For repository changes, the pull request can carry that integrated evaluation; human feedback there may keep the same cycle branch open for correction. Do not require a separate review before the PR merely to mark the phase transition.
 
 The PR is evaluated by:
 
@@ -136,7 +140,7 @@ Configure repository hosting, where practical, to:
 
 The merge commit means:
 
-> **The branch's causal history was reviewed as a unit and admitted into authoritative project history.**
+> **The cycle outcome and its causal history were reviewed as a unit and admitted into authoritative project history.**
 
 ## Git hashes as versions
 

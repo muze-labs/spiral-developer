@@ -9,16 +9,18 @@ Follow these in addition to current human instructions:
 1. `docs/vision.md` — purpose and principles;
 2. `docs/trust-model.md` — trust-but-verify autonomy and pre-action gates;
 3. `docs/process.md` — canonical development lifecycle;
-4. `docs/ai-collaboration.md` — inquiry/execution mode, framing resistance, and upstream correction;
-5. `docs/artifact-model.md` — artifact and relation semantics;
-6. `docs/git-workflow.md` — immutable-history rules;
-7. `docs/causal-validation.md` — staged prevention, Git-ancestry invariants, range validation, and history audits;
-8. `docs/rdf-graph.md` — canonical machine-readable causal graph;
-9. `docs/process-evolution.md` — lessons, scope, and process/culture evolution;
-10. `docs/brownfield.md` when existing behavior is involved;
-11. `docs/review.md` when preparing or responding to a pull request;
-12. `docs/culture.md` and the project's explicitly adopted organization/project culture profiles and constraints;
-13. `docs/warning-profiles.md` and the project's explicitly adopted warning profile(s).
+4. `docs/cycles.md` — outer cycle planning, scope, execution, evaluation, and reorientation;
+5. `docs/ai-collaboration.md` — inquiry/execution mode, framing resistance, and upstream correction;
+6. `docs/artifact-model.md` — artifact and relation semantics;
+7. `docs/git-workflow.md` — immutable-history rules;
+8. `docs/causal-validation.md` — staged prevention, Git-ancestry invariants, range validation, and history audits;
+9. `docs/rdf-graph.md` — canonical machine-readable causal graph;
+10. `docs/process-evolution.md` — lessons, scope, and process/culture evolution;
+11. `docs/brownfield.md` when existing behavior is involved;
+12. `docs/brownfield-intake.md` when Spiral is being introduced to an existing project or its durable project frame is materially stale;
+13. `docs/review.md` when preparing or responding to a pull request;
+14. `docs/culture.md` and the project's explicitly adopted organization/project culture profiles and constraints;
+15. `docs/warning-profiles.md` and the project's explicitly adopted warning profile(s).
 
 When old project material conflicts with the current process, treat the old material as evidence, not authority, unless a human explicitly confirms it.
 
@@ -53,6 +55,9 @@ Do not import an unadopted warning profile merely because it is available to you
 
 Always ask:
 
+- Is there an active human-confirmed cycle goal, or are we still in Analyze/Plan?
+- Does the work I am about to do causally serve that goal, or is it newly discovered work that should normally wait for the next cycle?
+- If this is initial/reframed brownfield adoption, has the human-confirmed project intake been established before choosing the next normal cycle?
 - For consequential direct human input, have I presented a concrete Understanding **and evidenced gap** to the human and received confirmation before modifying product behavior?
 - What current intent justifies this work, and what source/understanding supports that intent when the distinction matters?
 - What evidence shows the confirmed outcome is actually unmet by the current **effective** behavior, including behavior supplied indirectly through shared/generic mechanisms?
@@ -69,14 +74,17 @@ Always ask:
 
 ## Git ownership
 
-For feature work, you normally operate Git when the environment permits it.
+For repository-changing cycle work, you normally operate Git when the environment permits it.
 
-Before changing files:
+Before consequential execution:
 
 1. identify the authoritative branch;
 2. ensure the working tree is understood and do not destroy unrelated human work;
-3. create a dedicated feature branch, normally `spiral/<request-id>-<short-name>`;
-4. create the first causal artifact needed for the work.
+3. agree the cycle goal with the human;
+4. create a dedicated cycle branch, normally `spiral/<cycle-id>-<short-goal>`;
+5. create/update the `CYC-*` record and the first causal artifact needed for the work.
+
+Internal tasks inside the cycle do **not** normally receive their own branches or pull requests. Preserve fine-grained causal history with semantic commits instead. A non-repository investigation cycle may not need a development branch.
 
 ### Git history is evidence
 
@@ -92,7 +100,7 @@ Once you create a semantic causal commit, it is immutable evidence.
 
 If a commit is later discovered to be wrong, create a new corrective/superseding commit.
 
-If the feature branch needs new work from the authoritative branch, merge the authoritative branch into the feature branch. Do not rebase.
+If the cycle branch needs new work from the authoritative branch, merge the authoritative branch into the cycle branch. Do not rebase.
 
 Completed work is proposed through a pull request and integrated with a normal merge commit so original hashes survive.
 
@@ -134,11 +142,15 @@ Reduce the nearest important uncertainty with the smallest evidence-producing st
 
 Apply the project's active engineering culture where it is relevant. For example, a project that adopts the Muze culture profile will usually prefer frontend-first probes for interactive web work and thin vertical implementation slices. These are preferences, not Spiral invariants; choose differently when evidence or constraints justify it and preserve the consequential reason.
 
-The spiral remains useful:
+The spiral is an explicit outer cadence:
 
-> **Analyze → Plan → Act → Evaluate**
+> **Analyze → Plan → Act → Evaluate → Analyze …**
 
-Each cycle should improve the causal model and produce evidence, not parallel status bureaucracy.
+Before consequential Act, agree one coherent **cycle goal** with the human. A cycle may contain multiple tasks, causal artifacts, and semantic commits, but they should all serve that goal. Keep scope stable: newly discovered unrelated work is normally retained for the next Analyze/Plan interview rather than silently absorbed. Work necessary to achieve the agreed goal, obtain its evaluation evidence, or repair a regression caused by the cycle remains in scope.
+
+When the goal can be judged, stop ordinary execution and enter **Evaluate**. Present the integrated outcome and evidence to the human before choosing new direction. If evaluation shows the same goal is incomplete, keep the cycle open and correct it; if it reveals a new direction, preserve that for the next cycle unless the human explicitly re-plans the current one.
+
+Each cycle should improve the causal model and produce evidence, not parallel status bureaucracy. See `docs/cycles.md`.
 
 Before high-consequence planning, perform a framing check when useful. If a different framing would plausibly change product direction, architecture, trust boundaries, schema, irreversible operations, or acceptance, surface it briefly before optimizing inside the original frame. For local/reversible work, keep moving.
 
@@ -180,6 +192,10 @@ Classify risks by when they matter:
 Knowing about a future problem does not authorize solving it now.
 
 ## Brownfield work
+
+Before the first normal Spiral cycle in an existing project, check whether durable project-level context is present and current enough to guide risk discovery. If it is missing or materially stale, **run the guided brownfield intake before ordinary cycle planning**. The intake establishes human-confirmed purpose, important outcomes/metrics, consequential prior decisions, constraints, known tolerated problems, feedback sources, relevant future direction, and explicitly selected risk-discovery/metric profiles. Then compare that frame with project reality and return candidate risks/gaps to the human for prioritization. See `docs/brownfield-intake.md`.
+
+Do not require the human to understand Spiral internals first. Explain why intake questions matter as they are asked; offer common options where useful, but keep custom, unknown, and not-relevant answers first-class. Risk-discovery and metric profiles are prompts, not project truth or automatic requirements.
 
 Do not reconstruct an entire legacy project before changing it.
 
@@ -232,12 +248,15 @@ Humans retain authority over the meaning of intent, interpretation of important 
 
 Do not confuse human authority with mandatory line-by-line code review.
 
-## Pull-request readiness
+## Cycle evaluation and pull-request readiness
 
-Open or prepare a PR only when you can present a coherent causal case that the current request is satisfied.
+Do not open/prepare the final review boundary merely because an internal task is complete. When the agent believes the **cycle goal** can be judged, enter Evaluate and present the integrated cycle result.
+
+Prepare the cycle PR/review surface when you can present a coherent causal case for the cycle outcome, including the relevant request(s), evidence, acceptance, unresolved issues, and out-of-scope discoveries. For repository-changing work, this PR can be the human evaluation surface; do not require a redundant pre-PR approval. Human evaluation may keep the same cycle open for correction.
 
 The PR should summarize:
 
+- cycle goal, integrated result, and evaluation status;
 - material source and understanding provenance, including unavailable primary evidence;
 - request and exact upstream version(s);
 - important feedback/observations;
@@ -261,6 +280,7 @@ Do not weaken acceptance criteria merely to make implementation pass.
 - Define evidence before hardening a design.
 - When a consequential direction appears unusually elegant, test at least one materially different framing before endorsement.
 - Resist enlarging the system/product boundary merely because a larger model makes the current problem cleaner.
-- Keep the current cycle small enough to answer one main question.
+- Keep the current cycle coherent enough to evaluate one main goal; multiple internal tasks are fine when they serve that goal.
+- Do not silently absorb adjacent discoveries into an active cycle; retain them for next-cycle planning unless they are necessary to achieve/evaluate the current goal or repair a cycle-caused regression.
 - Do not create artifacts merely because a template exists.
 - Preserve causal history; correct it prospectively rather than rewriting it retrospectively.

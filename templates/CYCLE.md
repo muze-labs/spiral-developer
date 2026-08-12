@@ -2,65 +2,79 @@
 id: CYC-001
 ---
 
-# Cycle: <!-- one main question -->
+# Cycle: <!-- short goal name -->
 
 ## Analyze
 
-Current source/understanding provenance (when material):
+Project state / prior evaluation that makes this cycle relevant:
 
-Current request/version:
+Nearest important risk / uncertainty / desired movement:
 
-Nearest important uncertainty:
-
-Consequential framing assumption (only if material):
-
-Less-constraining question / alternative frame (only if useful):
-
-Relevant feedback/legacy context:
-
-Risks:
+Relevant human direction / feedback:
 
 ## Plan
 
-Main question this cycle should answer:
+### Cycle goal
 
-Artifact/change used to answer it:
+<!-- One coherent project outcome, risk reduction, or uncertainty to resolve. -->
 
-Explicit non-goals:
+### Why now
 
-Evidence needed:
+<!-- Why this is the useful next boundary. -->
 
-Pause/change conditions:
+### Current starting evidence
 
-Accepted compromises / debt and repayment trigger:
+<!-- What we currently know about project reality. -->
+
+### Evaluation basis
+
+<!-- What evidence/observation/metric will let us judge what happened. -->
+
+### Likely work
+
+<!-- Initial decomposition only. This may change as implementation teaches us more. -->
+
+### Explicit non-goals
+
+<!-- Adjacent work that should not silently enter this cycle. -->
+
+### Pause / re-plan conditions
+
+<!-- Evidence that would invalidate the goal, scope, or safe execution assumptions. -->
 
 ## Act
 
-Artifacts produced/changed:
+Important artifacts / semantic commits produced:
 
-Important AI decisions requiring preserved rationale:
+Material implementation decisions or deviations from the initial likely work:
 
-Agent/model/tool configuration that was materially causal (normally omit):
+Out-of-scope discoveries retained for later:
 
 ## Evaluate
 
-Evidence collected:
+Integrated result against cycle goal:
 
-Acceptance result:
+Evidence / acceptance result:
+
+Metric or risk movement:
 
 What changed in our understanding:
 
-Did source evidence and interpretation remain distinguishable where needed?:
+Surprises / model mismatches:
 
-Did evidence challenge the framing rather than only the implementation?:
+Known compromises:
 
-Upstream artifacts changed:
+Unresolved issues within current goal:
 
-Downstream artifacts now suspect:
+Candidate next-cycle inputs:
+
+Human evaluation / feedback:
+
+Cycle accepted, still open, or deliberately re-planned:
 
 ## Process learning
 
-What context/constraint/eval helped:
+What context/constraint/evaluation helped:
 
 What bookkeeping was useless:
 

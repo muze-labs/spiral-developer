@@ -32,7 +32,7 @@ Trust-but-verify is appropriate only when verification happens before unacceptab
 
 For contained and reversible work, the agent can often act first and be verified at the next boundary. Examples include:
 
-- edits on an unmerged feature branch;
+- edits on an unmerged cycle branch;
 - local experiments;
 - generated tests or documentation;
 - proposed design and causal artifacts.

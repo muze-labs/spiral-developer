@@ -20,7 +20,7 @@ Turtle is the canonical machine-readable representation of causal relationships.
 
 Do **not** put all causal statements in one large `graph.ttl`.
 
-A monolithic file would become a merge-conflict hotspot when several feature branches are active. RDF naturally allows one logical graph to be assembled from many Turtle documents.
+A monolithic file would become a merge-conflict hotspot when several cycle branches are active. RDF naturally allows one logical graph to be assembled from many Turtle documents.
 
 Prefer a companion Turtle resource beside each durable human artifact:
 
@@ -70,7 +70,7 @@ The **causal graph** is the RDF union of the project's `.spiral/**/*.ttl` resour
 
 This has three benefits:
 
-1. unrelated feature branches usually modify different Turtle files;
+1. unrelated cycle branches usually modify different Turtle files;
 2. an artifact's machine metadata travels with the human artifact it describes;
 3. a version-aware tool can retrieve one artifact's historical Turtle directly from Git without loading the whole repository history.
 

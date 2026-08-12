@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:LES-011
+    a sd:Lesson ;
+    dcterms:identifier "LES-011" ;
+    sd:repositoryPath "lessons/LES-011-guided-brownfield-intake.md" ;
+    sd:status sd:Active ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:UND-BROWNFIELD-001 ;
+        sd:gitCommit "d1f2091dbfba583677ed70d8c3a75a15863c30a5"
+    ] .

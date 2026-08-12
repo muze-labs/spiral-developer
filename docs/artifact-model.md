@@ -96,6 +96,12 @@ Link lessons to exact evidence versions when practical using normal causal relat
 
 See `process-evolution.md`.
 
+## Cycle semantics
+
+`CYC-*` is the outer human-visible learning and integration record. One cycle pursues one coherent project outcome, risk reduction, or important uncertainty and may contain multiple lower-level causal artifacts and semantic commits. It is not a replacement for Request/Design/Implementation/Verification/Acceptance artifacts and is not an arbitrary task bucket.
+
+For the first operational version, cycle membership does not require a new RDF relation. The cycle Markdown may list important artifacts/commits and evaluation findings. Preserve machine-readable cycle identity in a companion Turtle resource, but do not invent a task ontology or formal state machine until real queries/automation require them. See `cycles.md`.
+
 ## Artifact states
 
 Useful states include:
