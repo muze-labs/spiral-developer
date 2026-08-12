@@ -6,6 +6,14 @@ The process is iterative, not a waterfall. Upstream artifacts may be revised whe
 
 Spiral operates on a **trust-but-verify** model. Give the agent substantial freedom for contained and reversible work because the verification architecture provides evidence and governance boundaries. Move verification or human authorization before actions whose unacceptable consequences could occur before the normal review boundary. See `trust-model.md`.
 
+### Brownfield precondition: establish the project frame
+
+Before the first normal cycle in an existing project, if durable project context is missing or materially stale, conduct the guided intake in `brownfield-intake.md`. The human establishes purpose, goals, important outcomes/metrics, consequential prior decisions, constraints, known/tolerated problems, feedback sources, future direction, and which risk-discovery/metric profiles should be consulted or excluded.
+
+After the human confirms the frame, the AI compares it with current project evidence and presents candidate risks, metric gaps, missing measurements, and uncertainties. The human prioritizes, rejects, accepts/defers, corrects, and adds concerns. That prioritized picture informs which uncertainty should drive the first normal cycle. Do not make a profile or maturity label authoritative merely because it was suggested.
+
+This is a project-onboarding/reframing step, not something repeated before every feature. Keep it conversational and persist durable conclusions in project context.
+
 ## 1. Create a working branch
 
 Start each feature or meaningful change on a dedicated branch from the current authoritative branch. Before consequential design or implementation, load the current project context and any explicitly adopted culture profile(s). Culture guides underdetermined choices; it does not override requests, evidence, or hard constraints merely because it is active.

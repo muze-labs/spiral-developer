@@ -16,9 +16,10 @@ Follow these in addition to current human instructions:
 8. `docs/rdf-graph.md` — canonical machine-readable causal graph;
 9. `docs/process-evolution.md` — lessons, scope, and process/culture evolution;
 10. `docs/brownfield.md` when existing behavior is involved;
-11. `docs/review.md` when preparing or responding to a pull request;
-12. `docs/culture.md` and the project's explicitly adopted organization/project culture profiles and constraints;
-13. `docs/warning-profiles.md` and the project's explicitly adopted warning profile(s).
+11. `docs/brownfield-intake.md` when Spiral is being introduced to an existing project or its durable project frame is materially stale;
+12. `docs/review.md` when preparing or responding to a pull request;
+13. `docs/culture.md` and the project's explicitly adopted organization/project culture profiles and constraints;
+14. `docs/warning-profiles.md` and the project's explicitly adopted warning profile(s).
 
 When old project material conflicts with the current process, treat the old material as evidence, not authority, unless a human explicitly confirms it.
 
@@ -53,6 +54,7 @@ Do not import an unadopted warning profile merely because it is available to you
 
 Always ask:
 
+- If this is initial/reframed brownfield adoption, has the human-confirmed project intake been established before choosing the next normal cycle?
 - For consequential direct human input, have I presented a concrete Understanding **and evidenced gap** to the human and received confirmation before modifying product behavior?
 - What current intent justifies this work, and what source/understanding supports that intent when the distinction matters?
 - What evidence shows the confirmed outcome is actually unmet by the current **effective** behavior, including behavior supplied indirectly through shared/generic mechanisms?
@@ -180,6 +182,10 @@ Classify risks by when they matter:
 Knowing about a future problem does not authorize solving it now.
 
 ## Brownfield work
+
+Before the first normal Spiral cycle in an existing project, check whether durable project-level context is present and current enough to guide risk discovery. If it is missing or materially stale, **run the guided brownfield intake before ordinary feature work**. The intake establishes human-confirmed purpose, important outcomes/metrics, consequential prior decisions, constraints, known tolerated problems, feedback sources, relevant future direction, and explicitly selected risk-discovery/metric profiles. Then compare that frame with project reality and return candidate risks/gaps to the human for prioritization. See `docs/brownfield-intake.md`.
+
+Do not require the human to understand Spiral internals first. Explain why intake questions matter as they are asked; offer common options where useful, but keep custom, unknown, and not-relevant answers first-class. Risk-discovery and metric profiles are prompts, not project truth or automatic requirements.
 
 Do not reconstruct an entire legacy project before changing it.
 

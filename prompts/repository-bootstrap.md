@@ -11,7 +11,10 @@ Read, in order:
 5. `docs/git-workflow.md`
 6. `docs/rdf-graph.md`
 7. `docs/brownfield.md`
-8. project-specific culture/context already present
+8. `docs/brownfield-intake.md`
+9. project-specific culture/context already present
+
+If this is an existing project and durable project-level context is missing or materially stale, **run `prompts/brownfield-intake.md` before selecting the next normal piece of work**. Do not require the human to read the process first. Persist confirmed durable conclusions in project context, then compare them with current evidence and ask the human to prioritize the resulting candidate risks/gaps.
 
 Then inspect the repository only far enough to support the next real piece of work. In a brownfield repository, explicitly assume that early project-specific understanding is partial. Build affinity with the relevant area before making strong claims, and expect/ask for human guidance where local conventions or hidden cross-cutting behavior are not yet understood.
 
@@ -25,6 +28,7 @@ Produce:
 - relevant culture sources/constraints;
 - known opaque vs characterized areas relevant to current work;
 - the best available source/understanding for current intent when material;
+- when intake was required: a human-confirmed project frame, selected/excluded risk-discovery and metric profiles, and an evidence-grounded candidate risk/metric-gap picture with human disposition;
 - a proposal for the first bounded request to bring under Spiral Developer, after confirming consequential direct human intent and checking whether the capability already exists or overlaps current repository behavior.
 
 Separate explicit/evidenced/inferred/unknown legacy knowledge.

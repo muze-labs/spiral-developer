@@ -37,6 +37,12 @@ The human review question is broader:
 
 Inspect code directly whenever the risk or uncertainty warrants it.
 
+## Starting a brownfield project
+
+When Spiral is first introduced to an existing project, the AI should begin with a short guided intake rather than expecting you to study the whole process or immediately provide a perfectly framed feature. The intake asks about project goals, important outcomes/metrics, consequential decisions already taken, constraints/commitments, known tolerated problems, feedback sources, future direction, and which risk/metric lenses seem relevant. It should explain why each question matters and offer common choices while always allowing custom, uncertain, or not-relevant answers.
+
+After you confirm the project summary, the AI inspects current reality and brings back candidate risks, metric gaps, missing measurements, and uncertainties. **You set priority.** You can reject a supposed risk, accept or defer it, ask for more evidence, change the framing, or add something the AI missed. That produces the starting risk picture for the next Spiral cycle. See `docs/brownfield-intake.md`.
+
 ## Starting work
 
 A feature or meaningful change gets its own branch. Prefer a branch name that includes the request ID when one exists, for example:

@@ -31,9 +31,16 @@ Copy only templates that will be used. Do not create empty artifacts for complet
 
 Start `.spiral/project.ttl` from `templates/PROJECT.ttl`. Create `.spiral/culture.md` / `.spiral/culture.ttl` only when a culture profile will materially shape choices; use `templates/CULTURE.*` as the starting point. Add a local/pinned warning profile only when the project intentionally adopts one; use `templates/WARNING_PROFILE.*` for local profiles. Create other companion `.ttl` resources beside human-facing artifacts as they are introduced; `examples/causal-graph.ttl` shows the logical RDF union.
 
-## 2. Establish project context, active culture, and warning lenses
+## 2. Establish project context through guided intake
 
-Capture durable project context. Explicitly adopt organization/project culture only when it should influence underdetermined engineering choices. A culture profile is defeasible guidance, not a hidden Spiral requirement. Use `sd:adoptsCulture` when exact culture-version provenance matters.
+For a brownfield project, do not jump straight from installing Spiral to the first feature. If durable project context is missing or materially stale, run the guided intake in `brownfield-intake.md` / `prompts/brownfield-intake.md`. The human should be able to complete this as a short setup conversation without reading the rest of the methodology first.
+
+Capture durable project context.
+During intake, establish project purpose/goals, important outcomes or metrics, consequential prior decisions and reversibility, important invariants/commitments, known tolerated problems, reliable feedback sources, poorly understood areas, and relevant future direction. Let the AI suggest plain-Markdown risk-discovery and metric profiles, but make explicit which are active, excluded/deferred, narrowed, or supplemented with custom concerns. `Other`, `Not sure`, and `Not relevant` are valid answers.
+
+After the human confirms the frame, let the AI compare it with repository/runtime/operational evidence and return candidate risks, metric gaps, missing measurements, and uncertainties. The human—not the profile—decides priority and may reject, defer, accept, edit, remove, or add risks. Use the resulting picture to choose the nearest important uncertainty for the first normal cycle.
+
+Explicitly adopt organization/project culture only when it should influence underdetermined engineering choices. A culture profile is defeasible guidance, not a hidden Spiral requirement. Use `sd:adoptsCulture` when exact culture-version provenance matters.
 
 The repository ships a first Muze profile at `cultures/muze-engineering.md`; copying or pinning it into a project is an explicit choice, not a default requirement. See `culture.md`.
 

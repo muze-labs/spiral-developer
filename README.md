@@ -28,6 +28,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 - Make adopted warning profiles explicit and versioned; use them to surface consequential patterns for inspection without silently turning them into universal rules or culture.
 - Record reusable `LES-*` lessons and allow evidence to change project practice, culture, or Spiral core prospectively rather than silently changing the process.
 - Obtain meaningful evidence before consequential commitments harden. The active culture profile may recommend a particular strategy, such as Muze's frontend-first approach for interactive web work.
+- For brownfield adoption, begin with a guided project intake so humans can establish goals, important measures, consequential history/constraints, and relevant risk/metric lenses without first learning the whole methodology; then compare that frame with reality and let the human prioritize the resulting candidate risks.
 - Resolve the nearest important uncertainty and deliberately defer later risks unless they are existential.
 - Before consequential commitments, treat the question as a proposed frame: surface hidden assumptions when a materially different framing could change what should be built.
 - Distinguish **capability from endorsement**: a coherent AI-generated plan proves buildability, not that the direction is right.
@@ -58,6 +59,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 - [`docs/warning-profiles.md`](docs/warning-profiles.md) — replaceable warning lenses, significance gates, and risk/disposition semantics.
 - [`docs/process-evolution.md`](docs/process-evolution.md) — first-class lessons, scope/promotion, and changing the process without falsifying its past.
 - [`docs/brownfield.md`](docs/brownfield.md) — how to introduce the process into existing projects.
+- [`docs/brownfield-intake.md`](docs/brownfield-intake.md) — guided brownfield setup, profile selection, reality assessment, and human risk prioritization.
 - [`docs/review.md`](docs/review.md) — automated and human review at the pull-request boundary.
 
 Spiral core is intentionally separated from organization-specific engineering preferences and from optional warning lenses. The repository ships a first explicit Muze culture profile at [`cultures/muze-engineering.md`](cultures/muze-engineering.md) and a replaceable warning profile at [`warning-profiles/human-impact-and-epistemic.md`](warning-profiles/human-impact-and-epistemic.md); projects may adopt, extend, replace, or decline either independently.
@@ -97,6 +99,9 @@ spiral-developer/
     ...
   warning-profiles/
     ...
+  profiles/
+    risk-discovery/
+    metrics/
   lessons/
     ...
   catalogs/
