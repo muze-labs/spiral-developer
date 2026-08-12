@@ -1,0 +1,15 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:UND-BROWNFIELD-001
+    a sd:Understanding ;
+    dcterms:identifier "UND-BROWNFIELD-001" ;
+    sd:repositoryPath "understandings/UND-BROWNFIELD-001-guided-project-intake.md" ;
+    sd:status sd:Active ;
+    sd:provenanceConfidence sd:Evidenced ;
+    sd:interprets [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-BROWNFIELD-002 ;
+        sd:gitCommit "24d6c16a83a4cc109a13bab3354dd9af2a6250d3"
+    ] .
