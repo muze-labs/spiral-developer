@@ -79,68 +79,72 @@ Pause if the change would require formalizing the four positions as rigid taxono
 
 Important artifacts / semantic commits produced:
 
-Pending.
+- `051932459267d6c522e9ab6cc00d10a3d2c56485` — `SRC-RISK-001` plus cycle record.
+- `6f2bfe697f738b1972d6fec15255743cecf4f20e` — `UND-RISK-001`.
+- `89d0a778e2f8b33b63d5b141f6e1d82bfd5cbf69` — `LES-017`.
+- `4bfbb0692f5d0237ae2a825ba134a64e32fdc5f9` — prospective process/prompt/template changes.
+- `EVD-RISK-001` — verification evidence recorded at cycle evaluation.
 
 Material implementation decisions or deviations from the initial likely work:
 
-Pending.
+The four risk positions remain a reasoning aid only. Existing horizon labels remain available for durable risk disposition but are no longer mandatory planning fields. The newest plan-continuity guardrail is preserved: high-leverage risks are surfaced during Evaluate, then reconciled with the governing roadmap during the next Analyze/Plan step rather than automatically promoted.
 
 Out-of-scope discoveries retained for later:
 
-None yet.
+None.
 
 ## Evaluate
 
 Integrated result against cycle goal:
 
-Pending.
+Spiral now prioritizes risk by uncertainty, downstream leverage, late-discovery cost, and cheap falsifiability. Strategy/business → domain/architecture → workflow/interface → implementation is used as a rough causal ordering, while local reversible implementation choices receive proportionately less de-risking attention.
 
 Evidence / acceptance result:
 
-Pending.
+`EVD-RISK-001` records structural, Turtle, Git-reference, repository-integrity, and branch consistency checks. Automated verification passes; human evaluation of this process change remains pending.
 
 Metric or risk movement:
 
-Pending.
+The old horizon-first selection rule no longer dominates live guidance. The process now gives explicit preference to cheap tests of uncertain assumptions whose failure would invalidate substantial downstream work, while preserving lightweight horizon metadata when it is genuinely useful.
 
 What changed in our understanding:
 
-Pending.
+Risk assessment does not need a separate ceremony to become more useful. The missing operation was prioritization by causal leverage: ask what later work depends on the assumption and how expensive late discovery would be.
 
 Surprises / model mismatches:
 
-Pending.
+The newly merged plan-continuity work made an important interaction explicit: even a high-leverage risk must not silently replace the roadmap. It becomes a strong candidate input whose priority is decided during deliberate next-cycle planning.
 
 Known compromises:
 
-Pending.
+The four causal positions are intentionally qualitative and not machine-readable taxonomy. No numeric probability/impact scoring or automatic prioritization is attempted.
 
 Unresolved issues within current goal:
 
-Pending.
+No structural issue remains in the proposed change. Human acceptance and dogfooding are still needed to establish whether the heuristic improves actual cycle choices.
 
 Candidate next-cycle inputs:
 
-Pending.
+If dogfooding shows repeated ambiguity in applying the four positions or comparing risks, refine the heuristic only as much as observed failures justify. Do not add a matrix or formal risk state pre-emptively.
 
 Human evaluation / feedback:
 
-Pending review.
+Pending review of this branch/update.
 
 Cycle accepted, still open, or deliberately re-planned:
 
-Still open pending implementation/evaluation.
+Still open pending human evaluation.
 
 ## Process learning
 
 What context/constraint/evaluation helped:
 
-Pending.
+Grounding the discussion in the downstream consequences of early versus late decisions produced a clearer prioritization rule than the previous horizon labels. Reviewing it against the newest plan-continuity guardrail prevented risk salience from becoming a new form of recency drift.
 
 What bookkeeping was useless:
 
-Pending.
+A new risk phase, between-cycle state, numeric score, matrix, or mandatory risk artifact was unnecessary.
 
 What should the environment learn from this cycle:
 
-Pending.
+Prefer cycles that cheaply test uncertain assumptions with large downstream consequences. Use risk leverage to inform next-cycle selection, then reconcile it with governing direction rather than letting either recent discoveries or generic risk labels choose automatically.

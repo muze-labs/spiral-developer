@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:EVD-RISK-001
+    a sd:VerificationEvidence ;
+    dcterms:identifier "EVD-RISK-001" ;
+    sd:repositoryPath "evidence/EVD-RISK-001-lightweight-risk-leverage.md" ;
+    sd:status sd:Accepted ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:LES-017 ;
+        sd:gitCommit "89d0a778e2f8b33b63d5b141f6e1d82bfd5cbf69"
+    ] .
