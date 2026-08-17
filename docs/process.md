@@ -35,6 +35,8 @@ The planning interview should establish, proportionately:
 
 The initial task list is not a fixed sprint backlog. It is a hypothesis about what the goal may require. The **goal and non-goals** are the stable evaluation contract.
 
+When risk drives cycle selection, prefer a cheap test of an uncertain upstream assumption when discovering it wrong later would invalidate substantial downstream work. Do not require numeric scoring: use strategy/business → domain/architecture → workflow/interface → implementation as a rough causal ordering and judge uncertainty, downstream leverage, late-discovery cost, and cheap falsifiability.
+
 Size the cycle according to uncertainty and evaluation needs, not a blanket preference for tiny cycles. Early/unfamiliar work may need a small boundary; once assumptions and invariants are stable, prefer a larger coherent cycle when splitting would add ceremony without isolating a real uncertainty or decision. Small probes may exist inside a larger cycle.
 
 For consequential direct human input, cycle planning may also satisfy the Understanding/evidenced-gap confirmation gate when it presents the same concrete outcome, current effective behavior, gap, and material assumptions. Do not demand duplicate confirmation for ceremony.
@@ -124,22 +126,19 @@ Record only assumptions or reframings that are causally useful later; do not cre
 
 See `ai-collaboration.md`.
 
-## 4. Find the nearest important uncertainty
+## 4. Find the most valuable uncertainty to reduce next
 
 Ask:
 
-> **What unresolved issue is most likely to prevent useful progress in the next development cycle?**
+> **Which important assumption is uncertain enough, and has enough downstream leverage, that testing it now is more valuable than discovering it wrong later?**
+
+Use four rough causal positions as a thinking aid: strategy/business, domain/architecture, workflow/interface, and implementation. Earlier assumptions usually deserve disproportionate attention because more downstream work can depend on them; local reversible implementation choices normally deserve less de-risking effort.
+
+For a material assumption/risk, consider its uncertainty, downstream dependency/blast radius, cost of late discovery, and the cheapest useful falsification or evidence-producing step available now. Prefer pulling a risk forward when that cheap early evidence can avoid substantial downstream rework.
 
 For consequential decisions, apply any explicitly adopted warning profiles whose scope and significance gate fit the work. A warning prompts proportionate inspection; it is not an automatic blocker. If it exposes a durable project concern, record that concern through the ordinary `RSK-*` mechanism and preserve the exact warning-profile version/fragment that surfaced it. Do not create warning ceremony for trivial local choices.
 
-Classify risks by horizon:
-
-- blocker;
-- near-term;
-- deferred;
-- existential.
-
-Resolve the blocker or nearest risk. Record later risks. Pull a deferred risk forward only if it can invalidate the current direction.
+Existing risk horizons (blocker, near-term, deferred, existential) remain available as lightweight disposition metadata for durable risks, but do not use horizon labels as a substitute for the leverage reasoning above and do not require them for every concern. A high-leverage discovery is still only an input to next-cycle selection; reconcile it with any governing plan.
 
 ## 5. Seek decision-quality evidence
 
@@ -279,7 +278,7 @@ At the end of a significant cycle ask:
 
 - Did intended users provide meaningful feedback where needed?
 - Where intent interpretation mattered, could we distinguish source evidence from our understanding of it?
-- Did we reduce the nearest important uncertainty?
+- Did we reduce the uncertainty that was most valuable to test at this stage, especially where downstream leverage made late discovery expensive?
 - Did traceability improve agent or human reasoning?
 - On repeated work in a governed implementation area, did current effective provenance reduce archaeology rather than require full-history replay?
 - Did any superseded historical cause remain incorrectly presented as current justification?

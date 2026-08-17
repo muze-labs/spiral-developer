@@ -36,13 +36,13 @@ For consequential assumptions, include solution categories or acceptance framing
 |---|---|---|
 | | | |
 
-## Nearest important uncertainty
+## Important uncertainty / assumption
+
+<!-- Only when material. What are we currently betting on, what downstream work depends on it, and what cheap evidence could falsify or reduce it? Use a durable RSK-* / horizon only when that identity or disposition will matter later. -->
 
 ## Risks
 
-| Risk | Horizon | Why it matters | Evidence/action |
-|---|---|---|---|
-| | blocker / near-term / deferred / existential | | |
+<!-- Record only durable project risks that need explicit identity/review. Do not create a risk register merely to complete this template. -->
 
 ## Acceptance shape
 

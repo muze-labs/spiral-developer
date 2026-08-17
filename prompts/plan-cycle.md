@@ -11,9 +11,10 @@ Summarize briefly:
 - relevant project goal/context;
 - previous cycle outcome when any;
 - prioritized risks/metric gaps/feedback that appear relevant;
-- important uncertainty or consequence that makes the next choice matter.
+- important uncertainty or consequence that makes the next choice matter;
+- when risk is relevant, which assumptions have meaningful downstream leverage, what late discovery would cost, and whether a cheap falsification is available now.
 
-Do not assume the newest request or most recent discovery is automatically the highest-priority direction.
+Use strategy/business → domain/architecture → workflow/interface → implementation as a rough causal ordering, not a scoring matrix. Do not spend equivalent de-risking effort on local reversible implementation choices and uncertain upstream premises. Do not assume the newest request or most recent discovery is automatically the highest-priority direction.
 
 If a governing plan/roadmap exists, re-read the actual durable plan/reference now and summarize:
 - what plan/direction governs this work;

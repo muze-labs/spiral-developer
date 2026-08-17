@@ -69,6 +69,8 @@ Before normal execution, establish the current project state well enough to prop
 - current runtime/repository evidence;
 - adopted warning/risk-discovery/metric profiles.
 
+When risk/uncertainty influences the choice, prefer assumptions where uncertainty, downstream leverage, and late-discovery cost are materially high and a useful falsification is cheap now. Do not calculate a score: ask what later work depends on the premise. Use strategy/business → domain/architecture → workflow/interface → implementation as a rough causal ordering, and give upstream assumptions disproportionate attention when being wrong would invalidate later work. Reconcile any such candidate with the governing plan rather than treating risk salience as automatic priority.
+
 Use `prompts/plan-cycle.md` as an interview, not a fixed form. The result should make clear:
 
 - **Cycle goal** — the coherent outcome/risk reduction/uncertainty to pursue;
@@ -130,6 +132,8 @@ Present the integrated result against the cycle goal, including:
 - unresolved issues;
 - out-of-scope discoveries retained for later;
 - any reusable lesson from the cycle.
+
+If the cycle exposed a new high-leverage assumption, surface it as a candidate next-cycle input with the reason late discovery could be costly and any cheap way to test it. Do not manufacture a risk list when nothing material emerged, and do not choose its priority until the next Analyze/Plan step reconciles it with governing direction.
 
 Do not immediately convert every evaluation observation into another implementation task.
 

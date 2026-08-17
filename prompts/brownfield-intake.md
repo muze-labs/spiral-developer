@@ -51,4 +51,4 @@ Return candidate findings with:
 
 Do not assign final project priority. Ask the human to prioritize, accept, defer, reject/remove, request more evidence, and add missing risks. Persist durable dispositions where they will matter to later cycles.
 
-Use the resulting prioritized picture to propose the nearest important uncertainty for the first normal Spiral cycle.
+Use the resulting prioritized picture to propose the most valuable uncertainty to reduce in the first normal Spiral cycle, considering downstream leverage, late-discovery cost, cheap falsifiability, and governing-plan context.

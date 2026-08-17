@@ -97,7 +97,7 @@ The AI does not decide project priority merely because it found a gap. Present t
 
 The human can mark a candidate as important now, lower priority, accepted, deferred, not actually a risk, or in need of more evidence. The human can also add risks the AI missed or correct the project frame.
 
-The resulting prioritized risk/uncertainty picture informs the next normal Spiral cycle: choose the nearest important uncertainty or problem whose resolution can produce useful progress.
+The resulting prioritized risk/uncertainty picture informs the next normal Spiral cycle: choose the most valuable uncertainty to reduce, considering uncertainty, downstream leverage, late-discovery cost, cheap falsifiability, and any governing-plan context.
 
 ## Progressive teaching
 

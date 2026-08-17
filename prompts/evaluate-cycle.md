@@ -25,7 +25,7 @@ Explicitly distinguish:
 - work/evidence showing the current goal is still incomplete;
 - genuinely new direction that belongs in a later cycle.
 
-Do not hide failed verification, missing measurements, weak evidence, or newly exposed risks merely because implementation is complete.
+Do not hide failed verification, missing measurements, weak evidence, or newly exposed risks merely because implementation is complete. If the cycle exposed a materially uncertain assumption with large downstream consequences, include it among candidate next-cycle inputs together with why late discovery matters and any cheap falsification. Do not invent a risk list merely to fill the evaluation, and do not choose its priority here.
 
 ## Ask the human to evaluate
 

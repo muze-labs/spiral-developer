@@ -11,7 +11,7 @@ Branch verified: <!-- pending | verified + date/commit context | exception + rea
 
 Project state / prior evaluation that makes this cycle relevant:
 
-Nearest important risk / uncertainty / desired movement:
+Important risk / uncertainty / desired movement:
 
 Relevant human direction / feedback:
 
@@ -29,7 +29,7 @@ Current position in that plan:
 
 ### Why now / why this cycle boundary
 
-<!-- Why this is the useful next boundary. What uncertainty, risk, or evaluation need justifies this cycle size? Small early cycles are useful when uncertainty is high; do not keep splitting once several related steps can be judged coherently under stable assumptions. -->
+<!-- Why this is the useful next boundary. What uncertainty, risk, or evaluation need justifies this cycle size? If risk drives the choice, note downstream leverage / late-discovery cost and the cheapest useful falsification. Small early cycles are useful when uncertainty is high; do not keep splitting once several related steps can be judged coherently under stable assumptions. -->
 
 ### Plan continuity decision
 
@@ -79,7 +79,7 @@ Known compromises:
 
 Unresolved issues within current goal:
 
-Candidate next-cycle inputs:
+Candidate next-cycle inputs (surface high-leverage assumptions only when material):
 
 Human evaluation / feedback:
 

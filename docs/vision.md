@@ -102,15 +102,15 @@ When a hidden premise could materially change downstream work, briefly ask wheth
 
 The goal is controlled collapse: preserve meaningful alternatives during inquiry, then commit decisively when current evidence justifies doing so.
 
-## 6. Resolve the nearest important uncertainty
+## 6. Reduce high-leverage uncertainty early
 
 At each stage ask:
 
-> **What unresolved issue is most likely to prevent useful progress in the next development cycle?**
+> **Which uncertain assumption would be most expensive to discover wrong later, relative to the cost of testing it now?**
 
-Classify risks by horizon: blocker, near-term, deferred, existential.
+Reason about where the assumption sits in the causal chain: strategy/business → domain/architecture → workflow/interface → implementation. Earlier assumptions usually have a larger downstream blast radius, while local implementation choices are usually cheaper to reverse.
 
-Do not solve later-cycle risks merely because AI makes speculative engineering cheap. Pull them forward only when they can invalidate the current direction.
+Prefer cheap evidence that tests uncertain, high-leverage assumptions before large amounts of downstream work depend on them. Do not solve every later-cycle risk merely because AI makes speculative engineering cheap, and do not spend equal risk effort on reversible implementation details.
 
 ## 7. Build the smallest useful real slice
 
@@ -218,7 +218,7 @@ The immediate goal is not a universal platform. First establish a working proces
 
 1. capture and version materially relevant sources, understanding, and intent;
 2. expose consequential framing assumptions before they harden;
-3. identify the nearest important uncertainty;
+3. identify the most valuable uncertainty to reduce, considering downstream leverage and late-discovery cost;
 4. create an interactive hypothesis;
 5. collect meaningful feedback;
 6. revise understanding without losing history;
