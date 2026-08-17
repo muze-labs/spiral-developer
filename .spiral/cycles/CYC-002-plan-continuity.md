@@ -74,11 +74,15 @@ Pause if the existing process already enforces equivalent plan reconciliation, o
 
 Important artifacts / semantic commits produced:
 
-Pending.
+- `4b4e225c1e3ff1f601dd7c4aa1613bdf33cd304a` — `SRC-PROCESS-003` plus cycle record.
+- `0c31e1e98fe7e3f4f25bf4bf3e2d991bf54298da` — `UND-PROCESS-003`.
+- `547438c498ce20e603aebe7090a94c1d6a4fb433` — `LES-016`.
+- `db7464c7a1a008e23b00bc34bf45d086b119a91d` — prospective process/prompt/template changes.
+- `EVD-PROCESS-003` — verification evidence recorded at cycle evaluation.
 
 Material implementation decisions or deviations from the initial likely work:
 
-Pending.
+No new Plan artifact/ontology was introduced. Existing durable project context gained an optional governing-plan/reference table, while the normative behavior lives at the Evaluate → Analyze/Plan boundary: Evaluate retains discoveries without ranking them; Plan re-reads any governing plan and explicitly chooses continue/revise/deliberate deviation/no governing plan.
 
 Out-of-scope discoveries retained for later:
 
@@ -88,54 +92,54 @@ None yet.
 
 Integrated result against cycle goal:
 
-Pending.
+Spiral now requires next-cycle planning to reconcile recent discoveries with any durable governing multi-cycle plan/roadmap. The plan is explicitly re-read, the current position is stated, and the proposal is classified as continue/revise/deliberate deviation. Projects without such a plan are not forced to invent one.
 
 Evidence / acceptance result:
 
-Pending.
+`EVD-PROCESS-003` records structural, scenario, Turtle, Git-ancestry, and branch/cycle consistency checks. Automated verification passes; human evaluation of this process change remains pending.
 
 Metric or risk movement:
 
-Pending.
+The observed between-cycle recency-drift failure now has an explicit check at both ends of the boundary: Evaluate may surface implications but not choose priority, and the next Plan step must re-read/reconcile the governing direction before selecting work.
 
 What changed in our understanding:
 
-Pending.
+Scope stability inside a cycle is insufficient to preserve strategic continuity across cycles. A process can correctly defer discoveries yet still let the newest one dominate the next planning step unless higher-level direction is reintroduced explicitly.
 
 Surprises / model mismatches:
 
-Pending.
+The existing process already warned that the newest request is not automatically highest priority, but that negative instruction did not provide a positive source of continuity. The missing operation was concrete: re-read the governing plan and state the relationship of the proposed cycle to it.
 
 Known compromises:
 
-Pending.
+Plan continuity is currently Markdown/process-level. Spiral does not version plans as a new ontology class, automatically compute current plan position, or score priority. This is intentional until dogfooding demonstrates a need.
 
 Unresolved issues within current goal:
 
-Pending.
+No structural issue remains in the proposed change. Human acceptance and subsequent dogfooding are still needed to establish whether the explicit reconciliation step is sufficient in practice.
 
 Candidate next-cycle inputs:
 
-Pending.
+If agents still exhibit recency drift despite explicit plan reconciliation, consider whether plan references/position need stronger machine-readable/versioned support. Do not add it pre-emptively.
 
 Human evaluation / feedback:
 
-Pending.
+Pending review of this branch/update.
 
 Cycle accepted, still open, or deliberately re-planned:
 
-Still open pending implementation and evaluation.
+Still open pending human evaluation.
 
 ## Process learning
 
 What context/constraint/evaluation helped:
 
-Pending.
+The concrete SimplyStore sequence made the distinction between useful evidence-driven replanning and accidental recency drift visible. Comparing that behavior with the existing Evaluate and Plan prompts exposed the exact missing handoff.
 
 What bookkeeping was useless:
 
-Pending.
+A new planning ontology, priority score, or mandatory long-range roadmap was unnecessary. Existing project context and cycle records can carry enough durable references for the first version.
 
 What should the environment learn from this cycle:
 
-Pending.
+A recent discovery can be both important and still not be the right next step. Preserve the discovery, then deliberately reconcile it with governing direction before changing the roadmap.
