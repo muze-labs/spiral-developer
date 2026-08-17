@@ -46,7 +46,7 @@ The wording and order are deliberately conversational, but **coverage is not opt
 6. **Known/tolerated problems** — risks, debt, awkwardness, workarounds, or failures the humans already know about, including concerns intentionally accepted or deferred.
 7. **Reality/feedback sources** — users, production behavior, support, tests, monitoring, analytics, audits, operators, benchmarks, client feedback, or other observations that can contradict assumptions.
 8. **Knowledge gaps / affinity needs** — areas where project understanding is weak, stale, or concentrated in particular humans and where early handholding is expected.
-9. **Relevant future direction** — known commitments, migrations, deprecations, deadlines, or planned changes that alter what is worth optimizing now.
+9. **Relevant future direction** — known commitments, migrations, deprecations, deadlines, planned changes, or existing multi-cycle plans/roadmaps that alter what is worth optimizing now. When a durable governing plan exists, retain its reference and current position so later cycle planning can re-read it rather than relying on recency.
 10. **Risk-discovery and metric-profile disposition** — which suggested/custom lenses are used, excluded, narrowed, deferred, or explicitly not relevant.
 
 Do not force a fabricated answer where the honest state is `Unknown`. Missing measurement or unclear ownership may itself become an uncertainty worth surfacing. Completion means every topic was considered and explicitly dispositioned, not that every topic has a precise answer.

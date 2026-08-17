@@ -40,11 +40,29 @@ Do **not** split merely because the work contains several files, requests, imple
 
 During planning, make the boundary explicit enough to answer: **what uncertainty or evaluation need justifies ending the cycle here?** If there is no good answer, consider a larger coherent cycle.
 
+## Keep cycle choices connected to governing direction
+
+A cycle is local, but many projects are not. When a durable multi-cycle implementation plan, roadmap, migration sequence, or equivalent human-confirmed direction already exists, treat it as an input to **every next-cycle selection**.
+
+Before proposing the next cycle:
+
+1. **re-read the governing plan/reference** rather than relying only on memory or the most recent cycle;
+2. identify the **current position** in that plan and which planned dependencies or boundaries remain unresolved;
+3. compare the latest evidence and retained discoveries with that plan;
+4. state whether the proposal **continues**, **revises**, or **deliberately deviates from** the governing plan.
+
+New evidence is allowed to change the plan. The requirement is not obedience to an outdated roadmap; it is an explicit reconciliation step so that a locally salient discovery does not silently become the new roadmap.
+
+If the evidence justifies revision or deviation, record the reason and update the durable project context/plan as appropriate. If no governing multi-cycle plan exists, say so proportionately and continue without inventing one.
+
+> **Cycle-local discoveries may inform the roadmap; they may not silently replace it.**
+
 ## Analyze and plan with the human
 
 Before normal execution, establish the current project state well enough to propose the next useful cycle goal. Inputs may include:
 
 - the previous cycle evaluation;
+- the current governing plan/roadmap and position in it, when one exists;
 - prioritized risks and metric gaps;
 - current project goals/context;
 - new human direction or feedback;
@@ -55,6 +73,7 @@ Use `prompts/plan-cycle.md` as an interview, not a fixed form. The result should
 
 - **Cycle goal** — the coherent outcome/risk reduction/uncertainty to pursue;
 - **Why now** — why this is the useful next boundary;
+- **Plan continuity** — when a governing plan exists, whether this cycle continues, revises, or deliberately deviates from it and why;
 - **Evaluation basis** — what evidence or observation will let us judge what happened;
 - **Known scope / likely work** — what currently appears necessary, without pretending implementation is fully predictable;
 - **Non-goals** — adjacent work that should not silently enter the cycle;
@@ -121,7 +140,7 @@ Human feedback has two important meanings:
 
 The human may deliberately re-scope an active cycle, but this should be explicit because it changes the evaluation contract.
 
-After the cycle is accepted and repository-changing work is merged, return to Analyze/Plan and agree the next cycle goal.
+After the cycle is accepted and repository-changing work is merged, return to Analyze/Plan. Before agreeing the next cycle goal, re-read any governing multi-cycle plan/roadmap and reconcile the just-completed cycle's evidence with it. Do not choose the next direction by extrapolating from the newest discovery alone.
 
 ## Relationship to causal artifacts
 

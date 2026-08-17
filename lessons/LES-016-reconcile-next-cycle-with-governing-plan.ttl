@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:LES-016
+    a sd:Lesson ;
+    dcterms:identifier "LES-016" ;
+    sd:repositoryPath "lessons/LES-016-reconcile-next-cycle-with-governing-plan.md" ;
+    sd:status sd:Active ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:UND-PROCESS-003 ;
+        sd:gitCommit "0c31e1e98fe7e3f4f25bf4bf3e2d991bf54298da"
+    ] .

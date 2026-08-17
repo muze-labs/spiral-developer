@@ -15,6 +15,12 @@ Nearest important risk / uncertainty / desired movement:
 
 Relevant human direction / feedback:
 
+Governing higher-level plan / direction:
+<!-- Durable plan/roadmap/reference if one exists; otherwise `None`. Re-read it at next-cycle planning rather than relying on memory. -->
+
+Current position in that plan:
+<!-- Where this cycle sits; important unresolved planned dependencies/boundaries. -->
+
 ## Plan
 
 ### Cycle goal
@@ -24,6 +30,10 @@ Relevant human direction / feedback:
 ### Why now / why this cycle boundary
 
 <!-- Why this is the useful next boundary. What uncertainty, risk, or evaluation need justifies this cycle size? Small early cycles are useful when uncertainty is high; do not keep splitting once several related steps can be judged coherently under stable assumptions. -->
+
+### Plan continuity decision
+
+<!-- continue | revise | deliberate deviation | no governing plan. Explain how latest evidence was reconciled with the governing plan and why this cycle belongs next. A local discovery may change the plan, but must not silently become it. -->
 
 ### Current starting evidence
 

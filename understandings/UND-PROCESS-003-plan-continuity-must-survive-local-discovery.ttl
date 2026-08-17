@@ -1,0 +1,15 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:UND-PROCESS-003
+    a sd:Understanding ;
+    dcterms:identifier "UND-PROCESS-003" ;
+    sd:repositoryPath "understandings/UND-PROCESS-003-plan-continuity-must-survive-local-discovery.md" ;
+    sd:status sd:Active ;
+    sd:provenanceConfidence sd:Evidenced ;
+    sd:interprets [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-PROCESS-003 ;
+        sd:gitCommit "4b4e225c1e3ff1f601dd7c4aa1613bdf33cd304a"
+    ] .
