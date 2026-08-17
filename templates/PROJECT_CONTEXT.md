@@ -16,6 +16,27 @@ Repository/baseline:
 
 Project causal-graph namespace:
 
+## Intake state
+
+Status: **Incomplete** <!-- Incomplete | Complete | Stale -->
+
+Human-confirmed complete on: <!-- date / reference, or leave blank while incomplete -->
+
+| Required topic | Disposition | Notes / source |
+|---|---|---|
+| Purpose, users/stakeholders, goals | Pending | |
+| Current posture | Pending | |
+| Important outcomes / metrics | Pending | |
+| Consequential prior decisions / reversibility | Pending | |
+| Invariants / commitments | Pending | |
+| Known / tolerated problems | Pending | |
+| Reliable feedback / reality sources | Pending | |
+| Knowledge gaps / affinity needs | Pending | |
+| Relevant future direction | Pending | |
+| Risk-discovery / metric-profile disposition | Pending | |
+
+<!-- Pending is not a valid final disposition. Unknown / Not relevant / Deferred with reason are valid explicit outcomes. While Status is Incomplete or Stale, surface the remaining Pending topics in every user-visible response while intake remains active. -->
+
 ## Intended users
 
 ## Current direction

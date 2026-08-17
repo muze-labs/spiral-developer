@@ -15,7 +15,7 @@ Read, in order:
 9. `docs/brownfield-intake.md`
 10. project-specific culture/context already present
 
-If this is an existing project and durable project-level context is missing or materially stale, **run `prompts/brownfield-intake.md` before planning the next normal cycle**. Do not require the human to read the process first. Persist confirmed durable conclusions in project context, then compare them with current evidence and ask the human to prioritize the resulting candidate risks/gaps.
+If this is an existing project and durable project-level context is missing, `Incomplete`, or materially `Stale`, **run/resume `prompts/brownfield-intake.md` before planning the next normal cycle**. Persist the intake status/checklist and keep remaining topics visible in every user-visible response while intake remains active until all are explicitly dispositioned and human-confirmed. Do not require the human to read the process first. Persist confirmed durable conclusions in project context, then compare them with current evidence and ask the human to prioritize the resulting candidate risks/gaps.
 
 Then inspect the repository only far enough to support planning the next real cycle. In a brownfield repository, explicitly assume that early project-specific understanding is partial. Build affinity with the relevant area before making strong claims, and expect/ask for human guidance where local conventions or hidden cross-cutting behavior are not yet understood.
 

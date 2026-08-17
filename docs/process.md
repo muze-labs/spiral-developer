@@ -8,7 +8,9 @@ Spiral operates on a **trust-but-verify** model. Give the agent substantial free
 
 ### Brownfield precondition: establish the project frame
 
-Before the first normal cycle in an existing project, if durable project context is missing or materially stale, conduct the guided intake in `brownfield-intake.md`. The human establishes purpose, goals, important outcomes/metrics, consequential prior decisions, constraints, known/tolerated problems, feedback sources, future direction, and which risk-discovery/metric profiles should be consulted or excluded.
+Before the first normal cycle in an existing project, if durable project context is missing or materially stale, conduct the guided intake in `brownfield-intake.md`. Intake has an explicit durable status: **incomplete**, **complete**, or **stale**. Every required intake topic must receive an explicit disposition; `Unknown`, `Not relevant`, and `Deferred with reason` are valid dispositions and are preferable to silent omission.
+
+While intake is active and `Incomplete` or `Stale`, every user-visible response must visibly say that intake remains unfinished and identify the remaining topics. The AI may investigate/project-read during this period, but it must not silently behave as though the project frame were complete. Normal cycle planning begins only after the human has confirmed the completed frame unless the human explicitly authorizes a documented exception. Such an exception does **not** mark intake complete: the unfinished status and remaining topics must stay visible until resolved.
 
 After the human confirms the frame, the AI compares it with current project evidence and presents candidate risks, metric gaps, missing measurements, and uncertainties. The human prioritizes, rejects, accepts/defers, corrects, and adds concerns. That prioritized picture informs which uncertainty should drive the first normal cycle. Do not make a profile or maturity label authoritative merely because it was suggested.
 
@@ -30,6 +32,8 @@ The planning interview should establish, proportionately:
 
 The initial task list is not a fixed sprint backlog. It is a hypothesis about what the goal may require. The **goal and non-goals** are the stable evaluation contract.
 
+Size the cycle according to uncertainty and evaluation needs, not a blanket preference for tiny cycles. Early/unfamiliar work may need a small boundary; once assumptions and invariants are stable, prefer a larger coherent cycle when splitting would add ceremony without isolating a real uncertainty or decision. Small probes may exist inside a larger cycle.
+
 For consequential direct human input, cycle planning may also satisfy the Understanding/evidenced-gap confirmation gate when it presents the same concrete outcome, current effective behavior, gap, and material assumptions. Do not demand duplicate confirmation for ceremony.
 
 After the human confirms the cycle, create/update its `CYC-*` Markdown record. For ordinary repository-changing cycles, create one dedicated branch from the authoritative branch, normally:
@@ -37,6 +41,8 @@ After the human confirms the cycle, create/update its `CYC-*` Markdown record. F
 ```text
 spiral/CYC-014-short-goal
 ```
+
+Immediately verify the actual current branch against the active cycle ID. Repeat that branch/cycle check before each semantic causal commit and at evaluation; if the current branch still names another cycle, stop and correct the branch before continuing. Do not rely on conversational memory for this invariant.
 
 Internal tasks do not normally receive separate branches or PRs. The cycle branch is the integration/review boundary; semantic commits preserve finer causal granularity. A non-code investigation/evaluation cycle may not need a development branch.
 

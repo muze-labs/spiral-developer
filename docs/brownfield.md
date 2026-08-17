@@ -17,7 +17,7 @@ Before the first normal Spiral cycle in a brownfield project, establish a durabl
 
 After the human confirms that frame, compare it with current project evidence. Present candidate risks, metric gaps, missing measurements, and uncertainties back to the human for prioritization, rejection, acceptance/deferment, correction, and additions. Use the resulting prioritized picture to choose the nearest important uncertainty for the first normal cycle.
 
-Keep the first version conversational. Reuse `.spiral/project-context.md`; do not create an intake artifact class, fixed maturity score, or exhaustive questionnaire. The intake should reduce the amount of Spiral documentation a human must understand before starting.
+Keep the first version conversational. Reuse `.spiral/project-context.md`; do not create an intake artifact class, fixed maturity score, or one-message exhaustive questionnaire. **Do require complete coverage of the small required topic set**, with explicit `Unknown`, `Not relevant`, or deliberate deferral where appropriate. Persist `Incomplete/Complete/Stale` status and keep unfinished topics visible while intake is active. The intake should reduce the amount of Spiral documentation a human must understand before starting.
 
 ## Build affinity before confidence
 

@@ -38,6 +38,8 @@ Spiral makes its feedback loop visible to the human:
 
 The human and AI agree one coherent cycle goal before consequential execution. The agent may decompose that goal into multiple tasks and semantic commits without turning each internal task into a separate human review boundary. Scope stays stable enough to make evaluation meaningful: adjacent discoveries are normally retained for later planning, while work necessary to achieve/evaluate the agreed goal remains inside the cycle.
 
+Cycle size follows uncertainty and evaluation coherence rather than a universal preference for minimum size. Small cycles are useful while one finding may invalidate the next step; as governing assumptions stabilize, several related implementation/evidence steps should remain in one coherent cycle when splitting them would add ceremony without creating a meaningful decision boundary.
+
 When the goal can be judged, the agent explicitly enters evaluation and presents the integrated result before new direction is chosen. Human feedback that shows the current goal is incomplete keeps the cycle open; genuinely new direction normally becomes input to the next planning interview.
 
 This outer cadence is distinct from the causal chain inside a cycle. See [`cycles.md`](cycles.md).
