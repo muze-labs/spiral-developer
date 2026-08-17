@@ -39,7 +39,7 @@ Inspect code directly whenever the risk or uncertainty warrants it.
 
 ## Starting a brownfield project
 
-When Spiral is first introduced to an existing project, the AI should begin with a short guided intake rather than expecting you to study the whole process or immediately provide a perfectly framed feature. The intake asks about project goals, important outcomes/metrics, consequential decisions already taken, constraints/commitments, known tolerated problems, feedback sources, future direction, and which risk/metric lenses seem relevant. It should explain why each question matters and offer common choices while always allowing custom, uncertain, or not-relevant answers.
+When Spiral is first introduced to an existing project, the AI should begin with a short guided intake rather than expecting you to study the whole process or immediately provide a perfectly framed feature. Intake has an explicit `Incomplete/Complete/Stale` status: every required topic must be considered, although `Unknown`, `Not relevant`, and deliberate deferral are valid answers. While intake is incomplete, the AI should keep telling you which topics remain rather than silently moving on. The intake asks about project goals, important outcomes/metrics, consequential decisions already taken, constraints/commitments, known tolerated problems, feedback sources, future direction, and which risk/metric lenses seem relevant. It should explain why each question matters and offer common choices while always allowing custom, uncertain, or not-relevant answers.
 
 After you confirm the project summary, the AI inspects current reality and brings back candidate risks, metric gaps, missing measurements, and uncertainties. **You set priority.** You can reject a supposed risk, accept or defer it, ask for more evidence, change the framing, or add something the AI missed. That produces the starting risk picture for the next Spiral cycle. See `docs/brownfield-intake.md`.
 
@@ -51,7 +51,9 @@ Before consequential execution, agree one coherent **cycle goal** with the AI. F
 spiral/CYC-017-account-deactivation
 ```
 
-The AI may carry out several tasks and create several semantic commits on that branch. You should not need to review a separate branch/PR for each internal task. The first crystallized commits should establish the cycle and whatever upstream causal artifacts are needed to ground its work.
+The AI should mechanically verify that the actual Git branch matches the active cycle when the cycle opens, before each semantic causal commit, and during evaluation; this is intended to catch accidental continued work on an older cycle branch.
+
+The AI may carry out several tasks and create several semantic commits on that branch. You should not need to review a separate branch/PR for each internal task. Early/unfamiliar cycles may be small, but once governing assumptions are stable, the AI should prefer a larger coherent cycle rather than creating tiny cycles by habit. The first crystallized commits should establish the cycle and whatever upstream causal artifacts are needed to ground its work.
 
 If an adjacent problem appears during execution, the default is to retain it for the next planning interview. It belongs in the active cycle only when it is necessary to achieve/evaluate the agreed goal or repair a regression caused by the cycle.
 

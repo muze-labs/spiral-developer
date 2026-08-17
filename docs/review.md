@@ -29,6 +29,7 @@ CI/CD should continue normal project checks and progressively add non-AI checks 
 Useful checks include:
 
 - source/build/tests/lint/security checks required by the project;
+- for ordinary repository-changing cycles, the active PR/cycle branch name matches the `CYC-*` identity recorded in the cycle Markdown (or an explicit exception is recorded);
 - Turtle syntax parsing;
 - SHACL validation of the causal graph;
 - all referenced full Git hashes exist in repository history;
@@ -51,7 +52,7 @@ Humans review meaning and judgment.
 
 Ask:
 
-1. Was there a clear human-confirmed cycle goal and evaluation basis before consequential execution?
+1. Was there a clear human-confirmed cycle goal and evaluation basis before consequential execution, and for repository-changing work does the actual branch correspond to that active cycle (or record a justified exception)?
 2. Did work on the branch remain causally within that goal, with unrelated discoveries retained for later rather than silently absorbed?
 3. Does the integrated evaluation show what happened against the cycle goal, including failures, surprises, and unresolved scope?
 4. For consequential direct human input, did the agent present a concrete Understanding **and evidenced gap** to the human and receive confirmation before product behavior was modified?

@@ -10,6 +10,20 @@ For an existing project adopting Spiral Developer, begin with a short **guided i
 
 The intake also reduces adoption cost: a human should not have to read the whole Spiral methodology before using it. Explain the purpose of each question when it becomes relevant, offer common choices where they help, and keep custom, uncertain, and not-relevant answers first-class.
 
+## Intake state is explicit
+
+Intake is a stateful workflow, not a conversational suggestion. Persist one of:
+
+- **Incomplete** — required topics remain undispositioned;
+- **Complete** — every required topic has an explicit disposition and the human has confirmed the durable frame;
+- **Stale** — a previously complete frame is materially out of date and must be reopened.
+
+While intake is active and the state is **Incomplete** or **Stale**, every user-visible response must include a short marker such as:
+
+> **Intake incomplete:** remaining topics — consequential prior decisions; feedback sources; future direction.
+
+Do not let missing answers disappear merely because the conversation moved on. `Unknown`, `Not relevant`, and a deliberate `Deferred` are explicit answers; silence is not. The intake may span several interactions and may include repository investigation, but a normal development cycle should not be selected from an implicitly partial project frame unless the human explicitly authorizes and records an exception. An exception does not convert the intake to `Complete`; the incomplete marker and remaining topics continue to appear until the frame is actually completed.
+
 ## When intake is required
 
 Run an intake when:
@@ -20,21 +34,22 @@ Run an intake when:
 
 Do not repeat the full intake for every feature. Update the durable context prospectively when important answers change.
 
-## What the conversation should establish
+## Required intake coverage
 
-The question set is deliberately not rigid. Cover enough of these areas to establish a useful frame:
+The wording and order are deliberately conversational, but **coverage is not optional**. Before intake can become Complete, explicitly disposition each of these areas:
 
-- **Purpose and goals** — what the project is for, who depends on it, and which outcomes matter.
-- **Current posture** — for example exploratory/prototype, actively growing, established service/product, maintenance, migration, or another project-specific description. This is context, not a maturity score.
-- **Important measures** — quantitative metrics, qualitative outcomes, thresholds/targets where known, and important things the project does not yet know how to measure.
-- **Consequential prior decisions** — architectural, product, data, API, operational, contractual, regulatory, dependency, or organizational choices that constrain future direction. Record why they still matter and how reversible they really are.
-- **Important invariants and commitments** — compatibility promises, user expectations, operational dependencies, legal/security constraints, accessibility expectations, ownership boundaries, and other things that must not be casually broken.
-- **Known/tolerated problems** — risks, debt, awkwardness, workarounds, or failures the humans already know about, including concerns intentionally accepted or deferred.
-- **Reality/feedback sources** — users, production behavior, support, tests, monitoring, analytics, audits, operators, benchmarks, client feedback, or other observations that can contradict assumptions.
-- **Knowledge gaps** — areas where project understanding is weak, stale, or concentrated in particular humans and where early handholding is expected.
-- **Relevant future direction** — known commitments, migrations, deprecations, deadlines, or planned changes that alter what is worth optimizing now.
+1. **Purpose, users/stakeholders, and goals** — what the project is for, who depends on it, and which outcomes matter.
+2. **Current posture** — for example exploratory/prototype, actively growing, established service/product, maintenance, migration, or another project-specific description. This is context, not a maturity score.
+3. **Important measures/outcomes** — quantitative metrics, qualitative outcomes, thresholds/targets where known, and important things the project does not yet know how to measure.
+4. **Consequential prior decisions** — architectural, product, data, API, operational, contractual, regulatory, dependency, or organizational choices that constrain future direction; why they still matter and how reversible they really are.
+5. **Important invariants and commitments** — compatibility promises, user expectations, operational dependencies, legal/security constraints, accessibility expectations, ownership boundaries, and other things that must not be casually broken.
+6. **Known/tolerated problems** — risks, debt, awkwardness, workarounds, or failures the humans already know about, including concerns intentionally accepted or deferred.
+7. **Reality/feedback sources** — users, production behavior, support, tests, monitoring, analytics, audits, operators, benchmarks, client feedback, or other observations that can contradict assumptions.
+8. **Knowledge gaps / affinity needs** — areas where project understanding is weak, stale, or concentrated in particular humans and where early handholding is expected.
+9. **Relevant future direction** — known commitments, migrations, deprecations, deadlines, or planned changes that alter what is worth optimizing now.
+10. **Risk-discovery and metric-profile disposition** — which suggested/custom lenses are used, excluded, narrowed, deferred, or explicitly not relevant.
 
-Do not force an answer where the honest state is "unknown". Missing measurement or unclear ownership may itself become an uncertainty worth surfacing.
+Do not force a fabricated answer where the honest state is `Unknown`. Missing measurement or unclear ownership may itself become an uncertainty worth surfacing. Completion means every topic was considered and explicitly dispositioned, not that every topic has a precise answer.
 
 ## Risk-discovery profiles
 
@@ -97,10 +112,10 @@ The human can ask for more explanation, but should not need to understand the pr
 
 For now:
 
-- keep intake answers in `.spiral/project-context.md` or equivalent durable project context;
+- keep intake status, required-topic dispositions, and durable answers in `.spiral/project-context.md` or equivalent durable project context;
 - keep reusable risk-discovery and metric profiles as ordinary Markdown;
 - do not introduce an intake artifact class, maturity score, project-health score, or large schema;
-- do not require a fixed questionnaire or every suggested option;
+- require complete **topic coverage**, but not fixed wording, fixed answer choices, or a one-message questionnaire;
 - treat repeated custom answers as evidence that the reusable profiles may need improvement, not as automatic global mutations.
 
 Dogfood the conversation first. Add machine-readable structure only after repeated use shows what deserves to become invariant.

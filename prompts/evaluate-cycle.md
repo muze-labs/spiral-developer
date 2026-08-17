@@ -2,7 +2,7 @@
 
 Use this when execution has reached a point where the agreed cycle goal can be judged. **Evaluate first; do not immediately plan new work.**
 
-Read the current `CYC-*` goal/non-goals, relevant causal artifacts, actual repository/runtime evidence, and human/user feedback.
+Read the current `CYC-*` goal/non-goals, relevant causal artifacts, actual repository/runtime evidence, and human/user feedback. For a repository-changing cycle, mechanically inspect the current Git branch and verify that it still matches the active `CYC-*` identity before presenting evaluation; surface/correct a stale cycle branch rather than normalizing it.
 
 ## Present the cycle evaluation
 

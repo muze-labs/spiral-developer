@@ -33,7 +33,7 @@ Start `.spiral/project.ttl` from `templates/PROJECT.ttl`. Create `.spiral/cultur
 
 ## 2. Establish project context through guided intake
 
-For a brownfield project, do not jump straight from installing Spiral to the first cycle. If durable project context is missing or materially stale, run the guided intake in `brownfield-intake.md` / `prompts/brownfield-intake.md`. The human should be able to complete this as a short setup conversation without reading the rest of the methodology first.
+For a brownfield project, do not jump straight from installing Spiral to the first cycle. If durable project context is missing, `Incomplete`, or materially `Stale`, run/resume the guided intake in `brownfield-intake.md` / `prompts/brownfield-intake.md`. Track its status/checklist in project context. Every required topic must be explicitly dispositioned; while intake is unfinished, surface the remaining topics in every user-visible response while intake remains active. The human should be able to complete this conversationally without reading the rest of the methodology first.
 
 Capture durable project context.
 During intake, establish project purpose/goals, important outcomes or metrics, consequential prior decisions and reversibility, important invariants/commitments, known tolerated problems, reliable feedback sources, poorly understood areas, and relevant future direction. Let the AI suggest plain-Markdown risk-discovery and metric profiles, but make explicit which are active, excluded/deferred, narrowed, or supplemented with custom concerns. `Other`, `Not sure`, and `Not relevant` are valid answers.
@@ -50,13 +50,15 @@ Do not attempt to reconstruct complete project history.
 
 ## 3. Plan and open the first cycle
 
-Use `prompts/plan-cycle.md` to agree one coherent cycle goal with the human. Start from the intake/reality assessment when available: propose what the project should try to accomplish or learn next, why now, how the result will be evaluated, likely work, and explicit non-goals.
+Use `prompts/plan-cycle.md` to agree one coherent cycle goal with the human. Start from the completed intake/reality assessment when required: propose what the project should try to accomplish or learn next, why now, how the result will be evaluated, likely work, explicit non-goals, and why this cycle boundary is the right size. Prefer small cycles while uncertainty is high; once assumptions are stable, do not split coherent work merely to keep cycles tiny.
 
 Create `.spiral/cycles/CYC-001.md` from `templates/CYCLE.md` and its companion `.ttl` resource from `templates/CYCLE.ttl`. For ordinary repository-changing work, create one branch from the authoritative branch, normally:
 
 ```text
 spiral/CYC-001-short-goal
 ```
+
+Immediately inspect the actual Git branch and verify that it names the active `CYC-001`; record that check in the cycle record and repeat it before each semantic causal commit and at evaluation. This prevents work from silently continuing on an older cycle branch.
 
 The cycle may contain multiple tasks and causal commits. Do not create a separate branch/PR for every internal task. Keep the agreed goal/non-goals stable during Act: record unrelated discoveries for the next cycle unless they are necessary to achieve/evaluate the current goal or repair a regression caused by the cycle.
 

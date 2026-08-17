@@ -1,0 +1,24 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:EVD-PROCESS-002
+    a sd:VerificationEvidence ;
+    dcterms:identifier "EVD-PROCESS-002" ;
+    sd:repositoryPath "evidence/EVD-PROCESS-002-process-guardrails.md" ;
+    sd:status sd:Accepted ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:LES-013 ;
+        sd:gitCommit "b09e4c9324c82a9fb5b3e0fc50eaa9958d513fff"
+    ] ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:LES-014 ;
+        sd:gitCommit "b09e4c9324c82a9fb5b3e0fc50eaa9958d513fff"
+    ] ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:LES-015 ;
+        sd:gitCommit "b09e4c9324c82a9fb5b3e0fc50eaa9958d513fff"
+    ] .

@@ -23,6 +23,20 @@ spiral/CYC-018-expiry-race
 
 The cycle branch is the normal integration/review boundary. It may contain multiple requests, design/implementation steps, investigations, and semantic commits that all serve the same coherent cycle goal. Internal tasks do not normally receive separate branches or pull requests.
 
+### Validate the active cycle branch
+
+Branch naming is a process invariant that must be **checked against Git state**, not remembered from conversation. When a repository-changing cycle opens:
+
+1. read the active `CYC-*` identity;
+2. inspect the actual branch (`git branch --show-current` or equivalent);
+3. verify that the branch is `spiral/<active-cycle-id>-...`;
+4. record the branch/check in the cycle record;
+5. repeat the check before each semantic causal commit and during cycle evaluation.
+
+If the current branch still names an older cycle, stop repository-changing work and switch/create the correct branch before continuing. Do not rename/rewrite a branch in a way that rewrites already-published causal commits; preserve history and use a corrective branch/merge strategy appropriate to the actual repository state. Explicitly document rare cases where no dedicated cycle branch is appropriate.
+
+Repository-local tooling may automate this check, but lack of a helper script does not waive it.
+
 A non-code investigation/evaluation cycle may not need a development branch. Cross-repository or irreversible operational work may need a different integration boundary; follow the trust model instead of forcing this convention.
 
 The branch contains an evolving proposed reality. The authoritative branch remains accepted project reality.

@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:LES-015
+    a sd:Lesson ;
+    dcterms:identifier "LES-015" ;
+    sd:repositoryPath "lessons/LES-015-make-incomplete-intake-visible.md" ;
+    sd:status sd:Active  ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:UND-PROCESS-002 ;
+        sd:gitCommit "1e75fd993c4555658dddca88a21f660086ca8ddf"
+    ] .

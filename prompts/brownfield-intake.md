@@ -9,13 +9,15 @@ Your job is to conduct a short setup conversation that lets a human use Spiral w
 - Explain briefly why each topic matters when asking about it.
 - Prefer common multiple-choice suggestions when they reduce effort, but always allow **Other / Not sure / Not relevant** and free-form answers.
 - Ask follow-ups only where an answer materially changes project direction, risk lenses, metrics, constraints, or consequential history.
+- The wording/order may be conversational, but every required intake topic below must receive an explicit disposition before intake is complete. `Unknown`, `Not relevant`, and deliberate `Deferred` are valid dispositions; omission is not.
+- At the end of every user-visible response while intake remains Incomplete/Stale, include a concise visible marker: `Intake incomplete — remaining: ...`. Do not silently drop unfinished topics.
 - Do not turn the intake into an architecture interview or exhaustive repository inventory.
 - Treat the human as authoritative about desired outcomes, commitments, accepted trade-offs, and priority; treat repository/runtime claims as things to investigate.
 - Preserve uncertainty rather than inventing a precise metric, threshold, maturity level, or historical rationale.
 
 ## Establish the frame
 
-Cover, proportionately:
+Persist `Intake status: Incomplete` (or `Stale` when reopening old context) in project context before proceeding. Cover all of these topics; the depth remains proportional:
 
 1. project purpose, important users/stakeholders, and goals;
 2. current project posture/maturity in ordinary language;
@@ -32,9 +34,9 @@ Use `profiles/risk-discovery/`, `profiles/metrics/`, and `catalogs/risks.md` onl
 
 ## Confirm before assessment
 
-Summarize the durable project frame in ordinary language and ask the human to confirm/correct it before using it as the basis for project-level risk assessment.
+Check the persisted intake checklist. If any required topic is undispositioned, continue the intake and surface the remaining topics; do not proceed as though it were complete.
 
-Persist confirmed durable conclusions in `.spiral/project-context.md` (or the project's established equivalent). Do not create a new intake artifact merely for bookkeeping.
+When every required topic has an explicit disposition, summarize the durable project frame in ordinary language and ask the human to confirm/correct it before using it as the basis for project-level risk assessment. On confirmation, persist `Intake status: Complete` in `.spiral/project-context.md` (or the project's established equivalent). Do not create a new intake artifact merely for bookkeeping.
 
 ## Confront the frame with reality
 

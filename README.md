@@ -15,7 +15,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 ## Working model
 
 - Give the agent broad autonomy for contained/reversible work because consequential claims are independently verifiable; move verification before actions whose consequences would be unacceptable before review.
-- Agree one coherent cycle goal before consequential execution; for repository-changing work, normally use one cycle branch as the integration/review boundary.
+- Agree one coherent cycle goal before consequential execution; size cycles by uncertainty/evaluation coherence rather than defaulting to tiny cycles; for repository-changing work, normally use one cycle branch as the integration/review boundary and mechanically verify that the active branch matches the active cycle.
 - Let the AI decompose the cycle into tasks and create multiple semantic commits without making every subtask a separate branch or human review boundary.
 - Treat Git history as evidence: causal commits are immutable and are never rebased, squashed, amended, or force-pushed away.
 - Prevent malformed versioned provenance before it enters immutable history: validate staged historical references against current Git ancestry, then validate introduced commit ranges in CI.
@@ -28,7 +28,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 - Make adopted warning profiles explicit and versioned; use them to surface consequential patterns for inspection without silently turning them into universal rules or culture.
 - Record reusable `LES-*` lessons and allow evidence to change project practice, culture, or Spiral core prospectively rather than silently changing the process.
 - Obtain meaningful evidence before consequential commitments harden. The active culture profile may recommend a particular strategy, such as Muze's frontend-first approach for interactive web work.
-- For brownfield adoption, begin with a guided project intake so humans can establish goals, important measures, consequential history/constraints, and relevant risk/metric lenses without first learning the whole methodology; then compare that frame with reality and let the human prioritize the resulting candidate risks.
+- For brownfield adoption, begin with a guided project intake with explicit `Incomplete/Complete/Stale` state. Every required topic must be dispositioned; while incomplete, keep the remaining topics visible rather than silently moving on. Then compare the confirmed frame with reality and let the human prioritize the resulting candidate risks.
 - Resolve the nearest important uncertainty and deliberately defer later risks unless they are existential.
 - Before consequential commitments, treat the question as a proposed frame: surface hidden assumptions when a materially different framing could change what should be built.
 - Distinguish **capability from endorsement**: a coherent AI-generated plan proves buildability, not that the direction is right.

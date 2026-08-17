@@ -22,6 +22,24 @@ A useful cycle can contain:
 
 The cycle remains coherent because all included work is causally relevant to the same agreed goal.
 
+
+## Size cycles by uncertainty, not by minimum task size
+
+A cycle should be **as small as necessary to isolate important uncertainty, risk, or a human evaluation boundary — not as small as possible by default**.
+
+Early in an unfamiliar area, small cycles are often appropriate because one observation can invalidate the next planned step. As the project model, invariants, and evidence become stable, prefer larger coherent cycles that can carry several related implementation/evidence steps without forcing repeated planning/review ceremony.
+
+Split work into another cycle when, for example:
+
+- one part can materially invalidate the assumptions required by another;
+- the parts need meaningfully different human evaluation or acceptance decisions;
+- combining them would obscure whether the agreed outcome was achieved;
+- risk or irreversibility warrants a separate integration boundary.
+
+Do **not** split merely because the work contains several files, requests, implementation units, tests, or semantic commits. A small evidence-producing probe inside a cycle does not imply that the whole cycle must be tiny.
+
+During planning, make the boundary explicit enough to answer: **what uncertainty or evaluation need justifies ending the cycle here?** If there is no good answer, consider a larger coherent cycle.
+
 ## Analyze and plan with the human
 
 Before normal execution, establish the current project state well enough to propose the next useful cycle goal. Inputs may include:
@@ -69,6 +87,8 @@ For ordinary cycles that change repository state, create one branch from the aut
 ```text
 spiral/CYC-014-keyboard-accessibility
 ```
+
+**Validate, do not merely remember, the branch/cycle correspondence.** When a repository-changing cycle opens, before consequential repository changes and before each semantic causal commit, and again during evaluation, inspect the actual current Git branch (for example with `git branch --show-current`) and verify that it matches the active `CYC-*` identity. If work is still on an older cycle branch, stop and switch/create the correct cycle branch before continuing. Record an explicit exception only when the normal one-cycle-branch rule genuinely does not apply.
 
 The agent may make multiple immutable causal commits on that branch. Internal tasks do not normally receive separate feature branches or pull requests.
 

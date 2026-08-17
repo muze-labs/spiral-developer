@@ -4,6 +4,9 @@ id: CYC-001
 
 # Cycle: <!-- short goal name -->
 
+Repository branch: <!-- normally spiral/CYC-001-short-goal; record explicit exception if none -->
+Branch verified: <!-- pending | verified + date/commit context | exception + reason -->
+
 ## Analyze
 
 Project state / prior evaluation that makes this cycle relevant:
@@ -18,9 +21,9 @@ Relevant human direction / feedback:
 
 <!-- One coherent project outcome, risk reduction, or uncertainty to resolve. -->
 
-### Why now
+### Why now / why this cycle boundary
 
-<!-- Why this is the useful next boundary. -->
+<!-- Why this is the useful next boundary. What uncertainty, risk, or evaluation need justifies this cycle size? Small early cycles are useful when uncertainty is high; do not keep splitting once several related steps can be judged coherently under stable assumptions. -->
 
 ### Current starting evidence
 

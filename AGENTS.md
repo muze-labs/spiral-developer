@@ -57,7 +57,7 @@ Always ask:
 
 - Is there an active human-confirmed cycle goal, or are we still in Analyze/Plan?
 - Does the work I am about to do causally serve that goal, or is it newly discovered work that should normally wait for the next cycle?
-- If this is initial/reframed brownfield adoption, has the human-confirmed project intake been established before choosing the next normal cycle?
+- If this is initial/reframed brownfield adoption, what is the explicit intake state? If it is incomplete/stale, have I surfaced the remaining topics in this interaction rather than silently proceeding?
 - For consequential direct human input, have I presented a concrete Understanding **and evidenced gap** to the human and received confirmation before modifying product behavior?
 - What current intent justifies this work, and what source/understanding supports that intent when the distinction matters?
 - What evidence shows the confirmed outcome is actually unmet by the current **effective** behavior, including behavior supplied indirectly through shared/generic mechanisms?
@@ -82,7 +82,8 @@ Before consequential execution:
 2. ensure the working tree is understood and do not destroy unrelated human work;
 3. agree the cycle goal with the human;
 4. create a dedicated cycle branch, normally `spiral/<cycle-id>-<short-goal>`;
-5. create/update the `CYC-*` record and the first causal artifact needed for the work.
+5. mechanically inspect the actual current branch and verify that its `CYC-*` identity matches the active cycle; record/repeat this check before each semantic causal commit and during evaluation;
+6. create/update the `CYC-*` record and the first causal artifact needed for the work.
 
 Internal tasks inside the cycle do **not** normally receive their own branches or pull requests. Preserve fine-grained causal history with semantic commits instead. A non-repository investigation cycle may not need a development branch.
 
@@ -138,7 +139,7 @@ Do not knowingly commit a structurally invalid causal graph and plan to repair i
 
 ## Development rhythm
 
-Reduce the nearest important uncertainty with the smallest evidence-producing step appropriate to the problem. Do not assume one universal development rhythm when several trustworthy approaches are available.
+Reduce the nearest important uncertainty with the smallest evidence-producing **step** appropriate to the problem. Do not confuse a small probe with a mandate for a tiny outer cycle. Size the cycle by uncertainty, risk, and evaluation coherence: use small cycles while one result may invalidate the next step; once assumptions/invariants are stable, prefer larger coherent cycles over repeated planning/review ceremony. Do not assume one universal development rhythm when several trustworthy approaches are available.
 
 Apply the project's active engineering culture where it is relevant. For example, a project that adopts the Muze culture profile will usually prefer frontend-first probes for interactive web work and thin vertical implementation slices. These are preferences, not Spiral invariants; choose differently when evidence or constraints justify it and preserve the consequential reason.
 
@@ -193,7 +194,7 @@ Knowing about a future problem does not authorize solving it now.
 
 ## Brownfield work
 
-Before the first normal Spiral cycle in an existing project, check whether durable project-level context is present and current enough to guide risk discovery. If it is missing or materially stale, **run the guided brownfield intake before ordinary cycle planning**. The intake establishes human-confirmed purpose, important outcomes/metrics, consequential prior decisions, constraints, known tolerated problems, feedback sources, relevant future direction, and explicitly selected risk-discovery/metric profiles. Then compare that frame with project reality and return candidate risks/gaps to the human for prioritization. See `docs/brownfield-intake.md`.
+Before the first normal Spiral cycle in an existing project, check the explicit intake state in durable project context. If it is missing, `Incomplete`, or materially `Stale`, **run/resume the guided brownfield intake before ordinary cycle planning**. Every required intake topic must receive an explicit disposition; while unfinished, every user-visible response while intake remains active must visibly state `Intake incomplete — remaining: ...`. The intake establishes human-confirmed purpose, important outcomes/metrics, consequential prior decisions, constraints, known tolerated problems, feedback sources, relevant future direction, and explicitly selected risk-discovery/metric profiles. Then compare that frame with project reality and return candidate risks/gaps to the human for prioritization. See `docs/brownfield-intake.md`.
 
 Do not require the human to understand Spiral internals first. Explain why intake questions matter as they are asked; offer common options where useful, but keep custom, unknown, and not-relevant answers first-class. Risk-discovery and metric profiles are prompts, not project truth or automatic requirements.
 
