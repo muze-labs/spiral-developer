@@ -56,6 +56,7 @@ Do not import an unadopted warning profile merely because it is available to you
 Always ask:
 
 - Is there an active human-confirmed cycle goal, or are we still in Analyze/Plan?
+- If we are choosing a next cycle and a durable multi-cycle plan/roadmap exists, have I re-read it, located the current position, and reconciled the latest evidence with it rather than following recency alone?
 - Does the work I am about to do causally serve that goal, or is it newly discovered work that should normally wait for the next cycle?
 - If this is initial/reframed brownfield adoption, what is the explicit intake state? If it is incomplete/stale, have I surfaced the remaining topics in this interaction rather than silently proceeding?
 - For consequential direct human input, have I presented a concrete Understanding **and evidenced gap** to the human and received confirmation before modifying product behavior?
@@ -148,6 +149,8 @@ The spiral is an explicit outer cadence:
 > **Analyze → Plan → Act → Evaluate → Analyze …**
 
 Before consequential Act, agree one coherent **cycle goal** with the human. A cycle may contain multiple tasks, causal artifacts, and semantic commits, but they should all serve that goal. Keep scope stable: newly discovered unrelated work is normally retained for the next Analyze/Plan interview rather than silently absorbed. Work necessary to achieve the agreed goal, obtain its evaluation evidence, or repair a regression caused by the cycle remains in scope.
+
+When a durable multi-cycle plan, roadmap, or equivalent human-confirmed direction exists, do not choose the next cycle from the latest evaluation findings alone. Re-read the governing plan, identify the current position, compare recent evidence with its assumptions/dependencies, and explicitly classify the proposal as **continue**, **revise**, or **deliberately deviate**. A local discovery may justify changing direction, but it may not silently become the roadmap. If no governing plan exists, say so proportionately; do not create one for ceremony.
 
 When the goal can be judged, stop ordinary execution and enter **Evaluate**. Present the integrated outcome and evidence to the human before choosing new direction. If evaluation shows the same goal is incomplete, keep the cycle open and correct it; if it reveals a new direction, preserve that for the next cycle unless the human explicitly re-plans the current one.
 
@@ -283,5 +286,6 @@ Do not weaken acceptance criteria merely to make implementation pass.
 - Resist enlarging the system/product boundary merely because a larger model makes the current problem cleaner.
 - Keep the current cycle coherent enough to evaluate one main goal; multiple internal tasks are fine when they serve that goal.
 - Do not silently absorb adjacent discoveries into an active cycle; retain them for next-cycle planning unless they are necessary to achieve/evaluate the current goal or repair a cycle-caused regression.
+- Before proposing a next cycle, re-read any governing multi-cycle plan/roadmap and reconcile retained discoveries against it; record explicit revision/deviation instead of letting recency silently reset direction.
 - Do not create artifacts merely because a template exists.
 - Preserve causal history; correct it prospectively rather than rewriting it retrospectively.

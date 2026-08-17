@@ -18,12 +18,15 @@ This is a project-onboarding/reframing step, not something repeated before every
 
 ## 1. Analyze and plan the cycle
 
-Normal Spiral work begins by agreeing one coherent **cycle goal** with the human: a project outcome, risk reduction, or important uncertainty to resolve. Use the current project context, prior cycle evaluation, prioritized risks/metrics, current evidence, and new human direction to propose the next useful boundary. See `cycles.md` and `prompts/plan-cycle.md`.
+Normal Spiral work begins by agreeing one coherent **cycle goal** with the human: a project outcome, risk reduction, or important uncertainty to resolve. Use the current project context, prior cycle evaluation, prioritized risks/metrics, current evidence, new human direction, and any durable governing multi-cycle plan/roadmap to propose the next useful boundary. See `cycles.md` and `prompts/plan-cycle.md`.
+
+When a governing plan/roadmap exists, **re-read it before selecting the next cycle**. Locate the current position in that plan, then reconcile the latest evidence and retained discoveries against it. State whether the proposed cycle continues the plan, revises it, or deliberately deviates from it. New evidence may justify changing the plan, but a recent discovery must not silently replace the broader direction. If no governing plan exists, record that proportionately rather than inventing one.
 
 The planning interview should establish, proportionately:
 
 - cycle goal;
 - why this matters now;
+- governing plan/roadmap and current position when one exists, plus a continue/revise/deviate decision;
 - current starting evidence;
 - evaluation basis;
 - likely work;
@@ -216,7 +219,7 @@ Commit acceptance evidence after the relevant request, design, implementation, a
 
 ## 10. Evaluate the cycle and prepare the review boundary
 
-When the AI believes the cycle goal can be judged, stop ordinary execution and enter **Evaluate** before selecting new direction. Use `prompts/evaluate-cycle.md`. Present the integrated result against the agreed goal: evidence/acceptance, metric or risk movement, surprises, changed understanding, unresolved issues within scope, known compromises, and out-of-scope discoveries retained for later.
+When the AI believes the cycle goal can be judged, stop ordinary execution and enter **Evaluate** before selecting new direction. Use `prompts/evaluate-cycle.md`. Evaluation may retain candidate next-cycle inputs, but it does not by itself choose their priority. That happens in the next Analyze/Plan step after any governing plan/roadmap has been re-read and reconciled with the new evidence. Present the integrated result against the agreed goal: evidence/acceptance, metric or risk movement, surprises, changed understanding, unresolved issues within scope, known compromises, and out-of-scope discoveries retained for later.
 
 If human evaluation shows the **same agreed goal is not yet satisfied**, keep the current cycle open and correct it on the same branch; then evaluate again. If feedback introduces genuinely **new direction**, retain it for the next Analyze/Plan interview instead of silently expanding scope. A human may deliberately re-scope the active cycle, but make that change explicit because it changes the evaluation contract.
 

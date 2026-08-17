@@ -41,6 +41,14 @@ Human-confirmed complete on: <!-- date / reference, or leave blank while incompl
 
 ## Current direction
 
+## Governing plans / roadmaps
+
+| Plan / durable reference | Authority / status | Current position | Reconsider / review trigger |
+|---|---|---|---|
+| | | | |
+
+<!-- Optional: use when a multi-cycle implementation plan, migration sequence, roadmap, or equivalent human-confirmed direction actually governs future cycle choices. Do not invent a long-range plan for ceremony. Re-read the referenced plan before selecting a next cycle; recent discoveries may revise it but should not silently replace it. -->
+
 ## Project goals and important outcomes
 
 <!-- Include qualitative outcomes as well as metrics. Unknown/unmeasured is a valid state. -->

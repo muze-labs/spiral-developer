@@ -14,7 +14,7 @@ For a normal cycle:
 4. Give feedback about intent, behavior, constraints, trade-offs, and observed problems rather than micromanaging code generation.
 5. When the goal can be judged, review the integrated cycle evaluation (often in the PR). If the same goal is incomplete, keep the cycle open; if feedback creates new direction, normally save it for next-cycle planning.
 6. Let the AI maintain the causal artifacts, Turtle graph, tests/evidence, and Git commits.
-7. Merge accepted cycle history with a normal merge commit. Never squash or rebase causal history, then plan the next cycle.
+7. Merge accepted cycle history with a normal merge commit. Never squash or rebase causal history, then re-read any governing multi-cycle plan/roadmap before agreeing the next cycle.
 
 ## What humans remain responsible for
 
@@ -78,6 +78,8 @@ The main human-visible rhythm is not “approve every AI task.” It is:
 A cycle may contain several tasks and commits. New adjacent work is normally saved for the next cycle rather than added mid-cycle; work required to achieve/evaluate the current goal or repair a regression caused by it can remain inside the cycle.
 
 At evaluation, feedback such as “this still does not satisfy the agreed goal” keeps the cycle open for correction. Feedback such as “this makes me want a different capability too” is normally next-cycle input. This keeps human review focused on the outcome you agreed to, not the AI's internal task decomposition.
+
+When a durable multi-cycle plan or roadmap exists, the AI should re-read it before proposing that next cycle. Recent findings are inputs to that decision, not automatic priority. The proposal should tell you whether it continues the plan, revises it because evidence changed, or deliberately deviates from it. You remain free to change direction; the point is to make that change visible rather than letting recency choose it accidentally.
 
 See [`docs/cycles.md`](docs/cycles.md).
 

@@ -1,6 +1,6 @@
 # Evaluate Cycle Prompt
 
-Use this when execution has reached a point where the agreed cycle goal can be judged. **Evaluate first; do not immediately plan new work.**
+Use this when execution has reached a point where the agreed cycle goal can be judged. **Evaluate first; do not immediately plan new work.** Recent discoveries are deliberately retained here without being promoted into priority yet; next-cycle selection happens only after `plan-cycle` re-reads any governing plan/roadmap.
 
 Read the current `CYC-*` goal/non-goals, relevant causal artifacts, actual repository/runtime evidence, and human/user feedback. For a repository-changing cycle, mechanically inspect the current Git branch and verify that it still matches the active `CYC-*` identity before presenting evaluation; surface/correct a stale cycle branch rather than normalizing it.
 
@@ -17,6 +17,7 @@ Summarize:
 **Known compromises:** …
 **Unresolved issues within the agreed goal:** …
 **Out-of-scope discoveries retained for later:** …
+**Implications for governing plan/roadmap:** … (evidence that may support continuing, revising, or deviating; do not choose the next cycle here)
 **Possible reusable lesson:** …
 
 Explicitly distinguish:

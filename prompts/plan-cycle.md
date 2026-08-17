@@ -2,7 +2,7 @@
 
 Use this when no active cycle exists, after a cycle has been evaluated/accepted, or when the human explicitly asks to re-plan the current cycle.
 
-Treat this as an interview, not a form dump. Read current project context and prior evaluation/risk evidence first. If required brownfield intake is `Incomplete` or `Stale`, do not silently plan from a partial frame: resume `prompts/brownfield-intake.md` and keep the remaining intake topics visible until completion. Then ask only the questions needed to agree a coherent next goal.
+Treat this as an interview, not a form dump. Read current project context, prior evaluation/risk evidence, and any durable governing multi-cycle plan/roadmap first. If required brownfield intake is `Incomplete` or `Stale`, do not silently plan from a partial frame: resume `prompts/brownfield-intake.md` and keep the remaining intake topics visible until completion. Then ask only the questions needed to agree a coherent next goal.
 
 ## 1. Analyze current state
 
@@ -13,7 +13,15 @@ Summarize briefly:
 - prioritized risks/metric gaps/feedback that appear relevant;
 - important uncertainty or consequence that makes the next choice matter.
 
-Do not assume the newest request is automatically the highest-priority direction.
+Do not assume the newest request or most recent discovery is automatically the highest-priority direction.
+
+If a governing plan/roadmap exists, re-read the actual durable plan/reference now and summarize:
+- what plan/direction governs this work;
+- where the project currently sits in it;
+- which planned dependencies/boundaries remain unresolved;
+- whether new evidence materially changes its assumptions or priority.
+
+If no governing multi-cycle plan exists, say so briefly rather than inventing one.
 
 ## 2. Propose one cycle goal
 
@@ -23,6 +31,9 @@ Present:
 
 **Proposed cycle goal:** …
 **Why now:** …
+**Governing plan / current position:** … (or `none`)
+**Plan continuity decision:** `continue` | `revise` | `deliberate deviation` | `no governing plan` — with reason
+**New evidence affecting the plan:** …
 **Current evidence / starting state:** …
 **Evaluation basis:** …
 **Likely work:** …
@@ -32,7 +43,7 @@ Present:
 
 Prefer small cycles while uncertainty is high; prefer larger coherent cycles once the governing assumptions/invariants are stable. Do not split merely because the work has several tasks or commits.
 
-Ask the human to confirm, correct, narrow, or replace the goal.
+Ask the human to confirm, correct, narrow, or replace the goal. If the proposal revises or deliberately deviates from a governing plan, call that change out explicitly rather than presenting it as the obvious next step; update durable project context/plan references after confirmation where appropriate.
 
 For consequential direct human input, include the normal Understanding/current effective behavior/evidenced gap/material assumptions checkpoint when applicable. If the human confirms that complete checkpoint here, do not ask for duplicate confirmation later merely because implementation decomposes into several tasks.
 
