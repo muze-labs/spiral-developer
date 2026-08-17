@@ -1,0 +1,15 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:UND-PROCESS-002
+    a sd:Understanding ;
+    dcterms:identifier "UND-PROCESS-002" ;
+    sd:repositoryPath "understandings/UND-PROCESS-002-process-boundaries-must-stay-visible.md" ;
+    sd:status sd:Active ;
+    sd:provenanceConfidence sd:Evidenced ;
+    sd:interprets [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-PROCESS-002 ;
+        sd:gitCommit "1c1c60364025fa1b280df9d35ebfbc15257d7057"
+    ] .
