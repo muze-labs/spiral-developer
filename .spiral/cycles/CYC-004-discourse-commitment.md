@@ -113,7 +113,7 @@ Spiral now has an explicit collaboration contract: **discourse â†’ commitment â†
 
 Evidence / acceptance result:
 
-`EVD-COLLAB-001` records structural integration, targeted agent/prompt assertions, Turtle parsing, Git-reference validation, repository-integrity checks, branch consistency, and the deliberate absence of a new interaction-state ontology. Automated verification passes; human evaluation of this process change remains pending.
+`EVD-COLLAB-001` records structural integration, targeted agent/prompt assertions, Turtle parsing, Git-reference validation, repository-integrity checks, branch consistency, and the deliberate absence of a new interaction-state ontology. Automated verification passes. Human review on 2026-08-18 accepted the cycle as implemented.
 
 Metric or risk movement:
 
@@ -133,7 +133,7 @@ The process currently relies on normative instructions, prompts, explicit human 
 
 Unresolved issues within current goal:
 
-No structural inconsistency remains in the proposed process change. Human acceptance and dogfooding are still needed to establish whether agents reliably recognize tentative input and whether the challenge threshold produces useful disagreement rather than noise.
+No structural inconsistency remains in the accepted process change. Dogfooding is still needed to establish whether agents reliably recognize tentative input and whether the challenge threshold produces useful disagreement rather than noise; that empirical question does not block acceptance of this cycle.
 
 Candidate next-cycle inputs:
 
@@ -141,11 +141,11 @@ Dogfood adversarial conversational cases: tentative solution stated imperatively
 
 Human evaluation / feedback:
 
-Pending review of this branch/update.
+Reviewed by the human on 2026-08-18 and accepted without requested correction. The current relationship between the broader `discourse` state and narrower `inquiry` activity remains intentionally provisional for dogfooding rather than requiring further redesign in this cycle.
 
 Cycle accepted, still open, or deliberately re-planned:
 
-Still open pending human evaluation.
+Accepted. Ready to merge with normal merge history preserved.
 
 ## Process learning
 
