@@ -186,8 +186,8 @@ Evidence / acceptance result:
 - `EVD-20260818-DGB8Z-11` verifies the earlier integration-validator revision after adding the repository's dogfood GitHub workflow and hardening the reusable host adapters.
 - `EVD-20260818-DGB8Z-17` records the negative dogfood result that exposed the Active-cycle candidate-detection gap in the first convergence-guard revision.
 - `EVD-20260818-DGB8Z-18` verifies the corrected distributed-cycle/convergence guards, including the actual CYC-005 branch being blocked from integrating while still Active.
-- Automated suite: 14/14 tests pass. The local repository snapshot validates. Prospective integration of this branch into `main` is now expected to fail with `open-cycle-integration` while CYC-005 remains Active; that failure is the intended closure gate, not a failing implementation result.
-- Human cycle acceptance is still pending.
+- Automated suite: 14/14 tests pass. The local repository snapshot validates. Before acceptance, prospective integration of this branch into `main` correctly failed with `open-cycle-integration` while CYC-005 remained Active; that failure demonstrated the intended closure gate. After human acceptance, the same integration boundary must be revalidated against the current target before merge.
+- Human review on 2026-08-18 accepted the cycle for integration after a superficial implementation review; substantive dogfooding will continue after merge, with any required corrections to be opened as a new cycle.
 
 Metric or risk movement:
 
@@ -219,7 +219,7 @@ Known compromises:
 
 Unresolved issues within current goal:
 
-- No conceptual correctness gap remains known from the local distributed scenarios after the Active-cycle candidate-discovery correction. Live-host CI dogfooding may still expose adapter/packaging issues and should keep this cycle open if they prove material before human acceptance.
+- No conceptual correctness gap remains known from the local distributed scenarios after the Active-cycle candidate-discovery correction. Live-host and post-merge dogfooding may still expose adapter, packaging, or workflow issues; these do not block acceptance and should be handled in a new cycle if they prove material.
 
 Candidate next-cycle inputs:
 
@@ -229,11 +229,11 @@ Candidate next-cycle inputs:
 
 Human evaluation / feedback:
 
-- the human agreed the local-state allocation model, cycle-branch isolation rules, explicit parallel-artifact convergence rule, and the subsequent concrete audit findings; final review of the corrected implementation/evidence is still pending.
+- Reviewed by the human on 2026-08-18. The implementation was reviewed superficially and appeared correct, so CYC-005 is accepted for merge to `main` in order to enable substantive real-world testing. Any defects or required changes discovered during that testing will be addressed in a new cycle rather than keeping CYC-005 open.
 
 Cycle accepted, still open, or deliberately re-planned:
 
-Active; implementation/evidence are ready for human evaluation.
+Accepted. Ready to merge after prospective integration validation against the current `main`; subsequent dogfood corrections belong in a new cycle.
 
 ## Process learning
 
