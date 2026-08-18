@@ -11,7 +11,7 @@ Mechanical CYC-005 enforcement for stale local allocator recovery, cycle branch/
 ## Observable behavior
 
 - `spiral allocate` never reuses an already-visible slot in its own workspace namespace merely because the private local counter is stale; it allocates above the larger of local state and visible same-workspace sequence.
-- `spiral validate integration` rejects a candidate cycle record that remains `Active`.
+- `spiral validate integration` rejects a candidate cycle record that remains `Active`, including when the cycle TTL already exists on the target and continued cycle work changes only its Markdown companion.
 - when branch metadata is supplied, candidate branch naming is checked against the changed cycle ID and a different active cycle branch cannot be used as integration target.
 - candidate-introduced two-parent merge commits are inspected for stable governed artifacts changed on both parent histories; the merge version must carry exact `sd:transforms` references to both immediate predecessor commits.
 - `sd:transforms` is defined on `sd:Artifact`, while implementation-specific transition metadata remains scoped to `sd:Implementation`.
@@ -36,13 +36,13 @@ Implements `DES-20260818-DGB8Z-15`, which operationalizes the accepted branch-is
 
 ## Revision lineage (when revising an existing governed IMP)
 
-This is the first version of this implementation concern. It overlaps existing `IMP-20260818-DGB8Z-9` locations because the same integration validator now enforces an additional distributed-development concern; no predecessor `IMP-20260818-DGB8Z-16` version exists.
+The first version of this implementation concern was committed at `90991c8ce8f4d10a55016976240c977e52c80387`. Dogfood evidence `EVD-20260818-DGB8Z-17@98cae5e915f326d358ed9e47342c8a02c609c90f` showed that candidate-cycle discovery only noticed changed TTL files, allowing this historically pre-existing Active CYC-005 branch to evade the closure gate when its TTL was unchanged. This semantic revision transforms that predecessor and treats either cycle companion (`.md` or `.ttl`) as candidate-cycle activity.
 
 ## Important implementation decisions
 
 ### Candidate delta rather than global cycle status
 
-The closure gate looks at cycle records changed by the candidate relative to its merge-base rather than requiring every historical cycle on the target to be Accepted. This makes the new rule prospective and avoids retroactively failing older Spiral history whose cycle records predate the invariant.
+The closure gate looks at cycle records changed by the candidate relative to its merge-base rather than requiring every historical cycle on the target to be Accepted. A change to either the cycle Markdown or Turtle companion resolves to the canonical Turtle record for identity/status validation. This makes the rule prospective while still catching continued work on an Active cycle whose record already exists on the target; unrelated historical Active cycle records are not retroactively rejected.
 
 ### Merge commit is the convergence version
 

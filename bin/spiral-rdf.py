@@ -277,7 +277,14 @@ def candidate_cycle_paths(repo: Path, base: str, head: str):
         "--",
         ".spiral/cycles",
     )
-    return sorted({path.strip() for path in changed.splitlines() if path.strip().endswith(".ttl")})
+    cycle_paths = set()
+    for raw_path in changed.splitlines():
+        path = raw_path.strip()
+        if path.endswith(".ttl"):
+            cycle_paths.add(path)
+        elif path.endswith(".md"):
+            cycle_paths.add(path[:-3] + ".ttl")
+    return sorted(cycle_paths)
 
 
 def cycle_for_path(graph: Graph, subject_files: dict[str, list[str]], path: str):

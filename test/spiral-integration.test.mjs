@@ -176,6 +176,31 @@ test('open candidate cycle cannot integrate and branch name must match accepted 
   }
 });
 
+test('pre-existing active cycle is detected when candidate changes only its Markdown record', () => {
+  const root = mkdtempSync(join(tmpdir(), 'spiral-active-cycle-md-delta-'));
+  try {
+    initRepo(root);
+    write(root, '.spiral/cycles/CYC-OLD.ttl', cycleTurtle({ id: 'CYC-OLD', status: 'Active' }));
+    write(root, '.spiral/cycles/CYC-OLD.md', '# Cycle: existing active cycle\n');
+    const baseline = commitAll(root, 'historical active cycle already on target');
+    git(root, 'branch', 'target', baseline);
+    git(root, 'switch', '-q', '-c', 'spiral/CYC-OLD-work', baseline);
+
+    write(root, '.spiral/cycles/CYC-OLD.md', '# Cycle: existing active cycle\n\nContinued work.\n');
+    commitAll(root, 'continue active cycle without touching ttl');
+
+    const result = spiralResult(
+      root,
+      'validate', 'integration', '--base', 'target', '--head', 'spiral/CYC-OLD-work',
+      '--base-branch', 'main', '--head-branch', 'spiral/CYC-OLD-work',
+    );
+    assert.equal(result.status, 1, result.stdout + result.stderr);
+    assert.match(result.stderr, /open-cycle-integration/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test('another cycle cannot integrate into an open cycle target', () => {
   const root = mkdtempSync(join(tmpdir(), 'spiral-open-cycle-target-'));
   try {

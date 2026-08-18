@@ -13,6 +13,17 @@ project:IMP-20260818-DGB8Z-16
     sd:implementationLocation "test/spiral-allocator.test.mjs" ;
     sd:implementationLocation "test/spiral-integration.test.mjs" ;
     sd:implementationLocation ".github/workflows/spiral-integration.yml" ;
+    sd:transforms [
+        a sd:ArtifactReference ;
+        sd:artifact project:IMP-20260818-DGB8Z-16 ;
+        sd:gitCommit "90991c8ce8f4d10a55016976240c977e52c80387"
+    ] ;
+    sd:changeCausedBy [
+        a sd:ArtifactReference ;
+        sd:artifact project:EVD-20260818-DGB8Z-17 ;
+        sd:gitCommit "98cae5e915f326d358ed9e47342c8a02c609c90f"
+    ] ;
+    sd:implementationChangeKind sd:SemanticChange ;
     sd:implements [
         a sd:ArtifactReference ;
         sd:artifact project:DES-20260818-DGB8Z-15 ;
