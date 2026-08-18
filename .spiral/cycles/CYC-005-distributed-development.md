@@ -19,7 +19,7 @@ Remove hidden single-writer assumptions from Spiral's own coordination/provenanc
 
 Relevant human direction / feedback:
 
-Captured in `SRC-DIST-001`.
+Captured in `SRC-DIST-001` and the later distributed-integration/CLI commitment in `SRC-DIST-002`.
 
 Governing higher-level plan / direction:
 
@@ -41,7 +41,7 @@ The human explicitly confirmed this distributed-development goal as the next Spi
 
 ### Why now / why this cycle boundary
 
-The sequential-ID collision is a concrete correctness problem that appears as soon as Spiral is used by multiple concurrent writers. Because identity participates in filenames, RDF subjects, references, Git branch conventions, and validation, treating it as a cosmetic rename would risk preserving other single-writer assumptions. One coherent cycle should first identify those assumptions, then select and test the smallest distributed-safe model.
+The sequential-ID collision is a concrete correctness problem that appears as soon as Spiral is used by multiple concurrent writers. Because identity participates in filenames, RDF subjects, references, Git branch conventions, and validation, treating it as a cosmetic rename would risk preserving other single-writer assumptions. Discourse also exposed a second correctness problem: independently valid branches can become causally inconsistent when combined even where Git has no textual conflict. One coherent cycle should identify those assumptions, make distributed creation safe, and make integration revalidate the actual prospective merged state. The recurring enforcement needs are now concrete enough to justify the minimum repository-local `spiral` CLI substrate required by this cycle.
 
 ### Plan continuity decision
 
@@ -53,7 +53,10 @@ The sequential-ID collision is a concrete correctness problem that appears as so
 - cycle branch naming embeds the cycle identity;
 - RDF subjects, `dcterms:identifier`, `sd:repositoryPath`, cross-artifact references, and commit metadata use these identities;
 - no repository-local allocator/tooling was found that could make sequential allocation atomic across independent clones/forks; even such a local allocator would not coordinate disconnected writers;
-- opening this cycle itself required consulting the current history and choosing the apparent next cycle number (`CYC-005`), demonstrating the bootstrap form of the single-writer assumption.
+- opening this cycle itself required consulting the current history and choosing the apparent next cycle number (`CYC-005`), demonstrating the bootstrap form of the single-writer assumption;
+- two branches can also be textually non-conflicting yet causally stale after integration: one branch may change/supersede an upstream artifact while another creates downstream work against the earlier version;
+- current guidance validates branch-local history and causal ancestry but does not yet define prospective-merge causal validation against the latest authoritative target as a required integration gate;
+- the repository currently documents several mechanical checks but contains no stable `spiral` executable that can serve as one reference implementation for those invariants.
 
 ### Evaluation basis
 
@@ -64,19 +67,24 @@ The cycle should be judged against a concrete distributed merge scenario:
 3. merge the branches;
 4. unrelated Spiral bookkeeping must not require identity/filename renaming or semantic reconciliation merely because both writers created artifacts concurrently;
 5. all resulting artifact identities and RDF references must remain unambiguous and validator-compatible;
-6. concurrent edits to the same existing source/governed artifact may still produce ordinary Git conflicts and are not a failure of the cycle.
+6. concurrent edits to the same existing source/governed artifact may still produce ordinary Git conflicts and are not a failure of the cycle;
+7. if branch A changes/supersedes a causal upstream while branch B independently creates downstream work against the older state, the later integration must be checked against the current target/prospective merge and must not silently admit stale causal claims;
+8. a repository-local `spiral` command must provide the shared mechanical implementation needed for distributed-safe artifact creation and integration validation, so hosting adapters invoke common semantics rather than reimplement them.
 
 Backward compatibility with existing accepted sequential IDs must also be demonstrated or explicitly migrated without falsifying historical provenance.
 
 ### Likely work
 
-- inventory identifier creation/use and other single-writer assumptions across docs, templates, RDF, branch conventions, validation, and provenance references;
+- inventory identifier creation/use and other single-writer assumptions across docs, templates, RDF, branch conventions, validation, provenance references, and integration checks;
 - distinguish artifact identity from display/order concerns;
 - compare candidate distributed identity/allocation approaches without assuming the earlier ULID/UUIDv7 suggestion is correct;
 - determine migration/backward-compatibility semantics for existing identifiers;
-- create a two-writer merge probe that can falsify the proposed model;
+- define integration as a revalidation boundary against the actual target/prospective merged state, including causal staleness that ordinary Git conflict detection cannot see;
+- add intake/integration guidance that identifies the authoritative target and available pre-merge enforcement mechanism;
+- introduce the minimum repository-local `spiral` CLI needed for distributed-safe creation, local validation, and prospective-integration validation, with platform-specific GitHub/GitLab/plain-Git mechanisms kept as thin adapters;
+- create two-writer merge probes that can falsify both identity safety and causal-integration safety;
 - encode the accepted model in normative docs/templates/tooling/validation only after the discourse/commitment boundary is reached;
-- evaluate the resulting repository using the distributed merge scenario.
+- evaluate the resulting repository using the distributed merge scenarios.
 
 ### Explicit non-goals
 
@@ -84,11 +92,13 @@ Backward compatibility with existing accepted sequential IDs must also be demons
 - introduce a centralized ID service, lock server, or mandatory online coordinator merely to preserve sequence numbers;
 - renumber historical artifacts for cosmetic consistency unless evidence shows it is necessary for correctness;
 - choose an identifier technology before inquiry establishes the required properties and migration consequences;
+- build a comprehensive Spiral workflow engine or automate human/discourse judgment merely because a CLI now exists;
+- encode separate causal semantics in GitHub, GitLab, or other hosting adapters instead of invoking the shared validator;
 - solve general distributed consensus or collaborative-editing problems outside Spiral's own bookkeeping/provenance layer.
 
 ### Pause / re-plan conditions
 
-Pause and return to discourse if the candidate model makes historical references ambiguous, requires rewriting published causal history, requires central coordination for ordinary artifact creation, cannot distinguish accidental bookkeeping collisions from genuine semantic conflicts, or expands into a general source-merge/consensus system rather than Spiral's own distributed-safety problem.
+Pause and return to discourse if the candidate model makes historical references ambiguous, requires rewriting published causal history, requires central coordination for ordinary artifact creation, cannot distinguish accidental bookkeeping collisions from genuine semantic conflicts, cannot validate the actual integration result without rewriting branch history, or expands the `spiral` CLI into a general workflow/consensus system rather than the mechanical substrate required for Spiral's distributed-safety problem.
 
 ## Act
 
