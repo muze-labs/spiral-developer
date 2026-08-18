@@ -104,15 +104,38 @@ Pause and return to discourse if the candidate model makes historical references
 
 Important artifacts / semantic commits produced:
 
-- pending
+- `a05551b12a4ba54905da2628325df6a180c9efa4` — opened the distributed-development cycle and captured `SRC-DIST-001`.
+- `11f2a50` — accepted `UND-DIST-001`: durable identity must be independently allocatable; human-friendly sequence must not be required for correctness.
+- `55f3eaa2864cff11253f01bc3f0b43b62bd5a1dc` — captured `SRC-DIST-002` and expanded the cycle to causal integration revalidation plus the minimum `spiral` CLI substrate.
+- `ac41c524ed2cf3771bcd0c67ca9f0a37d61952a1` — accepted `UND-DIST-002`: distributed work is optimistic; integration is serialized and revalidated against the actual target.
+
+Current inquiry findings (not yet implementation commitments):
+
+- The SHACL model currently treats `dcterms:identifier` as an opaque string; no structural validator requires sequential numbering. Changing the identifier form therefore does not inherently require rewriting the ontology or historical artifacts.
+- Project namespaces already separate artifact IRIs belonging to unrelated projects. The collision domain that matters is independent histories/forks that intentionally share one project namespace and may later merge.
+- Git already supplies authoritative chronology. No current trust invariant requires durable artifact IDs themselves to encode creation order, weakening the case for choosing a time-sortable identifier merely to preserve the old visual sequence.
+- Existing process semantics already contain `sd:supersedes`, `sd:Suspect`, and the rule that downstream artifacts are candidates for suspect when an upstream version is superseded. The distributed-integration gap is therefore primarily enforcement/revalidation rather than inventing the concept of staleness.
+- A prospective combined Git tree can be constructed without rewriting either branch (modern Git provides `git merge-tree --write-tree`; a disposable probe on Git 2.47.3 successfully produced and inspected the merged tree). This is a plausible implementation mechanism, not yet a portability commitment.
+- A useful integration check can mechanically detect that a current downstream artifact still has an effective reference to an exact version that the combined current graph supersedes. What still needs design is which causal relations count as current/effective for this gate and what explicit revalidation is sufficient to clear it without asking software to decide semantic correctness.
+- A standards-conforming Turtle parser is required for a trustworthy `spiral validate`; therefore the CLI runtime/dependency choice is a real design decision rather than incidental scripting.
+
+Current candidate direction to test in discourse:
+
+- a type prefix plus random UUID (currently UUIDv4 looks simpler than ULID/UUIDv7 because ordering is not required, it avoids encoding creation time, and implementations are widely available);
+- preserve all historical sequential IDs as valid legacy identities and use the distributed form only for newly created artifacts after the migration boundary;
+- make `spiral validate integration --base <target> --head <candidate>` inspect a prospective combined tree and block unresolved causal staleness, while leaving textual conflicts to normal Git resolution;
+- clear a stale effective dependency by producing a new downstream artifact version that explicitly references/revalidates the current upstream version, rather than adding a magic host-specific waiver;
+- keep GitHub/GitLab/plain-Git configuration thin: each invokes the same CLI validation semantics at its actual pre-merge boundary.
+
+These are deliberately still design candidates. No identifier format, parser/runtime, stale-reference relation set, or CLI interface has been committed as implementation authority yet.
 
 Material implementation decisions or deviations from the initial likely work:
 
-- pending
+- None yet. The cycle has reached a design discourse checkpoint rather than implementation.
 
 Out-of-scope discoveries retained for later:
 
-- pending
+- A full workflow engine, conversational-state automation, package-distribution strategy, and generic collaborative-editing/consensus support remain outside this cycle unless required to establish the agreed distributed invariants.
 
 ## Evaluate
 
