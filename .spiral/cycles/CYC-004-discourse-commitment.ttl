@@ -1,0 +1,9 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:CYC-004
+    a sd:Cycle ;
+    dcterms:identifier "CYC-004" ;
+    sd:repositoryPath ".spiral/cycles/CYC-004-discourse-commitment.md" ;
+    sd:status sd:Active .

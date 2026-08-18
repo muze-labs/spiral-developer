@@ -1,0 +1,11 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:SRC-COLLAB-001
+    a sd:Source ;
+    dcterms:identifier "SRC-COLLAB-001" ;
+    sd:repositoryPath "sources/SRC-COLLAB-001-discourse-before-execution.md" ;
+    sd:status sd:Active ;
+    sd:sourceAvailability sd:Retained ;
+    sd:provenanceConfidence sd:Explicit .
