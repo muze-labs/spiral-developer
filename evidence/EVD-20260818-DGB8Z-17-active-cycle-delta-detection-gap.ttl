@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:EVD-20260818-DGB8Z-17
+    a sd:VerificationEvidence ;
+    dcterms:identifier "EVD-20260818-DGB8Z-17" ;
+    sd:repositoryPath "evidence/EVD-20260818-DGB8Z-17-active-cycle-delta-detection-gap.md" ;
+    sd:status sd:Accepted ;
+    sd:observes [
+        a sd:ArtifactReference ;
+        sd:artifact project:IMP-20260818-DGB8Z-16 ;
+        sd:gitCommit "90991c8ce8f4d10a55016976240c977e52c80387"
+    ] .
