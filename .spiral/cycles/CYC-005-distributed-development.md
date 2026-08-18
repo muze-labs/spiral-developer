@@ -108,6 +108,12 @@ Important artifacts / semantic commits produced:
 - `11f2a50` — accepted `UND-DIST-001`: durable identity must be independently allocatable; human-friendly sequence must not be required for correctness.
 - `55f3eaa2864cff11253f01bc3f0b43b62bd5a1dc` — captured `SRC-DIST-002` and expanded the cycle to causal integration revalidation plus the minimum `spiral` CLI substrate.
 - `ac41c524ed2cf3771bcd0c67ca9f0a37d61952a1` — accepted `UND-DIST-002`: distributed work is optimistic; integration is serialized and revalidated against the actual target.
+- `4e1eaddb745ccef099a58d9d3d2eb299281eb1c5` — recorded the human-confirmed workspace/date/local-sequence identity direction as the first distributed-format Source artifact.
+- `14730617e16e2a835be2717ca31726590453fdbf` — accepted the workspace-scoped identity Understanding.
+- `2733d00f07052f41746f7f61602e2728dd875abc` — operationalized distributed artifact allocation as `REQ-20260818-DGB8Z-3`.
+- `c62837f44c0808d5cb494c3c3a851e1c213e1e08` — accepted the worktree-local allocator design.
+- `b68d89d53efad8151c1a29503fbdabe052873270` — implemented the first `spiral` CLI allocator slice and updated normative identity guidance/templates.
+- `EVD-20260818-DGB8Z-6` — verifies independent clone/worktree allocation, shared local sequence behavior, and same-workspace concurrency locking.
 
 Current inquiry findings (not yet implementation commitments):
 
@@ -119,19 +125,28 @@ Current inquiry findings (not yet implementation commitments):
 - A useful integration check can mechanically detect that a current downstream artifact still has an effective reference to an exact version that the combined current graph supersedes. What still needs design is which causal relations count as current/effective for this gate and what explicit revalidation is sufficient to clear it without asking software to decide semantic correctness.
 - A standards-conforming Turtle parser is required for a trustworthy `spiral validate`; therefore the CLI runtime/dependency choice is a real design decision rather than incidental scripting.
 
-Current candidate direction to test in discourse:
+Accepted identity direction and first implementation result:
 
-- a type prefix plus random UUID (currently UUIDv4 looks simpler than ULID/UUIDv7 because ordering is not required, it avoids encoding creation time, and implementations are widely available);
-- preserve all historical sequential IDs as valid legacy identities and use the distributed form only for newly created artifacts after the migration boundary;
+- new IDs use `<TYPE>-<YYYYMMDD>-<WORKSPACE>-<N>`;
+- `WORKSPACE` is a stable worktree-local allocation namespace, random by default or deliberately chosen, and is not actor provenance;
+- `N` is one unpadded monotonic sequence shared across artifact types and dates in that workspace;
+- historical sequential IDs remain valid and are not rewritten;
+- the first `spiral` CLI slice implements `workspace init`, `status`, and `allocate`, storing private allocator state below the worktree-specific Git directory;
+- automated probes confirm independent clones/worktrees get independent namespaces and concurrent allocations inside one workspace are serialized;
+- full artifact scaffolding is intentionally deferred until type-specific causal metadata can be created without placeholder/invented provenance.
+
+Still-open design work for the same cycle:
+
 - make `spiral validate integration --base <target> --head <candidate>` inspect a prospective combined tree and block unresolved causal staleness, while leaving textual conflicts to normal Git resolution;
-- clear a stale effective dependency by producing a new downstream artifact version that explicitly references/revalidates the current upstream version, rather than adding a magic host-specific waiver;
+- detect the exceptional identity/workspace collision at validation/integration time;
+- define precisely which current/effective causal relations make a downstream artifact stale after combined-state supersession and what explicit revalidation is sufficient to clear that state;
 - keep GitHub/GitLab/plain-Git configuration thin: each invokes the same CLI validation semantics at its actual pre-merge boundary.
-
-These are deliberately still design candidates. No identifier format, parser/runtime, stale-reference relation set, or CLI interface has been committed as implementation authority yet.
 
 Material implementation decisions or deviations from the initial likely work:
 
-- None yet. The cycle has reached a design discourse checkpoint rather than implementation.
+- The artifact identity direction is now committed after human discourse: workspace namespace + visible date + one unpadded local sequence replaced the earlier UUID candidate.
+- The first executable CLI slice exposes allocation as a primitive (`spiral allocate`) rather than immediately creating artifact files. This avoids generating invalid or invented type-specific causal metadata while still making the distributed identity invariant executable.
+- Default workspace namespaces use five unambiguous Base32 characters. This is deliberately project-scale collision resistance rather than internet-scale global uniqueness; integration validation still needs to detect the exceptional collision.
 
 Out-of-scope discoveries retained for later:
 
