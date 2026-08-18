@@ -185,6 +185,7 @@ Evidence / acceptance result:
 - `EVD-20260818-DGB8Z-10` verifies the prospective-integration slice with real temporary Git histories, including locally valid branches that become causally stale only when combined and reconciliation by the later candidate.
 - `EVD-20260818-DGB8Z-11` verifies the earlier integration-validator revision after adding the repository's dogfood GitHub workflow and hardening the reusable host adapters.
 - `EVD-20260818-DGB8Z-17` records the negative dogfood result that exposed the Active-cycle candidate-detection gap in the first convergence-guard revision.
+- `EVD-20260818-DGB8Z-18` verifies the corrected distributed-cycle/convergence guards, including the actual CYC-005 branch being blocked from integrating while still Active.
 - Automated suite: 14/14 tests pass. The local repository snapshot validates. Prospective integration of this branch into `main` is now expected to fail with `open-cycle-integration` while CYC-005 remains Active; that failure is the intended closure gate, not a failing implementation result.
 - Human cycle acceptance is still pending.
 
