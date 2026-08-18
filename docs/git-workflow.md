@@ -146,6 +146,8 @@ The PR is evaluated by:
 - CI/CD and other automated checks;
 - human review of intent, design, evidence, risk, and result.
 
+Cycle acceptance means the branch is ready to propose for integration; it does not freeze the target branch. Immediately before merge, revalidate the actual combined state with `spiral validate integration --base <current-target> --head <candidate>` or validate the hosting platform's exact prospective merged/queued commit. If the target changes after a prior check, the old result is stale and must not authorize the merge. See `distributed-development.md`.
+
 See `review.md`.
 
 ## Merge-only integration
@@ -154,9 +156,10 @@ Accepted work is integrated with a normal merge commit.
 
 Configure repository hosting, where practical, to:
 
-- require pull requests for the authoritative branch;
+- require pull/merge requests for the authoritative branch;
 - disallow force pushes;
-- require CI checks;
+- require CI checks including Spiral prospective integration validation;
+- use a merge queue/train or equivalent serialization mechanism when multiple accepted changes can race to integrate, if the hosting platform provides one;
 - disable squash merge for Spiral Developer work;
 - disable rebase merge for Spiral Developer work;
 - permit/require merge commits.

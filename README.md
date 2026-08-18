@@ -36,7 +36,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 - Distinguish **capability from endorsement**: a coherent AI-generated plan proves buildability, not that the direction is right.
 - Once the relevant uncertainty has been reduced, implement the smallest observable slice that can be verified and accepted; active culture may shape the preferred slicing strategy.
 - When a defect occurs, repair the software-producing environment at the earliest meaningful cause rather than merely patching generated output.
-- Work inside an explicit human-confirmed cycle goal; evaluate the integrated result before selecting new direction, then merge accepted cycle history through a normal pull request/review boundary.
+- Work inside an explicit human-confirmed cycle goal; evaluate the integrated result before selecting new direction, then merge accepted cycle history through a normal pull request/review boundary that revalidates the actual prospective combined state against the current target.
 
 ## Who should read what
 

@@ -115,15 +115,16 @@ Important artifacts / semantic commits produced:
 - `b68d89d53efad8151c1a29503fbdabe052873270` — implemented the first `spiral` CLI allocator slice and updated normative identity guidance/templates.
 - `EVD-20260818-DGB8Z-6` — verifies independent clone/worktree allocation, shared local sequence behavior, and same-workspace concurrency locking.
 
-Current inquiry findings (not yet implementation commitments):
+Integration-validator design/implementation findings:
 
 - The SHACL model currently treats `dcterms:identifier` as an opaque string; no structural validator requires sequential numbering. Changing the identifier form therefore does not inherently require rewriting the ontology or historical artifacts.
 - Project namespaces already separate artifact IRIs belonging to unrelated projects. The collision domain that matters is independent histories/forks that intentionally share one project namespace and may later merge.
 - Git already supplies authoritative chronology. No current trust invariant requires durable artifact IDs themselves to encode creation order, weakening the case for choosing a time-sortable identifier merely to preserve the old visual sequence.
 - Existing process semantics already contain `sd:supersedes`, `sd:Suspect`, and the rule that downstream artifacts are candidates for suspect when an upstream version is superseded. The distributed-integration gap is therefore primarily enforcement/revalidation rather than inventing the concept of staleness.
-- A prospective combined Git tree can be constructed without rewriting either branch (modern Git provides `git merge-tree --write-tree`; a disposable probe on Git 2.47.3 successfully produced and inspected the merged tree). This is a plausible implementation mechanism, not yet a portability commitment.
-- A useful integration check can mechanically detect that a current downstream artifact still has an effective reference to an exact version that the combined current graph supersedes. What still needs design is which causal relations count as current/effective for this gate and what explicit revalidation is sufficient to clear it without asking software to decide semantic correctness.
-- A standards-conforming Turtle parser is required for a trustworthy `spiral validate`; therefore the CLI runtime/dependency choice is a real design decision rather than incidental scripting.
+- A prospective combined Git tree can be constructed without rewriting either branch using `git merge-tree --write-tree`; the reference CLI now uses that mechanism and fails cleanly when Git cannot construct a conflict-free result.
+- Current/effective dependency relations are derived from the ontology's `sd:causalReference` subproperties, excluding `sd:supersedes` itself and keeping implementation-history relations outside the gate.
+- Supersession only becomes integration-significant when the superseding artifact is itself live/effective (`Active` or `Accepted`); a rejected/tentative superseder does not retire an otherwise effective upstream version.
+- `spiral validate` and `spiral validate integration` now share a standards-conforming RDF/Turtle parser boundary implemented for dogfooding with Python `rdflib`.
 
 Accepted identity direction and first implementation result:
 
@@ -135,18 +136,20 @@ Accepted identity direction and first implementation result:
 - automated probes confirm independent clones/worktrees get independent namespaces and concurrent allocations inside one workspace are serialized;
 - full artifact scaffolding is intentionally deferred until type-specific causal metadata can be created without placeholder/invented provenance.
 
-Still-open design work for the same cycle:
+Second implementation slice:
 
-- make `spiral validate integration --base <target> --head <candidate>` inspect a prospective combined tree and block unresolved causal staleness, while leaving textual conflicts to normal Git resolution;
-- detect the exceptional identity/workspace collision at validation/integration time;
-- define precisely which current/effective causal relations make a downstream artifact stale after combined-state supersession and what explicit revalidation is sufficient to clear that state;
-- keep GitHub/GitLab/plain-Git configuration thin: each invokes the same CLI validation semantics at its actual pre-merge boundary.
+- `REQ-20260818-DGB8Z-7` operationalizes prospective integration validation and local snapshot validation.
+- `DES-20260818-DGB8Z-8` defines prospective-tree construction, current/effective causal staleness, non-effective status propagation, collision detection, and the parser boundary; its current version clarifies that only live superseders retire upstream versions.
+- `IMP-20260818-DGB8Z-9` implements `spiral validate` and `spiral validate integration`, shared RDF validation, distributed allocation-slot collision detection, intake integration context, and thin GitHub/GitLab/plain-Git adapter guidance/examples.
+- The remaining work in this cycle is evidence/evaluation rather than another planned implementation mechanism unless the verification probes expose a flaw.
 
 Material implementation decisions or deviations from the initial likely work:
 
 - The artifact identity direction is now committed after human discourse: workspace namespace + visible date + one unpadded local sequence replaced the earlier UUID candidate.
 - The first executable CLI slice exposes allocation as a primitive (`spiral allocate`) rather than immediately creating artifact files. This avoids generating invalid or invented type-specific causal metadata while still making the distributed identity invariant executable.
-- Default workspace namespaces use five unambiguous Base32 characters. This is deliberately project-scale collision resistance rather than internet-scale global uniqueness; integration validation still needs to detect the exceptional collision.
+- Default workspace namespaces use five unambiguous Base32 characters. This is deliberately project-scale collision resistance rather than internet-scale global uniqueness; integration validation detects the exceptional duplicate `(WORKSPACE, sequence)` allocation slot.
+- Integration acceptance is deliberately split from cycle acceptance: the human can accept a branch as ready to integrate, but the exact candidate must still pass prospective combined-state validation against the current target immediately before merge.
+- The first RDF implementation uses Python `rdflib` behind a narrow helper boundary. This is a dogfooding packaging compromise, not a process commitment to a two-runtime CLI.
 
 Out-of-scope discoveries retained for later:
 

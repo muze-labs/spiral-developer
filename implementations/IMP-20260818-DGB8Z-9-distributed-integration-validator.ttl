@@ -1,0 +1,17 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:IMP-20260818-DGB8Z-9
+    a sd:Implementation ;
+    dcterms:identifier "IMP-20260818-DGB8Z-9" ;
+    sd:repositoryPath "implementations/IMP-20260818-DGB8Z-9-distributed-integration-validator.md" ;
+    sd:status sd:Active ;
+    sd:implementationLocation "bin/spiral.mjs" ;
+    sd:implementationLocation "bin/spiral-rdf.py" ;
+    sd:implementationLocation "test/spiral-integration.test.mjs" ;
+    sd:implements [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260818-DGB8Z-8 ;
+        sd:gitCommit "5cf3de9c0b0496080925e8816810010873fa173b"
+    ] .

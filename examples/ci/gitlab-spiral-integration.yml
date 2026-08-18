@@ -1,0 +1,21 @@
+# Example job to merge into a project's .gitlab-ci.yml.
+# It deliberately uses Spiral's repository-local validator rather than reproducing its semantics.
+spiral_integration:
+  image: node:22-bookworm
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+  before_script:
+    - apt-get update && apt-get install -y --no-install-recommends python3 python3-pip git
+    - pip3 install --break-system-packages -r requirements.txt
+  script:
+    # In merged-results / merge-train pipelines, GitLab has already checked out a
+    # temporary combined commit. Validate that exact snapshot.
+    - |
+      if [ -n "${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-}" ]; then
+        node bin/spiral.mjs validate
+      else
+        # A normal merge-request pipeline contains only the source branch.
+        # Fetch the actual current target and construct the prospective merge locally.
+        git fetch origin "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
+        node bin/spiral.mjs validate integration --base FETCH_HEAD --head HEAD
+      fi

@@ -28,7 +28,8 @@ Persist `Intake status: Incomplete` (or `Stale` when reopening old context) in p
 7. reliable feedback/reality sources;
 8. poorly understood areas where early human guidance is likely;
 9. relevant future commitments/migrations/deprecations;
-10. suggested risk-discovery profiles and metric profiles, including explicit exclusions and custom additions.
+10. suggested risk-discovery profiles and metric profiles, including explicit exclusions and custom additions;
+11. integration context: authoritative target branch/ref, review/integration boundary, and how the actual candidate + current target (or hosting platform's prospective merged result) will be Spiral-validated before merge, including any merge queue/train when relevant.
 
 Use `profiles/risk-discovery/`, `profiles/metrics/`, and `catalogs/risks.md` only as suggestion sources. Do not silently activate every profile.
 

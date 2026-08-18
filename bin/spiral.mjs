@@ -11,6 +11,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 
 const RANDOM_WORKSPACE_ALPHABET = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
@@ -19,6 +20,8 @@ const WORKSPACE_RE = /^[A-Z0-9]{2,12}$/;
 const TYPE_CODE_RE = /^[A-Z][A-Z0-9]{1,7}$/;
 const LOCK_STALE_MS = 30_000;
 const LOCK_WAIT_MS = 5_000;
+const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
+const RDF_VALIDATOR = join(SCRIPT_DIR, 'spiral-rdf.py');
 
 const TYPE_ALIASES = new Map([
   ['source', 'SRC'],
@@ -216,8 +219,120 @@ function status() {
   console.log(`state: ${stateDir}`);
 }
 
+
+
+function resolveRepoRoot() {
+  if (runGit(['rev-parse', '--is-inside-work-tree']) !== 'true') {
+    throw new Error('current directory is not inside a Git worktree');
+  }
+  return resolve(runGit(['rev-parse', '--show-toplevel']));
+}
+
+function resolveCommit(ref) {
+  return runGit(['rev-parse', '--verify', `${ref}^{commit}`]);
+}
+
+function runRdfValidator({ tree = null } = {}) {
+  const repoRoot = resolveRepoRoot();
+  const args = [RDF_VALIDATOR, '--repo', repoRoot];
+  if (tree) args.push('--tree', tree);
+  const result = spawnSync('python3', args, {
+    cwd: repoRoot,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+  if (result.error) {
+    throw new Error(`unable to run RDF validator: ${result.error.message}`);
+  }
+  const raw = (result.stdout || '').trim();
+  let payload;
+  try {
+    payload = JSON.parse(raw || '{}');
+  } catch {
+    const detail = result.stderr.trim() || raw || 'RDF validator returned no readable result';
+    throw new Error(detail);
+  }
+  if (result.status === 2) {
+    const detail = payload.errors?.map((error) => error.message).join('; ') || (result.stderr || '').trim();
+    throw new Error(detail || 'RDF validator failed');
+  }
+  return { payload, status: result.status ?? 1 };
+}
+
+function printValidation(payload, context = {}) {
+  console.log(`validation: ${payload.ok ? 'ok' : 'failed'}`);
+  if (context.scope) console.log(`scope: ${context.scope}`);
+  if (context.base) console.log(`base: ${context.base}`);
+  if (context.head) console.log(`head: ${context.head}`);
+  if (context.tree) console.log(`tree: ${context.tree}`);
+  if (Number.isInteger(payload.turtleFiles)) console.log(`turtle-files: ${payload.turtleFiles}`);
+  if (Number.isInteger(payload.triples)) console.log(`triples: ${payload.triples}`);
+  for (const error of payload.errors || []) {
+    console.error(`ERROR [${error.code || 'validation'}] ${error.message}`);
+  }
+}
+
+function validateSnapshot() {
+  const { payload, status: validationStatus } = runRdfValidator();
+  printValidation(payload, { scope: 'worktree' });
+  if (validationStatus !== 0) process.exit(validationStatus);
+}
+
+function prospectiveMergeTree(baseRef, headRef) {
+  const base = resolveCommit(baseRef);
+  const head = resolveCommit(headRef);
+  const result = spawnSync('git', ['merge-tree', '--write-tree', base, head], {
+    cwd: process.cwd(),
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+  if (result.status !== 0) {
+    const detail = [(result.stdout || '').trim(), (result.stderr || '').trim()].filter(Boolean).join('\n');
+    const error = new Error(
+      `prospective merge has Git conflicts or could not be constructed; resolve normal Git integration first${detail ? `\n${detail}` : ''}`,
+    );
+    error.code = 'git-merge-conflict';
+    throw error;
+  }
+  const tree = result.stdout.trim().split(/\r?\n/, 1)[0];
+  if (!/^[0-9a-f]{40,64}$/.test(tree)) {
+    throw new Error(`git merge-tree returned an unexpected tree identifier: ${JSON.stringify(tree)}`);
+  }
+  return { base, head, tree };
+}
+
+function validateIntegration(baseRef, headRef) {
+  const { base, head, tree } = prospectiveMergeTree(baseRef, headRef);
+  const { payload, status: validationStatus } = runRdfValidator({ tree });
+  printValidation(payload, { scope: 'integration', base, head, tree });
+  if (validationStatus !== 0) process.exit(validationStatus);
+}
+
 function help() {
-  console.log(`Spiral Developer CLI\n\nUsage:\n  spiral workspace init [ID]\n  spiral status\n  spiral allocate <TYPE>\n\nCommands:\n  workspace init [ID]  Initialize this Git worktree's stable allocation namespace.\n                       Without ID, generate a 5-character random namespace.\n  status               Show worktree-local allocator state.\n  allocate <TYPE>      Allocate and print TYPE-YYYYMMDD-WORKSPACE-N.\n\nExamples:\n  spiral workspace init AUKE\n  spiral allocate source\n  spiral allocate DES\n`);
+  console.log(`Spiral Developer CLI
+
+Usage:
+  spiral workspace init [ID]
+  spiral status
+  spiral allocate <TYPE>
+  spiral validate
+  spiral validate integration --base <target> --head <candidate>
+
+Commands:
+  workspace init [ID]  Initialize this Git worktree's stable allocation namespace.
+                       Without ID, generate a 5-character random namespace.
+  status               Show worktree-local allocator state.
+  allocate <TYPE>      Allocate and print TYPE-YYYYMMDD-WORKSPACE-N.
+  validate             Validate current Spiral Turtle/identity/causal snapshot invariants.
+  validate integration Validate the prospective merged state of target + candidate.
+
+Examples:
+  spiral workspace init AUKE
+  spiral allocate source
+  spiral allocate DES
+  spiral validate
+  spiral validate integration --base main --head HEAD
+`);
 }
 
 try {
@@ -230,6 +345,17 @@ try {
     console.log(allocate(args[1]));
   } else if (args[0] === 'workspace' && args[1] === 'init' && args.length <= 3) {
     console.log(initWorkspace(args[2] || null));
+  } else if (args[0] === 'validate' && args.length === 1) {
+    validateSnapshot();
+  } else if (args[0] === 'validate' && args[1] === 'integration') {
+    const baseIndex = args.indexOf('--base');
+    const headIndex = args.indexOf('--head');
+    const base = baseIndex >= 0 ? args[baseIndex + 1] : null;
+    const head = headIndex >= 0 ? args[headIndex + 1] : null;
+    if (!base || !head || args.length !== 6) {
+      fail('usage: spiral validate integration --base <target> --head <candidate>');
+    }
+    validateIntegration(base, head);
   } else {
     fail('unknown or incomplete command; run `spiral --help`');
   }

@@ -36,7 +36,7 @@ Start `.spiral/project.ttl` from `templates/PROJECT.ttl`. Create `.spiral/cultur
 For a brownfield project, do not jump straight from installing Spiral to the first cycle. If durable project context is missing, `Incomplete`, or materially `Stale`, run/resume the guided intake in `brownfield-intake.md` / `prompts/brownfield-intake.md`. Track its status/checklist in project context. Every required topic must be explicitly dispositioned; while intake is unfinished, surface the remaining topics in every user-visible response while intake remains active. The human should be able to complete this conversationally without reading the rest of the methodology first.
 
 Capture durable project context.
-During intake, establish project purpose/goals, important outcomes or metrics, consequential prior decisions and reversibility, important invariants/commitments, known tolerated problems, reliable feedback sources, poorly understood areas, and relevant future direction. Let the AI suggest plain-Markdown risk-discovery and metric profiles, but make explicit which are active, excluded/deferred, narrowed, or supplemented with custom concerns. `Other`, `Not sure`, and `Not relevant` are valid answers.
+During intake, establish project purpose/goals, important outcomes or metrics, consequential prior decisions and reversibility, important invariants/commitments, known tolerated problems, reliable feedback sources, poorly understood areas, relevant future direction, and the authoritative integration/pre-merge validation context. Let the AI suggest plain-Markdown risk-discovery and metric profiles, but make explicit which are active, excluded/deferred, narrowed, or supplemented with custom concerns. `Other`, `Not sure`, and `Not relevant` are valid answers.
 
 After the human confirms the frame, let the AI compare it with repository/runtime/operational evidence and return candidate risks, metric gaps, missing measurements, and uncertainties. The human—not the profile—decides priority and may reject, defer, accept, edit, remove, or add risks. Use the resulting picture to choose the most valuable uncertainty to reduce in the first normal cycle, giving extra weight to uncertain upstream assumptions whose late discovery would invalidate substantial downstream work.
 
@@ -128,13 +128,13 @@ Commit these as subsequent causal steps so their upstream hashes already exist.
 
 When the cycle goal can be judged, stop ordinary execution and use `prompts/evaluate-cycle.md`. Present the integrated outcome, evidence, metric/risk movement, surprises, unresolved issues, and out-of-scope discoveries.
 
-For repository-changing work, the PR may be this evaluation surface. Fill it with the cycle goal/result and causal case, not merely the code summary. Run normal project CI plus graph checks and prefer validation over the introduced commit range, not only the final snapshot.
+For repository-changing work, the PR may be this evaluation surface. Fill it with the cycle goal/result and causal case, not merely the code summary. Run normal project CI plus graph checks and prefer validation over the introduced commit range, not only the final snapshot. Before actual integration, also validate the candidate against the **current** target with `spiral validate integration --base <target> --head <candidate>` (or validate the hosting platform's exact prospective merged/queued result).
 
 If human feedback shows the agreed goal is incomplete, keep the same cycle/branch open and correct it, then evaluate again. New direction normally waits for the next cycle unless the human explicitly re-plans the current one.
 
 ## 11. Merge and plan again
 
-After the human accepts the cycle and the review boundary passes, integrate with a normal merge commit. Never squash/rebase causal cycle history merely for tidiness.
+After the human accepts the cycle, treat it as ready to propose for integration. Revalidate the actual prospective combined state immediately before merge; if the target moved, re-run the check. When that review boundary passes, integrate with a normal merge commit. Never squash/rebase causal cycle history merely for tidiness.
 
 Then return to `prompts/plan-cycle.md` to agree the next cycle goal.
 
