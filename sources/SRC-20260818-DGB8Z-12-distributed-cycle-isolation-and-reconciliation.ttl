@@ -1,0 +1,11 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:SRC-20260818-DGB8Z-12
+    a sd:Source ;
+    dcterms:identifier "SRC-20260818-DGB8Z-12" ;
+    sd:repositoryPath "sources/SRC-20260818-DGB8Z-12-distributed-cycle-isolation-and-reconciliation.md" ;
+    sd:status sd:Active ;
+    sd:sourceAvailability sd:Referenced ;
+    sd:provenanceConfidence sd:Explicit .
