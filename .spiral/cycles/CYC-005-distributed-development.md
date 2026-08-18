@@ -140,7 +140,7 @@ Second implementation slice:
 
 - `REQ-20260818-DGB8Z-7` operationalizes prospective integration validation and local snapshot validation.
 - `DES-20260818-DGB8Z-8` defines prospective-tree construction, current/effective causal staleness, non-effective status propagation, collision detection, and the parser boundary; its current version clarifies that only live superseders retire upstream versions.
-- `IMP-20260818-DGB8Z-9` implements `spiral validate` and `spiral validate integration`, shared RDF validation, distributed allocation-slot collision detection, intake integration context, and thin GitHub/GitLab/plain-Git adapter guidance/examples.
+- `IMP-20260818-DGB8Z-9` implements `spiral validate` and `spiral validate integration`, shared RDF validation, distributed allocation-slot collision detection, intake integration context, thin GitHub/GitLab/plain-Git adapters, and a dogfood GitHub workflow in this repository.
 - The remaining work in this cycle is evidence/evaluation rather than another planned implementation mechanism unless the verification probes expose a flaw.
 
 Material implementation decisions or deviations from the initial likely work:
@@ -193,7 +193,7 @@ Known compromises:
 
 - The first validator uses Node for CLI/Git orchestration and Python `rdflib` for RDF parsing. The boundary is explicit, but packaging is not yet polished.
 - Current/prospective snapshot coherence is not the complete historical/range validator described elsewhere in Spiral.
-- Host adapter examples were checked locally and against official documentation but not executed on hosted GitHub/GitLab CI in this local cycle. Host settings are still required to make the checks mandatory.
+- Host adapter configuration was checked locally and against official documentation but has not yet been observed running on hosted GitHub/GitLab CI in this local cycle. This repository now contains the GitHub workflow; host settings are still required to make the check mandatory.
 
 Unresolved issues within current goal:
 

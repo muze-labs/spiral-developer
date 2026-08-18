@@ -2,6 +2,8 @@
 # It deliberately uses Spiral's repository-local validator rather than reproducing its semantics.
 spiral_integration:
   image: node:22-bookworm
+  variables:
+    GIT_DEPTH: "0"
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
   before_script:

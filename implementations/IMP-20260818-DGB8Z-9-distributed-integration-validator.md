@@ -32,12 +32,19 @@ Repository-local validation for current Spiral graph coherence and for the exact
 | `docs/distributed-development.md` | Normative distributed integration model and host-adapter guidance. |
 | `docs/git-workflow.md`, `docs/review.md`, `docs/quickstart.md`, `AGENTS.md` | Pre-merge revalidation process guidance. |
 | `docs/brownfield-intake.md`, `prompts/brownfield-intake.md`, `templates/PROJECT_CONTEXT.md` | Intake integration-context requirement. |
-| `examples/ci/github-spiral-integration.yml` | Thin GitHub Actions adapter example. |
-| `examples/ci/gitlab-spiral-integration.yml` | Thin GitLab CI adapter example. |
+| `.github/workflows/spiral-integration.yml` | Dogfood GitHub pre-merge/merge-queue validation workflow for this repository. |
+| `examples/ci/github-spiral-integration.yml` | Reusable thin GitHub Actions adapter example. |
+| `examples/ci/gitlab-spiral-integration.yml` | Reusable thin GitLab CI adapter example. |
 
 ## Effective provenance
 
 Implements the current `DES-20260818-DGB8Z-8` design version, including its clarification that only live/effective superseders retire an exact upstream version.
+
+## Revision lineage
+
+- Predecessor implementation version: `IMP-20260818-DGB8Z-9@17d9681fcf7c9a7627ea75d309918488120410d3`
+- Transition cause: hosting-adapter verification/review in `EVD-20260818-DGB8Z-10@400e6f00e49a6d4969f5c14d29f0d0ec8e1c498a`
+- Change kind: semantic — the repository now dogfoods the GitHub adapter rather than only publishing an example; adapter setup was also hardened for full-history GitLab validation and current GitHub action majors.
 
 ## Important implementation decisions
 
@@ -55,5 +62,5 @@ The first integration-validation slice adds Python 3 plus `rdflib>=7,<8` as a lo
 
 - This validates current/prospective graph coherence, not every historical commit/range invariant described in `docs/causal-validation.md`.
 - The Python + Node two-runtime packaging is provisional dogfood infrastructure.
-- Hosting examples are templates; projects must adapt runtime installation, protected-branch configuration, and required-check settings to their environment.
+- Hosting examples remain templates for other projects; this repository also carries the GitHub workflow, but branch-protection/required-check settings still live in GitHub configuration rather than Git.
 - The validator deliberately does not decide whether a superseding artifact is substantively correct or whether evidence is convincing.

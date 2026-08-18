@@ -142,7 +142,7 @@ Only update the authoritative ref when the command succeeds and the repository's
 
 For a pull-request check, run the prospective integration validator against the pull request's current base and head commits. If GitHub Merge Queue is used, the required Spiral workflow must also run for the `merge_group` event so the check applies to the merge-group commit GitHub is actually considering.
 
-A minimal adapter example is in `examples/ci/github-spiral-integration.yml`.
+A minimal adapter example is in `examples/ci/github-spiral-integration.yml`. Spiral Developer itself dogfoods the same adapter at `.github/workflows/spiral-integration.yml`; repository-host settings must still make that check required if it is to block merges.
 
 References:
 
