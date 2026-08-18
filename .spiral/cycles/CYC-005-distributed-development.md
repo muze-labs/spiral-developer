@@ -169,6 +169,7 @@ Evidence / acceptance result:
 
 - `EVD-20260818-DGB8Z-6` verifies distributed-safe artifact allocation.
 - `EVD-20260818-DGB8Z-10` verifies the prospective-integration slice with real temporary Git histories, including locally valid branches that become causally stale only when combined and reconciliation by the later candidate.
+- `EVD-20260818-DGB8Z-11` verifies the current implementation revision after adding the repository's dogfood GitHub workflow and hardening the reusable host adapters.
 - Automated suite: 9/9 tests pass. Current repository snapshot and prospective CYC-005 integration against local `main` pass.
 - Human cycle acceptance is still pending.
 
