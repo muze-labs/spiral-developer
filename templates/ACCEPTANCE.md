@@ -1,6 +1,8 @@
 ---
-id: ACC-001
+id: ACC-YYYYMMDD-WORKSPACE-N
 ---
+
+<!-- Allocate a new ID with `spiral allocate <TYPE>`; do not choose a global next sequence. -->
 
 # Acceptance Evidence
 

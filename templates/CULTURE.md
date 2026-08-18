@@ -1,6 +1,8 @@
 ---
-id: CUL-001
+id: CUL-YYYYMMDD-WORKSPACE-N
 ---
+
+<!-- Allocate a new ID with `spiral allocate <TYPE>`; do not choose a global next sequence. -->
 
 # Engineering Culture
 
@@ -24,7 +26,7 @@ Culture is defeasible influence, not invisible law. Distinguish preferences from
 
 | ID | Principle | Why it matters | Possible evidence/proxies |
 |---|---|---|---|
-| CUL-001-P1 | <!-- preference --> | | |
+| CUL-YYYYMMDD-WORKSPACE-N-P1 | <!-- preference --> | | |
 | | | | |
 
 ## Adoption / scope

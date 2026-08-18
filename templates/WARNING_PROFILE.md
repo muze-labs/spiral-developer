@@ -1,6 +1,8 @@
 ---
-id: WPF-001
+id: WPF-YYYYMMDD-WORKSPACE-N
 ---
+
+<!-- Allocate a new ID with `spiral allocate <TYPE>`; do not choose a global next sequence. -->
 
 # Warning Profile
 
@@ -20,7 +22,7 @@ A warning profile is not engineering culture and is not automatically a hard con
 
 ## Signals
 
-### WPF-001-W1 — <!-- short name -->
+### WPF-YYYYMMDD-WORKSPACE-N-W1 — <!-- short name -->
 
 **Pattern:** <!-- observable condition -->
 

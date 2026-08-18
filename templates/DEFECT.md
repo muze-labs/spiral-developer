@@ -1,6 +1,8 @@
 ---
-id: DEF-001
+id: DEF-YYYYMMDD-WORKSPACE-N
 ---
+
+<!-- Allocate a new ID with `spiral allocate <TYPE>`; do not choose a global next sequence. -->
 
 # Defect / Root-Cause Analysis
 

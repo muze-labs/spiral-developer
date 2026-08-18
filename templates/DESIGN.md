@@ -1,6 +1,8 @@
 ---
-id: DES-001
+id: DES-YYYYMMDD-WORKSPACE-N
 ---
+
+<!-- Allocate a new ID with `spiral allocate <TYPE>`; do not choose a global next sequence. -->
 
 # Design: <!-- short name -->
 

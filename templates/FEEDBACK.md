@@ -1,6 +1,8 @@
 ---
-id: FBK-001
+id: FBK-YYYYMMDD-WORKSPACE-N
 ---
+
+<!-- Allocate a new ID with `spiral allocate <TYPE>`; do not choose a global next sequence. -->
 
 # Feedback / Observation
 

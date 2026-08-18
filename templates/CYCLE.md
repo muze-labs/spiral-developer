@@ -1,10 +1,12 @@
 ---
-id: CYC-001
+id: CYC-YYYYMMDD-WORKSPACE-N
 ---
+
+<!-- Allocate a new ID with `spiral allocate <TYPE>`; do not choose a global next sequence. -->
 
 # Cycle: <!-- short goal name -->
 
-Repository branch: <!-- normally spiral/CYC-001-short-goal; record explicit exception if none -->
+Repository branch: <!-- normally spiral/CYC-YYYYMMDD-WORKSPACE-N-short-goal; record explicit exception if none -->
 Branch verified: <!-- pending | verified + date/commit context | exception + reason -->
 
 ## Analyze

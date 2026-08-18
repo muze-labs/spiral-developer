@@ -36,24 +36,28 @@ If the original source is unavailable, do not invent one. A `SRC-*` artifact may
 
 ## Stable identity; Git version
 
-Each durable artifact gets a stable ID, for example:
+Each durable artifact gets a stable ID. Existing accepted repositories may contain legacy sequential identities such as `REQ-017` or `CYC-005`; these remain valid and must not be renamed merely to adopt a newer convention.
 
-- `CUL-001` — culture/principle set;
-- `CTX-001` — project context;
-- `SRC-001` — source/origin evidence;
-- `UND-001` — interpreted understanding of intent or meaning;
-- `REQ-001` — request/intent unit;
-- `FBK-001` — feedback/observation;
-- `DES-001` — design element/decision;
-- `IMP-001` — implementation unit/vertical slice;
-- `LEG-001` — reconstructed legacy context/constraint;
-- `EVD-001` — verification evidence;
-- `ACC-001` — acceptance evidence;
-- `DEF-001` — defect/root-cause analysis;
-- `CYC-001` — development cycle;
-- `EXT-001` — external constraint when it needs explicit identity;
-- `RSK-001` — durable risk when it needs explicit identity;
-- `LES-001` — lesson learned/generalization that may change future practice.
+New independently created artifacts use the distributed form:
+
+```text
+<TYPE>-<YYYYMMDD>-<WORKSPACE>-<N>
+```
+
+Examples:
+
+```text
+SRC-20260818-K7M4-12
+UND-20260818-K7M4-13
+REQ-20260818-K7M4-14
+DES-20260819-K7M4-18
+```
+
+The type prefix keeps the existing artifact vocabulary (`CUL`, `CTX`, `SRC`, `UND`, `REQ`, `FBK`, `DES`, `IMP`, `LEG`, `EVD`, `ACC`, `DEF`, `CYC`, `EXT`, `RSK`, `LES`, and so on). The date is a human-readable creation hint. `WORKSPACE` is a stable allocation namespace for one independently concurrent Git worktree/checkout. `N` is one monotonically increasing, unpadded sequence shared by all Spiral artifact types and dates in that workspace.
+
+Do not infer authorship or actor identity from the workspace namespace. Do not use the date/local sequence as an independent version or authoritative global chronology. Git supplies authoritative history.
+
+Use the repository `spiral allocate <TYPE>` command for new IDs where available; do not scan the repository and choose a globally “next” sequence number. See `distributed-development.md`.
 
 **There is no independent numeric revision system.**
 
@@ -62,7 +66,7 @@ The Git commit is the artifact version.
 Human shorthand may use:
 
 ```text
-REQ-001@a12f9e1
+REQ-20260818-K7M4-14@a12f9e1
 ```
 
 The machine-readable graph stores the full commit hash.

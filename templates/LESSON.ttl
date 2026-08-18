@@ -2,11 +2,11 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix project: <urn:spiral:replace-with-project-namespace:> .
 
-# Save beside `.spiral/lessons/LES-001.md`.
+# Save beside `.spiral/lessons/LES-YYYYMMDD-WORKSPACE-N.md`.
 # Add sd:derivedFrom/sd:observes references to exact evidence versions when available.
 
-project:LES-001
+project:LES-YYYYMMDD-WORKSPACE-N
     a sd:Lesson ;
-    dcterms:identifier "LES-001" ;
-    sd:repositoryPath ".spiral/lessons/LES-001.md" ;
+    dcterms:identifier "LES-YYYYMMDD-WORKSPACE-N" ;
+    sd:repositoryPath ".spiral/lessons/LES-YYYYMMDD-WORKSPACE-N.md" ;
     sd:status sd:Active .

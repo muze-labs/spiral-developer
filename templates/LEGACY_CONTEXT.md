@@ -1,6 +1,8 @@
 ---
-id: LEG-001
+id: LEG-YYYYMMDD-WORKSPACE-N
 ---
+
+<!-- Allocate a new ID with `spiral allocate <TYPE>`; do not choose a global next sequence. -->
 
 # Legacy Context: <!-- capability/behavior -->
 

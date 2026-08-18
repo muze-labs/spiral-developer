@@ -1,6 +1,8 @@
 ---
-id: CTX-001
+id: CTX-YYYYMMDD-WORKSPACE-N
 ---
+
+<!-- Allocate a new ID with `spiral allocate <TYPE>`; do not choose a global next sequence. -->
 
 # Project Context
 

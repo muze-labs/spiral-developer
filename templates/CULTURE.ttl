@@ -4,8 +4,8 @@
 
 # Save as `.spiral/culture.ttl` and use the same project namespace as project.ttl.
 
-project:CUL-001
+project:CUL-YYYYMMDD-WORKSPACE-N
     a sd:Culture ;
-    dcterms:identifier "CUL-001" ;
+    dcterms:identifier "CUL-YYYYMMDD-WORKSPACE-N" ;
     sd:repositoryPath ".spiral/culture.md" ;
     sd:status sd:Active .

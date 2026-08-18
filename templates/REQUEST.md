@@ -1,6 +1,8 @@
 ---
-id: REQ-001
+id: REQ-YYYYMMDD-WORKSPACE-N
 ---
+
+<!-- Allocate a new ID with `spiral allocate <TYPE>`; do not choose a global next sequence. -->
 
 # Request: <!-- short name -->
 

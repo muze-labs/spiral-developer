@@ -6,9 +6,9 @@
 # Replace `project:` with a stable project namespace before real use.
 # Prefer a durable HTTP(S) IRI when one naturally exists.
 
-project:CTX-001
+project:CTX-YYYYMMDD-WORKSPACE-N
     a sd:ProjectContext ;
-    dcterms:identifier "CTX-001" ;
+    dcterms:identifier "CTX-YYYYMMDD-WORKSPACE-N" ;
     sd:repositoryPath ".spiral/project-context.md" ;
     sd:status sd:Active .
 
@@ -16,7 +16,7 @@ project:CTX-001
 #
 #    sd:adoptsCulture [
 #        a sd:ArtifactReference ;
-#        sd:artifact project:CUL-001 ;
+#        sd:artifact project:CUL-YYYYMMDD-WORKSPACE-N ;
 #        sd:gitCommit "FULL_COMMIT_HASH"
 #    ] .
 
@@ -24,6 +24,6 @@ project:CTX-001
 #
 #    sd:adoptsWarningProfile [
 #        a sd:ArtifactReference ;
-#        sd:artifact project:WPF-001 ;
+#        sd:artifact project:WPF-YYYYMMDD-WORKSPACE-N ;
 #        sd:gitCommit "FULL_COMMIT_HASH"
 #    ] .

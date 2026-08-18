@@ -1,6 +1,8 @@
 ---
-id: LES-001
+id: LES-YYYYMMDD-WORKSPACE-N
 ---
+
+<!-- Allocate a new ID with `spiral allocate <TYPE>`; do not choose a global next sequence. -->
 
 # Lesson: <!-- short name -->
 

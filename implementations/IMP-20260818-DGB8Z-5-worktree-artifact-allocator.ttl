@@ -1,0 +1,16 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:IMP-20260818-DGB8Z-5
+    a sd:Implementation ;
+    dcterms:identifier "IMP-20260818-DGB8Z-5" ;
+    sd:repositoryPath "implementations/IMP-20260818-DGB8Z-5-worktree-artifact-allocator.md" ;
+    sd:status sd:Active ;
+    sd:implementationLocation "bin/spiral.mjs" ;
+    sd:implementationLocation "test/spiral-allocator.test.mjs" ;
+    sd:implements [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260818-DGB8Z-4 ;
+        sd:gitCommit "c62837f44c0808d5cb494c3c3a851e1c213e1e08"
+    ] .

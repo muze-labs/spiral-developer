@@ -121,7 +121,13 @@ See `docs/git-workflow.md`.
 
 ## Artifact identity and versions
 
-Artifacts have stable IDs such as `SRC-003`, `UND-006`, `REQ-017`, `DES-042`, or `EVD-088`.
+Artifacts have stable IDs. Existing repositories may contain legacy identities such as `SRC-003`, `UND-006`, or `REQ-017`; preserve them unchanged. New independently created artifacts use:
+
+```text
+<TYPE>-<YYYYMMDD>-<WORKSPACE>-<N>
+```
+
+Allocate new IDs with the repository `spiral` CLI rather than inspecting history and choosing a global “next number”. `WORKSPACE` is a private allocation namespace for the current independently concurrent Git worktree/checkout, and `N` is one unpadded local sequence shared across artifact types and dates. The workspace code is not actor provenance. See `docs/distributed-development.md`.
 
 **Git commits are the version system. Do not invent a separate numeric revision system.**
 
