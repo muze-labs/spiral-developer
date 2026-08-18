@@ -1,0 +1,15 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:REQ-20260818-DGB8Z-14
+    a sd:Request ;
+    dcterms:identifier "REQ-20260818-DGB8Z-14" ;
+    sd:repositoryPath "requests/REQ-20260818-DGB8Z-14-distributed-cycle-convergence-guards.md" ;
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Explicit ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:UND-20260818-DGB8Z-13 ;
+        sd:gitCommit "a17952f54e0b663743d7bbdb20f5afa4ece7fe91"
+    ] .
