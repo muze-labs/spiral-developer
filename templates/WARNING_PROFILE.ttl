@@ -2,8 +2,8 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix project: <urn:spiral:replace-with-project-namespace:> .
 
-project:WPF-001
+project:WPF-YYYYMMDD-WORKSPACE-N
     a sd:WarningProfile ;
-    dcterms:identifier "WPF-001" ;
-    sd:repositoryPath ".spiral/warning-profiles/WPF-001.md" ;
+    dcterms:identifier "WPF-YYYYMMDD-WORKSPACE-N" ;
+    sd:repositoryPath ".spiral/warning-profiles/WPF-YYYYMMDD-WORKSPACE-N.md" ;
     sd:status sd:Active .

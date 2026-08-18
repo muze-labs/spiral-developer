@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:REQ-20260818-DGB8Z-3
+    a sd:Request ;
+    dcterms:identifier "REQ-20260818-DGB8Z-3" ;
+    sd:repositoryPath "requests/REQ-20260818-DGB8Z-3-distributed-artifact-allocation.md" ;
+    sd:status sd:Accepted ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:UND-20260818-DGB8Z-2 ;
+        sd:gitCommit "14730617e16e2a835be2717ca31726590453fdbf"
+    ] .

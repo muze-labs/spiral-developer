@@ -18,6 +18,7 @@ Follow these in addition to current human instructions:
 10. `docs/process-evolution.md` — lessons, scope, and process/culture evolution;
 11. `docs/brownfield.md` when existing behavior is involved;
 12. `docs/brownfield-intake.md` when Spiral is being introduced to an existing project or its durable project frame is materially stale;
+13. `docs/distributed-development.md` for distributed artifact allocation and integration revalidation;
 13. `docs/review.md` when preparing or responding to a pull request;
 14. `docs/culture.md` and the project's explicitly adopted organization/project culture profiles and constraints;
 15. `docs/warning-profiles.md` and the project's explicitly adopted warning profile(s).
@@ -88,7 +89,7 @@ For repository-changing cycle work, you normally operate Git when the environmen
 
 Before consequential execution:
 
-1. identify the authoritative branch;
+1. identify the authoritative integration branch/ref and the configured pre-merge Spiral validation boundary;
 2. ensure the working tree is understood and do not destroy unrelated human work;
 3. agree the cycle goal with the human;
 4. create a dedicated cycle branch, normally `spiral/<cycle-id>-<short-goal>`;
@@ -113,7 +114,7 @@ If a commit is later discovered to be wrong, create a new corrective/superseding
 
 If the cycle branch needs new work from the authoritative branch, merge the authoritative branch into the cycle branch. Do not rebase.
 
-Completed work is proposed through a pull request and integrated with a normal merge commit so original hashes survive.
+Completed work is proposed through a pull request and integrated with a normal merge commit so original hashes survive. Human acceptance means ready to propose for integration, not permission to ignore target changes: immediately before merge, run `spiral validate integration --base <current-target> --head <candidate>` or validate the hosting platform's exact prospective merged/queued result. If the target has moved since the check, revalidate.
 
 Uncommitted experimentation may be discarded. Do not commit every failed attempt merely to produce history. Commit when an artifact, decision, implementation step, or piece of evidence has crystallized enough to be useful causal evidence.
 
@@ -121,7 +122,13 @@ See `docs/git-workflow.md`.
 
 ## Artifact identity and versions
 
-Artifacts have stable IDs such as `SRC-003`, `UND-006`, `REQ-017`, `DES-042`, or `EVD-088`.
+Artifacts have stable IDs. Existing repositories may contain legacy identities such as `SRC-003`, `UND-006`, or `REQ-017`; preserve them unchanged. New independently created artifacts use:
+
+```text
+<TYPE>-<YYYYMMDD>-<WORKSPACE>-<N>
+```
+
+Allocate new IDs with the repository `spiral` CLI rather than inspecting history and choosing a global “next number”. `WORKSPACE` is a private allocation namespace for the current independently concurrent Git worktree/checkout, and `N` is one unpadded local sequence shared across artifact types and dates. The workspace code is not actor provenance. See `docs/distributed-development.md`.
 
 **Git commits are the version system. Do not invent a separate numeric revision system.**
 
@@ -217,7 +224,7 @@ Do not require a horizon, score, matrix, or risk artifact merely to reason about
 
 ## Brownfield work
 
-Before the first normal Spiral cycle in an existing project, check the explicit intake state in durable project context. If it is missing, `Incomplete`, or materially `Stale`, **run/resume the guided brownfield intake before ordinary cycle planning**. Every required intake topic must receive an explicit disposition; while unfinished, every user-visible response while intake remains active must visibly state `Intake incomplete — remaining: ...`. The intake establishes human-confirmed purpose, important outcomes/metrics, consequential prior decisions, constraints, known tolerated problems, feedback sources, relevant future direction, and explicitly selected risk-discovery/metric profiles. Then compare that frame with project reality and return candidate risks/gaps to the human for prioritization. See `docs/brownfield-intake.md`.
+Before the first normal Spiral cycle in an existing project, check the explicit intake state in durable project context. If it is missing, `Incomplete`, or materially `Stale`, **run/resume the guided brownfield intake before ordinary cycle planning**. Every required intake topic must receive an explicit disposition; while unfinished, every user-visible response while intake remains active must visibly state `Intake incomplete — remaining: ...`. The intake establishes human-confirmed purpose, important outcomes/metrics, consequential prior decisions, constraints, known tolerated problems, feedback sources, relevant future direction, explicitly selected risk-discovery/metric profiles, and the authoritative integration/pre-merge validation context. Then compare that frame with project reality and return candidate risks/gaps to the human for prioritization. See `docs/brownfield-intake.md`.
 
 Do not require the human to understand Spiral internals first. Explain why intake questions matter as they are asked; offer common options where useful, but keep custom, unknown, and not-relevant answers first-class. Risk-discovery and metric profiles are prompts, not project truth or automatic requirements.
 

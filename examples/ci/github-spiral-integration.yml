@@ -1,0 +1,41 @@
+# Example only: adapt runtime setup and protected-branch names to the project.
+# Install this as a required check when Spiral integration validation is part of the merge gate.
+name: Spiral integration
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+  merge_group:
+    types: [checks_requested]
+
+jobs:
+  spiral-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - run: pip install -r requirements.txt
+
+      # pull_request checks reconstruct base + candidate explicitly.
+      - if: github.event_name == 'pull_request'
+        run: >-
+          node bin/spiral.mjs validate integration
+          --base '${{ github.event.pull_request.base.sha }}'
+          --head '${{ github.event.pull_request.head.sha }}'
+
+      # merge_group GITHUB_SHA is the prospective merge-group commit supplied by GitHub.
+      # Validate that exact combined snapshot; do not reconstruct only the individual PR.
+      - if: github.event_name == 'merge_group'
+        run: node bin/spiral.mjs validate

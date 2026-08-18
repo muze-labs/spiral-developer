@@ -1,6 +1,8 @@
 ---
-id: UND-001
+id: UND-YYYYMMDD-WORKSPACE-N
 ---
+
+<!-- Allocate a new ID with `spiral allocate <TYPE>`; do not choose a global next sequence. -->
 
 # Understanding: <!-- short name -->
 

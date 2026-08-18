@@ -1,0 +1,15 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:UND-DIST-002
+    a sd:Understanding ;
+    dcterms:identifier "UND-DIST-002" ;
+    sd:repositoryPath "understandings/UND-DIST-002-integration-is-the-serialization-boundary.md" ;
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Explicit ;
+    sd:interprets [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-DIST-002 ;
+        sd:gitCommit "55f3eaa2864cff11253f01bc3f0b43b62bd5a1dc"
+    ] .

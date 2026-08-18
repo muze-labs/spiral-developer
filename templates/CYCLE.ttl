@@ -2,8 +2,8 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix project: <https://example.invalid/project/> .
 
-project:CYC-001
+project:CYC-YYYYMMDD-WORKSPACE-N
     a sd:Cycle ;
-    dcterms:identifier "CYC-001" ;
-    sd:repositoryPath ".spiral/cycles/CYC-001.md" ;
+    dcterms:identifier "CYC-YYYYMMDD-WORKSPACE-N" ;
+    sd:repositoryPath ".spiral/cycles/CYC-YYYYMMDD-WORKSPACE-N.md" ;
     sd:status sd:Active .

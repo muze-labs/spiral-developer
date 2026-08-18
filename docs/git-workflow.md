@@ -17,8 +17,8 @@ For ordinary repository-changing work, one **cycle** starts on one dedicated bra
 Suggested naming:
 
 ```text
-spiral/CYC-017-account-deactivation
-spiral/CYC-018-expiry-race
+spiral/CYC-20260818-K7M4-12-account-deactivation
+spiral/CYC-20260819-N3Q8P-4-expiry-race
 ```
 
 The cycle branch is the normal integration/review boundary. It may contain multiple requests, design/implementation steps, investigations, and semantic commits that all serve the same coherent cycle goal. Internal tasks do not normally receive separate branches or pull requests.
@@ -40,6 +40,15 @@ Repository-local tooling may automate this check, but lack of a helper script do
 A non-code investigation/evaluation cycle may not need a development branch. Cross-repository or irreversible operational work may need a different integration boundary; follow the trust model instead of forcing this convention.
 
 The branch contains an evolving proposed reality. The authoritative branch remains accepted project reality.
+
+
+## Distributed allocation
+
+Do not allocate new Spiral artifact/cycle identities by scanning the authoritative branch for the highest sequence. Concurrent branches can observe the same state and allocate the same next value.
+
+Use the worktree-local allocator described in `distributed-development.md`. New IDs use `TYPE-YYYYMMDD-WORKSPACE-N`; historical sequential IDs remain valid. The allocator state lives outside the committed tree, so unrelated workspaces do not create bookkeeping merge conflicts merely by creating new artifacts.
+
+Ordinary source conflicts remain ordinary Git conflicts. Distributed causal consistency is revalidated at the integration boundary rather than prevented by locking writers during development.
 
 ## AI as Git operator
 
@@ -90,9 +99,9 @@ Use concise semantic commit subjects. Optional Git trailers can make `git log` e
 ```text
 Implement account deactivation slice
 
-Spiral-Artifact: IMP-017
-Spiral-Design: DES-009@2bc31aa
-Spiral-Request: REQ-017@1a2f9e1
+Spiral-Artifact: IMP-20260818-K7M4-18
+Spiral-Design: DES-20260818-K7M4-17@2bc31aa
+Spiral-Request: REQ-20260818-K7M4-14@1a2f9e1
 ```
 
 Trailers are human/navigation summaries. The companion Turtle resources remain authoritative for machine-readable causal links and store full hashes. Do not require humans to maintain these trailers manually when the AI can do it.
@@ -137,6 +146,8 @@ The PR is evaluated by:
 - CI/CD and other automated checks;
 - human review of intent, design, evidence, risk, and result.
 
+Cycle acceptance means the branch is ready to propose for integration; it does not freeze the target branch. Immediately before merge, revalidate the actual combined state with `spiral validate integration --base <current-target> --head <candidate>` or validate the hosting platform's exact prospective merged/queued commit. If the target changes after a prior check, the old result is stale and must not authorize the merge. See `distributed-development.md`.
+
 See `review.md`.
 
 ## Merge-only integration
@@ -145,9 +156,10 @@ Accepted work is integrated with a normal merge commit.
 
 Configure repository hosting, where practical, to:
 
-- require pull requests for the authoritative branch;
+- require pull/merge requests for the authoritative branch;
 - disallow force pushes;
-- require CI checks;
+- require CI checks including Spiral prospective integration validation;
+- use a merge queue/train or equivalent serialization mechanism when multiple accepted changes can race to integrate, if the hosting platform provides one;
 - disable squash merge for Spiral Developer work;
 - disable rebase merge for Spiral Developer work;
 - permit/require merge commits.
@@ -161,8 +173,8 @@ The merge commit means:
 Stable artifact identity and artifact version are different things:
 
 ```text
-REQ-017                 stable identity
-REQ-017@a12f9e1         human shorthand for a historical version
+REQ-20260818-K7M4-14                 stable identity
+REQ-20260818-K7M4-14@a12f9e1         human shorthand for a historical version
 ```
 
 The Turtle graph stores full hashes, not abbreviations.

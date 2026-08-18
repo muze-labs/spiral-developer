@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:EVD-20260818-DGB8Z-10
+    a sd:VerificationEvidence ;
+    dcterms:identifier "EVD-20260818-DGB8Z-10" ;
+    sd:repositoryPath "evidence/EVD-20260818-DGB8Z-10-distributed-integration-validation.md" ;
+    sd:status sd:Accepted ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:IMP-20260818-DGB8Z-9 ;
+        sd:gitCommit "17d9681fcf7c9a7627ea75d309918488120410d3"
+    ] .

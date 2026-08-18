@@ -2,15 +2,15 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix project: <https://example.org/projects/PROJECT/spiral/> .
 
-project:IMP-001
+project:IMP-YYYYMMDD-WORKSPACE-N
     a sd:Implementation ;
-    dcterms:identifier "IMP-001" ;
-    sd:repositoryPath ".spiral/implementations/IMP-001.md" ;
+    dcterms:identifier "IMP-YYYYMMDD-WORKSPACE-N" ;
+    sd:repositoryPath ".spiral/implementations/IMP-YYYYMMDD-WORKSPACE-N.md" ;
     sd:status sd:Active ;
     sd:implementationLocation "src/path/file.js#symbol" ;
     sd:implements [
         a sd:ArtifactReference ;
-        sd:artifact project:DES-001 ;
+        sd:artifact project:DES-YYYYMMDD-WORKSPACE-N ;
         sd:gitCommit "0000000000000000000000000000000000000000"
     ] .
 
@@ -24,12 +24,12 @@ project:IMP-001
 #
 #    sd:transforms [
 #        a sd:ArtifactReference ;
-#        sd:artifact project:IMP-001 ;
+#        sd:artifact project:IMP-YYYYMMDD-WORKSPACE-N ;
 #        sd:gitCommit "PREVIOUS_FULL_COMMIT_HASH"
 #    ] ;
 #    sd:changeCausedBy [
 #        a sd:ArtifactReference ;
-#        sd:artifact project:DEF-001 ;
+#        sd:artifact project:DEF-YYYYMMDD-WORKSPACE-N ;
 #        sd:gitCommit "CAUSE_FULL_COMMIT_HASH"
 #    ] ;
 #    sd:implementationChangeKind sd:SemanticChange .

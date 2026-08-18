@@ -2,14 +2,14 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix project: <urn:spiral:replace-with-project-namespace:> .
 
-project:UND-001
+project:UND-YYYYMMDD-WORKSPACE-N
     a sd:Understanding ;
-    dcterms:identifier "UND-001" ;
-    sd:repositoryPath ".spiral/understandings/UND-001.md" ;
+    dcterms:identifier "UND-YYYYMMDD-WORKSPACE-N" ;
+    sd:repositoryPath ".spiral/understandings/UND-YYYYMMDD-WORKSPACE-N.md" ;
     sd:status sd:Active ;
     sd:provenanceConfidence sd:Evidenced ;
     sd:interprets [
         a sd:ArtifactReference ;
-        sd:artifact project:SRC-001 ;
+        sd:artifact project:SRC-YYYYMMDD-WORKSPACE-N ;
         sd:gitCommit "1111111111111111111111111111111111111111"
     ] .

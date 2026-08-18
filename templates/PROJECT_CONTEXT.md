@@ -1,6 +1,8 @@
 ---
-id: CTX-001
+id: CTX-YYYYMMDD-WORKSPACE-N
 ---
+
+<!-- Allocate a new ID with `spiral allocate <TYPE>`; do not choose a global next sequence. -->
 
 # Project Context
 
@@ -34,8 +36,19 @@ Human-confirmed complete on: <!-- date / reference, or leave blank while incompl
 | Knowledge gaps / affinity needs | Pending | |
 | Relevant future direction | Pending | |
 | Risk-discovery / metric-profile disposition | Pending | |
+| Integration target / pre-merge validation | Pending | |
 
 <!-- Pending is not a valid final disposition. Unknown / Not relevant / Deferred with reason are valid explicit outcomes. While Status is Incomplete or Stale, surface the remaining Pending topics in every user-visible response while intake remains active. -->
+
+## Integration context
+
+Authoritative integration branch/ref:
+
+Integration/review boundary: <!-- PR/MR, protected direct integration, other -->
+
+Spiral pre-merge validation: <!-- e.g. required CI check, merge queue/train, manual command, Unknown/Not relevant -->
+
+<!-- Local cycle acceptance means ready to propose for integration. Before merge, validate the actual current target + candidate or the hosting platform's exact prospective merged result. -->
 
 ## Intended users
 

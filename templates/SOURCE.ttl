@@ -2,10 +2,10 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix project: <urn:spiral:replace-with-project-namespace:> .
 
-project:SRC-001
+project:SRC-YYYYMMDD-WORKSPACE-N
     a sd:Source ;
-    dcterms:identifier "SRC-001" ;
-    sd:repositoryPath ".spiral/sources/SRC-001.md" ;
+    dcterms:identifier "SRC-YYYYMMDD-WORKSPACE-N" ;
+    sd:repositoryPath ".spiral/sources/SRC-YYYYMMDD-WORKSPACE-N.md" ;
     sd:status sd:Active ;
     sd:sourceAvailability sd:Referenced ;
     sd:provenanceConfidence sd:Explicit .

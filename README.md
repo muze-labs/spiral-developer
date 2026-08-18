@@ -23,7 +23,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 - Store human-facing sources, interpreted understanding, intent, design, observations, and evidence as small version-controlled artifacts when they are causally useful.
 - Treat requests as derived claims about intent, not unquestioned roots: preserve source and interpretation provenance when it matters, and make unavailable origins explicit rather than inventing them.
 - Store the machine-readable causal graph in Turtle so ordinary RDF tooling can inspect and query it without an AI.
-- Use Git commit hashes as artifact versions. Stable artifact IDs identify the thing; the commit identifies the historical version.
+- Use Git commit hashes as artifact versions. Stable artifact IDs identify the thing; the commit identifies the historical version. New artifacts use distributed-safe `TYPE-YYYYMMDD-WORKSPACE-N` identities allocated per Git worktree; legacy sequential IDs remain valid.
 - Distinguish current/effective implementation provenance from historical lineage. A materially revised governed `IMP-*` points to its immediate predecessor and transition cause without forcing future agents to replay the full history.
 - Make active engineering culture explicit when it materially shapes an underdetermined design/implementation choice; do not confuse preference with requirement.
 - Make adopted warning profiles explicit and versioned; use them to surface consequential patterns for inspection without silently turning them into universal rules or culture.
@@ -36,7 +36,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 - Distinguish **capability from endorsement**: a coherent AI-generated plan proves buildability, not that the direction is right.
 - Once the relevant uncertainty has been reduced, implement the smallest observable slice that can be verified and accepted; active culture may shape the preferred slicing strategy.
 - When a defect occurs, repair the software-producing environment at the earliest meaningful cause rather than merely patching generated output.
-- Work inside an explicit human-confirmed cycle goal; evaluate the integrated result before selecting new direction, then merge accepted cycle history through a normal pull request/review boundary.
+- Work inside an explicit human-confirmed cycle goal; evaluate the integrated result before selecting new direction, then merge accepted cycle history through a normal pull request/review boundary that revalidates the actual prospective combined state against the current target.
 
 ## Who should read what
 
@@ -55,6 +55,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 - [`docs/ai-collaboration.md`](docs/ai-collaboration.md) — discourse → commitment → execution, framing resistance, and upstream correction.
 - [`docs/artifact-model.md`](docs/artifact-model.md) — what is recorded and what the causal relations mean.
 - [`docs/git-workflow.md`](docs/git-workflow.md) — cycle branches, immutable commits, PRs, and merge-only history.
+- [`docs/distributed-development.md`](docs/distributed-development.md) — worktree-local artifact allocation and distributed integration boundaries.
 - [`docs/causal-validation.md`](docs/causal-validation.md) — pre-commit prevention, strict Git-ancestry invariants, range validation, and history audits.
 - [`docs/rdf-graph.md`](docs/rdf-graph.md) — Turtle representation of the causal graph.
 - [`docs/implementation-lineage.md`](docs/implementation-lineage.md) — effective provenance, implementation history, and bounded agent context across repeated changes.

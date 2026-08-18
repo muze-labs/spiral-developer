@@ -48,8 +48,9 @@ The wording and order are deliberately conversational, but **coverage is not opt
 8. **Knowledge gaps / affinity needs** — areas where project understanding is weak, stale, or concentrated in particular humans and where early handholding is expected.
 9. **Relevant future direction** — known commitments, migrations, deprecations, deadlines, planned changes, or existing multi-cycle plans/roadmaps that alter what is worth optimizing now. When a durable governing plan exists, retain its reference and current position so later cycle planning can re-read it rather than relying on recency.
 10. **Risk-discovery and metric-profile disposition** — which suggested/custom lenses are used, excluded, narrowed, deferred, or explicitly not relevant.
+11. **Integration context** — authoritative target branch/ref, review/integration boundary, and how the actual prospective combined state will be revalidated immediately before integration. Record whether a merge queue/train or equivalent serialization mechanism is used when concurrent accepted changes are common.
 
-Do not force a fabricated answer where the honest state is `Unknown`. Missing measurement or unclear ownership may itself become an uncertainty worth surfacing. Completion means every topic was considered and explicitly dispositioned, not that every topic has a precise answer.
+Do not force a fabricated answer where the honest state is `Unknown`. Missing measurement or unclear ownership may itself become an uncertainty worth surfacing. For integration context, a deliberate manual pre-merge check is valid where hosted enforcement is unavailable. Completion means every topic was considered and explicitly dispositioned, not that every topic has a precise answer.
 
 ## Risk-discovery profiles
 

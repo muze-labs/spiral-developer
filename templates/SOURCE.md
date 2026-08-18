@@ -1,6 +1,8 @@
 ---
-id: SRC-001
+id: SRC-YYYYMMDD-WORKSPACE-N
 ---
+
+<!-- Allocate a new ID with `spiral allocate <TYPE>`; do not choose a global next sequence. -->
 
 # Source: <!-- short name -->
 

@@ -1,0 +1,11 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:SRC-DIST-001
+    a sd:Source ;
+    dcterms:identifier "SRC-DIST-001" ;
+    sd:repositoryPath "sources/SRC-DIST-001-distributed-development.md" ;
+    sd:status sd:Active ;
+    sd:sourceAvailability sd:Retained ;
+    sd:provenanceConfidence sd:Explicit .
