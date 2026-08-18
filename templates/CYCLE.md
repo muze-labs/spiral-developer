@@ -27,6 +27,10 @@ Current position in that plan:
 
 <!-- One coherent project outcome, risk reduction, or uncertainty to resolve. -->
 
+### Commitment boundary
+
+<!-- What human-confirmed statement makes this goal authoritative enough for execution? Before confirmation, proposed goals/solutions remain discourse. Do not duplicate confirmation if the same checkpoint is already captured in an accepted Understanding/request. -->
+
 ### Why now / why this cycle boundary
 
 <!-- Why this is the useful next boundary. What uncertainty, risk, or evaluation need justifies this cycle size? If risk drives the choice, note downstream leverage / late-discovery cost and the cheapest useful falsification. Small early cycles are useful when uncertainty is high; do not keep splitting once several related steps can be judged coherently under stable assumptions. -->

@@ -32,6 +32,10 @@ id: UND-001
 
 <!-- What part of the intent is still inferred, contested, or unknown? -->
 
+## Commitment / disposition
+
+<!-- Is this still a discourse hypothesis, or has the human/project accepted it as a basis for downstream action? Use normal artifact status in Turtle for the canonical lifecycle state; summarize here only when the distinction matters. If material assumptions remain unresolved, do not imply that this Understanding authorizes execution. -->
+
 ## Consequence
 
 <!-- What request(s), feedback loop, probe, or decision should follow from this understanding? -->

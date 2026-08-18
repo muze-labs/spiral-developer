@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:LES-018
+    a sd:Lesson ;
+    dcterms:identifier "LES-018" ;
+    sd:repositoryPath "lessons/LES-018-discourse-before-commitment.md" ;
+    sd:status sd:Active ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:UND-COLLAB-001 ;
+        sd:gitCommit "cd6464efd79c32b721d6b67c3d60c3ac090820da"
+    ] .

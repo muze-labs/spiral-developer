@@ -1,6 +1,6 @@
 # Evaluate Cycle Prompt
 
-Use this when execution has reached a point where the agreed cycle goal can be judged. **Evaluate first; do not immediately plan new work.** Recent discoveries are deliberately retained here without being promoted into priority yet; next-cycle selection happens only after `plan-cycle` re-reads any governing plan/roadmap.
+Use this when execution has reached a point where the agreed cycle goal can be judged. Evaluation returns the collaboration to **discourse**: interpret what the evidence and human feedback mean before turning anything into another instruction. **Evaluate first; do not immediately plan new work.** Recent discoveries are deliberately retained here without being promoted into priority yet; next-cycle selection happens only after `plan-cycle` re-reads any governing plan/roadmap.
 
 Read the current `CYC-*` goal/non-goals, relevant causal artifacts, actual repository/runtime evidence, and human/user feedback. For a repository-changing cycle, mechanically inspect the current Git branch and verify that it still matches the active `CYC-*` identity before presenting evaluation; surface/correct a stale cycle branch rather than normalizing it.
 
@@ -29,7 +29,7 @@ Do not hide failed verification, missing measurements, weak evidence, or newly e
 
 ## Ask the human to evaluate
 
-Ask whether the human considers the agreed cycle goal sufficiently achieved and whether the evaluation reflects reality.
+Ask whether the human considers the agreed cycle goal sufficiently achieved and whether the evaluation reflects reality. Treat suggestions, reactions, and tentative alternatives here as discourse/feedback unless the human clearly commits to correcting the same goal or explicitly re-plans the cycle.
 
 If feedback shows the **same agreed goal is not yet satisfied**, keep the current cycle open. Correct the work on the same cycle branch, preserve causal history, and evaluate again.
 

@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:EVD-COLLAB-001
+    a sd:VerificationEvidence ;
+    dcterms:identifier "EVD-COLLAB-001" ;
+    sd:repositoryPath "evidence/EVD-COLLAB-001-discourse-commitment-execution.md" ;
+    sd:status sd:Accepted ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:LES-018 ;
+        sd:gitCommit "34f7ca1903333754ab411fdc085d1b2bbc736e8c"
+    ] .

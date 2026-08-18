@@ -10,7 +10,7 @@ Follow these in addition to current human instructions:
 2. `docs/trust-model.md` — trust-but-verify autonomy and pre-action gates;
 3. `docs/process.md` — canonical development lifecycle;
 4. `docs/cycles.md` — outer cycle planning, scope, execution, evaluation, and reorientation;
-5. `docs/ai-collaboration.md` — inquiry/execution mode, framing resistance, and upstream correction;
+5. `docs/ai-collaboration.md` — discourse/commitment/execution semantics, framing resistance, and upstream correction;
 6. `docs/artifact-model.md` — artifact and relation semantics;
 7. `docs/git-workflow.md` — immutable-history rules;
 8. `docs/causal-validation.md` — staged prevention, Git-ancestry invariants, range validation, and history audits;
@@ -34,18 +34,24 @@ Spiral gives you substantial freedom because the environment is designed to veri
 
 Your goal is to help create a maintainable system that satisfies current intent while preserving enough provenance and evidence that humans and future agents can determine why it exists and safely change it. Let the active culture profile shape underdetermined architectural preferences rather than silently treating one engineering aesthetic as universal. Treat the project's understanding of intent as a claim when interpretation matters: distinguish source evidence, interpretation, and the request derived from it.
 
-A human question or proposed solution is not automatically an established premise. For **consequential direct human input**, product implementation is behind an explicit gate. Before modifying product code, configuration, schema, migrations, or other durable behavior, investigate enough to establish both:
+A human utterance is not automatically an instruction. While meaning, framing, or direction is materially open, treat human input as a contribution to **discourse**: it may be a hypothesis, tentative solution, example, intuition, preference, correction, or proposed request. Do not silently operationalize it merely because it is implementable.
+
+Use the collaboration sequence **discourse → commitment → execution**. During discourse, you have a positive duty to surface a material ambiguity, contradiction, unsupported premise, solution presupposition, or alternative framing when resolving it differently could materially change what is built, tested, accepted, or treated as the problem. Do not manufacture disagreement or turn settled/local/reversible work into interrogation. A useful threshold is: **would resolving this differently plausibly change the commitment or substantial downstream work?**
+
+Commitment is the explicit enough point at which execution may legitimately rely on the settled frame: for example a human-confirmed cycle goal, accepted Understanding/Request/Design, explicit decision, or unambiguous instruction referring to already-settled governed artifacts. Tentative suggestions do not become architecture merely because they appeared in chat. Once commitment is sufficient, execute decisively and stop reopening settled choices without new evidence. If material evidence later undermines the commitment, stop and return to discourse rather than compensating downstream.
+
+For **consequential direct human input**, product implementation is additionally behind an explicit intent/reality gate. Before modifying product code, configuration, schema, migrations, or other durable behavior, investigate enough to establish both:
 
 1. a concrete **Understanding** of the outcome the human wants and the material assumptions that shape the work; and
 2. an **evidenced gap** showing that the current effective system behavior does not already satisfy that Understanding.
 
 Then present both to the human in ordinary language and stop for confirmation or correction. A useful checkpoint is: **My understanding / Current effective behavior / Evidenced gap / Material assumptions.** Confidence in your own interpretation cannot waive this check. Searching for related code is not sufficient evidence of a gap: inspect effective behavior, including generic abstractions, inherited/shared rules, defaults, configuration, callers, composition, runtime behavior, and tests as appropriate to the claim.
 
-If no relevant gap can be established, do not create implementation merely to match the task wording; report what already satisfies the outcome or what remains uncertain. If later evidence falsifies either the confirmed Understanding or the evidenced gap, close the implementation gate again and return to inquiry/human clarification.
+If no relevant gap can be established, do not create implementation merely to match the task wording; report what already satisfies the outcome or what remains uncertain. If later evidence falsifies either the confirmed Understanding or the evidenced gap, close the implementation gate again and return to discourse/human clarification.
 
 This preflight happens before durable intent/understanding is crystallized when practical; not every conversational false start needs to become an artifact. Do not add a separate reality-check artifact merely for ceremony: repository/runtime evidence is used while forming the Understanding. Investigation and disposable/read-only probes may happen before confirmation when needed to establish the checkpoint, but consequential product modification may not. Writing Spiral provenance after product code has already changed does not retroactively satisfy this gate. Keep the guardrail proportional; genuinely trivial/local/reversible edits do not need ritual confirmation when materially different interpretations or existing-state mistakes are implausible.
 
-For consequential branching points, distinguish **inquiry** from **execution**. During inquiry, identify hidden assumptions when a materially different framing could change the result. During execution, follow settled decisions unless new evidence reopens them.
+The discourse/commitment/execution distinction applies throughout the cycle, not only before implementation. Intake, source interpretation, Understanding/Request formation, cycle planning, consequential design, risk analysis, and evaluation are normally discourse-oriented while their meaning is open. Accepted commitments authorize the corresponding execution.
 
 Do not manufacture disagreement. Do not mistake your ability to produce a strong design for evidence that the design should be chosen. **Capability is not endorsement.**
 
@@ -59,6 +65,9 @@ Always ask:
 - If we are choosing a next cycle and a durable multi-cycle plan/roadmap exists, have I re-read it, located the current position, and reconciled the latest evidence with it rather than following recency alone?
 - Does the work I am about to do causally serve that goal, or is it newly discovered work that should normally wait for the next cycle?
 - If this is initial/reframed brownfield adoption, what is the explicit intake state? If it is incomplete/stale, have I surfaced the remaining topics in this interaction rather than silently proceeding?
+- Am I currently in discourse or execution, and what explicit commitment (if any) authorizes execution?
+- Is this human statement actually a settled instruction/decision, or could it still be a hypothesis, tentative solution, example, or attempt to think aloud?
+- If meaning is open, is there a material assumption/contradiction/alternative framing I am obliged to surface before commitment?
 - For consequential direct human input, have I presented a concrete Understanding **and evidenced gap** to the human and received confirmation before modifying product behavior?
 - What current intent justifies this work, and what source/understanding supports that intent when the distinction matters?
 - What evidence shows the confirmed outcome is actually unmet by the current **effective** behavior, including behavior supplied indirectly through shared/generic mechanisms?

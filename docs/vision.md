@@ -12,7 +12,9 @@ The central artifact is not merely source code.
 
 It is the connected, versioned body of intent, decisions, implementation, and evidence that explains **why the system exists in its current form and whether it still satisfies the need that caused it to be built**.
 
-AI also changes the economics of inquiry. It can elaborate a proposed solution so quickly and convincingly that a weak initial framing hardens before reality has tested it. Spiral Developer therefore treats consequential questions as **proposed search frames**, not automatic premises. During inquiry the AI may expose hidden assumptions or test a materially different framing; during execution it should stop reopening settled decisions without new evidence.
+AI also changes the economics of inquiry. It can elaborate a proposed solution so quickly and convincingly that a weak initial framing hardens before reality has tested it. Spiral Developer therefore treats consequential human input as participation in **discourse**, not automatically as an instruction. While meaning is open, the AI should refine interpretation, expose hidden assumptions, and challenge a materially different framing when it could change the commitment or substantial downstream work. Only after a sufficiently explicit commitment should execution begin; once executing, the agent should stop reopening settled decisions without new evidence.
+
+> **discourse → commitment → execution; materially falsifying evidence → discourse**
 
 A useful principle is:
 
@@ -68,7 +70,7 @@ An understanding can be corrected or superseded while the source remains unchang
 
 A design represents the current understanding of how a request should be satisfied. An implementation realizes a design. Verification provides evidence about that realization. Acceptance provides evidence that the resulting behavior answers the originating intent.
 
-Do not create source and understanding artifacts ceremonially for every simple request. For consequential direct human input, implementation waits behind two premises: a human-confirmed Understanding and evidence that current effective behavior does not already satisfy it. Investigate enough to establish both, present them to the human before product modification, and reopen inquiry if either premise is later falsified. Crystallize source/understanding when origin, interpretation, disagreement, reframing, or those reality findings could matter to later reasoning.
+Do not create source and understanding artifacts ceremonially for every simple request. For consequential direct human input, implementation waits behind two premises: a human-confirmed Understanding and evidence that current effective behavior does not already satisfy it. Investigate enough to establish both, present them to the human before product modification, and reopen discourse if either premise is later falsified. Crystallize source/understanding when origin, interpretation, disagreement, reframing, or those reality findings could matter to later reasoning.
 
 When reality changes our understanding, create a new version in a new commit. Do not rewrite history to pretend later knowledge existed earlier.
 
@@ -100,7 +102,7 @@ Precision is useful once the problem is sufficiently understood. Before a conseq
 
 When a hidden premise could materially change downstream work, briefly ask whether the premise itself is established. Prefer the broader evidence-producing question when it is not. Do not perform this check for every local decision; use it where the cost of premature commitment is high.
 
-The goal is controlled collapse: preserve meaningful alternatives during inquiry, then commit decisively when current evidence justifies doing so.
+The goal is controlled collapse: preserve meaningful alternatives during discourse, then commit decisively when current evidence justifies doing so.
 
 ## 6. Reduce high-leverage uncertainty early
 

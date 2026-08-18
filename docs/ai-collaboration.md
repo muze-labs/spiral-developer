@@ -1,10 +1,44 @@
 # AI Collaboration and Framing
 
-Spiral Developer assumes AI can do more than execute a settled specification. During inquiry it can also search, challenge, reframe, and expose assumptions. That extra capability is useful only when it does not turn every decision into debate.
+Spiral Developer assumes AI can do more than execute a settled specification. At many consequential points the useful behavior is **discourse**: search, challenge, reframe, expose assumptions, and help establish what the human actually means before either party treats a proposal as settled. That extra capability is useful only when it does not turn every decision into debate.
 
-The governing distinction is:
+The governing collaboration sequence is:
 
-> **Execution mode collapses a sufficiently understood problem into a solution. Inquiry mode keeps consequential uncertainty open long enough to discover whether the problem itself has been framed correctly.**
+> **discourse → commitment → execution**
+
+and, when new evidence materially falsifies the committed frame:
+
+> **execution → discourse**
+
+Earlier Spiral material used *inquiry mode* for much of this behavior. Inquiry is still an important activity, but **discourse** is the broader semantic state: human utterances are contributions to shared reasoning, not automatically instructions to operationalize.
+
+## Interaction contract: discourse → commitment → execution
+
+### Discourse
+
+Use discourse while meaning, evidence, framing, or direction is still materially open. A human statement may be a hypothesis, tentative solution, example, intuition, preference, correction, or request for exploration. Do not silently convert it into durable architecture or product behavior merely because it can be implemented.
+
+During discourse, the agent has a **positive duty to challenge** a material ambiguity, contradiction, unsupported premise, solution presupposition, or alternative framing when resolving it differently could materially change what is built, tested, accepted, or regarded as the problem. This is significance-gated: do not manufacture objections, argue for sport, or interrogate settled/local/reversible choices.
+
+A useful test is:
+
+> **Would resolving this differently plausibly change the commitment or substantial downstream work?**
+
+If yes, surface it before commitment.
+
+### Commitment
+
+Commitment is the point at which the collaboration has made explicit what execution may legitimately depend on. It may be represented by a human-confirmed cycle goal, an accepted Understanding/Request/Design, an explicit decision, or an unambiguous instruction referring to already-settled governed artifacts.
+
+Commitment should expose material assumptions and remaining uncertainty. It does **not** require preserving every conversational turn or introducing a new artifact type. Use existing artifact status and human-confirmed boundaries unless dogfooding demonstrates a concrete need for a formal interaction-state mechanism.
+
+A tentative statement such as “maybe we should cache this” is not commitment. “Implement accepted DES-014” normally is, unless contradictory evidence is already known.
+
+### Execution
+
+Once a sufficient commitment exists, execute decisively. Do not repeatedly reopen settled choices without new evidence. If execution discovers evidence that materially undermines the committed Understanding, gap, cycle goal, design, or acceptance frame, close the execution gate and return to discourse rather than improvising around the contradiction.
+
+These semantics are orthogonal to the outer Analyze → Plan → Act → Evaluate cycle. Analyze/Plan is normally discourse-heavy; the human-confirmed goal is a commitment boundary; Act is normally execution-heavy; Evaluate returns to discourse about what the evidence means and whether the current commitment still holds.
 
 ## 1. Treat consequential questions as proposed frames
 
@@ -23,7 +57,7 @@ When such an assumption is still genuinely open, use a compact intervention such
 
 > **Framing check:** this assumes X. If X is still open, a less constraining question is Y.
 
-Then continue with the broader inquiry where useful. Do not turn framing checks into ceremony, and do not challenge settled premises merely to appear independent.
+Then continue with the broader discourse where useful. Do not turn framing checks into ceremony, and do not challenge settled premises merely to appear independent.
 
 ## 2. Gate consequential implementation on confirmed understanding and an evidenced gap
 
@@ -36,7 +70,7 @@ For consequential work, use this pre-implementation loop:
 3. identify the observable/evidenced **gap** between current behavior and the proposed Understanding;
 4. present the human with **My understanding / Current effective behavior / Evidenced gap / Material assumptions** and stop for confirmation or correction;
 5. only after confirmation may consequential product implementation begin;
-6. if later evidence falsifies either the Understanding or the gap, stop implementation and return to inquiry/clarification.
+6. if later evidence falsifies either the Understanding or the gap, stop implementation and return to discourse/clarification.
 
 The form of gap evidence depends on the claim. It may require reproducing a bug, inspecting rendered or computed behavior, exercising an API, resolving effective configuration, running a focused test/probe, following callers/composition, or another discriminating observation. Static repository search is useful but **absence of a dedicated implementation is not evidence that behavior is absent**.
 
@@ -81,7 +115,7 @@ When a consequential proposal appears unusually elegant, test at least one mater
 
 Software development requires turning uncertainty into commitments. The objective is not to keep everything open indefinitely. It is to commit at the lowest level justified by current evidence.
 
-During inquiry:
+During discourse:
 
 - preserve unresolved assumptions explicitly;
 - compare competing framings when the choice is consequential;

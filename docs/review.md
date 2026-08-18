@@ -58,7 +58,7 @@ Ask:
 4. For consequential direct human input, did the agent present a concrete Understanding **and evidenced gap** to the human and receive confirmation before product behavior was modified?
 5. In unfamiliar brownfield areas, did the agent show appropriate humility about its project-specific understanding and build enough affinity—or seek human guidance—to justify the scope of its gap evidence?
 6. Did the gap evidence establish current **effective behavior**, including indirect/shared mechanisms, rather than merely search for related or similarly named implementation?
-7. If no gap was established—or later evidence falsified it—did the agent stop/reopen inquiry instead of creating or continuing unnecessary implementation?
+7. If no gap was established—or later evidence falsified it—did the agent stop/reopen discourse instead of creating or continuing unnecessary implementation?
 8. If reconnaissance materially changed the apparent task, was that change returned to the human rather than silently reinterpreted by the agent?
 9. Where origin or interpretation matters, can we distinguish what was actually expressed/observed from what the project concluded it meant?
 10. Is missing, secondary, or unavailable source provenance represented honestly rather than silently reconstructed?

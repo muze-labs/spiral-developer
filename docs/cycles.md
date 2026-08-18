@@ -6,6 +6,14 @@ Spiral Developer uses an explicit outer feedback cadence:
 
 This is OODA-like in spirit, but Spiral keeps its own terms. The important property is not the label; it is that execution is bounded by a human-visible goal before work starts and a human-visible evaluation before new direction is chosen.
 
+The collaboration semantics inside that cadence are:
+
+> **discourse → commitment → execution**
+
+They are not another outer phase sequence. Analyze/Plan is normally discourse-oriented while the goal and framing are still open; human confirmation of the cycle goal is a commitment boundary; Act is normally execution-oriented; Evaluate returns to discourse about whether evidence supports the current commitment. If new evidence materially invalidates a settled frame, execution stops and the collaboration returns to discourse/re-planning.
+
+A human utterance during discourse is not automatically a task. The agent should challenge a material assumption or alternative framing when resolving it differently could change the cycle goal, acceptance model, architecture, trust boundary, or substantial downstream work. Once the frame is genuinely committed, avoid performative re-litigation.
+
 ## The cycle is the outer unit of progress
 
 A cycle is a bounded attempt to achieve **one coherent project outcome, reduce one important risk, or resolve one important uncertainty**.
@@ -81,7 +89,7 @@ Use `prompts/plan-cycle.md` as an interview, not a fixed form. The result should
 - **Non-goals** — adjacent work that should not silently enter the cycle;
 - **Pause/replan conditions** — evidence that would invalidate the goal or make continuing unsafe/wasteful.
 
-The human confirms or corrects the cycle goal before consequential execution. For consequential direct human input, if this planning interview already contains the concrete Understanding, current effective behavior, evidenced gap, and material assumptions required by the normal preflight gate, do not demand a second ceremonial confirmation.
+The human confirms or corrects the cycle goal before consequential execution. That confirmation is the cycle's commitment boundary: before it, proposed goals and implementation ideas remain discourse; after it, the agent may execute within the agreed goal without treating every subsequent comment as automatic scope change. For consequential direct human input, if this planning interview already contains the concrete Understanding, current effective behavior, evidenced gap, and material assumptions required by the normal preflight gate, do not demand a second ceremonial confirmation.
 
 For trivial/local/reversible work, keep this proportional: the explicit goal may be one sentence and the evaluation basis obvious.
 
@@ -136,6 +144,8 @@ Present the integrated result against the cycle goal, including:
 If the cycle exposed a new high-leverage assumption, surface it as a candidate next-cycle input with the reason late discovery could be costly and any cheap way to test it. Do not manufacture a risk list when nothing material emerged, and do not choose its priority until the next Analyze/Plan step reconciles it with governing direction.
 
 Do not immediately convert every evaluation observation into another implementation task.
+
+Evaluation returns the collaboration to discourse. Treat observations and suggestions as evidence/feedback first, then determine whether they alter the existing commitment or require a new one; do not operationalize a tentative evaluation remark automatically.
 
 Human feedback has two important meanings:
 
