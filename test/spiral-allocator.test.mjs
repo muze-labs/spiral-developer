@@ -106,6 +106,25 @@ test('independent clone and linked worktree get independent default namespaces',
   }
 });
 
+
+test('allocator fast-forwards stale local sequence past visible same-workspace slots', () => {
+  const root = mkdtempSync(join(tmpdir(), 'spiral-visible-floor-'));
+  try {
+    initRepo(root);
+    assert.equal(spiral(root, 'workspace', 'init', 'TEAM1'), 'TEAM1');
+
+    const ttl = `@prefix sd: <https://muze.nl/ns/spiral-developer#> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix project: <https://example.test/project/> .\nproject:REQ-X a sd:Request ; dcterms:identifier "REQ-20260818-TEAM1-7" ; sd:repositoryPath "requests/REQ-X.md" ; sd:status sd:Accepted .\n`;
+    execFileSync('mkdir', ['-p', join(root, 'requests')]);
+    execFileSync('sh', ['-c', `cat > "$1" <<'EOF'\n${ttl}EOF`, 'sh', join(root, 'requests/REQ-X.ttl')]);
+
+    const allocated = spiral(root, 'allocate', 'DES');
+    assert.match(allocated, /^DES-\d{8}-TEAM1-8$/);
+    assert.match(spiral(root, 'status'), /^sequence: 8$/m);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test('concurrent allocations in one workspace are serialized', async () => {
   const root = mkdtempSync(join(tmpdir(), 'spiral-concurrent-'));
   try {

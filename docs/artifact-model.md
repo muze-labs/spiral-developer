@@ -185,7 +185,9 @@ A new artifact/version prospectively replaces an earlier one without rewriting i
 
 ### `transforms`
 
-An implementation version materially revises, moves, replaces, splits, merges, or refactors one or more exact predecessor implementation versions. This is **implementation lineage**, not a current causal justification, so `sd:transforms` is deliberately not a subproperty of `sd:causalReference`.
+An artifact version points to one or more exact predecessor artifact versions that it materially revises, moves, replaces, splits, merges, refactors, or explicitly reconciles. This is **historical lineage**, not a current causal justification, so `sd:transforms` is deliberately not a subproperty of `sd:causalReference`.
+
+Implementation lineage is the common case. Distributed convergence adds another mandatory case: if a merge combines independent material revisions of the same stable governed artifact, the merge version records the immediate predecessor version from each parent lineage.
 
 ### `changeCausedBy`
 

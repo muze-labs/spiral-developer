@@ -112,9 +112,9 @@ Once you create a semantic causal commit, it is immutable evidence.
 
 If a commit is later discovered to be wrong, create a new corrective/superseding commit.
 
-If the cycle branch needs new work from the authoritative branch, merge the authoritative branch into the cycle branch. Do not rebase.
+If the cycle branch needs new accepted work from the authoritative branch, merge the authoritative branch into the cycle branch. Do not rebase. Prefer `git merge --no-commit` when governed artifacts may have changed on both histories; if the same stable artifact changed on both parents, reconcile it in the merge version and record both immediate predecessor versions with `sd:transforms` before creating the merge commit.
 
-Completed work is proposed through a pull request and integrated with a normal merge commit so original hashes survive. Human acceptance means ready to propose for integration, not permission to ignore target changes: immediately before merge, run `spiral validate integration --base <current-target> --head <candidate>` or validate the hosting platform's exact prospective merged/queued result. If the target has moved since the check, revalidate.
+An Active cycle branch must not merge into the authoritative branch or another Active cycle branch. Human acceptance closes the cycle (`sd:Accepted`) and makes it ready to propose for integration. Completed work is then proposed through a pull request and integrated with a normal merge commit so original hashes survive. Immediately before merge, run `spiral validate integration --base <current-target> --head <candidate> --base-branch <target-name> --head-branch <cycle-branch-name>` when branch names are available, or validate the hosting platform's exact prospective merged/queued result. If the target has moved since the check, revalidate.
 
 Uncommitted experimentation may be discarded. Do not commit every failed attempt merely to produce history. Commit when an artifact, decision, implementation step, or piece of evidence has crystallized enough to be useful causal evidence.
 
@@ -180,7 +180,7 @@ Before high-consequence planning, perform a framing check when useful. If a diff
 When modifying an implementation unit already governed by an `IMP-*` artifact, distinguish three things:
 
 - **effective provenance** — current causal references that still justify the implementation's present semantics;
-- **lineage** — `sd:transforms` references to exact predecessor implementation version(s);
+- **lineage** — for implementations, `sd:transforms` references to exact predecessor implementation version(s); the same historical relation is also used to preserve both predecessor lineages when parallel versions of any governed artifact explicitly converge;
 - **transition provenance** — `sd:changeCausedBy` and `sd:implementationChangeKind`, explaining why this revision happened.
 
 For a material revision, move, replacement, split, merge, or refactor of a governed unit:

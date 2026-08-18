@@ -70,7 +70,7 @@ spiral/CYC-014-short-goal
 
 Immediately verify the actual current branch against the active cycle ID. Repeat that branch/cycle check before each semantic causal commit and at evaluation; if the current branch still names another cycle, stop and correct the branch before continuing. Do not rely on conversational memory for this invariant.
 
-Internal tasks do not normally receive separate branches or PRs. The cycle branch is the integration/review boundary; semantic commits preserve finer causal granularity. A non-code investigation/evaluation cycle may not need a development branch.
+Internal tasks do not normally receive separate branches or PRs. The cycle branch is the integration/review boundary; semantic commits preserve finer causal granularity. An Active cycle branch must not merge into the authoritative branch or another Active cycle branch. Accepted authoritative work may be merged into an Active cycle branch for reconciliation. A non-code investigation/evaluation cycle may not need a development branch.
 
 Before consequential design or implementation, load the current project context and explicitly adopted culture/warning profiles. Before each semantic causal commit that introduces or changes versioned references, validate the staged causal graph where tooling exists; CI then validates the introduced commit range as a backstop.
 

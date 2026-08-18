@@ -1,0 +1,15 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:DES-20260818-DGB8Z-15
+    a sd:Design ;
+    dcterms:identifier "DES-20260818-DGB8Z-15" ;
+    sd:repositoryPath "designs/DES-20260818-DGB8Z-15-cycle-integration-and-convergence-validation.md" ;
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Explicit ;
+    sd:satisfies [
+        a sd:ArtifactReference ;
+        sd:artifact project:REQ-20260818-DGB8Z-14 ;
+        sd:gitCommit "4061cae908cbac036acd544d37ea6b1982577b41"
+    ] .

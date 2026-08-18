@@ -113,14 +113,14 @@ sd:accepts a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "
 sd:observes a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "observes" .
 sd:supersedes a rdf:Property ; rdfs:subPropertyOf sd:causalReference ; rdfs:label "supersedes" .
 
-# Implementation-history relations are deliberately separate from sd:causalReference.
+# Historical transition relations are deliberately separate from sd:causalReference.
 # They explain evolution through time, not which causes still justify current semantics.
 sd:transforms a rdf:Property ;
     rdfs:subPropertyOf sd:historicalReference ;
-    rdfs:domain sd:Implementation ;
+    rdfs:domain sd:Artifact ;
     rdfs:range sd:ArtifactReference ;
     rdfs:label "transforms" ;
-    rdfs:comment "Links an implementation version to the exact predecessor implementation version(s) it materially revised, moved, replaced, split, merged, or refactored." .
+    rdfs:comment "Links an artifact version to exact predecessor artifact version(s) it materially revised, moved, replaced, split, merged, refactored, or explicitly reconciled. Implementations use the same relation for implementation lineage." .
 
 sd:changeCausedBy a rdf:Property ;
     rdfs:subPropertyOf sd:historicalReference ;

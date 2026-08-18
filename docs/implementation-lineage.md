@@ -40,7 +40,7 @@ If requirement A originally introduced a 30-second timeout and requirement B lat
 
 ### Implementation lineage
 
-`sd:transforms` points from the current implementation version to the exact predecessor implementation version or versions that it materially revised, moved, replaced, split, merged, or refactored.
+`sd:transforms` is the general Spiral historical predecessor-version relation. This document focuses on its implementation-lineage use: it points from the current implementation version to the exact predecessor implementation version or versions that it materially revised, moved, replaced, split, merged, or refactored. Distributed development also uses the same relation when parallel versions of another governed artifact explicitly converge.
 
 It is deliberately **not** a subproperty of `sd:causalReference`. It means identity/evolution through implementation time, not current justification.
 

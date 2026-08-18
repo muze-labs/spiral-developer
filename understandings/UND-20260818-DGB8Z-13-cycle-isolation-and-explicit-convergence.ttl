@@ -1,0 +1,15 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:UND-20260818-DGB8Z-13
+    a sd:Understanding ;
+    dcterms:identifier "UND-20260818-DGB8Z-13" ;
+    sd:repositoryPath "understandings/UND-20260818-DGB8Z-13-cycle-isolation-and-explicit-convergence.md" ;
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Explicit ;
+    sd:interprets [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-20260818-DGB8Z-12 ;
+        sd:gitCommit "df5ab670863a7ef543f430e11afe91811567be48"
+    ] .
