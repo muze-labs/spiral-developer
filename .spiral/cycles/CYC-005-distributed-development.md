@@ -151,6 +151,18 @@ Material implementation decisions or deviations from the initial likely work:
 - Integration acceptance is deliberately split from cycle acceptance: the human can accept a branch as ready to integrate, but the exact candidate must still pass prospective combined-state validation against the current target immediately before merge.
 - The first RDF implementation uses Python `rdflib` behind a narrow helper boundary. This is a dogfooding packaging compromise, not a process commitment to a two-runtime CLI.
 
+Continuation after distributed-cycle review:
+
+- `df5ab670863a7ef543f430e11afe91811567be48` — captured the human-confirmed local workspace, cycle-branch isolation, and explicit convergence direction plus two dogfood observations from the uploaded repository.
+- `a17952f54e0b663743d7bbdb20f5afa4ece7fe91` — accepted `UND-20260818-DGB8Z-13`: cycle activity is branch-scoped; only closed cycles integrate outward; completed authoritative work may merge into an open cycle; divergent stable artifacts require explicit convergence.
+- `4061cae908cbac036acd544d37ea6b1982577b41` — required distributed cycle/convergence guards.
+- `2619c613866f1c67c6f0783336aa172a8b480102` — designed local allocator recovery, branch/closure validation, and explicit merge-version convergence.
+- `90991c8ce8f4d10a55016976240c977e52c80387` — first implementation of those guards.
+- `EVD-20260818-DGB8Z-17` falsified one part of that first implementation against the actual branch: because CYC-005's Active TTL had already been merged to `main`, TTL-only candidate discovery could miss continued cycle work.
+- `2fbd4d0d002a54a5c56fc8a12062ffc5d6f733d9` — revised `IMP-20260818-DGB8Z-16` so either cycle companion (`.md` or `.ttl`) identifies candidate-cycle activity, with a regression probe for the historical Active-cycle case.
+- The uploaded checkout also exposed stale private allocator state (`DGB8Z` sequence 6 while committed artifacts already used the namespace through 11); allocation now advances above the highest visible slot in its own workspace before issuing a new ID.
+- The uploaded history itself preserves a useful process failure: CYC-005 had been merged to `main` while its record remained `sd:Active`. The new rule is prospective; this history is not rewritten or disguised.
+
 Out-of-scope discoveries retained for later:
 
 - A full workflow engine, conversational-state automation, package-distribution strategy, and generic collaborative-editing/consensus support remain outside this cycle unless required to establish the agreed distributed invariants.
@@ -162,6 +174,8 @@ Integrated result against cycle goal:
 - Distributed artifact creation no longer depends on a repository-global next sequence: new artifacts use worktree-scoped allocation namespaces with one local sequence.
 - The repository now has a minimal executable `spiral` CLI for allocation, local graph validation, and prospective integration validation.
 - Prospective integration validation uses Git's combined tree and blocks mechanically explicit causal staleness/identity collisions that ordinary textual merge success would miss.
+- Cycle activity is now branch-scoped: unfinished cycle branches are not eligible to integrate outward, while accepted authoritative work may be incorporated into an open cycle for reconciliation.
+- Parallel revisions of one stable governed artifact require an explicit convergence version preserving both immediate predecessor lineages; a clean Git auto-merge alone is not sufficient evidence of semantic convergence.
 - Brownfield intake/project context now records the authoritative integration target and pre-merge validation mechanism.
 - GitHub/GitLab/plain-Git adapters are kept thin and invoke the same repository-local validation semantics.
 
@@ -169,8 +183,9 @@ Evidence / acceptance result:
 
 - `EVD-20260818-DGB8Z-6` verifies distributed-safe artifact allocation.
 - `EVD-20260818-DGB8Z-10` verifies the prospective-integration slice with real temporary Git histories, including locally valid branches that become causally stale only when combined and reconciliation by the later candidate.
-- `EVD-20260818-DGB8Z-11` verifies the current implementation revision after adding the repository's dogfood GitHub workflow and hardening the reusable host adapters.
-- Automated suite: 9/9 tests pass. Current repository snapshot and prospective CYC-005 integration against local `main` pass.
+- `EVD-20260818-DGB8Z-11` verifies the earlier integration-validator revision after adding the repository's dogfood GitHub workflow and hardening the reusable host adapters.
+- `EVD-20260818-DGB8Z-17` records the negative dogfood result that exposed the Active-cycle candidate-detection gap in the first convergence-guard revision.
+- Automated suite: 14/14 tests pass. The local repository snapshot validates. Prospective integration of this branch into `main` is now expected to fail with `open-cycle-integration` while CYC-005 remains Active; that failure is the intended closure gate, not a failing implementation result.
 - Human cycle acceptance is still pending.
 
 Metric or risk movement:
@@ -178,6 +193,8 @@ Metric or risk movement:
 - Accidental new-artifact identity conflicts no longer require a central sequence allocator and exceptional workspace collisions are mechanically detectable.
 - The previously silent risk of clean Git merges combining causally stale branches now has an explicit blocking integration check.
 - Integration validity is no longer assumed to be preserved merely because a cycle was accepted earlier.
+- Open-cycle state no longer depends on a mutable global "current cycle" pointer; the cycle branch plus its cycle record supplies the scope.
+- Clean textual convergence can no longer silently discard one causal branch when both sides revised the same governed artifact.
 
 What changed in our understanding:
 
@@ -189,6 +206,9 @@ Surprises / model mismatches:
 
 - The need for `spiral` emerged from several independent enforcement requirements rather than from a prior desire to build a CLI. This cycle supplied the first concrete reason to create that executable substrate.
 - A first naive supersession check would have treated any `sd:supersedes` edge as effective; dogfooding the validator exposed that the superseding artifact's own status matters.
+- The uploaded repository showed that CYC-005 itself had already entered `main` while still Active, turning an abstract branch-discipline concern into direct evidence for machine-enforced closure.
+- The checkout-local allocator counter was behind visible committed allocations in the same namespace, showing that private local state must recover conservatively from repository-visible evidence before allocating.
+- The first closure implementation looked only for changed cycle TTL files; dogfooding the actual historical branch showed that continued work on a pre-existing Active cycle could therefore evade the gate until companion Markdown changes were included in candidate discovery.
 
 Known compromises:
 
@@ -198,7 +218,7 @@ Known compromises:
 
 Unresolved issues within current goal:
 
-- No conceptual correctness gap remains known from the local distributed scenarios. Live-host CI dogfooding may still expose adapter/packaging issues and should keep this cycle open if they prove material before human acceptance.
+- No conceptual correctness gap remains known from the local distributed scenarios after the Active-cycle candidate-discovery correction. Live-host CI dogfooding may still expose adapter/packaging issues and should keep this cycle open if they prove material before human acceptance.
 
 Candidate next-cycle inputs:
 
@@ -208,7 +228,7 @@ Candidate next-cycle inputs:
 
 Human evaluation / feedback:
 
-- pending review of the integrated CYC-005 result.
+- the human agreed the local-state allocation model, cycle-branch isolation rules, explicit parallel-artifact convergence rule, and the subsequent concrete audit findings; final review of the corrected implementation/evidence is still pending.
 
 Cycle accepted, still open, or deliberately re-planned:
 
