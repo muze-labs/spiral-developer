@@ -6,6 +6,25 @@ The process is iterative, not a waterfall. Upstream artifacts may be revised whe
 
 Spiral operates on a **trust-but-verify** model. Give the agent substantial freedom for contained and reversible work because the verification architecture provides evidence and governance boundaries. Move verification or human authorization before actions whose unacceptable consequences could occur before the normal review boundary. See `trust-model.md`.
 
+
+## Collaboration semantics across the lifecycle
+
+The outer development cycle and the conversational collaboration state are related but distinct. Use:
+
+> **discourse → commitment → execution**
+
+while the outer cycle remains:
+
+> **Analyze → Plan → Act → Evaluate → Analyze …**
+
+During **discourse**, human input is evidence of intent/reasoning, not automatically an instruction. It may be tentative, incomplete, exploratory, or solution-shaped. The agent should refine meaning and has a positive duty to surface a material ambiguity, contradiction, unsupported assumption, or alternative framing when resolving it differently could materially change what is built, tested, accepted, or treated as the problem. Keep this proportional; do not manufacture disagreement.
+
+**Commitment** is the explicit-enough boundary that makes execution legitimate: for example a human-confirmed cycle goal, accepted Understanding/Request/Design, explicit decision, or unambiguous instruction referring to already-settled governed artifacts. Do not create a new artifact merely to label the state, and do not preserve every conversational turn. Tentative suggestions must not silently become durable decisions.
+
+During **execution**, follow the committed frame decisively. If materially contradicting evidence appears, stop the affected execution and return to discourse rather than silently improvising around the upstream mismatch.
+
+Analyze/Plan and Evaluate are normally discourse-heavy. Act is normally execution-heavy after commitment. A cycle may cross back to discourse when evidence invalidates a prior commitment. See `ai-collaboration.md`.
+
 ### Brownfield precondition: establish the project frame
 
 Before the first normal cycle in an existing project, if durable project context is missing or materially stale, conduct the guided intake in `brownfield-intake.md`. Intake has an explicit durable status: **incomplete**, **complete**, or **stale**. Every required intake topic must receive an explicit disposition; `Unknown`, `Not relevant`, and `Deferred with reason` are valid dispositions and are preferable to silent omission.
@@ -41,6 +60,8 @@ Size the cycle according to uncertainty and evaluation needs, not a blanket pref
 
 For consequential direct human input, cycle planning may also satisfy the Understanding/evidenced-gap confirmation gate when it presents the same concrete outcome, current effective behavior, gap, and material assumptions. Do not demand duplicate confirmation for ceremony.
 
+Human confirmation of the sufficiently explicit cycle goal is a **commitment boundary**, not merely conversational assent. It authorizes execution within that goal and its non-goals; it does not turn every later comment into scope expansion or a new instruction.
+
 After the human confirms the cycle, create/update its `CYC-*` Markdown record. For ordinary repository-changing cycles, create one dedicated branch from the authoritative branch, normally:
 
 ```text
@@ -62,7 +83,7 @@ Before treating consequential **direct human input** as implementation-ready, es
 1. **Confirmed Understanding** — a concrete account of the outcome the agent believes the human wants, including material assumptions, has been presented to and confirmed/corrected by the human.
 2. **Evidenced gap** — project evidence shows that the current effective system behavior does not already satisfy that Understanding.
 
-A pasted ticket, issue, email, or chat instruction is input to this inquiry, not automatically an executable specification. Before confirmation, the agent may inspect the repository/runtime and run disposable or read-only probes needed to formulate the Understanding and gap, but it must not modify consequential product behavior.
+A pasted ticket, issue, email, or chat instruction is input to this discourse, not automatically an executable specification or committed instruction. Before confirmation, the agent may inspect the repository/runtime and run disposable or read-only probes needed to formulate the Understanding and gap, but it must not modify consequential product behavior.
 
 Inspect enough of the system to answer questions such as:
 
@@ -81,7 +102,7 @@ Before consequential product modification, present a compact checkpoint to the h
 > **Evidenced gap:** …
 > **Material assumptions:** …
 
-Stop for confirmation or correction. If no gap can be established, do not invent implementation to match the task wording; report what appears already satisfied or uncertain. If later investigation falsifies either the confirmed Understanding or the evidenced gap, the gate closes again and inquiry resumes.
+Stop for confirmation or correction. If no gap can be established, do not invent implementation to match the task wording; report what appears already satisfied or uncertain. If later investigation falsifies either the confirmed Understanding or the evidenced gap, the gate closes again and discourse resumes.
 
 This is part of forming a trustworthy Understanding, not a new artifact class. Before crystallization, conversation may refine the wording freely; preserve only clarifications or source evidence that will matter causally later. Once a durable intent/understanding has caused accepted work, change it prospectively rather than rewriting history. Writing provenance after product code has already changed cannot retroactively satisfy this gate. Keep the guardrail proportional: do not stop genuinely trivial, unambiguous, local/reversible edits for ceremonial confirmation.
 

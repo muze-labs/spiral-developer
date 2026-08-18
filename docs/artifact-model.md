@@ -117,6 +117,8 @@ When an upstream artifact version is superseded, downstream artifacts are candid
 
 Artifact status is about the artifact's semantic lifecycle. Do not duplicate branch/merge state in the graph; Git already tells us whether a commit is part of authoritative history.
 
+For collaboration semantics, an `accepted` Understanding/Request/Design can serve as a **commitment signal** when that artifact is the decision boundary the current execution depends on. `draft` or merely `active` material must not be treated as execution authority simply because it is recent or human-authored. Acceptance is scoped to the artifact's meaning; it does not automatically authorize unrelated work or override a cycle goal/non-goal boundary. See `ai-collaboration.md`.
+
 ## Core relation semantics
 
 Use typed relations rather than generic “related to”.

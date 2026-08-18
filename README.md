@@ -19,6 +19,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 - Let the AI decompose the cycle into tasks and create multiple semantic commits without making every subtask a separate branch or human review boundary.
 - Treat Git history as evidence: causal commits are immutable and are never rebased, squashed, amended, or force-pushed away.
 - Prevent malformed versioned provenance before it enters immutable history: validate staged historical references against current Git ancestry, then validate introduced commit ranges in CI.
+- Treat consequential human input as discourse until meaning is sufficiently settled: a human utterance may be a hypothesis or tentative solution rather than an instruction. Require the agent to surface material assumptions/alternative framings before commitment, then execute decisively from the committed frame and return to discourse if new evidence falsifies it.
 - Store human-facing sources, interpreted understanding, intent, design, observations, and evidence as small version-controlled artifacts when they are causally useful.
 - Treat requests as derived claims about intent, not unquestioned roots: preserve source and interpretation provenance when it matters, and make unavailable origins explicit rather than inventing them.
 - Store the machine-readable causal graph in Turtle so ordinary RDF tooling can inspect and query it without an AI.
@@ -51,7 +52,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 - [`docs/trust-model.md`](docs/trust-model.md) — trust-but-verify, agent autonomy, and when verification must become a pre-action gate.
 - [`docs/process.md`](docs/process.md) — the normative development lifecycle.
 - [`docs/cycles.md`](docs/cycles.md) — the outer Analyze/Plan/Act/Evaluate cadence, scope stability, and cycle review boundary.
-- [`docs/ai-collaboration.md`](docs/ai-collaboration.md) — inquiry vs execution, framing resistance, and upstream correction.
+- [`docs/ai-collaboration.md`](docs/ai-collaboration.md) — discourse → commitment → execution, framing resistance, and upstream correction.
 - [`docs/artifact-model.md`](docs/artifact-model.md) — what is recorded and what the causal relations mean.
 - [`docs/git-workflow.md`](docs/git-workflow.md) — cycle branches, immutable commits, PRs, and merge-only history.
 - [`docs/causal-validation.md`](docs/causal-validation.md) — pre-commit prevention, strict Git-ancestry invariants, range validation, and history audits.
