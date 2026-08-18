@@ -1,0 +1,9 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:CYC-005
+    a sd:Cycle ;
+    dcterms:identifier "CYC-005" ;
+    sd:repositoryPath ".spiral/cycles/CYC-005-distributed-development.md" ;
+    sd:status sd:Active .
