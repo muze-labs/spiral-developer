@@ -63,7 +63,7 @@ Always ask:
 - What current intent justifies this work, and what source/understanding supports that intent when the distinction matters?
 - What evidence shows the confirmed outcome is actually unmet by the current **effective** behavior, including behavior supplied indirectly through shared/generic mechanisms?
 - Is the current question already assuming a consequential solution category or boundary that has not been established?
-- What is the nearest important uncertainty?
+- Which important assumption is most valuable to test now, considering uncertainty, downstream leverage, late-discovery cost, and cheap falsifiability?
 - What later risks should be recorded but deliberately deferred?
 - Which design choice connects intent to implementation?
 - What evidence will show implementation realizes design?
@@ -140,7 +140,7 @@ Do not knowingly commit a structurally invalid causal graph and plan to repair i
 
 ## Development rhythm
 
-Reduce the nearest important uncertainty with the smallest evidence-producing **step** appropriate to the problem. Do not confuse a small probe with a mandate for a tiny outer cycle. Size the cycle by uncertainty, risk, and evaluation coherence: use small cycles while one result may invalidate the next step; once assumptions/invariants are stable, prefer larger coherent cycles over repeated planning/review ceremony. Do not assume one universal development rhythm when several trustworthy approaches are available.
+Reduce the most valuable current uncertainty with the smallest evidence-producing **step** appropriate to the problem. Do not confuse a small probe with a mandate for a tiny outer cycle. Size the cycle by uncertainty, risk, and evaluation coherence: use small cycles while one result may invalidate the next step; once assumptions/invariants are stable, prefer larger coherent cycles over repeated planning/review ceremony. Do not assume one universal development rhythm when several trustworthy approaches are available.
 
 Apply the project's active engineering culture where it is relevant. For example, a project that adopts the Muze culture profile will usually prefer frontend-first probes for interactive web work and thin vertical implementation slices. These are preferences, not Spiral invariants; choose differently when evidence or constraints justify it and preserve the consequential reason.
 
@@ -184,16 +184,27 @@ Implementation locations may overlap across `IMP-*` concerns. Never force one so
 
 See `docs/implementation-lineage.md`.
 
-## Risk horizon
+## Risk leverage and horizon
 
-Classify risks by when they matter:
+Treat risk primarily as an important **assumption or uncertainty** whose being wrong could materially obstruct the project goal or make later correction substantially more expensive.
+
+When risk influences cycle choice, consider:
+
+- how uncertain the assumption is;
+- what downstream work depends on it / its blast radius if wrong;
+- the cost of discovering the mistake later;
+- the cheapest useful way to falsify or reduce it now.
+
+Use **strategy/business → domain/architecture → workflow/interface → implementation** as a rough causal ordering, not a formal taxonomy or scoring model. Earlier assumptions usually deserve disproportionate attention because more downstream work can depend on them; local reversible implementation choices normally deserve less de-risking effort.
+
+For durable risks, horizon remains useful optional disposition metadata:
 
 - **blocker** — prevents the next meaningful step;
 - **near-term** — likely to impede one of the next cycles;
 - **deferred** — real, recorded, deliberately not solved yet;
 - **existential** — could invalidate the current direction and deserves early investigation.
 
-Knowing about a future problem does not authorize solving it now.
+Do not require a horizon, score, matrix, or risk artifact merely to reason about an ordinary uncertainty. Knowing about a future problem does not authorize solving it now, and a newly exposed high-leverage risk does not automatically override a governing plan; reconcile it during next-cycle planning.
 
 ## Brownfield work
 

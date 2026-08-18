@@ -17,9 +17,9 @@ Apply Spiral Developer to this requested change.
 8. Capture the current request and observable desired outcomes, deriving it from the accepted understanding when one was material.
 9. If the request or proposed solution contains a consequential assumption, briefly perform a framing check: identify the assumption and a less constraining question when a different framing could materially change the work. Do not do this for routine local choices.
 10. Commit the request when it is sufficiently clear to guide the next step.
-11. Identify ambiguity and the nearest important uncertainty.
-12. Classify risks by horizon: blocker, near-term, deferred, existential.
-13. Choose the smallest evidence-producing probe for the nearest uncertainty. Apply an active culture preference such as frontend-first only when the project has adopted it and it fits the uncertainty; do not mistake the preference for a Spiral invariant.
+11. Identify material ambiguity and important assumptions/uncertainties. Use strategy/business → domain/architecture → workflow/interface → implementation as a rough causal ordering; consider uncertainty, downstream leverage, late-discovery cost, and cheap falsification rather than assigning numeric scores.
+12. Select the uncertainty worth reducing now; use a risk horizon only when a durable risk needs useful scheduling/disposition metadata.
+13. Choose the smallest evidence-producing probe for the selected uncertainty. Apply an active culture preference such as frontend-first only when the project has adopted it and it fits the uncertainty; do not mistake the preference for a Spiral invariant.
 14. Record explicit non-goals and later risks that should not shape current design.
 15. Identify active culture preferences that materially shape underdetermined design choices; distinguish them from hard constraints and record `sd:shapedBy` only when useful.
 16. Draft the smallest design elements needed and connect each in its companion Turtle resource to exact upstream commit hashes.

@@ -1,8 +1,17 @@
 # Risk Catalog
 
-Use this as a prompt for thinking, not a checklist.
+Use this as a prompt for thinking, not a checklist or mandatory risk register.
 
-Every active risk should have a **horizon**: blocker, near-term, deferred, or existential.
+When deciding which risk/uncertainty deserves attention, ask:
+
+- **How uncertain is the assumption?**
+- **What downstream work depends on it?** Earlier strategy/business assumptions often have a larger blast radius than domain/architecture, workflow/interface, or local implementation choices.
+- **What would late discovery cost?**
+- **What is the cheapest useful way to falsify or reduce it now?**
+
+Use **strategy/business → domain/architecture → workflow/interface → implementation** as a rough causal ordering, not a severity taxonomy or scoring model. Prefer cheap early tests of uncertain assumptions with large downstream consequences. Do not spend equivalent effort de-risking local implementation choices that are cheap to reverse.
+
+For durable `RSK-*` concerns, a horizon such as blocker, near-term, deferred, or existential may still be useful as scheduling/disposition metadata. Do not require one for every ordinary uncertainty.
 
 ## Product / feedback
 

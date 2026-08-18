@@ -1,0 +1,15 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:UND-RISK-001
+    a sd:Understanding ;
+    dcterms:identifier "UND-RISK-001" ;
+    sd:repositoryPath "understandings/UND-RISK-001-upstream-leverage.md" ;
+    sd:status sd:Active ;
+    sd:provenanceConfidence sd:Explicit ;
+    sd:interprets [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-RISK-001 ;
+        sd:gitCommit "051932459267d6c522e9ab6cc00d10a3d2c56485"
+    ] .

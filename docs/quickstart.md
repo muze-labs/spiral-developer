@@ -38,7 +38,7 @@ For a brownfield project, do not jump straight from installing Spiral to the fir
 Capture durable project context.
 During intake, establish project purpose/goals, important outcomes or metrics, consequential prior decisions and reversibility, important invariants/commitments, known tolerated problems, reliable feedback sources, poorly understood areas, and relevant future direction. Let the AI suggest plain-Markdown risk-discovery and metric profiles, but make explicit which are active, excluded/deferred, narrowed, or supplemented with custom concerns. `Other`, `Not sure`, and `Not relevant` are valid answers.
 
-After the human confirms the frame, let the AI compare it with repository/runtime/operational evidence and return candidate risks, metric gaps, missing measurements, and uncertainties. The human—not the profile—decides priority and may reject, defer, accept, edit, remove, or add risks. Use the resulting picture to choose the nearest important uncertainty for the first normal cycle.
+After the human confirms the frame, let the AI compare it with repository/runtime/operational evidence and return candidate risks, metric gaps, missing measurements, and uncertainties. The human—not the profile—decides priority and may reject, defer, accept, edit, remove, or add risks. Use the resulting picture to choose the most valuable uncertainty to reduce in the first normal cycle, giving extra weight to uncertain upstream assumptions whose late discovery would invalidate substantial downstream work.
 
 Explicitly adopt organization/project culture only when it should influence underdetermined engineering choices. A culture profile is defeasible guidance, not a hidden Spiral requirement. Use `sd:adoptsCulture` when exact culture-version provenance matters.
 
@@ -84,19 +84,17 @@ Do not create `SRC-*` or `UND-*` artifacts merely to fill folders. For a simple 
 
 Commit each crystallized upstream artifact before creating downstream references to it.
 
-## 5. Check the frame, then find the nearest important uncertainty
+## 5. Check the frame, then find the most valuable uncertainty to reduce
 
 If the request proposes a consequential solution or boundary, briefly test whether that premise is established before designing around it. Do not do this for every local decision. Use it where a different framing could materially change product direction, architecture, schema, trust boundaries, irreversible work, or acceptance.
 
-Then find the nearest important uncertainty. For consequential decisions, apply any explicitly adopted warning profiles and their significance gates. If a warning identifies a material project concern, record/disposition it through the normal risk mechanism; do not create warning ceremony for trivial cases.
+Then look for important assumptions whose being wrong would invalidate substantial downstream work. Use strategy/business → domain/architecture → workflow/interface → implementation as a rough causal ordering, not a scoring system. Ask how uncertain the assumption is, what depends on it, what late discovery would cost, and what cheap evidence could falsify or reduce it now.
 
-Classify risks as blocker, near-term, deferred, or existential.
-
-Resolve the blocker/near-term risk. Record later risks. Pull a deferred risk forward only if it can invalidate the current direction.
+For consequential decisions, apply any explicitly adopted warning profiles and their significance gates. If a warning identifies a material project concern, record/disposition it through the normal risk mechanism; do not create warning ceremony for trivial cases. Risk horizons may still be used for durable risks when useful, but they are not mandatory planning fields.
 
 ## 6. Get decision-quality evidence early
 
-Use the smallest realistic probe that can reduce the nearest important uncertainty. For projects adopting the Muze culture profile, interactive web work will often use a frontend-first probe; another project or another kind of uncertainty may need a different strategy.
+Use the smallest realistic probe that can reduce the selected high-leverage uncertainty. For projects adopting the Muze culture profile, interactive web work will often use a frontend-first probe; another project or another kind of uncertainty may need a different strategy.
 
 Optimize first for evidence and learning, not polish or speculative completeness.
 

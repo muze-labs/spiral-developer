@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:LES-017
+    a sd:Lesson ;
+    dcterms:identifier "LES-017" ;
+    sd:repositoryPath "lessons/LES-017-prioritize-upstream-risk.md" ;
+    sd:status sd:Active ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:UND-RISK-001 ;
+        sd:gitCommit "6f2bfe697f738b1972d6fec15255743cecf4f20e"
+    ] .

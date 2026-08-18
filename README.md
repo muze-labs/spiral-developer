@@ -29,7 +29,7 @@ Source and understanding are crystallized when origin or interpretation is mater
 - Record reusable `LES-*` lessons and allow evidence to change project practice, culture, or Spiral core prospectively rather than silently changing the process.
 - Obtain meaningful evidence before consequential commitments harden. The active culture profile may recommend a particular strategy, such as Muze's frontend-first approach for interactive web work.
 - For brownfield adoption, begin with a guided project intake with explicit `Incomplete/Complete/Stale` state. Every required topic must be dispositioned; while incomplete, keep the remaining topics visible rather than silently moving on. Then compare the confirmed frame with reality and let the human prioritize the resulting candidate risks.
-- Resolve the nearest important uncertainty and deliberately defer later risks unless they are existential.
+- Prefer cheap tests of uncertain assumptions whose failure would invalidate substantial downstream work; spend less de-risking effort on local reversible implementation choices, and keep durable risk horizons only where useful.
 - When a durable multi-cycle plan/roadmap exists, re-read it before selecting the next cycle and explicitly continue, revise, or deliberately deviate from it; do not let the latest discovery silently become the roadmap.
 - Before consequential commitments, treat the question as a proposed frame: surface hidden assumptions when a materially different framing could change what should be built.
 - Distinguish **capability from endorsement**: a coherent AI-generated plan proves buildability, not that the direction is right.
