@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:DES-20260818-DGB8Z-4
+    a sd:Design ;
+    dcterms:identifier "DES-20260818-DGB8Z-4" ;
+    sd:repositoryPath "designs/DES-20260818-DGB8Z-4-workspace-artifact-allocator.md" ;
+    sd:status sd:Accepted ;
+    sd:satisfies [
+        a sd:ArtifactReference ;
+        sd:artifact project:REQ-20260818-DGB8Z-3 ;
+        sd:gitCommit "2733d00f07052f41746f7f61602e2728dd875abc"
+    ] .
