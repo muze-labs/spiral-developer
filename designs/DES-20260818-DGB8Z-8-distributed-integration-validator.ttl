@@ -8,6 +8,11 @@ project:DES-20260818-DGB8Z-8
     sd:repositoryPath "designs/DES-20260818-DGB8Z-8-distributed-integration-validator.md" ;
     sd:status sd:Accepted ;
     sd:provenanceConfidence sd:Explicit ;
+    sd:supersedes [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260818-DGB8Z-8 ;
+        sd:gitCommit "2200912ba642a4854a10fb3fee97228f68559d7e"
+    ] ;
     sd:satisfies [
         a sd:ArtifactReference ;
         sd:artifact project:REQ-20260818-DGB8Z-7 ;

@@ -47,8 +47,10 @@ Let a live artifact `D` have a current/effective causal reference via relation `
 
 The prospective state is mechanically stale when either:
 
-1. some current artifact `S` has `sd:supersedes` pointing to the exact same pair `(A, T)`; or
+1. some **live/effective** current artifact `S` (`Active` or `Accepted`) has `sd:supersedes` pointing to the exact same pair `(A, T)`; or
 2. artifact identity `A` is currently present with status `Suspect`, `Superseded`, or `Rejected`.
+
+A `Draft`, `Suspect`, `Superseded`, or `Rejected` artifact that merely contains a supersession edge does not by itself retire an otherwise effective upstream version. Supersession becomes integration-significant when the superseding artifact itself is live/effective.
 
 The validator reports `D`, `R`, `A`, `T`, and (for case 1) the superseding artifact(s).
 
