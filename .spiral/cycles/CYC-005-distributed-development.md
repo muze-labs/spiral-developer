@@ -159,54 +159,75 @@ Out-of-scope discoveries retained for later:
 
 Integrated result against cycle goal:
 
-- pending
+- Distributed artifact creation no longer depends on a repository-global next sequence: new artifacts use worktree-scoped allocation namespaces with one local sequence.
+- The repository now has a minimal executable `spiral` CLI for allocation, local graph validation, and prospective integration validation.
+- Prospective integration validation uses Git's combined tree and blocks mechanically explicit causal staleness/identity collisions that ordinary textual merge success would miss.
+- Brownfield intake/project context now records the authoritative integration target and pre-merge validation mechanism.
+- GitHub/GitLab/plain-Git adapters are kept thin and invoke the same repository-local validation semantics.
 
 Evidence / acceptance result:
 
-- pending
+- `EVD-20260818-DGB8Z-6` verifies distributed-safe artifact allocation.
+- `EVD-20260818-DGB8Z-10` verifies the prospective-integration slice with real temporary Git histories, including locally valid branches that become causally stale only when combined and reconciliation by the later candidate.
+- Automated suite: 9/9 tests pass. Current repository snapshot and prospective CYC-005 integration against local `main` pass.
+- Human cycle acceptance is still pending.
 
 Metric or risk movement:
 
-- pending
+- Accidental new-artifact identity conflicts no longer require a central sequence allocator and exceptional workspace collisions are mechanically detectable.
+- The previously silent risk of clean Git merges combining causally stale branches now has an explicit blocking integration check.
+- Integration validity is no longer assumed to be preserved merely because a cycle was accepted earlier.
 
 What changed in our understanding:
 
-- pending
+- The core distributed model is two-part: decentralized creation plus serialized/revalidated integration. Identity allocation alone would have fixed only the visible filename problem.
+- Cycle acceptance and merge validity are distinct: human acceptance makes a candidate ready to integrate; the target-dependent validity claim must be re-established at the actual integration boundary.
+- Effective supersession itself has lifecycle semantics: a rejected/tentative superseder must not retire an otherwise effective upstream version.
 
 Surprises / model mismatches:
 
-- pending
+- The need for `spiral` emerged from several independent enforcement requirements rather than from a prior desire to build a CLI. This cycle supplied the first concrete reason to create that executable substrate.
+- A first naive supersession check would have treated any `sd:supersedes` edge as effective; dogfooding the validator exposed that the superseding artifact's own status matters.
 
 Known compromises:
 
-- pending
+- The first validator uses Node for CLI/Git orchestration and Python `rdflib` for RDF parsing. The boundary is explicit, but packaging is not yet polished.
+- Current/prospective snapshot coherence is not the complete historical/range validator described elsewhere in Spiral.
+- Host adapter examples were checked locally and against official documentation but not executed on hosted GitHub/GitLab CI in this local cycle. Host settings are still required to make the checks mandatory.
 
 Unresolved issues within current goal:
 
-- pending
+- No conceptual correctness gap remains known from the local distributed scenarios. Live-host CI dogfooding may still expose adapter/packaging issues and should keep this cycle open if they prove material before human acceptance.
 
 Candidate next-cycle inputs:
 
-- pending
+- Packaging/distribution of the `spiral` CLI only if actual adoption shows the Node+Python bootstrap is burdensome.
+- Unifying current snapshot validation with full historical/range validation only when a concrete enforcement path is ready.
+- A higher-level `spiral new` command only after type-specific scaffolding can preserve causal validity without placeholder provenance.
 
 Human evaluation / feedback:
 
-- pending
+- pending review of the integrated CYC-005 result.
 
 Cycle accepted, still open, or deliberately re-planned:
 
-Active.
+Active; implementation/evidence are ready for human evaluation.
 
 ## Process learning
 
 What context/constraint/evaluation helped:
 
-- pending
+- Treating ordinary Git conflicts as explicitly out of scope kept the distributed problem focused on conflicts/inconsistencies introduced by Spiral itself.
+- Separating local validity from integration validity exposed causal staleness that would have been missed by an identity-only cycle.
+- Dogfooding the allocator and validator inside their own cycle made sequence, supersession-lifecycle, and integration-boundary assumptions observable.
 
 What bookkeeping was useless:
 
-- pending
+- Preserving a globally meaningful sequential artifact number would have added coordination cost without adding trustworthy ordering; Git history already supplies authoritative chronology.
+- Host-specific causal logic would have duplicated semantics and made verification harder; thin adapters are sufficient.
 
 What should the environment learn from this cycle:
 
-- pending
+- Allocate artifact identity locally; validate exceptional collisions centrally at integration.
+- Treat accepted distributed work as provisional with respect to a moving target and revalidate the exact combined state immediately before merge.
+- Mechanical validators should challenge their own lifecycle assumptions: an edge such as `supersedes` is not effective merely because it exists on a non-effective artifact.
