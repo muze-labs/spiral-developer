@@ -1,0 +1,20 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:IMP-20260818-DGB8Z-16
+    a sd:Implementation ;
+    dcterms:identifier "IMP-20260818-DGB8Z-16" ;
+    sd:repositoryPath "implementations/IMP-20260818-DGB8Z-16-distributed-cycle-convergence-guards.md" ;
+    sd:status sd:Active ;
+    sd:implementationLocation "bin/spiral.mjs" ;
+    sd:implementationLocation "bin/spiral-rdf.py" ;
+    sd:implementationLocation "ontology/spiral-developer.ttl" ;
+    sd:implementationLocation "test/spiral-allocator.test.mjs" ;
+    sd:implementationLocation "test/spiral-integration.test.mjs" ;
+    sd:implementationLocation ".github/workflows/spiral-integration.yml" ;
+    sd:implements [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260818-DGB8Z-15 ;
+        sd:gitCommit "2619c613866f1c67c6f0783336aa172a8b480102"
+    ] .

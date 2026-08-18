@@ -41,6 +41,8 @@ A non-code investigation/evaluation cycle may not need a development branch. Cro
 
 The branch contains an evolving proposed reality. The authoritative branch remains accepted project reality.
 
+An Active cycle branch is therefore **not** an integration source for the authoritative branch or another Active cycle branch. Finish evaluation and record human acceptance (`sd:Accepted`) before proposing it for integration. The reverse direction is allowed: accepted authoritative work may be merged into an Active cycle so the open cycle can reconcile against the latest accepted reality.
+
 
 ## Distributed allocation
 
@@ -125,17 +127,17 @@ This is not untidiness. The mistaken understanding and its later correction are 
 
 ## Bringing the branch up to date
 
-If the authoritative branch moves while cycle work continues:
+If the authoritative branch moves while cycle work continues, merge it into the cycle branch rather than rebasing. When governed artifacts may have changed on both histories, prefer:
 
 ```text
-git merge main
+git merge --no-commit main
 ```
 
-(or the project's authoritative branch).
+(or the project's authoritative branch), then inspect the combined change **before creating the merge commit**.
 
-Resolve conflicts on the cycle branch and preserve the merge commit.
+Resolve ordinary source conflicts on the cycle branch. If both parent histories materially revised the same stable governed artifact, the merge commit is an explicit convergence version: reconcile effective provenance deliberately and add `sd:transforms` references to the latest predecessor version from **both** parent lineages. A clean auto-merge is not sufficient evidence that two independently evolved meanings were reconciled.
 
-Do not rebase the cycle branch onto the new authoritative tip once causal commits exist.
+Then create/preserve the merge commit. Do not create a semantic merge and plan to amend it later, and do not rebase the cycle branch onto the new authoritative tip once causal commits exist. See `distributed-development.md`.
 
 ## Pull request
 
@@ -146,7 +148,7 @@ The PR is evaluated by:
 - CI/CD and other automated checks;
 - human review of intent, design, evidence, risk, and result.
 
-Cycle acceptance means the branch is ready to propose for integration; it does not freeze the target branch. Immediately before merge, revalidate the actual combined state with `spiral validate integration --base <current-target> --head <candidate>` or validate the hosting platform's exact prospective merged/queued commit. If the target changes after a prior check, the old result is stale and must not authorize the merge. See `distributed-development.md`.
+Cycle acceptance means the branch is ready to propose for integration; it does not freeze the target branch. An Active cycle must not be merged. Immediately before merge, revalidate the actual combined state with `spiral validate integration --base <current-target> --head <candidate> --base-branch <target-name> --head-branch <cycle-branch-name>` when branch names are available, or validate the hosting platform's exact prospective merged/queued commit. If the target changes after a prior check, the old result is stale and must not authorize the merge. See `distributed-development.md`.
 
 See `review.md`.
 
@@ -181,6 +183,12 @@ The Turtle graph stores full hashes, not abbreviations.
 
 Do not store an artifact's own commit hash inside the commit that creates it; that is impossible because the commit hash depends on the commit contents. Only downstream artifacts need to record the already-existing upstream hash.
 
+
+## Governed artifact convergence and `sd:transforms`
+
+`sd:transforms` is a general historical predecessor-version relation on governed artifacts. Most artifact edits do not need a transform edge merely because text changed, but one case is mechanically important in distributed work: when a merge combines parent histories that both materially revised the same stable artifact, the merge version must preserve both immediate predecessor versions with `sd:transforms`. This prevents Git conflict resolution or clean auto-merge from silently erasing one lineage.
+
+Implementation artifacts additionally use the same relation for normal implementation lineage, with implementation-specific transition metadata described below.
 
 ## Implementation lineage and Git ancestry
 

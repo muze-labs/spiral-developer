@@ -121,6 +121,10 @@ spiral/CYC-014-keyboard-accessibility
 
 The agent may make multiple immutable causal commits on that branch. Internal tasks do not normally receive separate feature branches or pull requests.
 
+The branch is also the scope of unfinished cycle state. An **Active** cycle branch must not merge into the authoritative branch or into another Active cycle branch. Only after evaluation and human acceptance changes the cycle to `Accepted` may it become an integration candidate. Conversely, newly accepted authoritative work may be merged **into** an Active cycle branch so the cycle can reconcile against current project reality.
+
+This directional rule avoids a global mutable "current cycle" pointer: the cycle being worked is identified by the branch, while authoritative history is intended to contain completed cycle outcomes only. If older history violated this prospective rule, preserve that history and correct the process rather than rewriting it.
+
 This keeps human review aligned with the thing the human agreed to accomplish while preserving fine-grained causal history inside the branch.
 
 A non-code investigation or evaluation cycle may not need a development branch. Very unusual cycles spanning repositories or irreversible operational actions may require a different integration boundary; use the trust model rather than forcing the branch rule where it does not fit.
@@ -154,7 +158,7 @@ Human feedback has two important meanings:
 
 The human may deliberately re-scope an active cycle, but this should be explicit because it changes the evaluation contract.
 
-After the cycle is accepted and repository-changing work is merged, return to Analyze/Plan. Before agreeing the next cycle goal, re-read any governing multi-cycle plan/roadmap and reconcile the just-completed cycle's evidence with it. Do not choose the next direction by extrapolating from the newest discovery alone.
+After the cycle is accepted, prospective integration validation passes, and repository-changing work is merged, return to Analyze/Plan. Before agreeing the next cycle goal, re-read any governing multi-cycle plan/roadmap and reconcile the just-completed cycle's evidence with it. Do not choose the next direction by extrapolating from the newest discovery alone.
 
 ## Relationship to causal artifacts
 

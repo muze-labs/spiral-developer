@@ -59,6 +59,39 @@ function implementationTurtle({ id = 'IMP-C', designId = 'DES-B', designCommit }
   return `@prefix sd: <https://muze.nl/ns/spiral-developer#> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix project: <https://example.test/project/> .\n\nproject:${id}\n    a sd:Implementation ;\n    dcterms:identifier "${id}" ;\n    sd:repositoryPath "implementations/${id}.md" ;\n    sd:status sd:Accepted ;\n    sd:implements [\n        a sd:ArtifactReference ;\n        sd:artifact project:${designId} ;\n        sd:gitCommit "${designCommit}"\n    ] .\n`;
 }
 
+
+function cycleTurtle({ id, status = 'Active' }) {
+  return `@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://example.test/project/> .
+
+project:${id}
+    a sd:Cycle ;
+    dcterms:identifier "${id}" ;
+    sd:repositoryPath ".spiral/cycles/${id}.md" ;
+    sd:status sd:${status} .
+`;
+}
+
+function convergedRequestTurtle({ transforms = [] } = {}) {
+  const lineage = transforms.map((commit) => ` ;
+    sd:transforms [
+        a sd:ArtifactReference ;
+        sd:artifact project:REQ-BASE ;
+        sd:gitCommit "${commit}"
+    ]`).join('');
+  return `@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://example.test/project/> .
+
+project:REQ-BASE
+    a sd:Request ;
+    dcterms:identifier "REQ-BASE" ;
+    sd:repositoryPath "requests/REQ-BASE.md" ;
+    sd:status sd:Accepted${lineage} .
+`;
+}
+
 test('integration catches causal staleness introduced only by combining branches', () => {
   const root = mkdtempSync(join(tmpdir(), 'spiral-integration-'));
   try {
@@ -96,6 +129,109 @@ test('integration catches causal staleness introduced only by combining branches
     const reconciled = spiralResult(root, 'validate', 'integration', '--base', 'target', '--head', 'candidate');
     assert.equal(reconciled.status, 0, reconciled.stderr || reconciled.stdout);
     assert.match(reconciled.stdout, /validation: ok/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+
+test('open candidate cycle cannot integrate and branch name must match accepted cycle', () => {
+  const root = mkdtempSync(join(tmpdir(), 'spiral-cycle-gate-'));
+  try {
+    initRepo(root);
+    write(root, 'README.md', 'baseline\n');
+    commitAll(root, 'baseline');
+    git(root, 'branch', 'target');
+    git(root, 'switch', '-q', '-c', 'spiral/CYC-TEST-work');
+    write(root, '.spiral/cycles/CYC-TEST.ttl', cycleTurtle({ id: 'CYC-TEST', status: 'Active' }));
+    commitAll(root, 'open cycle');
+
+    const openResult = spiralResult(
+      root,
+      'validate', 'integration', '--base', 'target', '--head', 'spiral/CYC-TEST-work',
+      '--base-branch', 'main', '--head-branch', 'spiral/CYC-TEST-work',
+    );
+    assert.equal(openResult.status, 1, openResult.stdout + openResult.stderr);
+    assert.match(openResult.stderr, /open-cycle-integration/);
+
+    write(root, '.spiral/cycles/CYC-TEST.ttl', cycleTurtle({ id: 'CYC-TEST', status: 'Accepted' }));
+    commitAll(root, 'accept cycle');
+
+    const accepted = spiralResult(
+      root,
+      'validate', 'integration', '--base', 'target', '--head', 'spiral/CYC-TEST-work',
+      '--base-branch', 'main', '--head-branch', 'spiral/CYC-TEST-work',
+    );
+    assert.equal(accepted.status, 0, accepted.stderr || accepted.stdout);
+
+    const misnamed = spiralResult(
+      root,
+      'validate', 'integration', '--base', 'target', '--head', 'spiral/CYC-TEST-work',
+      '--base-branch', 'main', '--head-branch', 'feature/not-the-cycle',
+    );
+    assert.equal(misnamed.status, 1, misnamed.stdout + misnamed.stderr);
+    assert.match(misnamed.stderr, /cycle-branch-mismatch/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('another cycle cannot integrate into an open cycle target', () => {
+  const root = mkdtempSync(join(tmpdir(), 'spiral-open-cycle-target-'));
+  try {
+    initRepo(root);
+    write(root, 'README.md', 'baseline\n');
+    const baseline = commitAll(root, 'baseline');
+
+    git(root, 'switch', '-q', '-c', 'spiral/CYC-A-open');
+    write(root, '.spiral/cycles/CYC-A.ttl', cycleTurtle({ id: 'CYC-A', status: 'Active' }));
+    commitAll(root, 'open target cycle');
+
+    git(root, 'switch', '-q', '-c', 'spiral/CYC-B-done', baseline);
+    write(root, '.spiral/cycles/CYC-B.ttl', cycleTurtle({ id: 'CYC-B', status: 'Accepted' }));
+    commitAll(root, 'accepted candidate cycle');
+
+    const result = spiralResult(
+      root,
+      'validate', 'integration', '--base', 'spiral/CYC-A-open', '--head', 'spiral/CYC-B-done',
+      '--base-branch', 'spiral/CYC-A-open', '--head-branch', 'spiral/CYC-B-done',
+    );
+    assert.equal(result.status, 1, result.stdout + result.stderr);
+    assert.match(result.stderr, /open-cycle-target/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('parallel revisions of one governed artifact require both predecessor transforms at merge', () => {
+  const root = mkdtempSync(join(tmpdir(), 'spiral-artifact-convergence-'));
+  try {
+    initRepo(root);
+    write(root, 'requests/REQ-BASE.md', '# Request\n\nleft: base\n\nkeep-1\nkeep-2\nkeep-3\nkeep-4\nkeep-5\n\nright: base\n');
+    write(root, 'requests/REQ-BASE.ttl', convergedRequestTurtle());
+    const baseline = commitAll(root, 'baseline request');
+
+    git(root, 'switch', '-q', '-c', 'target');
+    write(root, 'requests/REQ-BASE.md', '# Request\n\nleft: target\n\nkeep-1\nkeep-2\nkeep-3\nkeep-4\nkeep-5\n\nright: base\n');
+    const targetRevision = commitAll(root, 'target revises request');
+
+    git(root, 'switch', '-q', '-c', 'candidate', baseline);
+    write(root, 'requests/REQ-BASE.md', '# Request\n\nleft: base\n\nkeep-1\nkeep-2\nkeep-3\nkeep-4\nkeep-5\n\nright: candidate\n');
+    const candidateRevision = commitAll(root, 'candidate revises request');
+
+    git(root, 'merge', '-q', '--no-edit', 'target');
+    const unannotated = spiralResult(root, 'validate', 'integration', '--base', 'target', '--head', 'candidate');
+    assert.equal(unannotated.status, 1, unannotated.stdout + unannotated.stderr);
+    assert.match(unannotated.stderr, /unreconciled-parallel-artifact-revision/);
+    assert.match(unannotated.stderr, /REQ-BASE/);
+
+    git(root, 'reset', '--hard', '-q', candidateRevision);
+    git(root, 'merge', '-q', '--no-commit', 'target');
+    write(root, 'requests/REQ-BASE.ttl', convergedRequestTurtle({ transforms: [candidateRevision, targetRevision] }));
+    commitAll(root, 'explicitly reconcile request lineages');
+
+    const reconciled = spiralResult(root, 'validate', 'integration', '--base', 'target', '--head', 'candidate');
+    assert.equal(reconciled.status, 0, reconciled.stderr || reconciled.stdout);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

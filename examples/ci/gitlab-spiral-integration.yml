@@ -10,14 +10,20 @@ spiral_integration:
     - apt-get update && apt-get install -y --no-install-recommends python3 python3-pip git
     - pip3 install --break-system-packages -r requirements.txt
   script:
+    # Always validate the actual source branch against the current target first so
+    # cycle closure/branch naming and candidate merge-history convergence are checked.
+    - git fetch origin "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
+    - TARGET_SHA="$(git rev-parse FETCH_HEAD)"
+    - git fetch origin "$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME"
+    - SOURCE_SHA="$(git rev-parse FETCH_HEAD)"
+    - >-
+      node bin/spiral.mjs validate integration
+      --base "$TARGET_SHA" --head "$SOURCE_SHA"
+      --base-branch "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
+      --head-branch "$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME"
     # In merged-results / merge-train pipelines, GitLab has already checked out a
-    # temporary combined commit. Validate that exact snapshot.
+    # temporary combined commit. Also validate that exact queued/current snapshot.
     - |
       if [ -n "${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-}" ]; then
         node bin/spiral.mjs validate
-      else
-        # A normal merge-request pipeline contains only the source branch.
-        # Fetch the actual current target and construct the prospective merge locally.
-        git fetch origin "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
-        node bin/spiral.mjs validate integration --base FETCH_HEAD --head HEAD
       fi

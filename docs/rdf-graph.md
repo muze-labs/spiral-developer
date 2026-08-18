@@ -193,7 +193,7 @@ This naturally encourages semantic causal commit boundaries.
 
 Relations that point to exact prior artifact versions are grouped under `sd:historicalReference`. This is an integrity category, not a claim that all such relations have the same causal meaning.
 
-For every persisted source version, the referenced target commit must be a **strict Git ancestor** of the source commit. Causal provenance (`sd:causalReference` and its subproperties), implementation lineage (`sd:transforms`), and transition provenance (`sd:changeCausedBy`) all obey this historical rule.
+For every persisted source version, the referenced target commit must be a **strict Git ancestor** of the source commit. Causal provenance (`sd:causalReference` and its subproperties), historical predecessor lineage (`sd:transforms`), and implementation transition provenance (`sd:changeCausedBy`) all obey this historical rule.
 
 This backward-only Git-ancestry invariant makes the versioned reference graph a DAG by construction. Conceptual artifact identities may recur across revisions without creating a versioned cycle. Validate staged changes before commit and introduced commit ranges in CI; see `causal-validation.md`.
 
@@ -217,12 +217,12 @@ The vocabulary includes:
 
 Each relation points to an `sd:ArtifactReference` when an exact historical upstream version matters. `sd:shapedBy` is current explanatory provenance for a defeasible culture influence; `sd:adoptsCulture` records which culture profile/version project context intentionally made active. `sd:adoptsWarningProfile` similarly activates an exact replaceable warning lens without making its signals hard constraints. See `culture.md` and `warning-profiles.md`.
 
-Implementation history also uses two deliberately separate relations:
+Historical transition modeling also uses deliberately separate relations:
 
-- `sd:transforms` — predecessor implementation version(s);
-- `sd:changeCausedBy` — exact artifact version(s) that caused this transition.
+- `sd:transforms` — exact predecessor artifact version(s); for implementations this is normal implementation lineage, and for distributed convergence it can preserve both parent lineages of any governed artifact;
+- `sd:changeCausedBy` — implementation-specific exact artifact version(s) that caused an implementation transition.
 
-These are **not** subproperties of `sd:causalReference`: lineage/transition history is not automatically current justification. See `implementation-lineage.md`.
+These are **not** subproperties of `sd:causalReference`: lineage/transition history is not automatically current justification. See `implementation-lineage.md` and `distributed-development.md`.
 
 ## Implementation lineage example
 

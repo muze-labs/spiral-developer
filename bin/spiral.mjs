@@ -5,6 +5,7 @@ import {
   existsSync,
   mkdirSync,
   readFileSync,
+  readdirSync,
   renameSync,
   rmSync,
   statSync,
@@ -192,12 +193,39 @@ function localDateStamp(date = new Date()) {
   return `${year}${month}${day}`;
 }
 
+function highestVisibleWorkspaceSequence(repoRoot, workspace) {
+  const pattern = new RegExp(`\\b[A-Z][A-Z0-9]{1,7}-\\d{8}-${workspace}-([1-9][0-9]*)\\b`, 'g');
+  let highest = 0;
+
+  function visit(dir) {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.name === '.git' || entry.name === 'node_modules') continue;
+      const path = join(dir, entry.name);
+      if (entry.isDirectory()) {
+        visit(path);
+        continue;
+      }
+      if (!entry.isFile() || !entry.name.endsWith('.ttl')) continue;
+      const text = readFileSync(path, 'utf8');
+      for (const match of text.matchAll(pattern)) {
+        const sequence = Number(match[1]);
+        if (Number.isSafeInteger(sequence)) highest = Math.max(highest, sequence);
+      }
+    }
+  }
+
+  visit(repoRoot);
+  return highest;
+}
+
 function allocate(typeInput) {
   const type = normalizeType(typeInput);
   const stateDir = resolveStateDir();
   return withAllocationLock(stateDir, () => {
     const workspace = initializeWorkspaceLocked(stateDir);
-    const next = readSequence(stateDir) + 1;
+    const localSequence = readSequence(stateDir);
+    const visibleSequence = highestVisibleWorkspaceSequence(resolveRepoRoot(), workspace);
+    const next = Math.max(localSequence, visibleSequence) + 1;
     if (!Number.isSafeInteger(next)) throw new Error('allocator sequence exhausted JavaScript safe integer range');
     atomicWrite(sequencePath(stateDir), `${next}\n`);
     return `${type}-${localDateStamp()}-${workspace}-${next}`;
@@ -232,10 +260,15 @@ function resolveCommit(ref) {
   return runGit(['rev-parse', '--verify', `${ref}^{commit}`]);
 }
 
-function runRdfValidator({ tree = null } = {}) {
+function runRdfValidator({ tree = null, integration = null } = {}) {
   const repoRoot = resolveRepoRoot();
   const args = [RDF_VALIDATOR, '--repo', repoRoot];
   if (tree) args.push('--tree', tree);
+  if (integration) {
+    args.push('--integration-base', integration.base, '--integration-head', integration.head);
+    if (integration.baseBranch) args.push('--base-branch', integration.baseBranch);
+    if (integration.headBranch) args.push('--head-branch', integration.headBranch);
+  }
   const result = spawnSync('python3', args, {
     cwd: repoRoot,
     encoding: 'utf8',
@@ -301,9 +334,12 @@ function prospectiveMergeTree(baseRef, headRef) {
   return { base, head, tree };
 }
 
-function validateIntegration(baseRef, headRef) {
+function validateIntegration(baseRef, headRef, { baseBranch = null, headBranch = null } = {}) {
   const { base, head, tree } = prospectiveMergeTree(baseRef, headRef);
-  const { payload, status: validationStatus } = runRdfValidator({ tree });
+  const { payload, status: validationStatus } = runRdfValidator({
+    tree,
+    integration: { base, head, baseBranch, headBranch },
+  });
   printValidation(payload, { scope: 'integration', base, head, tree });
   if (validationStatus !== 0) process.exit(validationStatus);
 }
@@ -316,7 +352,7 @@ Usage:
   spiral status
   spiral allocate <TYPE>
   spiral validate
-  spiral validate integration --base <target> --head <candidate>
+  spiral validate integration --base <target> --head <candidate> [--base-branch <name> --head-branch <name>]
 
 Commands:
   workspace init [ID]  Initialize this Git worktree's stable allocation namespace.
@@ -324,14 +360,14 @@ Commands:
   status               Show worktree-local allocator state.
   allocate <TYPE>      Allocate and print TYPE-YYYYMMDD-WORKSPACE-N.
   validate             Validate current Spiral Turtle/identity/causal snapshot invariants.
-  validate integration Validate the prospective merged state of target + candidate.
+  validate integration Validate the prospective merged state of target + candidate, including cycle/convergence guards.
 
 Examples:
   spiral workspace init AUKE
   spiral allocate source
   spiral allocate DES
   spiral validate
-  spiral validate integration --base main --head HEAD
+  spiral validate integration --base main --head HEAD --base-branch main --head-branch spiral/CYC-...
 `);
 }
 
@@ -348,14 +384,25 @@ try {
   } else if (args[0] === 'validate' && args.length === 1) {
     validateSnapshot();
   } else if (args[0] === 'validate' && args[1] === 'integration') {
-    const baseIndex = args.indexOf('--base');
-    const headIndex = args.indexOf('--head');
-    const base = baseIndex >= 0 ? args[baseIndex + 1] : null;
-    const head = headIndex >= 0 ? args[headIndex + 1] : null;
-    if (!base || !head || args.length !== 6) {
-      fail('usage: spiral validate integration --base <target> --head <candidate>');
+    const allowed = new Set(['--base', '--head', '--base-branch', '--head-branch']);
+    const values = new Map();
+    for (let index = 2; index < args.length; index += 2) {
+      const option = args[index];
+      const value = args[index + 1];
+      if (!allowed.has(option) || !value || values.has(option)) {
+        fail('usage: spiral validate integration --base <target> --head <candidate> [--base-branch <name> --head-branch <name>]');
+      }
+      values.set(option, value);
     }
-    validateIntegration(base, head);
+    const base = values.get('--base');
+    const head = values.get('--head');
+    if (!base || !head || args.length % 2 !== 0) {
+      fail('usage: spiral validate integration --base <target> --head <candidate> [--base-branch <name> --head-branch <name>]');
+    }
+    validateIntegration(base, head, {
+      baseBranch: values.get('--base-branch') || null,
+      headBranch: values.get('--head-branch') || null,
+    });
   } else {
     fail('unknown or incomplete command; run `spiral --help`');
   }

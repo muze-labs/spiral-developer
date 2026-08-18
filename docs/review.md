@@ -29,8 +29,10 @@ CI/CD should continue normal project checks and progressively add non-AI checks 
 Useful checks include:
 
 - source/build/tests/lint/security checks required by the project;
-- immediately before integration, `spiral validate integration --base <current-target> --head <candidate>` or validation of the hosting platform's exact prospective merged/queued result; local cycle acceptance alone is not sufficient if the target has moved;
-- for ordinary repository-changing cycles, the active PR/cycle branch name matches the `CYC-*` identity recorded in the cycle Markdown (or an explicit exception is recorded);
+- immediately before integration, `spiral validate integration --base <current-target> --head <candidate> --base-branch <target-name> --head-branch <cycle-branch-name>` when branch names are available, or validation of the hosting platform's exact prospective merged/queued result; local cycle acceptance alone is not sufficient if the target has moved;
+- the candidate cycle is already `Accepted`; an Active cycle branch is never integrated into accepted history;
+- for ordinary repository-changing cycles, the active PR/cycle branch name matches the `CYC-*` identity recorded in the cycle record (or an explicit exception is recorded);
+- candidate-introduced merge commits that combine parallel revisions of the same governed artifact explicitly retain both immediate predecessor versions with `sd:transforms`;
 - Turtle syntax parsing;
 - SHACL validation of the causal graph;
 - all referenced full Git hashes exist in repository history;
@@ -98,6 +100,6 @@ Corrections for an incomplete agreed cycle goal happen in new commits on the sam
 
 ## Merge
 
-After cycle evaluation and human review pass, revalidate the candidate against the actual current target/prospective merged state. Only after that required integration check passes should the work merge with a normal merge commit. If the target moves before integration, re-run the check against the new state. Then return to Analyze/Plan for the next cycle.
+After cycle evaluation and human review pass, record the cycle as `Accepted`, then revalidate the candidate against the actual current target/prospective merged state. Only after that required integration check passes should the work merge with a normal merge commit. If the target moves before integration, re-run the check against the new state. Then return to Analyze/Plan for the next cycle.
 
 Do not squash or rebase the cycle history.
