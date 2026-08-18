@@ -1,0 +1,15 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:UND-20260818-DGB8Z-2
+    a sd:Understanding ;
+    dcterms:identifier "UND-20260818-DGB8Z-2" ;
+    sd:repositoryPath "understandings/UND-20260818-DGB8Z-2-workspace-scoped-artifact-identity.md" ;
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Explicit ;
+    sd:interprets [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-20260818-DGB8Z-1 ;
+        sd:gitCommit "4e1eaddb745ccef099a58d9d3d2eb299281eb1c5"
+    ] .
