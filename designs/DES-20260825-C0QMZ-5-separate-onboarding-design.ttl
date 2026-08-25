@@ -1,0 +1,26 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+@prefix culture: <https://muze.nl/ns/spiral-developer/culture/> .
+
+project:DES-20260825-C0QMZ-5
+    a sd:Design ;
+    dcterms:identifier "DES-20260825-C0QMZ-5" ;
+    sd:repositoryPath "designs/DES-20260825-C0QMZ-5-separate-onboarding-design.md" ;
+    sd:status sd:Active ;
+    sd:provenanceConfidence sd:Explicit ;
+    sd:satisfies [
+        a sd:ArtifactReference ;
+        sd:artifact project:REQ-20260825-C0QMZ-4 ;
+        sd:gitCommit "5537c95fdf2e4593c04537626d37708380767500"
+    ] ;
+    sd:shapedBy [
+        a sd:ArtifactReference ;
+        sd:artifact culture:CUL-MUZE-001 ;
+        sd:gitCommit "835e290950429f7b44455f9c09b9770c8a8325b1"
+    ] ;
+    sd:historicalReference [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260825-C0QMZ-5 ;
+        sd:gitCommit "5537c95fdf2e4593c04537626d37708380767500"
+    ] .
