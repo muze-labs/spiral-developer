@@ -1,5 +1,8 @@
 # Spiral Developer
 
+**For AI/automated agents:** See [BOOTSTRAP.md](BOOTSTRAP.md)  
+**For human developers:** See [docs/quickstart.md](docs/quickstart.md)
+
 Spiral Developer is an AI-native software-development process built around **trust but verify**.
 
 It assumes AI can perform substantial design and implementation work with more autonomy than conventional human-supervised coding workflows. That autonomy is justified by a verification architecture that makes intent, constraints, decisions, evidence, provenance, and acceptance explicit enough for the software-producing system to be inspected, challenged, rejected, and corrected. Permission to act is not an assumption of correctness.
@@ -40,11 +43,11 @@ Source and understanding are crystallized when origin or interpretation is mater
 
 ## Who should read what
 
-**New project experiment:** start with [`docs/quickstart.md`](docs/quickstart.md).
+**AI/automated agents:** See [BOOTSTRAP.md](BOOTSTRAP.md) for minimal, actionable onboarding. For detailed operating instructions, see [`AGENTS.md`](AGENTS.md).
 
-**AI collaborators:** start with [`AGENTS.md`](AGENTS.md).
+**Human developers:** start with [`docs/quickstart.md`](docs/quickstart.md) for a progressive introduction.
 
-**Human collaborators:** start with [`CONTRIBUTING.md`](CONTRIBUTING.md).
+**Human collaborators:** see [`CONTRIBUTING.md`](CONTRIBUTING.md) for contribution guidelines.
 
 **Canonical process and semantics:**
 
