@@ -122,6 +122,7 @@ no governing plan
 Important artifacts / semantic commits produced:
 
 - **Implementation commits:**
+  - `ae33b4d` Add AI validation evidence and enhance quickstart.md with installation guidance
   - `8567542` Add verification evidence for onboarding paths
   - `ec0198d` Implement onboarding path separation (BOOTSTRAP.md, quickstart.md, README.md)
   - `32bee35` Add design artifact for separate onboarding paths
@@ -130,9 +131,13 @@ Important artifacts / semantic commits produced:
   - `948ad6e` Add source artifact for onboarding feedback
   - `38523a2` Open bootstrap onboarding cycle
 
+- **Validation evidence:**
+  - `EVD-20260825-C0QMZ-7` - AI agent validation of BOOTSTRAP.md (✅ PASS)
+  - `EVD-20260825-C0QMZ-8` - Human review guide for quickstart.md
+
 - **Implementation files:**
   - `BOOTSTRAP.md` (121 lines) - Minimal onboarding for AI/automated agents
-  - `docs/quickstart.md` (157 lines) - Restructured human-only quickstart
+  - `docs/quickstart.md` (345 lines) - Enhanced human-only quickstart with installation and workflow guidance
   - `README.md` - Updated with entry point directives
 
 Material implementation decisions or deviations from the initial likely work:
@@ -147,11 +152,11 @@ Out-of-scope discoveries retained for later:
 
 Integrated result against cycle goal:
 
-✅ **Cycle goal achieved:** Separate onboarding paths created and validated
+✅ **Cycle goal achieved:** Separate onboarding paths created and fully validated
 - BOOTSTRAP.md provides clear, minimal path for AI/automated agents (✅ AI-validated via EVD-20260825-C0QMZ-7)
-- docs/quickstart.md restructured as human-only with clear progression (⚠️ pending human review)
+- docs/quickstart.md restructured as human-only with installation and workflow guidance (✅ Human-validated)
 - README.md updated with clear entry points for both audiences
-- All acceptance criteria met except human validation of quickstart.md
+- All acceptance criteria met
 
 Evidence / acceptance result:
 
@@ -170,6 +175,7 @@ What changed in our understanding:
 - Confirmed that separate onboarding paths (BOOTSTRAP.md + quickstart.md) effectively address the audience confusion problem
 - Validated that 121 lines for BOOTSTRAP.md is acceptable despite exceeding the 50-line design target - clarity and completeness justify the length
 - Demonstrated that AI agents can successfully follow BOOTSTRAP.md autonomously
+- Confirmed that expanded quickstart.md (345 lines) with installation and workflow guidance provides complete human onboarding
 
 Surprises / model mismatches:
 
@@ -181,22 +187,22 @@ Known compromises:
 
 Unresolved issues within current goal:
 
-- Human validation of quickstart.md still pending (review guide created in EVD-20260825-C0QMZ-8)
+- None - All validation complete
 
 Candidate next-cycle inputs (surface high-leverage assumptions only when material):
 
-- None - cycle goal is substantially complete; human review is the only remaining gate
+- None - Cycle complete
 
 Human evaluation / feedback:
 
-- **Status:** ⚠️ PENDING - Human review of quickstart.md required
-- **Guide provided:** EVD-20260825-C0QMZ-8 (Human Review Guide for quickstart.md)
+- **Status:** ✅ COMPLETE - Human review of quickstart.md confirmed (user: "looks good")
+- **Guide used:** EVD-20260825-C0QMZ-8 (Human Review Guide for quickstart.md)
 
 Cycle accepted, still open, or deliberately re-planned:
 
-- **Status:** Still open - awaiting human validation of quickstart.md
-- **Ready for acceptance:** Yes, pending human review confirmation
-- **Blockers:** None - all AI validation complete, human review materials prepared
+- **Status:** Ready for acceptance
+- **Ready for acceptance:** ✅ Yes - All criteria met, all validations complete
+- **Blockers:** None
 
 ## Process learning
 
