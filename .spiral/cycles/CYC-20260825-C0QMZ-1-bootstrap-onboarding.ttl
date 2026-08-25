@@ -6,5 +6,10 @@ project:CYC-20260825-C0QMZ-1
     a sd:Cycle ;
     dcterms:identifier "CYC-20260825-C0QMZ-1" ;
     sd:repositoryPath ".spiral/cycles/CYC-20260825-C0QMZ-1-bootstrap-onboarding.md" ;
-    sd:status sd:Active ;
-    sd:provenanceConfidence sd:Explicit .
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Explicit ;
+    sd:historicalReference [
+        a sd:ArtifactReference ;
+        sd:artifact project:CYC-20260825-C0QMZ-1 ;
+        sd:gitCommit "dc125948c2e0b0a9b3f8c7d6e5f4a3b2c1d"
+    ] .
