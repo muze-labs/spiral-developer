@@ -1,0 +1,20 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:UND-20260825-C0QMZ-3
+    a sd:Understanding ;
+    dcterms:identifier "UND-20260825-C0QMZ-3" ;
+    sd:repositoryPath "understandings/UND-20260825-C0QMZ-3-bootstrap-onboarding-gap.md" ;
+    sd:status sd:Active ;
+    sd:provenanceConfidence sd:Evidenced ;
+    sd:interprets [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-20260825-C0QMZ-2 ;
+        sd:gitCommit "948ad6eaccaab910a094208bd54504d49e998e30"
+    ] ;
+    sd:historicalReference [
+        a sd:ArtifactReference ;
+        sd:artifact project:UND-20260825-C0QMZ-3 ;
+        sd:gitCommit "948ad6eaccaab910a094208bd54504d49e998e30"
+    ] .
