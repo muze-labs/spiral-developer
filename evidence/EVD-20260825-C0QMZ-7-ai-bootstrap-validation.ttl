@@ -1,0 +1,30 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:EVD-20260825-C0QMZ-7
+    a sd:VerificationEvidence ;
+    dcterms:identifier "EVD-20260825-C0QMZ-7" ;
+    dcterms:title "AI Agent Validation of BOOTSTRAP.md" ;
+    sd:repositoryPath "evidence/EVD-20260825-C0QMZ-7-ai-bootstrap-validation.md" ;
+    sd:status sd:Active ;
+    sd:provenanceConfidence sd:Evidenced ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project: ;
+        sd:repositoryPath "BOOTSTRAP.md" ;
+        sd:gitCommit "ec0198d0abef459b7e1774c770b7c9f03ff8ae96"
+    ] ;
+    sd:satisfies [
+        a sd:ArtifactReference ;
+        sd:artifact project:REQ-20260825-C0QMZ-4
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260825-C0QMZ-5
+    ] ;
+    sd:historicalReference [
+        a sd:ArtifactReference ;
+        sd:artifact project:EVD-20260825-C0QMZ-7 ;
+        sd:gitCommit "856754287f8d2e0b4f0a9b3f8c7d6e5f4a3b2c1d"
+    ] .

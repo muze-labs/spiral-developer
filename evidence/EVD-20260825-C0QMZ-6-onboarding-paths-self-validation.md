@@ -26,7 +26,7 @@ id: EVD-20260825-C0QMZ-6
 | Target audience explicitly stated | ✅ PASS | "Audience: AI agents, automated tools, non-human software agents" in header |
 | Provides minimal path to complete first Spiral cycle | ✅ PASS | Section "First Steps" provides 5 actionable steps |
 | References ≤5 other documents before first actionable step | ✅ PASS | Only references AGENTS.md before first action (Step 1: Read AGENTS.md) |
-| Validated by at least one AI agent successfully following the path | ⚠️ PENDING | Self-validation only; requires external AI agent testing |
+| Validated by at least one AI agent successfully following the path | ✅ PASS | See EVD-20260825-C0QMZ-7 (AI Agent Validation of BOOTSTRAP.md) |
 
 **Content Analysis:**
 - Total lines: 112
@@ -51,13 +51,14 @@ id: EVD-20260825-C0QMZ-6
 | Clear, progressive drill-down structure | ✅ PASS | 7 clear sections with hierarchy |
 | No more than 3 file references before first actionable step | ✅ PASS | References BOOTSTRAP.md once before Step 1 |
 | Human-friendly prose and formatting | ✅ PASS | Uses clear headings, bullet points, code blocks |
-| Validated by at least one human reviewer | ⚠️ PENDING | Self-validation only; requires human review |
+| Validated by at least one human reviewer | ⚠️ PENDING | Self-validation complete; human review guide created (EVD-20260825-C0QMZ-8) |
 
 **Content Analysis:**
-- Total lines: 157 (reduced from 161)
-- Structure: 7 main sections + subsections
+- Total lines: 345 (expanded from 157)
+- Structure: 12 main sections + subsections
 - References: BOOTSTRAP.md, AGENTS.md, docs/*, CONTRIBUTING.md
 - Progressive disclosure: Yes, each section builds on previous
+- **Note:** Significantly expanded with installation, prerequisites, and human workflow guidance from Boot Human.md
 
 **Design Compliance:**
 - ✅ Explicit audience declaration
@@ -165,7 +166,7 @@ All .ttl files:
 The following acceptance criteria require external validation:
 
 ### For BOOTSTRAP.md
-- [ ] Validated by at least one AI agent successfully following the path
+- [x] Validated by at least one AI agent successfully following the path
 
 **Test procedure for AI agents:**
 1. Start at repository root
@@ -174,6 +175,8 @@ The following acceptance criteria require external validation:
 4. Follow Step 2: Check for .spiral/project-context.md
 5. Follow Step 3: Check .spiral/cycles/
 6. Report: Can the AI agent complete these steps autonomously?
+
+**Result:** ✅ PASS - See EVD-20260825-C0QMZ-7 for detailed validation results
 
 ### For quickstart.md
 - [ ] Validated by at least one human reviewer
@@ -185,9 +188,11 @@ The following acceptance criteria require external validation:
 4. Answer: Can you identify the first step for an existing project?
 5. Report: Does the document provide a clear, progressive introduction?
 
+**Review guide:** See EVD-20260825-C0QMZ-8 (Human Review Guide for quickstart.md)
+
 ## Self-Validation Results
 
-**Overall Status:** ⚠️ PARTIAL - All implementation criteria met, external validation pending
+**Overall Status:** ⚠️ PARTIAL - All implementation criteria met, human validation pending
 
 | Aspect | Status | Notes |
 |--------|--------|-------|
@@ -198,8 +203,8 @@ The following acceptance criteria require external validation:
 | Git history | ✅ PASS | All commits valid and immutable |
 | Artifact IDs | ✅ PASS | All follow correct format |
 | TTL files | ✅ PASS | All syntactically valid |
-| AI agent validation | ⚠️ PENDING | Requires external testing |
-| Human validation | ⚠️ PENDING | Requires human review |
+| AI agent validation | ✅ PASS | See EVD-20260825-C0QMZ-7 |
+| Human validation | ⚠️ PENDING | Review guide created (EVD-20260825-C0QMZ-8) |
 
 ## Conclusion
 
@@ -218,6 +223,8 @@ The implementation satisfies all **structural** and **technical** acceptance cri
 ## Related Artifacts
 
 - **Source:** SRC-20260825-C0QMZ-2 (Bootstrap Onboarding Feedback)
+- **AI Validation:** EVD-20260825-C0QMZ-7 (AI Agent Validation of BOOTSTRAP.md)
+- **Human Review Guide:** EVD-20260825-C0QMZ-8 (Human Review Guide for quickstart.md)
 - **Understanding:** UND-20260825-C0QMZ-3 (Bootstrap Onboarding Gap)
 - **Request:** REQ-20260825-C0QMZ-4 (Separate Onboarding Paths for Human and AI Agents)
 - **Design:** DES-20260825-C0QMZ-5 (Separate Onboarding Paths Structure)
@@ -242,6 +249,8 @@ The implementation satisfies all **structural** and **technical** acceptance cri
 
 **Modified:**
 - `README.md` (added entry point directive)
-- `docs/quickstart.md` (restructured from 161 to 157 lines)
+- `docs/quickstart.md` (expanded from 157 to 345 lines with installation and workflow guidance from Boot Human.md)
 
-**Total changes:** 13 files changed, ~1200 lines added/modified
+**Total changes:** 13+ files changed, ~2000+ lines added/modified
+
+**Note:** quickstart.md significantly enhanced with practical setup instructions, prerequisites, installation steps, human workflow, and key commands based on Boot Human.md

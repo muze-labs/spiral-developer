@@ -14,6 +14,19 @@
 
 ---
 
+## Your Role in Spiral Developer
+
+As a human in the Spiral Developer process, **you are the authority** over:
+
+- **Meaning:** What the project should achieve
+- **Intent:** Why changes are needed
+- **Acceptance:** Whether outcomes satisfy requirements
+- **Judgment:** Risk appetite and consequential decisions
+
+The AI agent handles execution, but **you** provide the direction and make the final calls.
+
+---
+
 ## What is Spiral Developer?
 
 **Elevator pitch:** Spiral Developer is an **AI-native software development process** built around **trust but verify**.
@@ -33,13 +46,97 @@ Inner causal chain:
 
 ---
 
+## Prerequisites
+
+### What You Need Installed
+
+```bash
+# Git (2.30+)
+git --version  # Verify installed
+
+# Python (3.10+ for CLI tools)
+python3 --version
+
+# RDF validation (pick one)
+pip install rdflib pyshacl  # Python-based
+# OR
+brew install jena            # macOS, Java-based
+# OR
+sudo apt-get install jena    # Debian/Ubuntu
+```
+
+### What You Need to Know
+
+- Basic Git: checkout, branch, commit, push, pull, merge
+- Your project's domain and goals
+- What "done" looks like for your features
+- VS Code workspace management (optional but recommended)
+
+---
+
+## Installation
+
+### Step 1: Clone Spiral Developer Framework
+
+Get the Spiral Developer framework sources:
+
+```bash
+# Clone into .spiral-core folder in your workspace
+cd /path/to/your/workspace
+git clone https://github.com/muze-labs/spiral-developer.git .spiral-core
+```
+
+### Step 2: Create Your Project
+
+Create your project in a **separate folder** from `.spiral-core`:
+
+```bash
+# Create project directory (separate from .spiral-core)
+mkdir my-project
+cd my-project
+
+# Initialize Git for your project
+git init
+```
+
+### Step 3: Set Up VS Code Workspace (Recommended)
+
+Use [VS Code Multi-Root Workspaces](https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces) to work with both your project and Spiral Developer together:
+
+1. Create a workspace file:
+   ```bash
+   cat > my-project.code-workspace << 'EOF'
+   {
+     "folders": [
+       {"path": "../.spiral-core"},
+       {"path": "."}
+     ],
+     "settings": {}
+   }
+   EOF
+   ```
+
+2. Open this workspace in VS Code:
+   ```bash
+   code my-project.code-workspace
+   ```
+
+### Step 4: Initialize Spiral in Your Project
+
+Tell your AI agent to set up Spiral Developer:
+
+**You say to AI:**
+```
+"Set up Spiral Developer in this project. The framework is available at ../.spiral-core/"
+```
+
+The AI will create the `.spiral/` directory structure and link to the framework resources.
+
+---
+
 ## Quick Start
 
-### Step 1: Read This Document
-
-You're doing it now! This quickstart provides a progressive introduction. Read through the sections that follow to understand the basics.
-
-### Step 2: Check Project Status
+### Step 1: Check Project Status
 
 Check if your project has Spiral Developer set up:
 
@@ -50,15 +147,6 @@ ls -la .spiral/ 2>/dev/null
 
 - **If `.spiral/` exists:** Your project already uses Spiral. See ["Working in a Spiral Project"](#working-in-a-spiral-project) below.
 - **If `.spiral/` does NOT exist:** You're starting fresh. See ["Adopting Spiral in Your Project"](#adopting-spiral-in-your-project) below.
-
-### Step 3: For Brownfield Projects
-
-If you're bringing Spiral to an existing project, complete the **guided brownfield intake** before starting your first cycle:
-
-1. Read [docs/brownfield-intake.md](../docs/brownfield-intake.md)
-2. Work through the 11 required intake topics
-3. Document the results in `.spiral/project-context.md`
-4. Mark intake status as **Complete**
 
 ---
 
@@ -72,9 +160,73 @@ If `.spiral/` already exists in your project, Spiral Developer is already set up
 2. **Check active cycles** - Look in `.spiral/cycles/` for any in-progress work
 3. **Follow existing conventions** - Use the same artifact structure and naming as other cycles
 
-### Typical Workflow
+### Your Workflow: The Human Loop
 
-For repository-changing work:
+#### Step 1: Provide Initial Request
+
+**You say:**
+```
+"I want to add user authentication to the app."
+"We need to fix the payment processing bug."
+"Let's refactor the data layer for better performance."
+```
+
+The AI will respond with a **pre-flight checkpoint**:
+
+```
+**My understanding:** [concrete outcome]
+**Current effective behavior:** [what system does now]
+**Evidenced gap:** [proof it's not satisfied]
+**Material assumptions:** [list]
+
+Is this correct?
+```
+
+#### Step 2: Confirm or Correct Understanding
+
+**Your job:** Review the AI's understanding and either:
+- **Confirm:** "Yes, that's correct. Proceed."
+- **Correct:** "No, I meant [clarification]."
+- **Question:** "I'm not sure about [assumption]. What do you think?"
+
+**Important:** If the AI's understanding is wrong, **do not let it proceed**. Clarify first.
+
+#### Step 3: Confirm the Cycle Goal
+
+After you confirm understanding, the AI will propose a **cycle goal** and you must accept it.
+
+#### Step 4: Periodic Check-ins
+
+The AI will ask you questions during implementation. **Answer them.**
+
+#### Step 5: Evaluate the Cycle
+
+When the AI presents completed work, **review and accept or request changes.**
+
+#### Step 6: Review and Merge
+
+**You must merge PRs.** The AI cannot merge to main.
+
+### What You MUST Do
+
+1. **Confirm Understanding** - Verify AI's interpretation matches your intent
+2. **Confirm Cycle Goal** - Explicitly accept proposed cycle goal
+3. **Accept or Reject** - Review cycle results, decide if goal is met
+4. **Merge PRs** - You must merge; AI cannot merge to main
+
+### What You DON'T Need to Do
+
+The AI handles:
+- Writing artifact files (SRC, UND, REQ, etc.)
+- Creating Turtle/RDF causal graphs
+- Running validation checks
+- Managing Git branches (except merging to main)
+- Writing commit messages
+- Running tests and verification
+- Maintaining causal history
+- Creating PR descriptions
+
+### Typical Workflow for Repository-Changing Work
 
 1. Agree on a **cycle goal** with your team
 2. Create a cycle branch: `spiral/CYC-YYYYMMDD-WORKSPACE-N-short-goal`
@@ -99,15 +251,31 @@ For repository-changing work:
 
 Start here: This quickstart document is your entry point. Work through it to understand Spiral, then:
 
-1. Set up your `.spiral/` directory structure
-2. Complete project intake (even for greenfield)
-3. Start your first cycle
+1. Clone the framework: `git clone https://github.com/muze-labs/spiral-developer.git ../.spiral-core`
+2. Set up VS Code workspace (recommended)
+3. Tell AI: "Set up Spiral Developer here. Framework is at ../.spiral-core/"
+4. Complete project intake
+5. Start your first cycle
+
+### Brownfield Intake Checklist
+
+If adding Spiral to an existing project, answer these questions:
+
+1. **Project Purpose** - What does this project do?
+2. **Important Outcomes** - What matters most?
+3. **Prior Decisions** - What architectural choices were made?
+4. **Constraints** - What limitations exist?
+5. **Known Problems** - What issues are tolerated?
+6. **Future Direction** - Where is this project going?
+7. **Feedback Sources** - How do you get user feedback?
+
+**Your job:** Answer these. The AI records them as intake artifacts.
 
 ### For Existing Projects (Brownfield)
 
 Before your first normal Spiral cycle:
 
-1. **Complete brownfield intake** - See [docs/brownfield-intake.md](../docs/brownfield-intake.md)
+1. **Complete brownfield intake** - Answer the 7 questions above, or see [docs/brownfield-intake.md](../docs/brownfield-intake.md)
 2. **Document project context** - Create `.spiral/project-context.md`
 3. **Identify active culture** - If applicable, adopt a culture profile
 4. **Validate with a small cycle** - Try Spiral on one bounded piece of work
@@ -120,6 +288,18 @@ If you're evaluating Spiral Developer for potential adoption:
 2. Explore the [docs/](.) directory for details
 3. Try a small, low-risk cycle to test the process
 4. Assess whether the verification architecture works for your team
+
+---
+
+## Key Commands YOU Run
+
+| Action | Command |
+|--------|---------|
+| Get framework | `git clone https://github.com/muze-labs/spiral-developer.git .spiral-core` |
+| Create project | `mkdir project && cd project && git init` |
+| VS Code workspace | Create `.code-workspace` with both folders |
+| Review changes | `git checkout spiral/CYC-* && git diff main` |
+| Merge cycle | `git merge --no-ff spiral/CYC-*` |
 
 ---
 
@@ -140,9 +320,17 @@ Need more detail? Explore these next:
 Once you've read through this quickstart:
 
 1. **AI agents:** You should be reading [BOOTSTRAP.md](../BOOTSTRAP.md) instead
-2. **New projects:** Complete intake and start your first cycle
+2. **New projects:** Clone framework, set up workspace, and start your first cycle
 3. **Existing projects:** Complete brownfield intake, then start your first cycle
 4. **Evaluators:** Try a small experiment and assess the results
+
+---
+
+## Resources
+
+- **Framework:** https://github.com/muze-labs/spiral-developer
+- **VS Code Workspaces:** https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces
+- **Framework Docs:** Available in `.spiral-core/docs/` after cloning
 
 ---
 
