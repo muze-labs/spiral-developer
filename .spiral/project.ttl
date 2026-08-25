@@ -16,10 +16,18 @@ project:
     # Project identity
     dcterms:description "The canonical Spiral Developer project — an AI-native software development process. This project provides the process, norms, vocabulary, and tooling that other projects may adopt." ;
 
+    # Historical reference to the commit that first introduced this project context
+    sd:historicalReference [
+        a sd:ArtifactReference ;
+        sd:artifact project: ;
+        sd:gitCommit "c18ce12c1d6bf3337af76ac0af275a50ed19dd46"
+    ] ;
+
     # Intake state: Complete - this project has been through brownfield intake implicitly
     # as it is the canonical Spiral Developer project
     sd:adoptsCulture [
         a sd:ArtifactReference ;
         sd:artifact culture:CUL-MUZE-001 ;
+        sd:gitCommit "835e290950429f7b44455f9c09b9770c8a8325b1" ;
         sd:fragment "muze-engineering"
     ] .
