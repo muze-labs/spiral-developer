@@ -218,7 +218,9 @@ The AI handles:
 
 ## Adoption Paths
 
-### Brownfield Intake Checklist
+### Existing projects (Brownfield): what to expect
+
+#### Intake checklist
 
 When starting a brownfield project these are the questions to expect you will need an answer for.
 
@@ -231,8 +233,6 @@ When starting a brownfield project these are the questions to expect you will ne
 7. **Feedback Sources** - How do you get user feedback?
 
 **Your job:** Answer these. The AI records them as intake artifacts.
-
-### For Existing Projects (Brownfield)
 
 Before your first normal Spiral cycle:
 
