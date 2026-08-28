@@ -125,14 +125,6 @@ test -d ".spiral/" && echo "Exists"
 
 ## Your Workflow
 
-### What to Do Next
-
-If Spiral is already set up in your project:
-
-1. **Read AGENTS.md** - Operating instructions for AI agents
-2. **Check active cycles** - Look in `.spiral/cycles/` for any in-progress work
-3. **Follow existing conventions** - Use the same artifact structure and naming as other cycles
-
 ### The Human Loop
 
 Your workflow follows these 6 steps:
