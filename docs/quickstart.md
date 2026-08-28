@@ -153,7 +153,7 @@ test -d ".spiral/" && echo "Exists"
 
 #### Intake checklist
 
-When starting an existing project these are the questions to expect you will need an answer for.
+When starting an existing project, these are the questions you will need to answer.
 
 1. **Project Purpose** - What does this project do?
 2. **Important Outcomes** - What matters most?
