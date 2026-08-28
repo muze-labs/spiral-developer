@@ -227,9 +227,9 @@ When the AI presents completed work, **review and accept or request changes.**
 
 **You must merge PRs.** The AI cannot merge to main.
 
-### Typical Workflow for Repository-Changing Work
+### what happens behind the scenes
 
-1. Agree on a **cycle goal** with your team
+1. Agree on a **cycle goal**
 2. The AI will create a cycle branch: `spiral/CYC-YYYYMMDD-WORKSPACE-N-short-goal`
 3. The AI will create causal artifacts as needed (SRC, UND, REQ, DES, IMP, EVD)
 4. The AI will verify branch matches cycle ID before each commit
