@@ -37,6 +37,31 @@ As a human in the Spiral Developer process, **you are the authority** over:
 - **Judgment:** Risk appetite and consequential decisions
 
 The AI agent handles execution, but **you** provide the direction and make the final calls.
+---
+
+## Your Responsibilities
+
+### What You MUST Do
+
+1. **Confirm Understanding** - Verify AI's interpretation matches your intent
+2. **Confirm Cycle Goal** - Explicitly accept proposed cycle goal
+3. **Accept or Reject** - Review cycle results, decide if goal is met
+4. **Merge PRs** - You must merge; AI cannot merge to main
+
+### What You DON'T Need to Do
+
+The AI handles:
+- Writing artifact files (SRC, UND, REQ, etc.)
+- Creating Turtle/RDF causal graphs
+- Running validation checks
+- Managing Git branches (except merging to main)
+- Writing commit messages
+- Running tests and verification
+- Maintaining causal history
+- Creating PR descriptions
+
+
+
 
 ---
 
@@ -190,29 +215,6 @@ When the AI presents completed work, **review and accept or request changes.**
 | `.spiral/project-context.md` | Project-level context and intake state |
 | `.spiral/cycles/CYC-*.md` | Active and accepted cycles |
 | `docs/process.md` | Canonical development lifecycle |
-
----
-
-## Your Responsibilities
-
-### What You MUST Do
-
-1. **Confirm Understanding** - Verify AI's interpretation matches your intent
-2. **Confirm Cycle Goal** - Explicitly accept proposed cycle goal
-3. **Accept or Reject** - Review cycle results, decide if goal is met
-4. **Merge PRs** - You must merge; AI cannot merge to main
-
-### What You DON'T Need to Do
-
-The AI handles:
-- Writing artifact files (SRC, UND, REQ, etc.)
-- Creating Turtle/RDF causal graphs
-- Running validation checks
-- Managing Git branches (except merging to main)
-- Writing commit messages
-- Running tests and verification
-- Maintaining causal history
-- Creating PR descriptions
 
 ---
 
