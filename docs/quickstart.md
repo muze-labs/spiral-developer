@@ -245,18 +245,7 @@ Before your first normal Spiral cycle:
 
 ---
 
-## Next Steps & Resources
-
-### Next Steps
-
-Once you've read through this quickstart:
-
-1. **AI agents:** You should be reading [BOOTSTRAP.md](../BOOTSTRAP.md) instead
-2. **New projects:** Clone framework, set up workspace, and start your first cycle
-3. **Existing projects:** Complete brownfield intake, then start your first cycle
-4. **Evaluators:** Try a small experiment and assess the results
-
-### Resources
+## Resources
 
 - **Framework:** https://github.com/muze-labs/spiral-developer
 - **VS Code Workspaces:** https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces
