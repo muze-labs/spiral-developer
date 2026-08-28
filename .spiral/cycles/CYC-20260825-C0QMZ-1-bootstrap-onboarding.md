@@ -6,7 +6,7 @@ id: CYC-20260825-C0QMZ-1
 
 Repository branch: `spiral/CYC-20260825-C0QMZ-1-bootstrap-onboarding`
 Branch verified: yes
-Cycle status: **Accepted**
+Cycle status: **Active** (Reopened - quickstart.md needs additional changes per human review)
 
 ## Analyze
 
@@ -196,15 +196,16 @@ Candidate next-cycle inputs (surface high-leverage assumptions only when materia
 
 Human evaluation / feedback:
 
-- **Status:** ✅ COMPLETE - Human review of quickstart.md confirmed (user: "looks good")
+- **Status:** ⚠️ REOPENED - Human review identified additional changes needed in quickstart.md
 - **Guide used:** EVD-20260825-C0QMZ-8 (Human Review Guide for quickstart.md)
+- **Previous status:** ✅ COMPLETE (user: "looks good") - but additional changes required
 
 Cycle accepted, still open, or deliberately re-planned:
 
-- **Status:** ✅ **Accepted**
-- **Accepted on:** 2026-08-25
-- **Acceptance basis:** All acceptance criteria met; both BOOTSTRAP.md (AI-validated) and quickstart.md (human-validated) satisfy requirements
-- **Ready for integration:** ✅ Yes - Cycle ready for PR and merge to main
+- **Status:** 🔄 **Active** (Reopened)
+- **Reopened on:** 2026-08-28
+- **Reopen reason:** Human review determined quickstart.md needs additional changes before cycle completion
+- **Ready for integration:** ❌ No - Cycle reopened for additional work
 
 ## Process learning
 
