@@ -145,6 +145,34 @@ test -d ".spiral/" && echo "Exists"
    ```
    
    The AI will create the `.spiral/` directory structure and link to the framework resources.
+---
+
+## First use
+
+### Existing projects (Brownfield): what to expect
+
+#### Intake checklist
+
+When starting a brownfield project these are the questions to expect you will need an answer for.
+
+1. **Project Purpose** - What does this project do?
+2. **Important Outcomes** - What matters most?
+3. **Prior Decisions** - What architectural choices were made?
+4. **Constraints** - What limitations exist?
+5. **Known Problems** - What issues are tolerated?
+6. **Future Direction** - Where is this project going?
+7. **Feedback Sources** - How do you get user feedback?
+
+**Your job:** Answer these. The AI records them as intake artifacts.
+
+#### Your first normal Spiral cycle
+
+1. **Complete brownfield intake** - Answer the 7 questions above, or see [docs/brownfield-intake.md](../docs/brownfield-intake.md)
+2. **Document project context** - The AI will create a project-context.md file that should contain information about the project readable by a human.
+3. **Identify active culture (if applicable)** - The AI will help you adopt a culture profile from the available examples in the `cultures/` directory.
+4. **Validate with a small cycle** - Try Spiral on one bounded piece of work, e.g., "Add a user authentication endpoint" or "Refactor the data access layer"
+5. **The AI might ask questions about the cycle** - This is to clarify the work to be done and start the cycle. Please answer these as best as possible.
+6. **Evaluate and accept the cycle** - The AI will ask you to confirm that the cycle targets have been reached and whether to mark the cycle as complete.
 
 ---
 
@@ -216,34 +244,6 @@ When the AI presents completed work, **review and accept or request changes.**
 | `.spiral/cycles/CYC-*.md` | Active and accepted cycles |
 | `docs/process.md` | Canonical development lifecycle |
 
----
-
-## Adoption Paths
-
-### Existing projects (Brownfield): what to expect
-
-#### Intake checklist
-
-When starting a brownfield project these are the questions to expect you will need an answer for.
-
-1. **Project Purpose** - What does this project do?
-2. **Important Outcomes** - What matters most?
-3. **Prior Decisions** - What architectural choices were made?
-4. **Constraints** - What limitations exist?
-5. **Known Problems** - What issues are tolerated?
-6. **Future Direction** - Where is this project going?
-7. **Feedback Sources** - How do you get user feedback?
-
-**Your job:** Answer these. The AI records them as intake artifacts.
-
-#### Your first normal Spiral cycle
-
-1. **Complete brownfield intake** - Answer the 7 questions above, or see [docs/brownfield-intake.md](../docs/brownfield-intake.md)
-2. **Document project context** - The AI will create a project-context.md file that should contain information about the project readable by a human.
-3. **Identify active culture (if applicable)** - The AI will help you adopt a culture profile from the available examples in the `cultures/` directory.
-4. **Validate with a small cycle** - Try Spiral on one bounded piece of work, e.g., "Add a user authentication endpoint" or "Refactor the data access layer"
-5. **The AI might ask questions about the cycle** - This is to clarify the work to be done and start the cycle. Please answer these as best as possible.
-6. **Evaluate and accept the cycle** - The AI will ask you to confirm that the cycle targets have been reached and whether to mark the cycle as complete.
 
 ---
 
