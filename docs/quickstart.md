@@ -149,11 +149,11 @@ test -d ".spiral/" && echo "Exists"
 
 ## First use
 
-### Existing projects (Brownfield): what to expect
+### Existing projects: what to expect
 
 #### Intake checklist
 
-When starting a brownfield project these are the questions to expect you will need an answer for.
+When starting an existing project these are the questions to expect you will need an answer for.
 
 1. **Project Purpose** - What does this project do?
 2. **Important Outcomes** - What matters most?
@@ -167,7 +167,7 @@ When starting a brownfield project these are the questions to expect you will ne
 
 #### Your first normal Spiral cycle
 
-1. **Complete brownfield intake** - Answer the 7 questions above, or see [docs/brownfield-intake.md](../docs/brownfield-intake.md)
+1. **Complete project intake** - Answer the 7 questions above, or see [docs/brownfield-intake.md](../docs/brownfield-intake.md)
 2. **Document project context** - The AI will create a project-context.md file that should contain information about the project readable by a human.
 3. **Identify active culture (if applicable)** - The AI will help you adopt a culture profile from the available examples in the `cultures/` directory.
 4. **Validate with a small cycle** - Try Spiral on one bounded piece of work, e.g., "Add a user authentication endpoint" or "Refactor the data access layer"
