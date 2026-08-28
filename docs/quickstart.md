@@ -238,7 +238,7 @@ Before your first normal Spiral cycle:
 
 1. **Complete brownfield intake** - Answer the 7 questions above, or see [docs/brownfield-intake.md](../docs/brownfield-intake.md)
 2. **Document project context** - The AI will create a project-context.md file that should contain information about the project readable by a human.
-3. **Identify active culture** - The AI will help you adopt a culture profile from the available examples in the `cultures/` directory, if applicable.
+3. **Identify active culture (if applicable)** - The AI will help you adopt a culture profile from the available examples in the `cultures/` directory.
 4. **Validate with a small cycle** - Try Spiral on one bounded piece of work
 
 ### For Evaluation
