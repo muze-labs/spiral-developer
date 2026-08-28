@@ -102,7 +102,7 @@ In your project folder run the following:
 test -d ".spiral/" && echo "Exists"
 ```
 
-- **If `.spiral/` exists:** Your project already uses Spiral. Proceed to [Your Workflow](#your-workflow).
+- **If `.spiral/` exists:** Your project already uses Spiral. Proceed to [Your Workflow: the spiral cycle](#your-workflow-the-spiral-cycle).
 - **If `.spiral/` does NOT exist:** Follow the setup steps below.
 
 ### Set Up Spiral Developer
@@ -176,7 +176,7 @@ When starting an existing project, these are the questions you will need to answ
 
 ---
 
-## Your Workflow
+## Your Workflow: the spiral cycle
 
 ### The Human Loop
 
