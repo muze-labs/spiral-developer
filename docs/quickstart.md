@@ -251,7 +251,7 @@ Before your first normal Spiral cycle:
 - **VS Code Workspaces:** https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces
 - **Framework Docs:** Available in `.spiral-core/docs/` after cloning
 
-### Questions?
+## Questions?
 
 - Open a GitHub issue for technical questions
 - Open a GitHub discussion for general discussion
