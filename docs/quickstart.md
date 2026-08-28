@@ -220,7 +220,7 @@ The AI handles:
 
 ### Brownfield Intake Checklist
 
-If adding Spiral to an existing project, answer these questions:
+When starting a brownfield project these are the questions to expect you will need an answer for.
 
 1. **Project Purpose** - What does this project do?
 2. **Important Outcomes** - What matters most?
