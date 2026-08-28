@@ -14,20 +14,7 @@
 
 ---
 
-## Your Role in Spiral Developer
-
-As a human in the Spiral Developer process, **you are the authority** over:
-
-- **Meaning:** What the project should achieve
-- **Intent:** Why changes are needed
-- **Acceptance:** Whether outcomes satisfy requirements
-- **Judgment:** Risk appetite and consequential decisions
-
-The AI agent handles execution, but **you** provide the direction and make the final calls.
-
----
-
-## What is Spiral Developer?
+## Understanding Spiral Developer
 
 **Elevator pitch:** Spiral Developer is an **AI-native software development process** built around **trust but verify**.
 
@@ -44,11 +31,22 @@ Inner causal chain:
   source → understanding → request → design → implementation → verification → acceptance
 ```
 
+### Your Role
+
+As a human in the Spiral Developer process, **you are the authority** over:
+
+- **Meaning:** What the project should achieve
+- **Intent:** Why changes are needed
+- **Acceptance:** Whether outcomes satisfy requirements
+- **Judgment:** Risk appetite and consequential decisions
+
+The AI agent handles execution, but **you** provide the direction and make the final calls.
+
 ---
 
 ## Prerequisites
 
-### What You Need Installed
+### Tools Required
 
 ```bash
 # Git (2.30+)
@@ -65,7 +63,7 @@ brew install jena            # macOS, Java-based
 sudo apt-get install jena    # Debian/Ubuntu
 ```
 
-### What You Need to Know
+### Knowledge Required
 
 - Basic Git: checkout, branch, commit, push, pull, merge
 - Your project's domain and goals
@@ -74,36 +72,39 @@ sudo apt-get install jena    # Debian/Ubuntu
 
 ---
 
-## Installation
+## Getting Started
 
-### Step 1: Clone Spiral Developer Framework
+### Check Project Status
 
-Get the Spiral Developer framework sources:
-
-```bash
-# Clone into .spiral-core folder in your workspace
-cd /path/to/your/workspace
-git clone https://github.com/muze-labs/spiral-developer.git .spiral-core
-```
-
-### Step 2: Create Your Project
-
-Create your project in a **separate folder** from `.spiral-core`:
+Check if your project has Spiral Developer set up:
 
 ```bash
-# Create project directory (separate from .spiral-core)
-mkdir my-project
-cd my-project
-
-# Initialize Git for your project
-git init
+# Check if .spiral/ directory exists
+ls -la .spiral/ 2>/dev/null
 ```
 
-### Step 3: Set Up VS Code Workspace (Recommended)
+- **If `.spiral/` exists:** Your project already uses Spiral. Proceed to [Your Workflow](#your-workflow).
+- **If `.spiral/` does NOT exist:** Follow the setup steps below.
 
-Use [VS Code Multi-Root Workspaces](https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces) to work with both your project and Spiral Developer together:
+### Set Up Spiral Developer
 
-1. Create a workspace file:
+1. **Clone the framework:**
+   ```bash
+   cd /path/to/your/workspace
+   git clone https://github.com/muze-labs/spiral-developer.git .spiral-core
+   ```
+
+2. **Create your project in a separate folder:**
+   ```bash
+   mkdir my-project
+   cd my-project
+   git init
+   ```
+
+3. **(Recommended) Set up VS Code Workspace:**
+   
+   Use [VS Code Multi-Root Workspaces](https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces):
+   
    ```bash
    cat > my-project.code-workspace << 'EOF'
    {
@@ -114,53 +115,33 @@ Use [VS Code Multi-Root Workspaces](https://code.visualstudio.com/docs/editing/w
      "settings": {}
    }
    EOF
-   ```
-
-2. Open this workspace in VS Code:
-   ```bash
    code my-project.code-workspace
    ```
 
-### Step 4: Initialize Spiral in Your Project
-
-Tell your AI agent to set up Spiral Developer:
-
-**You say to AI:**
-```
-"Set up Spiral Developer in this project. The framework is available at ../.spiral-core/"
-```
-
-The AI will create the `.spiral/` directory structure and link to the framework resources.
+4. **Initialize Spiral in your project:**
+   
+   Tell your AI agent:
+   ```
+   "Set up Spiral Developer in this project. The framework is available at ../.spiral-core/"
+   ```
+   
+   The AI will create the `.spiral/` directory structure and link to the framework resources.
 
 ---
 
-## Quick Start
-
-### Step 1: Check Project Status
-
-Check if your project has Spiral Developer set up:
-
-```bash
-# Check if .spiral/ directory exists
-ls -la .spiral/ 2>/dev/null
-```
-
-- **If `.spiral/` exists:** Your project already uses Spiral. See ["Working in a Spiral Project"](#working-in-a-spiral-project) below.
-- **If `.spiral/` does NOT exist:** You're starting fresh. See ["Adopting Spiral in Your Project"](#adopting-spiral-in-your-project) below.
-
----
-
-## Working in a Spiral Project
-
-If `.spiral/` already exists in your project, Spiral Developer is already set up.
+## Your Workflow
 
 ### What to Do Next
 
-1. **Read AGENTS.md** - This contains the operating instructions for AI agents working in your project
+If Spiral is already set up in your project:
+
+1. **Read AGENTS.md** - Operating instructions for AI agents
 2. **Check active cycles** - Look in `.spiral/cycles/` for any in-progress work
 3. **Follow existing conventions** - Use the same artifact structure and naming as other cycles
 
-### Your Workflow: The Human Loop
+### The Human Loop
+
+Your workflow follows these 6 steps:
 
 #### Step 1: Provide Initial Request
 
@@ -171,7 +152,7 @@ If `.spiral/` already exists in your project, Spiral Developer is already set up
 "Let's refactor the data layer for better performance."
 ```
 
-The AI will respond with a **pre-flight checkpoint**:
+The AI responds with a **pre-flight checkpoint:**
 
 ```
 **My understanding:** [concrete outcome]
@@ -193,7 +174,7 @@ Is this correct?
 
 #### Step 3: Confirm the Cycle Goal
 
-After you confirm understanding, the AI will propose a **cycle goal** and you must accept it.
+After you confirm understanding, the AI proposes a **cycle goal** and you must explicitly accept it.
 
 #### Step 4: Periodic Check-ins
 
@@ -206,25 +187,6 @@ When the AI presents completed work, **review and accept or request changes.**
 #### Step 6: Review and Merge
 
 **You must merge PRs.** The AI cannot merge to main.
-
-### What You MUST Do
-
-1. **Confirm Understanding** - Verify AI's interpretation matches your intent
-2. **Confirm Cycle Goal** - Explicitly accept proposed cycle goal
-3. **Accept or Reject** - Review cycle results, decide if goal is met
-4. **Merge PRs** - You must merge; AI cannot merge to main
-
-### What You DON'T Need to Do
-
-The AI handles:
-- Writing artifact files (SRC, UND, REQ, etc.)
-- Creating Turtle/RDF causal graphs
-- Running validation checks
-- Managing Git branches (except merging to main)
-- Writing commit messages
-- Running tests and verification
-- Maintaining causal history
-- Creating PR descriptions
 
 ### Typical Workflow for Repository-Changing Work
 
@@ -245,11 +207,34 @@ The AI handles:
 
 ---
 
-## Adopting Spiral in Your Project
+## Your Responsibilities
+
+### What You MUST Do
+
+1. **Confirm Understanding** - Verify AI's interpretation matches your intent
+2. **Confirm Cycle Goal** - Explicitly accept proposed cycle goal
+3. **Accept or Reject** - Review cycle results, decide if goal is met
+4. **Merge PRs** - You must merge; AI cannot merge to main
+
+### What You DON'T Need to Do
+
+The AI handles:
+- Writing artifact files (SRC, UND, REQ, etc.)
+- Creating Turtle/RDF causal graphs
+- Running validation checks
+- Managing Git branches (except merging to main)
+- Writing commit messages
+- Running tests and verification
+- Maintaining causal history
+- Creating PR descriptions
+
+---
+
+## Adopting Spiral
 
 ### For New Projects
 
-Start here: This quickstart document is your entry point. Work through it to understand Spiral, then:
+This quickstart document is your entry point. Work through it to understand Spiral, then:
 
 1. Clone the framework: `git clone https://github.com/muze-labs/spiral-developer.git ../.spiral-core`
 2. Set up VS Code workspace (recommended)
@@ -291,7 +276,9 @@ If you're evaluating Spiral Developer for potential adoption:
 
 ---
 
-## Key Commands YOU Run
+## Key Actions & Commands
+
+### Key Commands YOU Run
 
 | Action | Command |
 |--------|---------|
@@ -301,9 +288,7 @@ If you're evaluating Spiral Developer for potential adoption:
 | Review changes | `git checkout spiral/CYC-* && git diff main` |
 | Merge cycle | `git merge --no-ff spiral/CYC-*` |
 
----
-
-## Drill Down
+### Drill Down
 
 Need more detail? Explore these next:
 
@@ -315,7 +300,9 @@ Need more detail? Explore these next:
 
 ---
 
-## Next Steps
+## Next Steps & Resources
+
+### Next Steps
 
 Once you've read through this quickstart:
 
@@ -324,17 +311,13 @@ Once you've read through this quickstart:
 3. **Existing projects:** Complete brownfield intake, then start your first cycle
 4. **Evaluators:** Try a small experiment and assess the results
 
----
-
-## Resources
+### Resources
 
 - **Framework:** https://github.com/muze-labs/spiral-developer
 - **VS Code Workspaces:** https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces
 - **Framework Docs:** Available in `.spiral-core/docs/` after cloning
 
----
-
-## Questions?
+### Questions?
 
 - Open a GitHub issue for technical questions
 - Open a GitHub discussion for general discussion
