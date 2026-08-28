@@ -227,13 +227,15 @@ When the AI presents completed work, **review and accept or request changes.**
 
 **You must merge PRs.** The AI cannot merge to main.
 
-### what happens behind the scenes
+
+## what happens behind the scenes
 
 1. Agree on a **cycle goal**
 2. The AI will create a cycle branch: `spiral/CYC-YYYYMMDD-WORKSPACE-N-short-goal`
 3. The AI will create causal artifacts as needed (SRC, UND, REQ, DES, IMP, EVD)
 4. The AI will verify branch matches cycle ID before each commit
 5. The AI will commit, push, and create a PR for review
+
 
 
 
