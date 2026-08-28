@@ -149,7 +149,7 @@ test -d ".spiral/" && echo "Exists"
 
 ## First use
 
-### Existing projects: what to expect
+### What to expect
 
 #### Intake checklist
 
