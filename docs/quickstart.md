@@ -36,7 +36,7 @@ As a human in the Spiral Developer process, **you are the authority** over:
 - **Acceptance:** Whether outcomes satisfy requirements
 - **Judgment:** Risk appetite and consequential decisions
 
-The AI agent handles execution, but **you** provide the direction and make the final calls.
+> The AI agent handles execution, but **you** provide the direction and make the final calls.
 ---
 
 ## Your Responsibilities
