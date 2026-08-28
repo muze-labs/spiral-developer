@@ -75,8 +75,7 @@ sudo apt-get install jena    # Debian/Ubuntu
 Check if your project has Spiral Developer set up:
 
 ```bash
-# Check if .spiral/ directory exists
-ls -la .spiral/ 2>/dev/null
+[ -d .spiral/ ]
 ```
 
 - **If `.spiral/` exists:** Your project already uses Spiral. Proceed to [Your Workflow](#your-workflow).
