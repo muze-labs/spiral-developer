@@ -243,39 +243,6 @@ Before your first normal Spiral cycle:
 5. **The AI might ask questions about the cycle** - This is to clarify the work to be done and start the cycle. Please answer these as best as possible.
 6. **Evaluate and accept the cycle** - The AI will ask you to confirm that the cycle targets have been reached and whether to mark the cycle as complete.
 
-### For Evaluation
-
-If you're evaluating Spiral Developer for potential adoption:
-
-1. Read this quickstart
-2. Explore the [docs/](.) directory for details
-3. Try a small, low-risk cycle to test the process
-4. Assess whether the verification architecture works for your team
-
----
-
-## Key Actions & Commands
-
-### Key Commands YOU Run
-
-| Action | Command |
-|--------|---------|
-| Get framework | `git clone https://github.com/muze-labs/spiral-developer.git .spiral-core` |
-| Create project | `mkdir project && cd project && git init` |
-| VS Code workspace | Create `.code-workspace` with both folders |
-| Review changes | `git checkout spiral/CYC-* && git diff main` |
-| Merge cycle | `git merge --no-ff spiral/CYC-*` |
-
-### Drill Down
-
-Need more detail? Explore these next:
-
-- **[docs/vision.md](../docs/vision.md)** - Why Spiral Developer exists and its core principles
-- **[docs/trust-model.md](../docs/trust-model.md)** - The trust-but-verify model explained
-- **[docs/process.md](../docs/process.md)** - The canonical development lifecycle
-- **[docs/cycles.md](../docs/cycles.md)** - The outer Analyze/Plan/Act/Evaluate cadence
-- **[AGENTS.md](../AGENTS.md)** - AI agent operating instructions (for reference)
-
 ---
 
 ## Next Steps & Resources
@@ -304,3 +271,5 @@ Once you've read through this quickstart:
 ---
 
 *AI agents: See [BOOTSTRAP.md](../BOOTSTRAP.md) for your onboarding path*
+
+Explore the [docs/](.) directory for details.
