@@ -236,7 +236,7 @@ When starting a brownfield project these are the questions to expect you will ne
 
 **Your job:** Answer these. The AI records them as intake artifacts.
 
-Before your first normal Spiral cycle:
+#### Your first normal Spiral cycle
 
 1. **Complete brownfield intake** - Answer the 7 questions above, or see [docs/brownfield-intake.md](../docs/brownfield-intake.md)
 2. **Document project context** - The AI will create a project-context.md file that should contain information about the project readable by a human.
