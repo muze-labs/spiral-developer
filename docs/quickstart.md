@@ -16,11 +16,7 @@
 
 ## Understanding Spiral Developer
 
-**Elevator pitch:** Spiral Developer is an **AI-native software development process** built around **trust but verify**.
-
-**Core value:** Autonomy through verification architecture. AI systems can operate with substantial freedom because the surrounding process is designed to verify consequential claims before they become authoritative.
-
-**One sentence:** Humans retain responsibility for intent, judgment, and accountability; AI handles design, implementation, and provenance bookkeeping with autonomy.
+Spiral Developer is an AI-native software development process built on a trust-but-verify model. AI systems operate with autonomy within a framework that verifies consequential changes before they become authoritative. Humans retain responsibility for intent, judgment, and accountability, while AI handles design, implementation, and provenance tracking.
 
 **The model:**
 ```
