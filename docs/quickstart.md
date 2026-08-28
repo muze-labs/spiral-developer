@@ -240,6 +240,7 @@ Before your first normal Spiral cycle:
 2. **Document project context** - The AI will create a project-context.md file that should contain information about the project readable by a human.
 3. **Identify active culture (if applicable)** - The AI will help you adopt a culture profile from the available examples in the `cultures/` directory.
 4. **Validate with a small cycle** - Try Spiral on one bounded piece of work, e.g., "Add a user authentication endpoint" or "Refactor the data access layer"
+5. **Evaluate and accept the cycle** - The AI will ask you to confirm that the cycle targets have been reached and whether to mark the cycle as complete.
 
 ### For Evaluation
 
