@@ -177,10 +177,10 @@ When the AI presents completed work, **review and accept or request changes.**
 ### Typical Workflow for Repository-Changing Work
 
 1. Agree on a **cycle goal** with your team
-2. Create a cycle branch: `spiral/CYC-YYYYMMDD-WORKSPACE-N-short-goal`
-3. Create causal artifacts as needed (SRC, UND, REQ, DES, IMP, EVD)
-4. Verify branch matches cycle ID before each commit
-5. Commit, push, and create a PR for review
+2. The AI will create a cycle branch: `spiral/CYC-YYYYMMDD-WORKSPACE-N-short-goal`
+3. The AI will create causal artifacts as needed (SRC, UND, REQ, DES, IMP, EVD)
+4. The AI will verify branch matches cycle ID before each commit
+5. The AI will commit, push, and create a PR for review
 
 ### Key Files to Know
 
