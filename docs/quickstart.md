@@ -237,7 +237,7 @@ When starting a brownfield project these are the questions to expect you will ne
 Before your first normal Spiral cycle:
 
 1. **Complete brownfield intake** - Answer the 7 questions above, or see [docs/brownfield-intake.md](../docs/brownfield-intake.md)
-2. **Document project context** - Create `.spiral/project-context.md`
+2. **Document project context** - The AI will create a project-context.md file that should contain information about the project readable by a human.
 3. **Identify active culture** - If applicable, adopt a culture profile
 4. **Validate with a small cycle** - Try Spiral on one bounded piece of work
 
