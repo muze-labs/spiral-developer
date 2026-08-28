@@ -216,17 +216,7 @@ The AI handles:
 
 ---
 
-## Adopting Spiral
-
-### For New Projects
-
-This quickstart document is your entry point. Work through it to understand Spiral, then:
-
-1. Clone the framework: `git clone https://github.com/muze-labs/spiral-developer.git ../.spiral-core`
-2. Set up VS Code workspace (recommended)
-3. Tell AI: "Set up Spiral Developer here. Framework is at ../.spiral-core/"
-4. Complete project intake
-5. Start your first cycle
+## Adoption Paths
 
 ### Brownfield Intake Checklist
 
