@@ -1,0 +1,15 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:REQ-20260825-C0QMZ-4
+    a sd:Request ;
+    dcterms:identifier "REQ-20260825-C0QMZ-4" ;
+    sd:repositoryPath "requests/REQ-20260825-C0QMZ-4-separate-onboarding-paths.md" ;
+    sd:status sd:Active ;
+    sd:provenanceConfidence sd:Explicit ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:UND-20260825-C0QMZ-3 ;
+        sd:gitCommit "c715550b9c73261a9060dd96102ae577c41af7f1"
+    ] .

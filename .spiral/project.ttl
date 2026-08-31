@@ -1,0 +1,33 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+@prefix culture: <https://muze.nl/ns/spiral-developer/culture/> .
+
+project:
+    a sd:ProjectContext ;
+    dcterms:identifier "PROJ-20260825-C0QMZ-0" ;
+    rdfs:label "Spiral Developer project context" ;
+    dcterms:title "Project Context: Spiral Developer" ;
+    sd:repositoryPath ".spiral/project-context.md" ;
+    sd:status sd:Active ;
+    sd:provenanceConfidence sd:Explicit ;
+
+    # Project identity
+    dcterms:description "The canonical Spiral Developer project — an AI-native software development process. This project provides the process, norms, vocabulary, and tooling that other projects may adopt." ;
+
+    # Historical reference to the commit that first introduced this project context
+    sd:historicalReference [
+        a sd:ArtifactReference ;
+        sd:artifact project: ;
+        sd:gitCommit "c18ce12c1d6bf3337af76ac0af275a50ed19dd46"
+    ] ;
+
+    # Intake state: Complete - this project has been through brownfield intake implicitly
+    # as it is the canonical Spiral Developer project
+    sd:adoptsCulture [
+        a sd:ArtifactReference ;
+        sd:artifact culture:CUL-MUZE-001 ;
+        sd:gitCommit "835e2909fd141696c40c8689271aa1138e4abef" ;
+        sd:fragment "muze-engineering"
+    ] .

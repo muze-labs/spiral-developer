@@ -1,0 +1,33 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:EVD-20260825-C0QMZ-6
+    a sd:VerificationEvidence ;
+    dcterms:identifier "EVD-20260825-C0QMZ-6" ;
+    sd:repositoryPath "evidence/EVD-20260825-C0QMZ-6-onboarding-paths-self-validation.md" ;
+    sd:status sd:Active ;
+    sd:provenanceConfidence sd:Evidenced ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260825-C0QMZ-5 ;
+        sd:gitCommit "32bee35abd24e7b40d7988dbd81cb087736c37bb"
+    ] ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project: ;
+        sd:repositoryPath "BOOTSTRAP.md" ;
+        sd:gitCommit "ec0198d0abef459b7e1774c770b7c9f03ff8ae96"
+    ] ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project: ;
+        sd:repositoryPath "docs/quickstart.md" ;
+        sd:gitCommit "ec0198d0abef459b7e1774c770b7c9f03ff8ae96"
+    ] ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project: ;
+        sd:repositoryPath "README.md" ;
+        sd:gitCommit "ec0198d0abef459b7e1774c770b7c9f03ff8ae96"
+    ] .

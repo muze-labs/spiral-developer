@@ -1,161 +1,270 @@
 # Quickstart
 
-Use Spiral Developer on one bounded real cycle. Do not bootstrap a heavyweight process first.
+**Purpose:** Human-friendly introduction to Spiral Developer  
+**Audience:** Human developers, maintainers, reviewers  
+**Prerequisites:** None - this is your starting point
 
-## 1. Add the project area
+---
 
-A practical initial structure is:
+## Should You Read This?
 
-```text
-.spiral/
-  project.ttl
-  culture.md              # only when a local/adopted culture will shape decisions
-  culture.ttl
-  warning-profiles/        # only when a local/pinned warning profile is active
-  project-context.md
-  sources/
-  understandings/
-  requests/
-  feedback/
-  designs/
-  implementations/
-  evidence/
-  acceptance/
-  legacy/
-  defects/
-  cycles/
-  lessons/
+**If you're an AI agent or automated tool:** See [BOOTSTRAP.md](../BOOTSTRAP.md) instead. That document provides a minimal, actionable path for non-human agents.
+
+**If you're human:** Continue here. This guide will help you understand Spiral Developer and start using it effectively.
+
+---
+
+## Understanding Spiral Developer
+
+Spiral Developer is an AI-native software development process built on a trust-but-verify model. AI systems operate with autonomy within a framework that verifies consequential changes before they become authoritative. Humans retain responsibility for intent, judgment, and accountability, while AI handles design, implementation, and provenance tracking.
+
+**The model:**
+```
+Outer cadence (human-visible):
+  Analyze → Plan → Act → Evaluate → (repeat)
+
+Inner causal chain:
+  source → understanding → request → design → implementation → verification → acceptance
 ```
 
-Copy only templates that will be used. Do not create empty artifacts for completeness.
+### Your Role
 
-Start `.spiral/project.ttl` from `templates/PROJECT.ttl`. Create `.spiral/culture.md` / `.spiral/culture.ttl` only when a culture profile will materially shape choices; use `templates/CULTURE.*` as the starting point. Add a local/pinned warning profile only when the project intentionally adopts one; use `templates/WARNING_PROFILE.*` for local profiles. Create other companion `.ttl` resources beside human-facing artifacts as they are introduced; `examples/causal-graph.ttl` shows the logical RDF union.
+As a human in the Spiral Developer process, **you are the authority** over:
 
-## 2. Establish project context through guided intake
+- **Meaning:** What the project should achieve
+- **Intent:** Why changes are needed
+- **Acceptance:** Whether outcomes satisfy requirements
+- **Judgment:** Risk appetite and consequential decisions
 
-For a brownfield project, do not jump straight from installing Spiral to the first cycle. If durable project context is missing, `Incomplete`, or materially `Stale`, run/resume the guided intake in `brownfield-intake.md` / `prompts/brownfield-intake.md`. Track its status/checklist in project context. Every required topic must be explicitly dispositioned; while intake is unfinished, surface the remaining topics in every user-visible response while intake remains active. The human should be able to complete this conversationally without reading the rest of the methodology first.
+> The AI agent handles execution, but **you** provide the direction and make the final calls.
+---
 
-Capture durable project context.
-During intake, establish project purpose/goals, important outcomes or metrics, consequential prior decisions and reversibility, important invariants/commitments, known tolerated problems, reliable feedback sources, poorly understood areas, relevant future direction, and the authoritative integration/pre-merge validation context. Let the AI suggest plain-Markdown risk-discovery and metric profiles, but make explicit which are active, excluded/deferred, narrowed, or supplemented with custom concerns. `Other`, `Not sure`, and `Not relevant` are valid answers.
+## Your Responsibilities
 
-After the human confirms the frame, let the AI compare it with repository/runtime/operational evidence and return candidate risks, metric gaps, missing measurements, and uncertainties. The human—not the profile—decides priority and may reject, defer, accept, edit, remove, or add risks. Use the resulting picture to choose the most valuable uncertainty to reduce in the first normal cycle, giving extra weight to uncertain upstream assumptions whose late discovery would invalidate substantial downstream work.
+### What You MUST Do
 
-Explicitly adopt organization/project culture only when it should influence underdetermined engineering choices. A culture profile is defeasible guidance, not a hidden Spiral requirement. Use `sd:adoptsCulture` when exact culture-version provenance matters.
+1. **Confirm Understanding** - Verify AI's interpretation matches your intent
+2. **Confirm Cycle Goal** - Explicitly accept proposed cycle goal
+3. **Accept or Reject** - Review cycle results, decide if goal is met
+4. **Merge PRs** - You must merge; AI cannot merge to main
 
-The repository ships a first Muze profile at `cultures/muze-engineering.md`; copying or pinning it into a project is an explicit choice, not a default requirement. See `culture.md`.
+### What You DON'T Need to Do
 
-If the project wants reusable warning lenses, explicitly adopt an exact profile version with `sd:adoptsWarningProfile`. The bundled `warning-profiles/human-impact-and-epistemic.md` is starter material, not a Spiral default. Warning profiles should surface only materially relevant concerns and normally prompt inspection rather than block work. See `warning-profiles.md`.
+The AI handles:
+- Writing artifact files (SRC, UND, REQ, etc.)
+- Creating Turtle/RDF causal graphs
+- Running validation checks
+- Managing Git branches (except merging to main)
+- Writing commit messages
+- Running tests and verification
+- Maintaining causal history
+- Creating PR descriptions
 
-Do not attempt to reconstruct complete project history.
 
-## 3. Plan and open the first cycle
 
-Use `prompts/plan-cycle.md` to agree one coherent cycle goal with the human. Start from the completed intake/reality assessment when required: propose what the project should try to accomplish or learn next, why now, how the result will be evaluated, likely work, explicit non-goals, and why this cycle boundary is the right size. Prefer small cycles while uncertainty is high; once assumptions are stable, do not split coherent work merely to keep cycles tiny.
 
-Create `.spiral/cycles/CYC-001.md` from `templates/CYCLE.md` and its companion `.ttl` resource from `templates/CYCLE.ttl`. For ordinary repository-changing work, create one branch from the authoritative branch, normally:
+---
 
-```text
-spiral/CYC-001-short-goal
+## Prerequisites
+
+### Tools Required
+
+```bash
+# Git (2.30+)
+git --version  # Verify installed
+
+# Python (3.10+ for CLI tools)
+python3 --version
+
+# RDF validation (pick one)
+pip install rdflib pyshacl  # Python-based
+# OR
+brew install jena            # macOS, Java-based
+# OR
+sudo apt-get install jena    # Debian/Ubuntu
 ```
 
-Immediately inspect the actual Git branch and verify that it names the active `CYC-001`; record that check in the cycle record and repeat it before each semantic causal commit and at evaluation. This prevents work from silently continuing on an older cycle branch.
+### Knowledge Required
 
-The cycle may contain multiple tasks and causal commits. Do not create a separate branch/PR for every internal task. Keep the agreed goal/non-goals stable during Act: record unrelated discoveries for the next cycle unless they are necessary to achieve/evaluate the current goal or repair a regression caused by the cycle.
+- Basic Git: checkout, branch, commit, push, pull, merge
+- Your project's domain and goals
+- What "done" looks like for your features
+- VS Code workspace management (optional but recommended)
 
-From here onward, normal causal commits are immutable evidence. Before committing changed Spiral Turtle, run staged/pre-commit causal-reference validation when available; after commit, CI should validate the introduced commit range. See `causal-validation.md` and `cycles.md`.
+---
 
-## 4. Confirm understanding and evidence the gap before implementation
+## Getting Started
 
-For consequential direct human input, do not begin by copying the first wording into a request and implementing it. Investigate enough to formulate the intended outcome, establish the current **effective behavior**, and identify evidence that the requested outcome is actually unmet. Then present **My understanding / Current effective behavior / Evidenced gap / Material assumptions** to the human and stop for confirmation or correction before modifying product behavior.
+### Check Project Status
 
-Repository search is only part of this check. Existing behavior may come from generic/shared rules, inheritance, defaults, configuration, callers, composition, framework behavior, or runtime effects. In unfamiliar brownfield areas, build affinity before confidence: assume your project-specific understanding is partial, learn enough to bound the investigation, and ask for human guidance when needed. Early handholding is expected knowledge transfer, not process failure. If no gap can be established, do not invent work merely because the ticket asks for a change. If later evidence invalidates the Understanding or gap, return to discourse.
+In your project folder run the following:
+```bash
+test -d ".spiral/" && echo "Exists"
+```
 
-This reconnaissance is part of forming the Understanding; it does not require another artifact type. Before durable crystallization, the conversation may refine intent without preserving every false start. Keep the guardrail proportional for trivial/local/reversible edits.
+- **If `.spiral/` exists:** Your project already uses Spiral. Proceed to [Your Workflow: the spiral cycle](#your-workflow-the-spiral-cycle).
+- **If `.spiral/` does NOT exist:** Follow the setup steps below.
 
-Once the meaning is sufficiently settled, start from the best available evidence for why the change is wanted. This may be the clarified current human instruction, or it may be a conversation, email, issue, meeting, contract, regulation, observation, inherited requirement, or external artifact. Preserve the original external source separately only when that provenance is causally useful.
+### Set Up Spiral Developer
 
-When the source identity or the interpretation could matter later, create `.spiral/sources/SRC-001.md` from `templates/SOURCE.md` and `.spiral/sources/SRC-001.ttl` from `templates/SOURCE.ttl`. Record whether the primary evidence is `sd:Retained`, `sd:Referenced`, or `sd:Unavailable`, and declare the source claim's provenance confidence.
+1. **Clone the framework:**
+   ```bash
+   cd /path/to/your/workspace
+   git clone https://github.com/muze-labs/spiral-developer.git .spiral-core
+   ```
 
-When meaning had to be interpreted, clarified, challenged, or reframed, create `.spiral/understandings/UND-001.md` from `templates/UNDERSTANDING.md` and `.spiral/understandings/UND-001.ttl` from `templates/UNDERSTANDING.ttl`. Link it with `sd:interprets` to the exact source version(s) it interprets and declare the interpretation's provenance confidence.
+2. **Create your project in a separate folder:**
+   ```bash
+   mkdir my-project
+   cd my-project
+   git init
+   ```
 
-Then create `.spiral/requests/REQ-001.md` from `templates/REQUEST.md` and a companion Turtle resource. A good request expresses the operationalized intent and observable desired outcomes without prematurely prescribing implementation. When an `UND-*` artifact materially caused it, link the request to that exact version with `sd:derivedFrom`.
+3. **(Recommended) Set up VS Code Workspace:**
+   
+   Use [VS Code Multi-Root Workspaces](https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces):
+   
+   ```bash
+   cat > my-project.code-workspace << 'EOF'
+   {
+     "folders": [
+       {"path": "../.spiral-core"},
+       {"path": "."}
+     ],
+     "settings": {}
+   }
+   EOF
+   code my-project.code-workspace
+   ```
 
-Do not create `SRC-*` or `UND-*` artifacts merely to fill folders. For a simple direct request, `REQ-*` may still be the first durable artifact.
+4. **Initialize Spiral in your project:**
+   
+   Tell your AI agent:
+   ```
+   "Set up Spiral Developer in this project. The framework is available at ../.spiral-core/"
+   ```
+   
+   The AI will create the `.spiral/` directory structure and link to the framework resources.
+---
 
-Commit each crystallized upstream artifact before creating downstream references to it.
+## First use
 
-## 5. Check the frame, then find the most valuable uncertainty to reduce
+### What to expect
 
-If the request proposes a consequential solution or boundary, briefly test whether that premise is established before designing around it. Do not do this for every local decision. Use it where a different framing could materially change product direction, architecture, schema, trust boundaries, irreversible work, or acceptance.
+#### Intake checklist
 
-Then look for important assumptions whose being wrong would invalidate substantial downstream work. Use strategy/business → domain/architecture → workflow/interface → implementation as a rough causal ordering, not a scoring system. Ask how uncertain the assumption is, what depends on it, what late discovery would cost, and what cheap evidence could falsify or reduce it now.
+When starting an existing project, these are the questions you will need to answer.
 
-For consequential decisions, apply any explicitly adopted warning profiles and their significance gates. If a warning identifies a material project concern, record/disposition it through the normal risk mechanism; do not create warning ceremony for trivial cases. Risk horizons may still be used for durable risks when useful, but they are not mandatory planning fields.
+1. **Project Purpose** - What does this project do?
+2. **Important Outcomes** - What matters most?
+3. **Prior Decisions** - What architectural choices were made?
+4. **Constraints** - What limitations exist?
+5. **Known Problems** - What issues are tolerated?
+6. **Future Direction** - Where is this project going?
+7. **Feedback Sources** - How do you get user feedback?
 
-## 6. Get decision-quality evidence early
+**Your job:** Answer these. The AI records them as intake artifacts.
 
-Use the smallest realistic probe that can reduce the selected high-leverage uncertainty. For projects adopting the Muze culture profile, interactive web work will often use a frontend-first probe; another project or another kind of uncertainty may need a different strategy.
+#### Your first normal Spiral cycle
 
-Optimize first for evidence and learning, not polish or speculative completeness.
+1. **Complete project intake** - Answer the 7 questions above, or see [docs/brownfield-intake.md](../docs/brownfield-intake.md)
+2. **Document project context** - The AI will create a project-context.md file that should contain information about the project readable by a human.
+3. **Identify active culture (if applicable)** - The AI will help you adopt a culture profile from the available examples in the `cultures/` directory.
+4. **Validate with a small cycle** - Try Spiral on one bounded piece of work, e.g., "Add a user authentication endpoint" or "Refactor the data access layer"
+5. **The AI might ask questions about the cycle** - This is to clarify the work to be done and start the cycle. Please answer these as best as possible.
+6. **Evaluate and accept the cycle** - The AI will ask you to confirm that the cycle targets have been reached and whether to mark the cycle as complete.
 
-Record important feedback. If it changes the interpretation of the need, update or supersede the relevant `UND-*` artifact first; if the operationalized outcome changes, commit a new request state. Never rewrite the earlier causal history.
+---
 
-## 7. Create design and causal links
+## Your Workflow: the spiral cycle
 
-Create a design artifact from `templates/DESIGN.md` and a companion Turtle resource from `templates/ARTIFACT.ttl`. In the Turtle resource, link the design to the exact request commit it satisfies or derives from.
+### The Human Loop
 
-Commit the design + companion Turtle resource.
+Your workflow follows these 6 steps:
 
-## 8. Implement the smallest useful real slice
+#### Step 1: Provide Initial Request
 
-Implement the smallest useful real path that can be verified against the current design/need. Let active culture shape the preferred slicing style where relevant, and record material `sd:shapedBy` influence.
+**You say:**
+```
+"I want to add user authentication to the app."
+"We need to fix the payment processing bug."
+"Let's refactor the data layer for better performance."
+```
 
-Represent the implementation as an `IMP-*` Turtle resource when it is useful to trace as a unit; `templates/IMPLEMENTATION.ttl` is the starting point. Link it to the exact design commit and use repeatable `sd:implementationLocation` locators when code-location interrogation will be useful. Multiple `IMP-*` concerns may overlap on the same location.
+The AI responds with a **pre-flight checkpoint:**
 
-On the first implementation version there is no lineage edge. On later material revisions of a governed implementation, preserve current effective causal references and add `sd:transforms` to the immediate predecessor, `sd:changeCausedBy` to the transition reason, and `sd:implementationChangeKind`. Do not replay or copy the full history into the current resource.
+```
+**My understanding:** [concrete outcome]
+**Current effective behavior:** [what system does now]
+**Evidenced gap:** [proof it's not satisfied]
+**Material assumptions:** [list]
 
-Commit the implementation + companion Turtle resource. See `implementation-lineage.md`.
+Is this correct?
+```
 
-## 9. Verify and accept
+#### Step 2: Confirm or Correct Understanding
 
-Create verification evidence and a companion Turtle resource that points to the implementation commit it verifies.
+**Your job:** Review the AI's understanding and either:
+- **Confirm:** "Yes, that's correct. Proceed."
+- **Correct:** "No, I meant [clarification]."
+- **Question:** "I'm not sure about [assumption]. What do you think?"
 
-Create acceptance evidence and a companion Turtle resource that points to the request version it accepts and the relevant evidence/design versions.
+**Important:** If the AI's understanding is wrong, **do not let it proceed**. Clarify first.
 
-Commit these as subsequent causal steps so their upstream hashes already exist.
+#### Step 3: Confirm the Cycle Goal
 
-## 10. Evaluate and prepare the review boundary
+After you confirm understanding, the AI proposes a **cycle goal** and you must explicitly accept it.
 
-When the cycle goal can be judged, stop ordinary execution and use `prompts/evaluate-cycle.md`. Present the integrated outcome, evidence, metric/risk movement, surprises, unresolved issues, and out-of-scope discoveries.
+#### Step 4: Periodic Check-ins
 
-For repository-changing work, the PR may be this evaluation surface. Fill it with the cycle goal/result and causal case, not merely the code summary. Run normal project CI plus graph checks and prefer validation over the introduced commit range, not only the final snapshot. Before actual integration, first ensure the cycle record is `Accepted`, then validate the candidate against the **current** target with `spiral validate integration --base <target> --head <candidate> --base-branch <target-name> --head-branch <cycle-branch-name>` when branch names are available (or validate the hosting platform's exact prospective merged/queued result).
+The AI will ask you questions during implementation. **Answer them.**
 
-If human feedback shows the agreed goal is incomplete, keep the same cycle/branch open and correct it, then evaluate again. New direction normally waits for the next cycle unless the human explicitly re-plans the current one.
+#### Step 5: Evaluate the Cycle
 
-## 11. Merge and plan again
+When the AI presents completed work, **review and accept or request changes.**
 
-After the human accepts the cycle, record the cycle as `Accepted` before treating it as ready to propose for integration. Active cycle branches never merge outward. Revalidate the actual prospective combined state immediately before merge; if the target moved, re-run the check. When that review boundary passes, integrate with a normal merge commit. Never squash/rebase causal cycle history merely for tidiness.
+#### Step 6: Review and Merge
 
-Then return to `prompts/plan-cycle.md` to agree the next cycle goal.
+**You must merge PRs.** The AI cannot merge to main.
 
-## First experiment questions
 
-After the cycle is merged, ask:
+## what happens behind the scenes
 
-- Did the graph help the AI or reviewer reason about the change?
-- Was the exact-version provenance useful?
-- Did intended-user interaction change our understanding?
-- Where interpretation mattered, could we distinguish source evidence from the understanding derived from it?
-- Did missing primary provenance remain visible instead of being silently reconstructed?
-- Did the AI expose any consequential framing assumption before it became expensive downstream?
-- Did we confuse a well-elaborated solution with evidence that it was the right solution?
-- Did any artifact become ceremonial bookkeeping?
-- Could a defect or disagreement be traced to the correct upstream layer?
-- Could current implementation justification be distinguished from historical reasons that had been superseded?
-- On a repeated change to a governed area, how much old history did the agent actually need to reload?
-- Did active culture explain any underdetermined design/implementation choice, and was it distinguishable from a hard constraint?
-- Did an adopted warning profile surface a materially useful concern without creating routine warning noise or an automatic veto?
-- Did any lesson from the cycle deserve a `LES-*` artifact, and at what scope?
-- Did the implementation remain economical to understand, verify, and change under the project's chosen culture?
+1. Agree on a **cycle goal**
+2. The AI will create a cycle branch: `spiral/CYC-YYYYMMDD-WORKSPACE-N-short-goal`
+3. The AI will create causal artifacts as needed (SRC, UND, REQ, DES, IMP, EVD)
+4. The AI will verify branch matches cycle ID before each commit
+5. The AI will commit, push, and create a PR for review
 
-Adjust the process before adding more automation.
+
+
+
+### Key Files to Know
+
+| File | Purpose |
+|------|---------|
+| `AGENTS.md` | AI agent operating instructions |
+| `.spiral/project-context.md` | Project-level context and intake state |
+| `.spiral/cycles/CYC-*.md` | Active and accepted cycles |
+| `docs/process.md` | Canonical development lifecycle |
+
+
+---
+
+## Resources
+
+- **Framework:** https://github.com/muze-labs/spiral-developer
+- **VS Code Workspaces:** https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces
+- **Framework Docs:** Available in `.spiral-core/docs/` after cloning
+
+## Questions?
+
+- Open a GitHub issue for technical questions
+- Open a GitHub discussion for general discussion
+- Check the [CONTRIBUTING.md](../CONTRIBUTING.md) for contribution guidelines
+
+---
+
+*AI agents: See [BOOTSTRAP.md](../BOOTSTRAP.md) for your onboarding path*
+
+Explore the [docs/](.) directory for details.
