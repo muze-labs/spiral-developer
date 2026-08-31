@@ -30,9 +30,4 @@ project:EVD-20260825-C0QMZ-6
         sd:artifact project: ;
         sd:repositoryPath "README.md" ;
         sd:gitCommit "ec0198d0abef459b7e1774c770b7c9f03ff8ae96"
-    ] ;
-    sd:historicalReference [
-        a sd:ArtifactReference ;
-        sd:artifact project:EVD-20260825-C0QMZ-6 ;
-        sd:gitCommit "ec0198d0abef459b7e1774c770b7c9f03ff8ae96"
     ] .

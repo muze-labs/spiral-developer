@@ -12,9 +12,4 @@ project:UND-20260825-C0QMZ-3
         a sd:ArtifactReference ;
         sd:artifact project:SRC-20260825-C0QMZ-2 ;
         sd:gitCommit "948ad6eaccaab910a094208bd54504d49e998e30"
-    ] ;
-    sd:historicalReference [
-        a sd:ArtifactReference ;
-        sd:artifact project:UND-20260825-C0QMZ-3 ;
-        sd:gitCommit "948ad6eaccaab910a094208bd54504d49e998e30"
     ] .

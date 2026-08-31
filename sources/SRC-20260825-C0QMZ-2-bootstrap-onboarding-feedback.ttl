@@ -8,9 +8,4 @@ project:SRC-20260825-C0QMZ-2
     sd:repositoryPath "sources/SRC-20260825-C0QMZ-2-bootstrap-onboarding-feedback.md" ;
     sd:status sd:Active ;
     sd:sourceAvailability sd:Retained ;
-    sd:provenanceConfidence sd:Explicit ;
-    sd:historicalReference [
-        a sd:ArtifactReference ;
-        sd:artifact project:SRC-20260825-C0QMZ-2 ;
-        sd:gitCommit "38523a2249f7b14c0727fa52ff6846e87fd461d8"
-    ] .
+    sd:provenanceConfidence sd:Explicit .

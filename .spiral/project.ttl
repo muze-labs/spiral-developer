@@ -6,7 +6,7 @@
 
 project:
     a sd:ProjectContext ;
-    dcterms:identifier "PROJ-20260825-DGB8Z-1" ;
+    dcterms:identifier "PROJ-20260825-C0QMZ-0" ;
     rdfs:label "Spiral Developer project context" ;
     dcterms:title "Project Context: Spiral Developer" ;
     sd:repositoryPath ".spiral/project-context.md" ;
@@ -28,6 +28,6 @@ project:
     sd:adoptsCulture [
         a sd:ArtifactReference ;
         sd:artifact culture:CUL-MUZE-001 ;
-        sd:gitCommit "835e290950429f7b44455f9c09b9770c8a8325b1" ;
+        sd:gitCommit "835e2909fd141696c40c8689271aa1138e4abef" ;
         sd:fragment "muze-engineering"
     ] .

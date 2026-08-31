@@ -17,10 +17,5 @@ project:DES-20260825-C0QMZ-5
     sd:shapedBy [
         a sd:ArtifactReference ;
         sd:artifact culture:CUL-MUZE-001 ;
-        sd:gitCommit "835e290950429f7b44455f9c09b9770c8a8325b1"
-    ] ;
-    sd:historicalReference [
-        a sd:ArtifactReference ;
-        sd:artifact project:DES-20260825-C0QMZ-5 ;
-        sd:gitCommit "5537c95fdf2e4593c04537626d37708380767500"
+        sd:gitCommit "835e2909fd141696c40c8689271aa1138e4abef"
     ] .

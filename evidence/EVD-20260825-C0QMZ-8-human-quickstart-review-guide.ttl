@@ -17,14 +17,11 @@ project:EVD-20260825-C0QMZ-8
     ] ;
     sd:satisfies [
         a sd:ArtifactReference ;
-        sd:artifact project:REQ-20260825-C0QMZ-4
+        sd:artifact project:REQ-20260825-C0QMZ-4 ;
+        sd:gitCommit "5537c95fdf2e4593c04537626d37708380767500"
     ] ;
     sd:derivedFrom [
         a sd:ArtifactReference ;
-        sd:artifact project:DES-20260825-C0QMZ-5
-    ] ;
-    sd:historicalReference [
-        a sd:ArtifactReference ;
-        sd:artifact project:EVD-20260825-C0QMZ-8 ;
-        sd:gitCommit "856754287f8d2e0b4f0a9b3f8c7d6e5f4a3b2c1d"
+        sd:artifact project:DES-20260825-C0QMZ-5 ;
+        sd:gitCommit "32bee35abd24e7b40d7988dbd81cb087736c37bb"
     ] .
