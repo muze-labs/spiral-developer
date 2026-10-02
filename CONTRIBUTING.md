@@ -99,6 +99,16 @@ Good human interventions sound like:
 
 Avoid turning the human into an expensive prompt router who dictates line-by-line implementation unless that level of control is genuinely required.
 
+### Who a commit is attributed to
+
+Commits the AI creates stay attributed to you. You remain the author and the committer, so the commit remains signed and attributable to your verified account. The AI credits itself with a `Co-Authored-By` trailer naming the model that wrote the code.
+
+You do not need to add, maintain, or correct that trailer. You do need to keep your own Git identity and signing key configured, because that is what the commit is attributed to.
+
+Do not ask the AI to put itself in the author or committer field. Git binds a signature to the committer, so that gains nothing and forfeits the verified attribution.
+
+See `docs/git-workflow.md` for the full rule and its rationale.
+
 ## Continued development and implementation history
 
 When the AI revises code that Spiral already governs, it should not ask you to re-explain every historical decision or load the entire history into context. The current `IMP-*` resource should expose the causes that still matter now; older versions remain available for historical interrogation.
