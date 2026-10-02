@@ -1,0 +1,13 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:SRC-20261001-HZ4Q-2
+    a sd:Source ;
+    dcterms:identifier "SRC-20261001-HZ4Q-2" ;
+    sd:repositoryPath "sources/SRC-20261001-HZ4Q-2-standing-commit-attribution.md" ;
+    sd:status sd:Active ;
+    sd:sourceAvailability sd:Unavailable ;
+    sd:provenanceConfidence sd:Explicit ;
+    rdfs:comment "Human direction arrived in an interactive session. This artifact is the retained capture; the primary conversational evidence is not preserved in the repository." .
