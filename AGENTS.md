@@ -123,12 +123,14 @@ Uncommitted experimentation may be discarded. Do not commit every failed attempt
 Credit your work with a `Co-Authored-By` trailer, and leave the human in the author and committer fields.
 
 ```text
-Co-Authored-By: <Model Name> <ai+<model-slug>@muze.nl>
+Co-Authored-By: <Model Name> <ai+<model-slug>@example.com>
 ```
 
 Do not place yourself in the author or committer field. Git binds a signature to the committer, so that gains nothing and forfeits the human's verified attribution.
 
 Derive the model from what your own tooling reports for the session, not by assumption. Use the catalogue's published display name, and the model part of its catalogue identifier as the slug. Collapse any `:variant` suffix and credit the base model. Never use a vendor's own no-reply address.
+
+Use a domain the project controls in place of `example.com`.
 
 See `docs/git-workflow.md` for the full rule and its rationale.
 

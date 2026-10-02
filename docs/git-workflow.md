@@ -113,7 +113,7 @@ Trailers are human/navigation summaries. The companion Turtle resources remain a
 An agent's work is credited with a `Co-Authored-By` trailer. The human remains the author and the committer.
 
 ```text
-Co-Authored-By: <Model Name> <ai+<model-slug>@muze.nl>
+Co-Authored-By: <Model Name> <ai+<model-slug>@example.com>
 ```
 
 **MUST NOT** place an agent in the author or committer field. Git binds a signature to the committer, so an agent in that position gains nothing the trailer does not already give, and forfeits the verified attribution the human's signed commit provides. The commit stays signed and attributable to a verified account; the trailer records the agent alongside it.
@@ -130,7 +130,11 @@ A model's own vendor no-reply address is never used, however publicly it is docu
 
 #### Why the address is subaddressed
 
-`ai+<model-slug>@muze.nl` is subaddressed deliberately, so that creating `ai@muze.nl` as a catch-all later requires no change to any existing history.
+`ai+<model-slug>@example.com` is subaddressed deliberately, so that creating `ai@example.com` as a catch-all later requires no change to any existing history.
+
+#### Which domain
+
+`example.com` is a placeholder, not a mandate. Each project substitutes a domain it controls, so the address belongs to whoever did the work rather than to whoever wrote this rule. The subaddressing, the slug, and the prohibition on vendor no-reply addresses all still apply to the substituted domain.
 
 #### Relationship to the navigation trailers
 

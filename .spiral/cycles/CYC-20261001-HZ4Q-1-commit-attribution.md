@@ -89,6 +89,8 @@ Material implementation decisions or deviations from the initial likely work:
 
 The rule is stated canonically in one place rather than duplicated in full. `AGENTS.md` carries the operator instruction and `CONTRIBUTING.md` the human-facing consequence, both pointing at `docs/git-workflow.md`.
 
+The domain in the trailer form was changed from this project's real domain to `example.com` at the human's direction. Spiral Developer is a process other projects adopt, and naming a specific domain in normative documentation reads as a requirement to inherit it rather than as an example to substitute. The subaddressing, slug derivation, and prohibition on vendor no-reply addresses are unaffected; only the placeholder changed. The rule now states explicitly that each project substitutes a domain it controls.
+
 A case was found where the rule's assumption does not hold universally, and it is recorded in the cycle evaluation rather than resolved inside the rule.
 
 Out-of-scope discoveries retained for later:
@@ -106,7 +108,7 @@ Evidence / acceptance result:
 
 - Repository-wide search before the change: no `Co-Authored-By` anywhere; the gap was real, not merely unlocated.
 - `spiral validate` reports `ok` across 98 Turtle files and 1232 triples.
-- The rule was applied to this cycle's own commits. Each carries `Co-Authored-By: Space Bunny Alpha <ai+space-bunny-alpha@muze.nl>`, the human holds both author and committer, and `git log --format=%G?` returns `G` for each, confirming a good signature.
+- The rule was applied to this cycle's own commits. Each carries a `Co-Authored-By` trailer naming the model that served it, the human holds both author and committer, and `git log --format=%G?` returns `G` for each, confirming a good signature. Those commits predate the placeholder-domain change below, so they use this project's real domain; the change is prospective.
 
 Metric or risk movement:
 

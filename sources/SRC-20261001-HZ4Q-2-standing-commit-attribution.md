@@ -12,11 +12,11 @@ The rule and its stated reasoning:
 
 - An agent's work is credited with a `Co-Authored-By` trailer.
 - The human remains the author and the committer, so the commit remains signed and attributable to a verified account. An agent never goes in the author or committer field: Git binds a signature to the committer, so that placement gains nothing and forfeits the verified attribution.
-- The trailer takes the form `Co-Authored-By: <Model Name> <ai+<model-slug>@muze.nl>`.
+- The trailer takes the form `Co-Authored-By: <Model Name> <ai+<model-slug>@example.com>`. The original direction named `muze.nl`; the human subsequently replaced it with `example.com` so that a project adopting Spiral Developer substitutes a domain it controls rather than appearing to inherit Muze's.
 - `<Model Name>` is the model's published display name, used however the catalogue renders it. Many catalogues prefix `Vendor: ` and many deliberately omit it; follow the catalogue for the model in hand rather than imposing a form.
 - `<model-slug>` is the model part of a catalogue identifier: after the vendor namespace, before any `:variant` suffix. For example `somevendor/space-bunny-alpha` yields `space-bunny-alpha`. The namespace is dropped because it is routing metadata rather than part of the model's name, and because it is redundant: no catalogue slug is shared by two vendors.
 - A model's own vendor no-reply address is never used, however publicly it is documented. It asserts a vendor relationship in permanent history, on an address we neither control nor can have verified, and which the vendor may change or retire. The address belongs to whoever did the work.
-- The address is subaddressed deliberately, so that creating `ai@muze.nl` as a catch-all later requires no change to any existing history.
+- The address is subaddressed deliberately, so that creating `ai@example.com` as a catch-all later requires no change to any existing history.
 - The model is identified from what the agent's own tooling reports for the session, rather than by assumption. How to obtain that is tool-specific.
 
 ## The variant question
