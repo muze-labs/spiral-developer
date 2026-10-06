@@ -1,0 +1,9 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:CYC-20261001-HZ4Q-1
+    a sd:Cycle ;
+    dcterms:identifier "CYC-20261001-HZ4Q-1" ;
+    sd:repositoryPath ".spiral/cycles/CYC-20261001-HZ4Q-1-commit-attribution.md" ;
+    sd:status sd:Accepted .
