@@ -149,7 +149,7 @@ The human confirmed the `:variant` treatment (collapse, credit the base model), 
 
 Cycle accepted, still open, or deliberately re-planned:
 
-Pending human evaluation. The cycle is `Active` on `spiral/CYC-20261001-HZ4Q-1-commit-attribution`; `main` is untouched.
+Accepted by the human. The cycle is `sd:Accepted` on `spiral/CYC-20261001-HZ4Q-1-commit-attribution`; `main` is untouched and the branch is ready to propose for integration.
 
 ## Process learning
 
