@@ -6,7 +6,7 @@ project:CYC-20261115-8PHYQ-1
     a sd:Cycle ;
     dcterms:identifier "CYC-20261115-8PHYQ-1" ;
     sd:repositoryPath ".spiral/cycles/CYC-20261115-8PHYQ-1-simplification-review.md" ;
-    sd:status sd:Active ;
+    sd:status sd:Accepted ;
     sd:derivedFrom [
         a sd:ArtifactReference ;
         sd:artifact project:REQ-20261115-8PHYQ-2 ;
