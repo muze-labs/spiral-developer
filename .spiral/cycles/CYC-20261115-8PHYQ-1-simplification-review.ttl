@@ -1,0 +1,14 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <https://muze.nl/projects/spiral-developer/> .
+
+project:CYC-20261115-8PHYQ-1
+    a sd:Cycle ;
+    dcterms:identifier "CYC-20261115-8PHYQ-1" ;
+    sd:repositoryPath ".spiral/cycles/CYC-20261115-8PHYQ-1-simplification-review.md" ;
+    sd:status sd:Accepted ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:REQ-20261115-8PHYQ-2 ;
+        sd:gitCommit "641c24774a595acc9462c096054a13eff943bc23"
+    ] .

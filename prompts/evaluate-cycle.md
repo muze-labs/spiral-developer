@@ -4,6 +4,14 @@ Use this when execution has reached a point where the agreed cycle goal can be j
 
 Read the current `CYC-*` goal/non-goals, relevant causal artifacts, actual repository/runtime evidence, and human/user feedback. For a repository-changing cycle, mechanically inspect the current Git branch and verify that it still matches the active `CYC-*` identity before presenting evaluation; surface/correct a stale cycle branch rather than normalizing it.
 
+## Check whether simplification is warranted
+
+Briefly review accumulated complexity in the affected area using [the cycle guidance](../docs/cycles.md#review-accumulated-complexity-during-evaluate). Ask what became harder to understand/change/verify, which earlier constraints still justify it, and whether removing or restructuring something would reduce that burden enough to justify the cost.
+
+Repeated defects or exceptions at the same boundary, duplicated ownership/state, growing verification effort, or a substantial milestone may warrant a bounded deeper review. Keep the current design as a valid option. Use state modelling only when it helps resolve a concrete uncertainty; retain the same properties across alternatives and distinguish model results from implementation evidence.
+
+Record a concise conclusion and supporting reason, including a revisit condition for a material deferred candidate. Do not turn the review into an automatic refactor, mandatory model, metric quota, or whole-history audit. Apply normal cycle scope and human acceptance boundaries.
+
 ## Present the cycle evaluation
 
 Summarize:
@@ -15,6 +23,7 @@ Summarize:
 **What changed in our understanding:** …
 **Surprises / model mismatches:** …
 **Known compromises:** …
+**Simplification review:** … (brief conclusion/reason; candidate and revisit condition when material)
 **Unresolved issues within the agreed goal:** …
 **Out-of-scope discoveries retained for later:** …
 **Implications for governing plan/roadmap:** … (evidence that may support continuing, revising, or deviating; do not choose the next cycle here)

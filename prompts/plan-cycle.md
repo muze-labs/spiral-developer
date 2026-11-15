@@ -16,6 +16,8 @@ Summarize briefly:
 
 Use strategy/business → domain/architecture → workflow/interface → implementation as a rough causal ordering, not a scoring matrix. Do not spend equivalent de-risking effort on local reversible implementation choices and uncertain upstream premises. Do not assume the newest request or most recent discovery is automatically the highest-priority direction.
 
+Include retained simplification/refactoring candidates when their revisit condition is met or new evidence changes the trade-off. Compare their expected benefit, disruption, and verification cost with other work; do not automatically choose refactoring because Evaluate identified a candidate. See [the simplification review guidance](../docs/cycles.md#review-accumulated-complexity-during-evaluate).
+
 If a governing plan/roadmap exists, re-read the actual durable plan/reference now and summarize:
 - what plan/direction governs this work;
 - where the project currently sits in it;

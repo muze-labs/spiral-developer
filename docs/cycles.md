@@ -160,6 +160,37 @@ The human may deliberately re-scope an active cycle, but this should be explicit
 
 After the cycle is accepted, prospective integration validation passes, and repository-changing work is merged, return to Analyze/Plan. Before agreeing the next cycle goal, re-read any governing multi-cycle plan/roadmap and reconcile the just-completed cycle's evidence with it. Do not choose the next direction by extrapolating from the newest discovery alone.
 
+## Review accumulated complexity during Evaluate
+
+At each cycle evaluation, briefly ask whether the affected area became easier or harder to understand, change, and verify, and whether any complexity can now be removed. Use current code, effective provenance, relevant design/constraints, and verification evidence. Consult earlier rationale or recent related cycle findings when needed to understand an accumulation; do not replay the whole project history.
+
+This review makes the existing obligation to justify complexity recurring. It does not prescribe one architecture or make refactoring a completion requirement. Judge alternatives against current intent, constraints, and explicitly adopted culture.
+
+Use these questions proportionately, not as a form to fill:
+
+- What became harder to explain or verify? Are repeated patches, special cases, duplicated state/decisions, or coordination across boundaries addressing the same underlying problem?
+- Which complexity still protects a requirement, compatibility promise, or known failure case? Have the conditions that justified it changed?
+- Could removing an obsolete path, reusing an existing mechanism, or clarifying responsibility eliminate a class of mistakes? Would a proposed abstraction merely move the complexity elsewhere?
+- Is the expected reduction in reasoning and verification burden worth the disruption, migration, and re-verification cost?
+
+Record a short conclusion in the existing cycle evaluation: no change warranted, a scoped simplification made, or a candidate retained with evidence and a reason to revisit. Uncertainty is a valid conclusion. A trivial cycle may need only one sentence; do not create a separate artifact, score, or repository-wide audit merely because this review occurs.
+
+### When a deeper review is useful
+
+Consider a focused design review when related cycles repeatedly repair the same boundary, introduce compensating exceptions, duplicate ownership/state, or require increasingly elaborate verification to establish the same guarantee. A substantial feature or milestone completion is also a useful opportunity to look for accumulation before a defect appears. These are prompts to inspect evidence, not proof that the design is wrong or a fixed every-N-cycles refactoring quota.
+
+Bound the review to an affected responsibility or workflow. Compare keeping the current design with at least one plausible simplification. State the concrete burden each option removes or retains, the contracts and counterexamples it must preserve, and the cheapest useful check of the proposed benefit. Fewer lines, states, or dependencies alone do not establish improvement; added indirection and loss of local readability count as costs too.
+
+Scope rules still apply. Simplification necessary to achieve/evaluate the agreed goal or repair a cycle-caused regression may remain in the cycle. Broader refactoring is candidate next-cycle work unless the human explicitly re-plans the current cycle. When deferring a material candidate, retain its evidence, reason for deferral, and a useful revisit condition in existing cycle/risk context; do not keep proposing it without new evidence or that condition being met. At planning, reconcile it with governing direction and competing risks.
+
+### Optional state modelling
+
+For stateful or asynchronous workflows, a small statechart or bounded model check can help compare ownership, transitions, and failure paths before changing the implementation. Use it only when it can resolve a concrete uncertainty more effectively than code inspection or a focused test. No particular tool or runtime dependency is required.
+
+Derive the properties from current requirements/design and known counterexamples, then keep them fixed while comparing alternatives. Record the model's assumptions, bounds, omitted behavior, and the implementation revision it represents. Replay a model counterexample against real code where practical; if that correspondence is unverified, label it as a model finding. A passing model establishes only the checked properties within its assumptions and bounds, not implementation correctness or human acceptance. Do not weaken a property to make a simpler design pass; a deliberate requirement change needs its own explicit justification and commitment.
+
+When a refactor is undertaken, preserve the earlier reasons that remain valid and follow [implementation lineage](implementation-lineage.md). Verify important behavior-preservation claims against the same contracts and regression cases; distinguish deliberate semantic changes. Evaluate whether the claimed simplification actually reduced the identified burden, including any new complexity it introduced. If review repeatedly adds ceremony without helping decisions, revise the practice through [process learning](process-evolution.md).
+
 ## Relationship to causal artifacts
 
 The cycle does not replace Source, Understanding, Request, Design, Implementation, Verification, Acceptance, Feedback, Risk, or Lesson artifacts. Those explain **why particular claims and changes are justified** inside the cycle.
