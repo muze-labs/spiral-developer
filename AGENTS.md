@@ -287,6 +287,8 @@ Apply the active culture profile to underdetermined maintainability choices. For
 
 Regardless of culture, avoid complexity whose purpose cannot be connected to current intent, evidence, risk, or an explicit preference.
 
+At each Evaluate boundary, briefly review whether accumulated complexity in the affected area can be reduced and whether a focused refactor is warranted. Use [the cycle guidance](docs/cycles.md#review-accumulated-complexity-during-evaluate): preserve still-valid rationale/contracts, weigh benefit against disruption and verification cost, and record a concise conclusion in the existing evaluation. No change is a valid result. Repeated boundary fixes, compensating exceptions, or growing verification burden can justify deeper inspection; state modelling is optional. Broader refactors remain next-cycle candidates unless the current goal requires them or the human explicitly re-plans. Do not turn this into a size target, mandatory tool, or automatic refactoring task.
+
 ## Human authority
 
 Humans retain authority over the meaning of intent, interpretation of important user feedback, material product-direction changes, and consequential decisions where evidence or accountability requires human judgment.

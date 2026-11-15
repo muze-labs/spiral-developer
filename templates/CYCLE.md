@@ -83,6 +83,9 @@ Surprises / model mismatches:
 
 Known compromises:
 
+Simplification review:
+<!-- Brief conclusion and reason for the affected area; no change is valid. For a material deferred candidate, retain evidence, deferral reason, and revisit condition. See docs/cycles.md; do not create a separate audit or refactoring quota. -->
+
 Unresolved issues within current goal:
 
 Candidate next-cycle inputs (surface high-leverage assumptions only when material):

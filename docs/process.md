@@ -241,6 +241,8 @@ Commit acceptance evidence after the relevant request, design, implementation, a
 
 When the AI believes the cycle goal can be judged, stop ordinary execution and enter **Evaluate** before selecting new direction. Use `prompts/evaluate-cycle.md`. Evaluation may retain candidate next-cycle inputs, but it does not by itself choose their priority. That happens in the next Analyze/Plan step after any governing plan/roadmap has been re-read and reconciled with the new evidence. Present the integrated result against the agreed goal: evidence/acceptance, metric or risk movement, surprises, changed understanding, unresolved issues within scope, known compromises, and out-of-scope discoveries retained for later.
 
+Include a brief [simplification review](cycles.md#review-accumulated-complexity-during-evaluate) of the affected area: whether accumulated complexity remains justified and whether a focused refactor deserves consideration. Record the conclusion in the existing evaluation. Deeper review and state modelling are evidence-driven options; refactoring is not an automatic next task or acceptance condition.
+
 If human evaluation shows the **same agreed goal is not yet satisfied**, keep the current cycle open and correct it on the same branch; then evaluate again. If feedback introduces genuinely **new direction**, retain it for the next Analyze/Plan interview instead of silently expanding scope. A human may deliberately re-scope the active cycle, but make that change explicit because it changes the evaluation contract.
 
 For repository-changing work, prepare a pull request containing both the integrated cycle result and the causal case for accepting it. The PR may be the human evaluation surface; do not create a redundant pre-PR approval ceremony.
